@@ -165,20 +165,17 @@ if (!isset($end_time)) {
 }
 
 // Top bar with header and close button
-echo "<div class='topbar'>";
-echo "<div class='header'>";
-echo "<p class='bisheader'>Inschrijving ";
+echo "<h1>";
 if ($id) {
-	echo "bewerken";
+	echo "Inschrijving bewerken";
 } else {
 	if ($spits) {
-		echo "bevestigen";
+		echo "Inschrijving bevestigen";
 	} else {
-		echo "maken";
+		echo "Boot inschrijven";
 	}
 }
-echo "</p>";
-echo "</div>";
+echo "</h1>";
 echo "<div class='closediv'>";
 echo "<input id='closebtn' type=\"button\" class='bisbtn_borderless' value=\"SLUITEN\" onclick=\"window.location.href='index.php?date_to_show=" . $date .
 "&start_time_to_show=" . $start_time . "&cat_to_show=" . $cat_to_show . "&grade_to_show=" . $grade_to_show . "'\" />";

@@ -17,59 +17,81 @@ if (!mysql_select_db($database, $link)) {
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title>BotenInschrijfSysteem - Klachten Gebouw/Algemeen</title>
-    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet" />
-	<!-- Datatables -->
-	<style type="text/css" title="currentStyle"> 
-		@import "../scripts/datatables/demo_page.css";
-		@import "../scripts/datatables/demo_table.css";
-	</style> 
-	<script type="text/javascript" language="javascript" src="../scripts/datatables/jquery.js"></script> 
-	<script type="text/javascript" language="javascript" src="../scripts/datatables/jquery.dataTables.js"></script> 
-</head>
+<!DOCTYPE html>
+<html lang="nl">
+
+    <head>
+        <title>Klachten gebouw/algemeen - BIS</title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+        <script type="text/javascript" language="javascript" src="../scripts/datatables/jquery.js"></script> 
+        <script type="text/javascript" language="javascript" src="../scripts/datatables/jquery.dataTables.js"></script> 
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	
+    </head>
+    
 <body>
-<div style="margin-left:10px; margin-top:10px">
-
+    
 <?php
-
-echo "<p><h1>Klachtenboek Gebouw/Algemeen</h1></p>";
-echo "<p><a href='schade_gebouw_toev.php'>Nieuwe klacht/schademelding&gt;&gt;</a><br>";
-echo "<a href='../index.php'>Naar BIS&gt;&gt;</a><br>";
-echo "<a href='./bis_logout.php'>Uitloggen&gt;&gt;</a></p>";
-echo "<p>Lijst van klachten die in behandeling zijn:</p>";
-
-$query = "SELECT Datum, Naam, Oms_lang, Feedback from schades_gebouw;";
-$result = mysql_query($query);
-if (!$result) {
-	die("Ophalen van klachten mislukt.". mysql_error());
-}
-echo "<div style='width:700px'><table id='schades'>";
-echo "<thead><tr><th>Melddatum (jjjj-mm-dd)</th><th>Naam melder</th><th>Omschrijving</th><th>Terugkoppeling GebouwCie</th></tr></thead><tbody>";
-$c = 0;
-while ($row = mysql_fetch_assoc($result)) {
-	$date = $row['Datum'];
-	$name = $row['Naam'];
-	$note = $row['Oms_lang'];
-	if (!$note) $note = "&nbsp;";
-	$feedback = $row['Feedback'];
-	if (!$feedback) $feedback = "&nbsp;";
-	echo "<tr>";
-	echo "<td>$date</td>";	
-	echo "<td>$name</td>";
-	echo "<td>$note</td>";
-	echo "<td>$feedback</td>";
-	echo "</tr>";
-	$c++;
-}
-echo "</tbody></table></div>";
-
-mysql_close($link);
-
+  
+  include('../includes/navbar.php');
+    
 ?>
+
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-12">
+            
+            <h1>
+                Klachtenboek gebouw/algemeen
+            </h1>
+
+            <?php
+            
+            echo "<p><a href='schade_gebouw_toev.php' class='btn btn-primary'>Nieuwe klacht/schademelding</a><br>";
+            echo "<h2>Klachten in behandeling</h2>";
+            
+            $query = "SELECT Datum, Naam, Oms_lang, Feedback from schades_gebouw;";
+            $result = mysql_query($query);
+            if (!$result) {
+            	die("Ophalen van klachten mislukt.". mysql_error());
+            }
+            echo "<table id='schades' class='table'>";
+            echo "<thead><tr><th>Melddatum</th><th>Naam melder</th><th>Omschrijving</th><th>Terugkoppeling GebouwCie</th></tr></thead><tbody>";
+            $c = 0;
+            while ($row = mysql_fetch_assoc($result)) {
+            	$date = $row['Datum'];
+            	$name = $row['Naam'];
+            	$note = $row['Oms_lang'];
+            	if (!$note) $note = "&nbsp;";
+            	$feedback = $row['Feedback'];
+            	if (!$feedback) $feedback = "&nbsp;";
+            	echo "<tr>";
+            	echo "<td>$date</td>";	
+            	echo "<td>$name</td>";
+            	echo "<td>$note</td>";
+            	echo "<td>$feedback</td>";
+            	echo "</tr>";
+            	$c++;
+            }
+            echo "</tbody></table>";
+            
+            mysql_close($link);
+            
+            ?>
+            
+        </div>
+        
+    </div>
+    
 </div>
+
 </body>
 
 <script type="text/javascript" charset="utf-8"> 

@@ -42,13 +42,6 @@ function xmlnews($url, $timeout = 0, $target = "_top", $makelist = "br", $links)
 	// maak $html van de gestructureerde data in $values array
 	$html = "";
 	
-	if (! $links) { // indien Gyas-weer, pubdate (uit laatste item) eronder zetten
-		$pubdate = $values [$tags ["LASTBUILDDATE"] [0]] ["value"];
-		$timestamp = strtotime ( $pubdate );
-		$pubdatestring = date ( "d-m-Y H:i", $timestamp );
-		$html = "Laatst ververst:<br /><em>" . $pubdatestring . "</em><br />";
-	}
-	
 	$node = $tags ["ITEM"]; // gebruik alleen de index van ITEM nodes
 	
 	switch ($makelist) 	// kies de soort lijst (<li>, <tr> of <br />)
@@ -83,11 +76,18 @@ function xmlnews($url, $timeout = 0, $target = "_top", $makelist = "br", $links)
 			if ($titel == "Luchtvochtigheid") {
 				$skip = true;
 			}
+			if ($titel == "Lucht") {
+				$inhoud = "<strong>" . $inhoud . "</strong>";
+			}
 			if ($titel == "Temperatuur") {
 				// Parse het graden-teken eruit aangezien veel browsers dit niet kunnen renderen
 				// Een of meer getallen (opgeslagen in $1), gevolgd door een of meer tekens niet zijnde "(", gevolgd door "C";
 				// Vervang dit door alleen de getallen direct gevolgd door "C"
-				$inhoud = preg_replace ( '/([0-9]+)[^(]+C/', '$1C', $inhoud );
+				$inhoud = preg_replace ( '/([0-9]+)[^(]+C/', '$1&deg;', $inhoud );
+				$inhoud = "<strong>" . $inhoud . "</strong> <a href='http://www.buienradar.nl' rel='external'>Buienradar</a>";
+			}
+			if ($titel == "Wind") {
+				$inhoud = "<strong>" . $inhoud . "</strong>";
 			}
 			if ($titel == "Vaarverbod") {
 				$skip = true;
@@ -96,10 +96,13 @@ function xmlnews($url, $timeout = 0, $target = "_top", $makelist = "br", $links)
 				// }
 				// $titel = "Gyas-vaarverbod [<a href='http://www.hunze.nl/oud/index.php?subnav=subnav_04&amp;location=folder_04&amp;page=page_05&amp;leftnav=leftnav_04' target='_blank'>uitleg</a>]";
 				// $inhoud_opg = "<strong><font color=\"#FF0000\">".$inhoud."</font></strong>";
+            }
+			if ($titel == "Zon") {
+    			$inhoud = '<br>&#9788; ' . $inhoud;
 			} else {
-				$inhoud = '<em>' . $inhoud . '</em>';
+				$inhoud = $inhoud;
 			}
-			$lnk = $titel . ':<br />' . $inhoud;
+			$lnk = $inhoud;
 		}
 		// zet passende html tags voor en achter de link
 		if (!$skip) {
@@ -107,5 +110,13 @@ function xmlnews($url, $timeout = 0, $target = "_top", $makelist = "br", $links)
 		}
 	} // end FOR
 	
+	if (! $links) { // indien Gyas-weer, pubdate (uit laatste item) eronder zetten
+		$pubdate = $values [$tags ["LASTBUILDDATE"] [0]] ["value"];
+		$timestamp = strtotime ( $pubdate );
+		$pubdatestring = date ( "d-m-Y H:i", $timestamp );
+		$html = $html . "<span class='text-muted'>Om " . $pubdatestring . " ververst</span>";
+	}
+	
 	return $html;
+	
 }

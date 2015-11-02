@@ -9,18 +9,41 @@ if (!isset($_SESSION['authorized_bis']) || $_SESSION['authorized_bis'] != 'yes')
 include_once("../include_globalVars.php");
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title>BotenInschrijfSysteem - Documenten voor leden</title>
-    <link type="text/css" href="../<?php echo $csslink; ?>" rel="stylesheet" />
-</head>
-<body>
-<div style="margin-left:10px; margin-top:10px">
+<!DOCTYPE html>
+<html lang="nl">
 
-<h1>Documenten voor leden</h1>
-<p><a href='../index.php'>Naar BIS</a><br />
-<a href='./bis_logout.php'>Uitloggen</a></p>
+    <head>
+        <title>Documenten - BIS</title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+<!--         <link type="text/css" href="<?php echo $csslink; ?>" rel="stylesheet" /> -->
+<!--     	<link type="text/css" href="css/bis.css" rel="stylesheet" /> -->
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	
+    </head>
+    
+<body>
+    
+<?php
+  
+  include('../includes/navbar.php');
+    
+?>
+
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-9">
+            
+            <h1>
+                Documenten voor leden
+            </h1>
+	
 
 <p><em>Alle documenten zijn in het PDF-formaat en openen in een nieuw venster.</em></p>
 
@@ -74,6 +97,8 @@ include_once("../include_globalVars.php");
 	<li><a href="jaarverslagweds2009.pdf" target="_blank">Jaarverslag wedstrijdcommissaris 2009</a></li>
 </ul>
 
+</div>
+</div>
 </div>
 </body>
 </html>

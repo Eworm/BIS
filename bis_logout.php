@@ -10,22 +10,56 @@ include_once("include_globalVars.php");
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title><?php echo $systeemnaam; ?> - Uitloggen</title>
-    <link type="text/css" href="<?php echo $csslink; ?>" rel="stylesheet" />
-	<link type="text/css" href="css/bis.css" rel="stylesheet" />
-</head>
+<!DOCTYPE html>
+<html lang="nl">
+    
+    <head>
+        <title><?php echo $systeemnaam; ?> - Inloggen</title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	
+    </head>
+    
 <body>
 
-<?php unset($_SESSION['authorized_bis']); ?>
+	<div class="container-fluid main-container">
+    	
+    	<div class="mainbox col-md-4 col-md-offset-4">
+        	
+        	<br><br><br>
+        	
+        	<div class="panel panel-default">
+            	
+            	<main class="panel-body">
+    	
+                	<h1 class="h3">
+                    	U bent uitgelogd
+                    </h1>
+                	
+                	<hr>
+                	
+                    <?php unset($_SESSION['authorized_bis']); ?>
 
-<div class="middle_box">
-<p><strong>U bent uitgelogd - tot ziens!</strong></p>
-<p><a href='index.php'>Klik hier om opnieuw in te loggen&gt;&gt;</a><br>
-<a href='<?php echo $homepage; ?>'>Klik hier om naar <?php echo $homepagenaam; ?> te gaan&gt;&gt;</a></p>
-</div>
+                    <ul>
+                        <li>
+                            <a href='index.php'>Opnieuw inloggen</a>
+                        </li>
+                        <li>
+                            <a href='<?php echo $homepage; ?>'><?php echo $homepagenaam; ?></a>
+                        </li>
+                    </ul>
+                    
+                </main>
+                    
+            </div>
+            
+        </div>
+        
+    </div>
 
 </body>
 </html>

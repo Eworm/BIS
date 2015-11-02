@@ -17,83 +17,119 @@ if (!mysql_select_db($database, $link)) {
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title>BotenInschrijfSysteem - Klachtenboek Gebouw/Algemeen - Nieuwe klacht/schademelding</title>
-    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet" />
-</head>
+<!DOCTYPE html>
+<html lang="nl">
+
+    <head>
+        <title>Nieuwe schademelding - BIS</title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link type="text/css" href="<?php echo $csslink; ?>" rel="stylesheet" />
+    	<link type="text/css" href="css/bis.css" rel="stylesheet" />
+    	
+        <script type="text/javascript" language="javascript" src="../scripts/datatables/jquery.js"></script> 
+        <script type="text/javascript" language="javascript" src="../scripts/datatables/jquery.dataTables.js"></script> 
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	
+    </head>
+    
 <body>
-<div style="margin-left:10px; margin-top:10px">
+    
 <?php
-
-// init
-if (!isset($_POST['cancel']) && !isset($_POST['insert'])) {
-	$fail = FALSE;
-}
-
-// knop gedrukt
-if (isset($_POST['cancel'])){
-	unset($_POST['name'], $_POST['note'], $name, $note);
-	$fail = FALSE;
-	echo "<p>De klacht zal niet worden gemeld.<br>";
-	echo "<a href='index_gebouw.php'>Terug naar het klachtenoverzicht voor het gebouw/algemeen&gt;&gt;</a></p>";
-}
-
-if (isset($_POST['insert'])){
-	$name = $_POST['name'];
-	$note = addslashes($_POST['note']);
-	
-	if (!CheckName($name)) {
-		$fail_msg_name = "U dient een geldige voor- en achternaam op te geven. Let op: de apostrof (') wordt niet geaccepteerd.";
-	}
-	
-	if (isset($fail_msg_name)) $fail = TRUE;
-	
-	if (!isset($fail)) {
-		$query = "INSERT INTO `schades_gebouw` (Datum, Naam, Oms_lang) VALUES ('$today_db', '$name', '$note');";
-		$result = mysql_query($query);
-		if (!$result) {
-			die("Invoeren klacht mislukt.". mysql_error());
-		} else {
-		    // mail aan gebcie
-			$message = $name." heeft zojuist een klacht gedaan:<br>".$note."<br>";
-			SendEmail("penningmeester@hunze.nl", "Nieuwe klacht/schademelding", $message);
-			// feedback op scherm
-			echo "<p>Hartelijk dank voor uw melding! De klacht is doorgegeven aan de Gebouwcommissie.<br>";
-			echo "Mocht u de melding nog nader willen toelichten of willen wijzigen, neemt u dan contact op via <a href='mailto:penningmeester@hunze.nl'>e-mail</a>.<br>";
-			echo "<a href='index_gebouw.php'>Terug naar het klachtenoverzicht voor het gebouw&gt;&gt;</a></p>";
-		}
-	}
-}
-
-// Formulier
-if ((!isset($_POST['insert']) && !isset($_POST['delete']) && !isset($_POST['cancel'])) || (isset($fail) && $fail == true)) {
-	echo "<p><b>Klacht/schademelding invoeren</b></p>";
-	echo "<form name='form' action=\"" . (isset($REQUEST_URI) ? $REQUEST_URI : "") . "\" method=\"post\">";
-	echo "<table>";
-	
-	// naam
-	echo "<tr><td>Naam:</td>";
-	echo "<td><input type=\"text\" name=\"name\" value=\"" . (isset($name) ? $name : "") . "\" size=45 /></td>";
-	if (isset($fail_msg_name)) echo "<td><em>" . $fail_msg_name . "</em></td>";
-	echo "</tr>";
-	
-	// mededeling
-	echo "<tr><td>Omschrijving (max. 1000 tekens):</td>";
-	echo "<td><textarea name=\"note\" rows=4 cols=50/>" . (isset($note) ? $note : "") . "</textarea></td>";
-	echo "</tr>";
-	
-	// knoppen
-	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"insert\" value=\"Invoeren\" /> ";
-	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\" /></p>";
-	echo "</form>";
-}
-
-mysql_close($link);
-
+  
+  include('../includes/navbar.php');
+    
 ?>
+
+<div class="container-fluid main-container">
+    	
+    <div class="mainbox col-md-6 col-md-offset-3">
+        	
+    	<div class="panel panel-default">
+        	
+        	<main class="panel-body">
+        
+                <h1 class="h3">
+                    Nieuwe schademelding
+                </h1>
+
+                <?php
+                
+                // init
+                if (!isset($_POST['cancel']) && !isset($_POST['insert'])) {
+                	$fail = FALSE;
+                }
+                
+                // knop gedrukt
+                if (isset($_POST['cancel'])){
+                	unset($_POST['name'], $_POST['note'], $name, $note);
+                	$fail = FALSE;
+                	echo "<p>De klacht zal niet worden gemeld.<br>";
+                	echo "<a href='index_gebouw.php'>Terug naar het klachtenoverzicht voor het gebouw/algemeen&gt;&gt;</a></p>";
+                }
+                
+                if (isset($_POST['insert'])){
+                	$name = $_POST['name'];
+                	$note = addslashes($_POST['note']);
+                	
+                	if (!CheckName($name)) {
+                		$fail_msg_name = "U dient een geldige voor- en achternaam op te geven. Let op: de apostrof (') wordt niet geaccepteerd.";
+                	}
+                	
+                	if (isset($fail_msg_name)) $fail = TRUE;
+                	
+                	if (!isset($fail)) {
+                		$query = "INSERT INTO `schades_gebouw` (Datum, Naam, Oms_lang) VALUES ('$today_db', '$name', '$note');";
+                		$result = mysql_query($query);
+                		if (!$result) {
+                			die("Invoeren klacht mislukt.". mysql_error());
+                		} else {
+                		    // mail aan gebcie
+                			$message = $name." heeft zojuist een klacht gedaan:<br>".$note."<br>";
+                			SendEmail("penningmeester@hunze.nl", "Nieuwe klacht/schademelding", $message);
+                			// feedback op scherm
+                			echo "<p>Hartelijk dank voor uw melding! De klacht is doorgegeven aan de Gebouwcommissie.<br>";
+                			echo "Mocht u de melding nog nader willen toelichten of willen wijzigen, neemt u dan contact op via <a href='mailto:penningmeester@hunze.nl'>e-mail</a>.<br>";
+                			echo "<a href='index_gebouw.php'>Terug naar het klachtenoverzicht voor het gebouw&gt;&gt;</a></p>";
+                		}
+                	}
+                }
+                
+                // Formulier
+                if ((!isset($_POST['insert']) && !isset($_POST['delete']) && !isset($_POST['cancel'])) || (isset($fail) && $fail == true)) {
+                	echo "<form name='form' action=\"" . (isset($REQUEST_URI) ? $REQUEST_URI : "") . "\" method=\"post\">";
+                	
+                	// naam
+                	echo "<div class='form-group'><label>Uw naam</label>";
+                	echo "<input type=\"text\" name=\"name\" class=\"form-control\" value=\"" . (isset($name) ? $name : "") . "\">";
+                	if (isset($fail_msg_name)) echo "<em>" . $fail_msg_name . "</em>";
+                	echo "</div>";
+                	
+                	// mededeling
+                	echo "<div class='form-group'><label>Omschrijf kort de schade (max. 1000 tekens)</label>";
+                	echo "<textarea name=\"note\" class=\"form-control\" rows=4>" . (isset($note) ? $note : "") . "</textarea>";
+                	echo "</div>";
+                	
+                	// knoppen
+                	echo "<div class='form-group'><input type=\"submit\" name=\"insert\" value=\"Invoeren\" class=\"btn btn-primary\"></div>";
+                	echo "</form>";
+                }
+                
+                mysql_close($link);
+                
+                ?>
+                
+            </main>
+            
+        </div>
+        
+    </div>
+    
 </div>
+
 </body>
 </html>

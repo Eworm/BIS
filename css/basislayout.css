@@ -3,16 +3,10 @@
  */
 
 .basis {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	color: #000000;
 	text-decoration: none;
 }
 
 .form {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	color: #000000;
 	text-decoration: none;
 	background-color: #D6DFE9; /*lichtblauw*/
 }
@@ -20,21 +14,18 @@
 .update {
 	font-size: 10px;
 	color: #FF0000; /*red*/
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	
 }
 
 body {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	background-color: #FFFFFF;
-	margin: 0px;
-	padding: 0px;
-	color: #000000;
+	background-color: #FFF;
+	margin: 0;
+	padding: 0;
+	color: #000;
 
 }
 #header {
 	background-image: url(../picture_library/background/blokje.gif);
-	
 }
 
 
@@ -42,9 +33,9 @@ body {
 	width: auto;
 	min-width: 120px;
 	position: relative;
-	background-color: #FFFFFF;
+	background-color: #FFF;
 	padding: 10px;
-	margin-top: 0px;
+	margin-top: 0;
 	margin-right: 180px;
 	margin-bottom: 20px;
 	margin-left: 170px;
@@ -84,14 +75,14 @@ body {
 	position: absolute;
 	left: 180px;
 	display: table-footer-group; 
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	
 	font-size: 9px;
 	font-style: normal;
-	color: #000000;
+	color: #000;
 }
 	
 b.subnavlist {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	
 	font-size: 11px;
 	font-weight: bold;
 	color: #CC9900;
@@ -100,7 +91,7 @@ b.subnavlist {
 
 
 h1 {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	
 	font-size: 13px;
 	line-height:17px;
 	font-weight: bold;
@@ -111,7 +102,7 @@ h1 {
 }
 	
 h1.h1center {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	
 	font-size: 13px;
 	line-height:17px;
 	font-weight: bold;
@@ -123,19 +114,19 @@ h1.h1center {
 }	
 	
 p.smallcaps {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	
 	font-size: 11px;
-	padding: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
+	padding: 0;
+	margin-top: 0;
+	margin-right: 0;
 	margin-bottom: 16px;
-	margin-left: 0px;
+	margin-left: 0;
 	font-variant: small-caps;
 	}
 	
 ul.subnavlist {
 	list-style-type: square;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	
 	font-size: 11px;
 	color: #4B6599;
 	text-decoration: none;
@@ -143,7 +134,7 @@ ul.subnavlist {
 	}
 
 li.subnavlist {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	
 	font-size: 11px;
 	color: #34466B;
 	text-decoration: none;
@@ -153,7 +144,7 @@ li.subnavlist {
 	
 li.subnavlist a
 	{
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	
 	font-size: 11px;
 	color: #4B6599;
 	text-decoration: none;
@@ -170,8 +161,8 @@ ul.topnavigatie {
 	margin: 0;
 	list-style-type: none;
 	background-color: #036;
-	color: #000000;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000;
+	
 	font-size: 11px;
 	text-align: center;
 	}
@@ -195,7 +186,7 @@ li.topnavigatie a:hover
 	} 
 
 a {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	
 	color: #4B6599;
 	text-decoration: none;
 	font-style: normal;
@@ -203,7 +194,7 @@ a {
 	}
 	
 a:hover {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	
 	color: #6699FF;
 	text-decoration: underline;
 
@@ -224,7 +215,7 @@ hr.a {border: none 0;
 	}
 
 em {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	
 	color: #4B6599;
 	text-decoration: none;
 

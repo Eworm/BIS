@@ -18,52 +18,94 @@ if (!mysql_select_db($database, $link)) {
 setlocale(LC_TIME, 'nl_NL');
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title>BotenInschrijfSysteem - Cursussen</title>
-    <link type="text/css" href="../<?php echo $csslink; ?>" rel="stylesheet" />
-</head>
+<!DOCTYPE html>
+<html lang="nl">
+
+    <head>
+        <title>Cursussen - BIS</title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	
+    </head>
+    
 <body>
-<div style="margin-left:10px; margin-top:10px">
-
-<p><h1>Cursussen</h1></p>
-<p><a href='../index.php'>Naar BIS&gt;&gt;</a><br />
-<a href='bis_logout.php'>Uitloggen&gt;&gt;</a></p>
-	
+    
 <?php
-$query = "SELECT ID, Startdatum, Type, ToonOpSite FROM cursussen WHERE Startdatum>'$today_db' AND ToonOpSite=1 ORDER BY Startdatum;";
-$result = mysql_query($query);
-if (!$result) {
-	die('Ophalen van cursusdata mislukt: ' . mysql_error());
-} 
-$rows_aff = mysql_affected_rows($link);
-if ($rows_aff > 0) { ?>
-	<p><strong>Kies een cursus:</strong></p>
-	<select name="course" id="course" onchange='changeInfo();'>
-	<option value="0" selected="selected">&nbsp;</option>
-	<?php while ($row = mysql_fetch_assoc($result)) {
-		$id = $row['ID'];
-		$type = $row['Type'];
-		$exstartdate = $row['Startdatum'];
-		$exstartdate_sh = strtotime($exstartdate);
-		echo "<option value='$id'>".$type." beginnend op ".strftime('%A %d-%m-%Y', $exstartdate_sh)."</option>";
-	}
-} else { ?>
-	<p>Er zijn op dit moment geen cursussen waarvoor u zich kunt inschrijven.</p>
-<?php }
-mysql_close($link);
+  
+  include('../includes/navbar.php');
+    
 ?>
-</select>
 
-<div id="courselist"></div>
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-8">
+            
+            <h1>
+                Cursussen
+            </h1>
+	
+            <?php
+            $query = "SELECT ID, Startdatum, Type, ToonOpSite FROM cursussen WHERE Startdatum>'$today_db' AND ToonOpSite=1 ORDER BY Startdatum;";
+            $result = mysql_query($query);
+            if (!$result) {
+            	die('Ophalen van cursusdata mislukt: ' . mysql_error());
+            } 
+            $rows_aff = mysql_affected_rows($link);
+            if ($rows_aff > 0) { ?>
+            
+            	<p><strong>Kies een cursus:</strong></p>
+            
+            	<select name="course" id="course" onchange='changeInfo();'>
+            
+            	<option value="0" selected="selected">&nbsp;</option>
+            
+            	<?php while ($row = mysql_fetch_assoc($result)) {
+            		$id = $row['ID'];
+            		$type = $row['Type'];
+            		$exstartdate = $row['Startdatum'];
+            		$exstartdate_sh = strtotime($exstartdate);
+            		echo "<option value='$id'>".$type." beginnend op ".strftime('%A %d-%m-%Y', $exstartdate_sh)."</option>";
+            	}
+            	
+            } else { ?>
+            	
+            	<p><strong>Er zijn op dit moment geen cursussen waarvoor u zich kunt inschrijven.</strong></p>
+            	
+            <?php }
+            mysql_close($link);
+            ?>
+            
+            </select>
 
-<p><strong>Mededelingen</strong></p>
-<ul>
-	<li>De inschrijving sluit &eacute;&eacute;n week voorafgaand aan de cursus.</li>
-	<li>Opgave betekent deelname.</li>
-	<li>U kunt zich tot uiterlijk een week voor de start van de cursus terugtrekken. Stuur daarvoor een e-mail aan <a href="mailto:instructie@hunze.nl">instructie@hunze.nl</a>.
-</ul>
+            <div id="courselist"></div>
+            
+        </div>
+        
+        <div class="col-md-4">
+            
+            <div class="well">
+
+                <h2>
+                    Let op!
+                </h2>
+                
+                <ul>
+                	<li>De inschrijving sluit &eacute;&eacute;n week voorafgaand aan de cursus.</li>
+                	<li>Opgave betekent deelname.</li>
+                	<li>U kunt zich tot uiterlijk een week voor de start van de cursus terugtrekken. Stuur daarvoor een e-mail aan <a href="mailto:instructie@hunze.nl">instructie@hunze.nl</a>.
+                </ul>
+                
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 

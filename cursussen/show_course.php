@@ -27,7 +27,7 @@ if (!$result) {
 		$type = $row['Type'];
 		$quotum = $row['Quotum'];
 		$description = $row['Omschrijving'];
-		echo "<table class=\"basis\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" bordercolor=\"#AAB8D5\"><tr><th>&nbsp;</th><th>Naam</th></tr>";
+		echo "<table class=\"table\"><tr><th>&nbsp;</th><th>Naam</th></tr>";
 		$query2 = "SELECT Naam FROM cursus_inschrijvingen WHERE Ex_ID='$id';";
 		$result2 = mysql_query($query2);
 		if (!$result2) {
@@ -40,7 +40,7 @@ if (!$result) {
 				$c2++;
 			}
 			while ($c2 < $quotum) {
-				echo "<tr><td>".($c2+1)."</td><td><a href='cursus_inschr.php?id=$id'>Aanmelden&gt;&gt;</a></td></tr>";
+				echo "<tr><td>".($c2+1)."</td><td><a href='cursus_inschr.php?id=$id' class='btn btn-default'>Aanmelden</a></td></tr>";
 				$c2++;
 			}
 			echo "</table>";

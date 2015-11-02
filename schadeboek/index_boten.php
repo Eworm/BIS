@@ -16,72 +16,97 @@ if (!mysql_select_db($database, $link)) {
 }
 
 ?>
+   
+<!DOCTYPE html>
+<html lang="nl">
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title>BotenInschrijfSysteem - Schadeboek Boten</title>
-    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet" />
-	<!-- Datatables -->
-	<style type="text/css" title="currentStyle"> 
-		@import "../scripts/datatables/demo_page.css";
-		@import "../scripts/datatables/demo_table.css";
-	</style> 
-	<script type="text/javascript" language="javascript" src="../scripts/datatables/jquery.js"></script> 
-	<script type="text/javascript" language="javascript" src="../scripts/datatables/jquery.dataTables.js"></script> 
-</head>
+    <head>
+        <title>Schadeboek Boten - BIS</title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link type="text/css" href="<?php echo $csslink; ?>" rel="stylesheet" />
+    	<link type="text/css" href="css/bis.css" rel="stylesheet" />
+    	
+        <script type="text/javascript" language="javascript" src="../scripts/datatables/jquery.js"></script> 
+        <script type="text/javascript" language="javascript" src="../scripts/datatables/jquery.dataTables.js"></script> 
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	
+    </head>
+    
 <body>
-<div style="margin-left:10px; margin-top:10px">
-
+    
 <?php
-
-echo "<p><h1>Schadeboek Boten</h1></p>";
-echo "<p><a href='schade_boten_toev.php'>Nieuwe schademelding&gt;&gt;</a><br>";
-echo "<a href='../index.php'>Naar BIS&gt;&gt;</a><br>";
-echo "<a href='./bis_logout.php'>Uitloggen&gt;&gt;</a></p>";
-echo "<p>Lijst van schades die bij de Materiaalcommissie in behandeling zijn:</p>";
-
-$query = "SELECT Datum, Naam, Boot_ID, Oms_lang, Feedback from schades;";
-$result = mysql_query($query);
-if (!$result) {
-	die("Ophalen van schades mislukt.". mysql_error());
-}
-echo "<div style='width:700px'><table id='schades'>";
-echo "<thead><tr><th>Melddatum (jjjj-mm-dd)</th><th>Naam melder</th><th>Boot/ergometer</th><th><div>Omschrijving</th><th>Terugkoppeling MatCie</th></tr></thead><tbody>";
-$c = 0;
-while ($row = mysql_fetch_assoc($result)) {
-	$date = $row['Datum'];
-	$name = $row['Naam'];
-	// bootnaam
-	$boat_id = $row['Boot_ID'];
-	if ($boat_id == 0) {
-		$boat = "algemeen";
-	} else {
-		$query2 = "SELECT Naam from boten WHERE ID=$boat_id;";
-		$result2 = mysql_query($query2);
-		$row2 = mysql_fetch_assoc($result2);
-		$boat = $row2['Naam'];
-	}
-	//
-	$note = $row['Oms_lang'];
-	if (!$note) $note = "&nbsp;";
-	$feedback = $row['Feedback'];
-	if (!$feedback) $feedback = "&nbsp;";
-	echo "<tr>";
-	echo "<td>$date</td>";	
-	echo "<td>$name</td>";
-	echo "<td>$boat</td>";
-	echo "<td>$note</td>";
-	echo "<td>$feedback</td>";
-	echo "</tr>";
-	$c++;
-}
-echo "</tbody></table></div>";
-
-mysql_close($link);
-
+  
+  include('../includes/navbar.php');
+    
 ?>
+
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-12">
+            
+            <h1>
+                Schadeboek boten
+            </h1>
+
+            <?php
+            
+            echo "<p><a href='schade_boten_toev.php' class='btn btn-primary'>Nieuwe schademelding</a><br>";
+            echo "<h2>Alle schades die in behandeling zijn</h2>";
+            
+            $query = "SELECT Datum, Naam, Boot_ID, Oms_lang, Feedback from schades;";
+            $result = mysql_query($query);
+            if (!$result) {
+            	die("Ophalen van schades mislukt.". mysql_error());
+            }
+            echo "<table id='schades' class='table'>";
+            echo "<thead><tr><th>Melddatum</th><th>Naam melder</th><th>Boot/ergometer</th><th><div>Omschrijving</th><th>Terugkoppeling MatCie</th></tr></thead><tbody>";
+            $c = 0;
+            while ($row = mysql_fetch_assoc($result)) {
+            	$date = $row['Datum'];
+            	$name = $row['Naam'];
+            	// bootnaam
+            	$boat_id = $row['Boot_ID'];
+            	if ($boat_id == 0) {
+            		$boat = "algemeen";
+            	} else {
+            		$query2 = "SELECT Naam from boten WHERE ID=$boat_id;";
+            		$result2 = mysql_query($query2);
+            		$row2 = mysql_fetch_assoc($result2);
+            		$boat = $row2['Naam'];
+            	}
+            	//
+            	$note = $row['Oms_lang'];
+            	if (!$note) $note = "&nbsp;";
+            	$feedback = $row['Feedback'];
+            	if (!$feedback) $feedback = "&nbsp;";
+            	echo "<tr>";
+            	echo "<td>$date</td>";	
+            	echo "<td>$name</td>";
+            	echo "<td>$boat</td>";
+            	echo "<td>$note</td>";
+            	echo "<td>$feedback</td>";
+            	echo "</tr>";
+            	$c++;
+            }
+            echo "</tbody></table>";
+            
+            mysql_close($link);
+            
+            ?>
+            
+        </div>
+        
+    </div>
+    
 </div>
+
 </body>
 
 <script type="text/javascript" charset="utf-8"> 
