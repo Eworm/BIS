@@ -16,18 +16,35 @@ if (!mysql_select_db($database, $link)) {
 }
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title><?php echo $systeemnaam; ?> - Admin - Boottype toevoegen/wijzigen</title>
-    <link type="text/css" href="../<?php echo $csslink; ?>" rel="stylesheet" />
-</head>
+<!DOCTYPE html>
+<html lang="nl">
+    
+    <head>
+        <title>Admin - <?php echo $systeemnaam; ?></title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	
+    </head>
+    
 <body>
-<div style="margin-left:10px; margin-top:10px">
+    
+<?php
+  
+  include('../includes/navbar-admin.php');
+    
+?>
+
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-9">
 
 <?php
-
-echo "<p><strong>Welkom in de Admin-sectie van BIS</strong> [<a href='./admin_types.php'>Terug naar boottypemenu</a>] [<a href='./admin_logout.php'>Uitloggen</a>]</p>";
 
 // ingeval van editen bestaand boottype
 $type_ex = $_GET['type'];
@@ -73,31 +90,26 @@ if ($_POST['insert']){
 
 // Formulier
 if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
-	echo "<p><b>Boottype invoeren/wijzigen</b></p>";
+	echo "<h1>Boottype invoeren/wijzigen</h1>";
 	echo "<form name='form' action=\"$REQUEST_URI\" method=\"post\">";
-	echo "<table>";
 	
 	// naam
-	echo "<tr><td>Type:</td>";
-	echo "<td><input type=\"text\" name=\"type\" value=\"$type\" size=10 /></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Type</label>";
+	echo "<input type=\"text\" name=\"type\" value=\"$type\" class='form-control' autofocus />";
+	echo "</div>";
 	
 	// categorie
-	echo "<tr><td>Categorie:</td>";
-	echo "<td><input type=\"text\" name=\"cat\" value=\"$cat\" size=40 /></td>";
-	echo "</tr>";
-	
-	echo "<tr><td colspan=2><em>Meerdere types kunnen deel uitmaken van dezelfde categorie</em></td></tr>";
+	echo "<div class='form-group'><label>Categorie</label>";
+	echo "<input type=\"text\" name=\"cat\" value=\"$cat\"  class='form-control' /><em>Meerdere types kunnen deel uitmaken van dezelfde categorie</em>";
+	echo "</div>";
 	
 	// roeisoort
-	echo "<tr><td>Roeisoort (boord/scull):</td>";
-	echo "<td><input type=\"text\" name=\"sort\" value=\"$sort\" size=10 /></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Roeisoort (boord/scull)</label>";
+	echo "<input type=\"text\" name=\"sort\" value=\"$sort\" class='form-control' /></td>";
+	echo "</div>";
 	
 	// knoppen
-	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"insert\" value=\"Invoeren\" /> ";
-	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\" /></p>";
+	echo "<div class='form-group'><input type=\"submit\" name=\"insert\" value=\"Invoeren\" class='btn btn-primary' /></div> ";
 	echo "</form>";
 }
 
@@ -105,6 +117,22 @@ mysql_close($link);
 
 ?>
 
+        </div>
+        
+        <div class="col-md-3">
+            
+            <div class="well">
+                
+                <strong>Welkom in de admin-sectie van BIS</strong>
+                <br><br>
+                <a href='./admin_logout.php' class="btn btn-primary">Uitloggen</a>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
 </div>
 </body>
 </html>

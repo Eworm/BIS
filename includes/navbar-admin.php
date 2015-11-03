@@ -12,7 +12,7 @@
                 <span class="icon-bar"></span>
             </button>
             
-            <a class="navbar-brand" href="/BIS/index.php">BIS</a>
+            <a class="navbar-brand" href="/BIS/admin/index.php">Home  </a>
             
         </div>
             
@@ -21,33 +21,37 @@
             <ul class="nav navbar-nav">
                 
                 <li>
-                    <a href="/BIS/current_act.php">Nu op water</a>
+                    <a href="/BIS/admin/admin_vloot.php">Boten</a>
                 </li>
     
                 <li>
-                    <a href="/BIS/schadeboek/index_boten.php">Schade boten</a>
+                    <a href="/BIS/admin/admin_types.php">Boottypes</a>
                 </li>
-    
+                
                 <li>
-                    <a href="/BIS/schadeboek/index_gebouw.php">Klachten gebouw</a>
+                    <a href="/BIS/admin/admin_graden.php">Roeigraden</a>
                 </li>
-    
+                
                 <li>
-                    <a href="/BIS/cursussen/index.php">Cursussen</a>
+                    <a href="/BIS/admin/admin_rappo.php">Gebruik</a>
                 </li>
-    
+                
                 <li>
-                    <a href="/BIS/examens/index.php">Examens</a>
+                    <a href="/BIS/admin/admin_spits.php">Spitsrooster</a>
                 </li>
-    
+                
                 <li>
-                    <a href="/BIS/documenten/index.php">Documenten</a>
+                    <a href="/BIS/admin/admin_blokken.php">Wedstrijdblokken</a>
                 </li>
-    
+                
                 <li>
-                    <a href="/BIS/bis_info.php">Info</a>
+                    <a href="/BIS/admin/admin_mededeling.php">Mededelingen</a>
                 </li>
-            
+                
+                <li>
+                    <a href="/BIS/admin/admin_bestuur.php">Bestuursleden</a>
+                </li>
+                
             </ul>
             
         </div>

@@ -17,18 +17,35 @@ if (!mysql_select_db($database, $link)) {
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title><? echo $systeemnaam; ?> - Admin - Vlootbeheer - Boot toevoegen/wijzigen</title>
-    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet" />
-</head>
+<!DOCTYPE html>
+<html lang="nl">
+    
+    <head>
+        <title>Admin - <?php echo $systeemnaam; ?></title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	
+    </head>
+    
 <body>
-<div style="margin-left:10px; margin-top:10px">
+    
+<?php
+  
+  include('../includes/navbar-admin.php');
+    
+?>
+
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-9">
 
 <?php
-
-echo "<p><strong>Welkom in de Admin-sectie van BIS</strong> [<a href='./admin_vloot.php'>Terug naar vlootbeheer</a>] [<a href='./admin_logout.php'>Uitloggen</a>]</p>";
 
 if ($_GET['id']) { // bestaande boot
 	$id = $_GET['id'];
@@ -98,24 +115,23 @@ if ($_POST['insert']){
 
 // Formulier
 if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
-	echo "<p><b>Boot toevoegen/wijzigen</b></p>";
+	echo "<h1>Boot toevoegen/wijzigen</h1>";
 	echo "<form name='form' action=\"$REQUEST_URI\" method=\"post\">";
-	echo "<table>";
 	
 	// naam
-	echo "<tr><td>Naam:</td>";
-	echo "<td><input type=\"text\" name=\"naam\" value=\"$naam\" size=50 /></td>";
-	echo "<td><em>Svp alleen gewone letters en geen leestekens of apostroffen gebruiken!</em></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Naam</label>";
+	echo "<input type=\"text\" name=\"naam\" value=\"$naam\" class='form-control' autofocus />";
+	echo "<div>Svp alleen gewone letters en geen leestekens of apostrof gebruiken</div>";
+	echo "</div>";
 	
 	// gewicht
-	echo "<tr><td>Gewicht:</td>";
-	echo "<td><input type=\"text\" name=\"gewicht\" value=\"$gewicht\" size=3 /></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Gewicht</label>";
+	echo "<input type=\"text\" name=\"gewicht\" value=\"$gewicht\" class='form-control' />";
+	echo "</div>";
 	
 	// type
-	echo "<tr><td>Type:</td>";
-	echo "<td><select name=\"type\">";
+	echo "<div class='form-group'><label>Type</label>";
+	echo "<select name=\"type\" class='form-control'>";
 	$query = "SELECT Type from types;";
 	$result = mysql_query($query);
 	if (!$result) {
@@ -129,11 +145,11 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 		echo ">$boottype</option>";
 		$c++;
 	}
-	echo "</select></td></tr>";
+	echo "</select></div>";
 		
 	// roeigraad
-	echo "<tr><td>Roeigraad:</td>";
-	echo "<td><select name=\"roeigraad\">";
+	echo "<div class='form-group'><label>Roeigraad</label>";
+	echo "<select name=\"roeigraad\" class='form-control'>";
 	$query = "SELECT Roeigraad FROM roeigraden WHERE ToonInBIS=1 ORDER BY ID;";
 	$result = mysql_query($query);
 	if (!$result) {
@@ -147,12 +163,10 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 		echo ">$grade</option>";
 		$c++;
 	}
-	echo "</select></td></tr>";
+	echo "</select></div>";
 	
 	// knoppen
-	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"insert\" value=\"Invoeren\" /> ";
-	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\" /></p>";
+	echo "<div class='form-group'><input type=\"submit\" name=\"insert\" value=\"Invoeren\" class='btn btn-primary' /></div>";
 	echo "</form>";
 }
 
@@ -160,6 +174,22 @@ mysql_close($link);
 
 ?>
 
+        </div>
+        
+        <div class="col-md-3">
+            
+            <div class="well">
+                
+                <strong>Welkom in de admin-sectie van BIS</strong>
+                <br><br>
+                <a href='./admin_logout.php' class="btn btn-primary">Uitloggen</a>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
 </div>
 </body>
 </html>

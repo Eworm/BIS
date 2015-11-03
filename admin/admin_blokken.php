@@ -7,7 +7,7 @@ include 'admin_header.php';
 <p>Wedstrijdblokken zijn bedoeld om een boot te blokken in BIS wanneer deze bijvoorbeeld
 voor een weekend naar een wedstrijd gaat. Omdat u een start- en een eindtijd kunt opgeven,
 zijn ze geschikter hiervoor dan een uit-de-vaart-melding, die alleen per hele dagen gaat.</p>
-<p><a href="admin_blok_toev.php">Wedstrijdblok toevoegen&gt;&gt;</a></p>
+<p><a href="admin_blok_toev.php" class="btn btn-primary">Wedstrijdblok toevoegen</a></p>
 
 <?php
 $fail = false;
@@ -52,7 +52,7 @@ if (isset($_POST['boot_te_tonen'])) {
 </form>
 <br /><br />
 
-<table class="sortable" id="wedstrijdblokken_ovz" border="1" cellpadding="6" cellspacing="0" style="bordercolor:#AAB8D5">
+<table class="table sortable" id="wedstrijdblokken_ovz">
 <tr>
 	<td>MPB</td>
 	<td>Omschrijving</td>

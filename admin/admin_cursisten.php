@@ -53,7 +53,7 @@ if (!$result) {
 	die("Ophalen van kandidaten mislukt.". mysql_error());
 }
 echo "<br><table class=\"basis\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" bordercolor=\"#AAB8D5\">";
-echo "<tr><th><div style=\"text-align:left\">Naam</div></th><th><div style=\"text-align:left\">Tegenprestatie</div></th><th><div style=\"text-align:left\">Telefoon</div></th><th><div style=\"text-align:left\">E-mail</div></th><th></th></tr>";
+echo "<tr><th><div>Naam</div></th><th><div>Tegenprestatie</div></th><th><div>Telefoon</div></th><th><div>E-mail</div></th><th></th></tr>";
 $c = 0;
 while ($row = mysql_fetch_assoc($result)) {
 	$part_id = $row['ID'];
@@ -62,11 +62,11 @@ while ($row = mysql_fetch_assoc($result)) {
 	$telph = $row['TelNr'];
 	$email = $row['Email'];
 	echo "<tr>";
-	echo "<td><div style=\"text-align:left\">$name</div></td>";
-	echo "<td><div style=\"text-align:left\">$demand</div></td>";
-	echo "<td><div style=\"text-align:left\">$telph</div></td>";
-	echo "<td><div style=\"text-align:left\">$email</div></td>";
-	echo "<td><div style=\"text-align:left\"><a href='admin_cursisten.php?mode=d&id=$id&part_id=$part_id'>Verwijder</a></div></td>";
+	echo "<td><div>$name</div></td>";
+	echo "<td><div>$demand</div></td>";
+	echo "<td><div>$telph</div></td>";
+	echo "<td><div>$email</div></td>";
+	echo "<td><div><a href='admin_cursisten.php?mode=d&id=$id&part_id=$part_id'>Verwijder</a></div></td>";
 	echo "</tr>";
 }
 echo "</table>";

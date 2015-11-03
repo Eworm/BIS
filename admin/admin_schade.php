@@ -52,17 +52,17 @@ if (!$result) {
 	die("Ophalen van schades mislukt.". mysql_error());
 }
 echo "<br><table class=\"basis\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" bordercolor=\"#AAB8D5\">";
-echo "<tr><th><div style=\"text-align:left\"><a href='admin_schade.php?sortby=Datum" . (isset($mode) ? ("&mode=" . $mode) : "") . "'>Melddatum</a></div></th>";
-echo "<th><div style=\"text-align:left\"><a href='admin_schade.php?sortby=Datum_gew" . (isset($mode) ? ("&mode=" . $mode) : "") . "'>Laatst gew.</a></div></th>";
-echo "<th><div style=\"text-align:left\">Naam melder</div></th>";
-echo "<th><div style=\"text-align:left\"><a href='admin_schade.php?sortby=boten.Naam" . (isset($mode) ? ("&mode=" . $mode) : "") . "'>Boot/ergometer</a></div></th>";
-echo "<th><div style=\"text-align:left\">Omschrijving</div></th>";
-echo "<th><div style=\"text-align:left\">Actiehouder</div></th>";
-echo "<th><div style=\"text-align:left\"><a href='admin_schade.php?sortby=Prio" . (isset($mode) ? ("&mode=" . $mode) : "") . "'>Prio</a></div></th>";
-echo "<th><div style=\"text-align:left\"><a href='admin_schade.php?sortby=Realisatie" . (isset($mode) ? ("&mode=" . $mode) : "") . "'>Real. (%)</a></div></th>";
-echo "<th><div style=\"text-align:left\">Gereed</div></th>";
-echo "<th><div style=\"text-align:left\">&nbsp;</div></th>";
-if (!isset($mode)) echo "<th><div style=\"text-align:left\">&nbsp;</div></th>";
+echo "<tr><th><div><a href='admin_schade.php?sortby=Datum" . (isset($mode) ? ("&mode=" . $mode) : "") . "'>Melddatum</a></div></th>";
+echo "<th><div><a href='admin_schade.php?sortby=Datum_gew" . (isset($mode) ? ("&mode=" . $mode) : "") . "'>Laatst gew.</a></div></th>";
+echo "<th><div>Naam melder</div></th>";
+echo "<th><div><a href='admin_schade.php?sortby=boten.Naam" . (isset($mode) ? ("&mode=" . $mode) : "") . "'>Boot/ergometer</a></div></th>";
+echo "<th><div>Omschrijving</div></th>";
+echo "<th><div>Actiehouder</div></th>";
+echo "<th><div><a href='admin_schade.php?sortby=Prio" . (isset($mode) ? ("&mode=" . $mode) : "") . "'>Prio</a></div></th>";
+echo "<th><div><a href='admin_schade.php?sortby=Realisatie" . (isset($mode) ? ("&mode=" . $mode) : "") . "'>Real. (%)</a></div></th>";
+echo "<th><div>Gereed</div></th>";
+echo "<th><div>&nbsp;</div></th>";
+if (!isset($mode)) echo "<th><div>&nbsp;</div></th>";
 echo "</tr>";
 $c = 0;
 while ($row = mysql_fetch_assoc($result)) {
@@ -86,20 +86,20 @@ while ($row = mysql_fetch_assoc($result)) {
 	$date_ready_sh = DBdateToDate($date_ready);
 	if ($date_ready_sh == "00-00-0000") $date_ready_sh = "-";
 	echo "<tr>";
-	echo "<td><div style=\"text-align:left\">$date_sh</div></td>";
-	echo "<td><div style=\"text-align:left\">$date_gew_sh</div></td>";
-	echo "<td><div style=\"text-align:left\">$name</div></td>";
-	echo "<td><div style=\"text-align:left\">$boat</div></td>";
-	echo "<td><div style=\"text-align:left\">$note</div></td>";
-	echo "<td><div style=\"text-align:left\">$action</div></td>";
-	echo "<td><div style=\"text-align:left\">$prio</div></td>";
-	echo "<td><div style=\"text-align:left\">$real</div></td>";
-	echo "<td><div style=\"text-align:left\">$date_ready_sh</div></td>";
-	if (!isset($mode)) echo "<td><div style=\"text-align:left\"><a href='admin_schade_edit.php?id=$id'>Bekijk/<br>bewerk</a></div></td>";
+	echo "<td><div>$date_sh</div></td>";
+	echo "<td><div>$date_gew_sh</div></td>";
+	echo "<td><div>$name</div></td>";
+	echo "<td><div>$boat</div></td>";
+	echo "<td><div>$note</div></td>";
+	echo "<td><div>$action</div></td>";
+	echo "<td><div>$prio</div></td>";
+	echo "<td><div>$real</div></td>";
+	echo "<td><div>$date_ready_sh</div></td>";
+	if (!isset($mode)) echo "<td><div><a href='admin_schade_edit.php?id=$id'>Bekijk/<br>bewerk</a></div></td>";
 	if (isset($mode)) {
-		echo "<td><div style=\"text-align:left\"><a href='admin_schade_verw.php?id=$id&mode=Arch'>De-arch.</a></div></td>";
+		echo "<td><div><a href='admin_schade_verw.php?id=$id&mode=Arch'>De-arch.</a></div></td>";
 	} else {
-		echo "<td><div style=\"text-align:left\"><a href='admin_schade_verw.php?id=$id'>Arch.</a></div></td>";
+		echo "<td><div><a href='admin_schade_verw.php?id=$id'>Arch.</a></div></td>";
 	}
 	echo "</tr>";
 	$c++;

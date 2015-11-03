@@ -17,27 +17,47 @@ if (!mysql_select_db($database, $link)) {
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title><? echo $systeemnaam; ?> - Admin - Bestuursmededelingen</title>
-    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet" />
-</head>
+<!DOCTYPE html>
+<html lang="nl">
+    
+    <head>
+        <title>Admin - <?php echo $systeemnaam; ?></title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	
+    </head>
+    
 <body>
-<div style="margin-left:10px; margin-top:10px">
+    
+<?php
+  
+  include('../includes/navbar-admin.php');
+    
+?>
+
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-9">
 
 <?php
 
 $mode = $_GET['mode'];
 
-echo "<p><strong>Welkom in de Admin-sectie van BIS</strong> [<a href='./index.php'>Terug naar admin-menu</a>] [<a href='./admin_logout.php'>Uitloggen</a>]</p>";
-echo "<p><div><a href='./admin_mededeling_toev.php'>Mededeling toevoegen&gt;&gt;</a></div></p>";
+echo "<p><div><a href='./admin_mededeling_toev.php' class='btn btn-primary'>Mededeling toevoegen</a>";
 
 if (!$mode) {
-	echo "<p><a href='admin_mededeling.php?mode=Arch'>Toon gearchiveerde mededelingen&gt;&gt;</a><br>";
+	echo "&nbsp;&nbsp;<a href='admin_mededeling.php?mode=Arch' class='btn btn-default'>Gearchiveerde mededelingen</a>";
 } else {
-	echo "<p><a href='admin_mededeling.php'>Toon actuele mededelingen&gt;&gt;</a><br>";
+	echo "&nbsp;&nbsp;<a href='admin_mededeling.php' class='btn btn-default'>Actuele mededelingen</a>";
 }
+
+echo "</div></p>";
 
 $source = "mededelingen";
 if ($mode) $source .= "_oud";
@@ -46,9 +66,9 @@ $result = mysql_query($query);
 if (!$result) {
 	die("Ophalen van mededelingen mislukt.". mysql_error());
 }
-echo "<br><table class=\"basis\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" bordercolor=\"#AAB8D5\">";
-echo "<tr><th><div style=\"text-align:left\">Datum</div></th><th><div style=\"text-align:left\">Bestuurslid</div></th><th><div style=\"text-align:left\">Betreft</div></th><th><div style=\"text-align:left\">Mededeling</div></th><th><div style=\"text-align:left\">&nbsp;</div></th>";
-if (!$mode) echo "<th><div style=\"text-align:left\">&nbsp;</div></th><th><div style=\"text-align:left\">&nbsp;</div></th>";
+echo "<br><table class=\"table\">";
+echo "<tr><th><div>Datum</div></th><th><div>Bestuurslid</div></th><th><div>Betreft</div></th><th><div>Mededeling</div></th><th><div>&nbsp;</div></th>";
+if (!$mode) echo "<th><div>&nbsp;</div></th><th><div>&nbsp;</div></th>";
 echo "</tr>";
 
 $c = 0;
@@ -60,16 +80,16 @@ while ($row = mysql_fetch_assoc($result)) {
 	$summary = $row['Betreft'];
 	$note = $row['Mededeling'];
 	echo "<tr>";
-	echo "<td><div style=\"text-align:left\">$date</div></td>";	
-	echo "<td><div style=\"text-align:left\">$name</div></td>";
-	echo "<td><div style=\"text-align:left\">$summary</div></td>";
+	echo "<td><div>$date</div></td>";	
+	echo "<td><div>$name</div></td>";
+	echo "<td><div>$summary</div></td>";
 	echo "<td width=400px><div style=\"text-align:left overflow:auto\">$note</div></td>";
 	if (!$mode) echo "<td><div><a href=\"./admin_mededeling_toev.php?id=$id\">Wijzigen</a></div></td>";
 	if ($mode) {
-		echo "<td><div style=\"text-align:left\"><a href='admin_mededeling_verw.php?id=$id&mode=Dearch'>De-archiveer</a></div></td>";
+		echo "<td><div><a href='admin_mededeling_verw.php?id=$id&mode=Dearch'>De-archiveer</a></div></td>";
 	} else {
-		echo "<td><div style=\"text-align:left\"><a href='admin_mededeling_verw.php?id=$id&mode=Arch'>Archiveer</a></div></td>";
-		echo "<td><div style=\"text-align:left\"><a href='admin_mededeling_verw.php?id=$id&mode=Del'>Verwijder</a></div></td>";
+		echo "<td><div><a href='admin_mededeling_verw.php?id=$id&mode=Arch'>Archiveer</a></div></td>";
+		echo "<td><div><a href='admin_mededeling_verw.php?id=$id&mode=Del'>Verwijder</a></div></td>";
 	}
 	echo "</tr>";
 	$c++;
@@ -80,6 +100,22 @@ mysql_close($link);
 
 ?>
 
+        </div>
+        
+        <div class="col-md-3">
+            
+            <div class="well">
+                
+                <strong>Welkom in de admin-sectie van BIS</strong>
+                <br><br>
+                <a href='./admin_logout.php' class="btn btn-primary">Uitloggen</a>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
 </div>
 </body>
 </html>

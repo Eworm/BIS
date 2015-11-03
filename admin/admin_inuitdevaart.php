@@ -23,7 +23,7 @@ if (!$result) {
 }
 echo "<table class=\"basis\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" bordercolor=\"#AAB8D5\">";
 echo '<tr><th>Startdatum</th><th>Einddatum</th><th>Reden</th>';
-if (!$arch) echo '<th><div style=\"text-align:left\">Aanpassen</div></th>';
+if (!$arch) echo '<th><div>Aanpassen</div></th>';
 echo '</tr>';
 $c = 0;
 while ($row = mysql_fetch_assoc($result)) {
@@ -38,9 +38,9 @@ while ($row = mysql_fetch_assoc($result)) {
 	}
 	$reason = $row['Reden'];
 	echo "<tr>";
-	echo "<td><div style=\"text-align:left\">$startdate_sh</div></td>";	
-	echo "<td><div style=\"text-align:left\">$enddate_sh</div></td>";
-	echo "<td><div style=\"text-align:left\">$reason</div></td>";
+	echo "<td><div>$startdate_sh</div></td>";	
+	echo "<td><div>$enddate_sh</div></td>";
+	echo "<td><div>$reason</div></td>";
 	if (!$arch) echo '<td><div><a href="admin_uitdevaart_verw.php?udv_id=' . $udv_id . '&boot_id=' . $boot_id . '">Be&euml;indigen</a></div></td>';
 	echo "</tr>";
 	$c++;

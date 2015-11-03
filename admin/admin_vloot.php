@@ -17,27 +17,45 @@ if (!mysql_select_db($database, $link)) {
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title><?php echo $systeemnaam; ?> - Admin - Vlootbeheer</title>
-    <link type="text/css" href="../<?php echo $csslink; ?>" rel="stylesheet" />
-</head>
+<!DOCTYPE html>
+<html lang="nl">
+    
+    <head>
+        <title>Admin - <?php echo $systeemnaam; ?></title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	
+    </head>
+    
 <body>
-<div style="margin-left:10px; margin-top:10px">
+    
+<?php
+  
+  include('../includes/navbar-admin.php');
+    
+?>
+
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-9">
 
 <?php
 
-echo "<p><strong>Welkom in de Admin-sectie van BIS</strong> [<a href='./index.php'>Terug naar admin-menu</a>] [<a href='./admin_logout.php'>Uitloggen</a>]</p>";
-echo "<p><div><a href='./admin_boot_toevoegen.php'>Boot toevoegen&gt;&gt;</a></div></p>";
+echo "<p><div><a href='./admin_boot_toevoegen.php' class='btn btn-primary'>Boot toevoegen</a></div></p>";
 
 $query = "SELECT ID, Naam, Gewicht, Type, Roeigraad from boten WHERE Datum_eind IS NULL ORDER BY Naam;";
 $boats_result = mysql_query($query);
 if (!$boats_result) {
 	die("Ophalen van boten-informatie mislukt.". mysql_error());
 }
-echo "<br><table class=\"basis\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" bordercolor=\"#AAB8D5\">";
-echo "<tr><th><div style=\"text-align:left\">Naam</div></th><th><div style=\"text-align:left\">Gewicht</div></th><th><div style=\"text-align:left\">Type</div></th><th><div style=\"text-align:left\">Roeigraad</div></th><th><div style=\"text-align:left\">Status</div></th><th colspan=3><div style=\"text-align:left\">Aanpassen</div></th></tr>";
+echo "<br><table class=\"table\">";
+echo "<tr><th><div>Naam</div></th><th><div>Gewicht</div></th><th><div>Type</div></th><th><div>Roeigraad</div></th><th><div>Status</div></th><th colspan=3><div>Aanpassen</div></th></tr>";
 $c = 0;
 while ($row = mysql_fetch_assoc($boats_result)) {
 	$id = $row['ID'];
@@ -48,13 +66,13 @@ while ($row = mysql_fetch_assoc($boats_result)) {
 	$type_plus = preg_replace('/\+/', 'plus', $type); // +tekens redden bij overdracht via GET
 	$grade = $row['Roeigraad'];
 	echo "<tr>";
-	echo "<td><div style=\"text-align:left\">$name</div></td>";	
-	echo "<td><div style=\"text-align:left\">$weight</div></td>";
-	echo "<td><div style=\"text-align:left\">$type</div></td>";
-	echo "<td><div style=\"text-align:left\">$grade</div></td>";
+	echo "<td><div>$name</div></td>";	
+	echo "<td><div>$weight</div></td>";
+	echo "<td><div>$type</div></td>";
+	echo "<td><div>$grade</div></td>";
 	
 	// in/uit de vaart
-	echo "<td><div style=\"text-align:left\">";
+	echo "<td><div>";
 	$query2 = sprintf('SELECT * 
 			FROM uitdevaart 
 			WHERE Verwijderd=0 
@@ -87,6 +105,22 @@ echo "</table>";
 mysql_close($link);
 ?>
 
+        </div>
+        
+        <div class="col-md-3">
+            
+            <div class="well">
+                
+                <strong>Welkom in de admin-sectie van BIS</strong>
+                <br><br>
+                <a href='./admin_logout.php' class="btn btn-primary">Uitloggen</a>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
 </div>
 </body>
 </html>

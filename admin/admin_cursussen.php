@@ -67,7 +67,7 @@ if (!$result) {
 	die('Ophalen van cursussen mislukt: ' . mysql_error());
 }
 echo "<br><table class=\"basis\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" bordercolor=\"#AAB8D5\">";
-echo "<tr><th><div style=\"text-align:left\">Startdatum</div></th><th><div style=\"text-align:left\">Einddatum</div></th><th><div style=\"text-align:left\">Type</div></th><th><div style=\"text-align:left\">Omschrijving</div></th><th><div style=\"text-align:left\">Mailadres</div></th><th><div style=\"text-align:left\">Quotum</div></th><th><div style=\"text-align:left\">Toon op site?</div></th><th colspan=4></th></tr>";
+echo "<tr><th><div>Startdatum</div></th><th><div>Einddatum</div></th><th><div>Type</div></th><th><div>Omschrijving</div></th><th><div>Mailadres</div></th><th><div>Quotum</div></th><th><div>Toon op site?</div></th><th colspan=4></th></tr>";
 $c = 0;
 while ($row = mysql_fetch_assoc($result)) {
 	$id = $row['ID'];
@@ -81,21 +81,21 @@ while ($row = mysql_fetch_assoc($result)) {
 	$quotum = $row['Quotum'];
 	$show = $row['ToonOpSite'];
 	echo "<tr>";
-	echo "<td><div style=\"text-align:left\">$startdate_sh</div></td>";
-	echo "<td><div style=\"text-align:left\">$enddate_sh</div></td>";
-	echo "<td><div style=\"text-align:left\">$type</div></td>";
-	echo "<td><div style=\"text-align:left\">$description</div></td>";
-	echo "<td><div style=\"text-align:left\">$email</div></td>";
-	echo "<td><div style=\"text-align:left\">$quotum</div></td>";
+	echo "<td><div>$startdate_sh</div></td>";
+	echo "<td><div>$enddate_sh</div></td>";
+	echo "<td><div>$type</div></td>";
+	echo "<td><div>$description</div></td>";
+	echo "<td><div>$email</div></td>";
+	echo "<td><div>$quotum</div></td>";
 	if ($show) {
-		echo "<td><div style=\"text-align:left\">ja";
+		echo "<td><div>ja";
 	} else {
-		echo "<td><div style=\"text-align:left\">nee";
+		echo "<td><div>nee";
 	}
 	echo "&nbsp;[<a href='admin_cursussen.php?mode=c&curval=$show&id=$id'>Wijzig</a>]</div></td>";
-	echo "<td><div style=\"text-align:left\"><a href='admin_cursus_toev.php?id=$id'>Wijzigen</a></div></td>";
-	echo "<td><div style=\"text-align:left\"><a href='admin_cursussen.php?mode=d&id=$id'>Verwijderen</a></div></td>";
-	echo "<td><div style=\"text-align:left\"><a href='admin_cursisten.php?id=$id'>Bekijk/beheer deelnemers</a></div></td>";
+	echo "<td><div><a href='admin_cursus_toev.php?id=$id'>Wijzigen</a></div></td>";
+	echo "<td><div><a href='admin_cursussen.php?mode=d&id=$id'>Verwijderen</a></div></td>";
+	echo "<td><div><a href='admin_cursisten.php?id=$id'>Bekijk/beheer deelnemers</a></div></td>";
 	echo "</tr>";
 }
 echo "</table>";

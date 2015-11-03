@@ -18,15 +18,35 @@ if (!mysql_select_db($database, $link)) {
 setlocale(LC_TIME, 'nl_NL');
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title><?php echo $systeemnaam; ?> - Admin - Spitsrooster</title>
-    <link type="text/css" href="../<?php echo $csslink; ?>" rel="stylesheet" />
-    <script type="text/javascript" src="../scripts/sortable.js"></script>
-</head>
+<!DOCTYPE html>
+<html lang="nl">
+    
+    <head>
+        <title>Admin - <?php echo $systeemnaam; ?></title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        
+        <script type="text/javascript" src="../scripts/sortable.js"></script>
+    	
+    </head>
+    
 <body>
-<div style="margin-left:10px; margin-top:10px">
+    
+<?php
+  
+  include('../includes/navbar-admin.php');
+    
+?>
+
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-9">
 
 <?php
 $fail = false;
@@ -39,13 +59,11 @@ if (isset($_POST['ploeg_te_tonen'])) {
 	}
 }
 
-echo "<p><strong>Welkom in de Admin-sectie van BIS</strong> [<a href='./index.php'>Terug naar admin-menu</a>] [<a href='./admin_logout.php'>Uitloggen</a>]</p>";
+echo "<h1>Actieve repeterende spitsblokken</h1>";
+echo "<p><a href=\"./admin_spits_toev.php\" class='btn btn-primary'>Toevoegen</a></p>";
 
-echo "<p>Actieve repeterende spitsblokken</p>";
-echo "<p><a href=\"./admin_spits_toev.php\">Toevoegen&gt;&gt;</a></p>";
-
-echo '<form name="form" action="' . $_SERVER['REQUEST_URI'] . '" method="post">';
-echo "Beperk tot ploeg: <select name=\"ploeg_te_tonen\">";
+echo '<form class="form-inline" name="form" action="' . $_SERVER['REQUEST_URI'] . '" method="post">';
+echo "<div class='form-group'>Beperk tot ploeg <select name=\"ploeg_te_tonen\" class='form-control'>";
 echo "<option value=\"alle\"";
 if ($ploeg_te_tonen == "alle") echo "selected=\"selected\"";
 echo ">alle</option>";
@@ -66,12 +84,12 @@ if (!$result) {
 		}
 	}
 }
-echo "</select>";
-echo "<br /><br /><input type=\"submit\" name=\"submit_ploegnaam\" value=\"Toon spitsblokken\" />";
+echo "</select></div>";
+echo "<div class='form-group'><input type=\"submit\" name=\"submit_ploegnaam\" value=\"Toon spitsblokken\" class='btn btn-default'></div>";
 echo "</form><br /><br />";
 
 // tabel
-echo "<table class=\"sortable\" id=\"spits\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" style=\"bordercolor:#AAB8D5\">";
+echo "<table class=\"table sortable\" id=\"spits\">";
 echo "<tr><td>MPB</td>";
 echo "<td>Startdatum</td>";
 echo "<td>Einddatum</td>";
@@ -154,6 +172,22 @@ mysql_close($link);
 
 ?>
 
+        </div>
+        
+        <div class="col-md-3">
+            
+            <div class="well">
+                
+                <strong>Welkom in de admin-sectie van BIS</strong>
+                <br><br>
+                <a href='./admin_logout.php' class="btn btn-primary">Uitloggen</a>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
 </div>
 </body>
 </html>

@@ -52,36 +52,33 @@ if ($_POST['insert']){
 
 // Formulier
 if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
-	echo "<p><b>Bestuurslid invoeren/wijzigen</b></p>";
+	echo "<h1>Bestuurslid invoeren/wijzigen</h1>";
 	echo "<form name='form' action=\"$REQUEST_URI\" method=\"post\">";
-	echo "<table>";
 	
 	// naam
-	echo "<tr><td>Naam:</td>";
-	echo "<td><input type=\"text\" name=\"name\" value=\"$name\" size=50 /></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Naam:</label>";
+	echo "<input type=\"text\" name=\"name\" value=\"$name\"  class='form-control' />";
+	echo "</div>";
 	
 	// functie
-	echo "<tr><td>Functie:</td>";
-	echo "<td><input type=\"text\" name=\"function\" value=\"$function\" size=45 /></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Functie:</label>";
+	echo "<input type=\"text\" name=\"function\" value=\"$function\" class='form-control' />";
+	echo "</div>";
 	
 	// mail
-	echo "<tr><td>E-mailadres:</td>";
-	echo "<td><input type=\"text\" name=\"mail\" value=\"$mail\" size=45 /></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>E-mailadres:</label>";
+	echo "<input type=\"text\" name=\"mail\" value=\"$mail\" class='form-control' />";
+	echo "</div>";
 	
 	// MPB
-	echo "<tr><td>Geeft MPB?</td>";
-	echo "<td><input type=\"checkbox\" name=\"mpb\" value=1 ";
+	echo "<div class='checkbox'><label>";
+	echo "<input type=\"checkbox\" name=\"mpb\" value=1 ";
 	if ($mpb == 1) echo "CHECKED";
-	echo "/></td>";
-	echo "</tr>";
+	echo " class='radio'/>Geeft MPB?";
+	echo "</label></div>";
 	
 	// knoppen
-	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"insert\" value=\"Invoeren\" /> ";
-	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\" /></p>";
+	echo "<div class='form-group'><input type=\"submit\" name=\"insert\" value=\"Invoeren\" class='btn btn-primary' /></div> ";
 	echo "</form>";
 }
 ?>

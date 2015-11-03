@@ -5,15 +5,15 @@ include 'admin_header.php';
 ?>
 
 <?php
-echo "<p><div><a href='./admin_bestuur_toev.php'>Bestuurslid toevoegen&gt;&gt;</a></div></p>";
+echo "<p><div><a href='./admin_bestuur_toev.php' class='btn btn-primary'>Bestuurslid toevoegen</a></div></p>";
 
 $query = "SELECT * from bestuursleden ORDER BY Functie;";
 $result = mysql_query($query);
 if (!$result) {
 	die("Ophalen van bestuursleden mislukt.". mysql_error());
 }
-echo "<br><table class=\"basis\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" bordercolor=\"#AAB8D5\">";
-echo "<tr><th><div style=\"text-align:left\">Functie</div></th><th><div style=\"text-align:left\">Naam</div></th><th><div style=\"text-align:left\">Email</div></th><th><div style=\"text-align:left\">Geeft MPB?</div></th><th colspan=2><div style=\"text-align:left\">&nbsp;</div></th></tr>";
+echo "<br><table class=\"table\">";
+echo "<tr><th><div>Functie</div></th><th><div>Naam</div></th><th><div>Email</div></th><th><div>Geeft MPB?</div></th><th colspan=2><div>&nbsp;</div></th></tr>";
 
 $c = 0;
 while ($row = mysql_fetch_assoc($result)) {
@@ -22,10 +22,10 @@ while ($row = mysql_fetch_assoc($result)) {
 	$mail = $row['Email'];
 	$mpb = $row['MPB'];
 	echo "<tr>";
-	echo "<td><div style=\"text-align:left\">$function</div></td>";	
-	echo "<td><div style=\"text-align:left\">$name</div></td>";
-	echo "<td><div style=\"text-align:left\">$mail</div></td>";
-	echo "<td><div style=\"text-align:left\">";
+	echo "<td><div>$function</div></td>";	
+	echo "<td><div>$name</div></td>";
+	echo "<td><div>$mail</div></td>";
+	echo "<td><div>";
 	if ($mpb) {
 		echo "ja";
 	} else {
@@ -33,7 +33,7 @@ while ($row = mysql_fetch_assoc($result)) {
 	}
 	echo "</div></td>";
 	echo "<td><div><a href=\"./admin_bestuur_toev.php?function=$function\">Wijzigen</a></div></td>";
-	echo "<td><div style=\"text-align:left\"><a href='admin_bestuur_verw.php?function=$function'>Verwijderen</a></div></td>";
+	echo "<td><div><a href='admin_bestuur_verw.php?function=$function'>Verwijderen</a></div></td>";
 	echo "</tr>";
 	$c++;
 }

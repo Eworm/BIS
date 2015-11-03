@@ -19,21 +19,32 @@ setlocale(LC_TIME, 'nl_NL');
 ?>
 
 <!DOCTYPE html>
-<html>
-<head>
-    <title><?php echo $systeemnaam; ?> - Admin - <?php echo locationName; ?></title>
-    <link type="text/css" href="../<?php echo $csslink; ?>" rel="stylesheet" />
-    <link type="text/css" href="../css/bis.css" rel="stylesheet" />
-    <script type="text/javascript" src="../scripts/kalender.js"></script>
-    <script type="text/javascript" src="../scripts/sortable.js"></script>
-</head>
+<html lang="nl">
+    
+    <head>
+        <title><?php echo locationName; ?> - Admin - <?php echo $systeemnaam; ?></title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <script type="text/javascript" src="../scripts/kalender.js"></script>
+        <script type="text/javascript" src="../scripts/sortable.js"></script>
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	
+    </head>
+    
 <body>
-<div class="maindiv">
+    
+<?php
+  
+  include('../includes/navbar-admin.php');
+    
+?>
 
-<p>
-	<strong>Welkom in de Admin-sectie van BIS</strong>
-	<?php if (isset($backLink)): ?>
-		[<?php echo $backLink; ?>]
-	<?php endif; ?>
-	[<a href='./admin_logout.php'>Uitloggen</a>]
-</p>
+<div class="container-fluid">
+    
+    <div class="row">
+        
+        <div class="col-md-9">

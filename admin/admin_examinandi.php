@@ -44,7 +44,7 @@ if (!$result) {
 	die("Ophalen van kandidaten mislukt.". mysql_error());
 }
 echo "<table class=\"basis\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" bordercolor=\"#AAB8D5\">";
-echo "<tr><th><div style=\"text-align:left\">datum</div></th><th><div style=\"text-align:left\">tijd</div></th><th><div style=\"text-align:left\">Naam</div></th><th><div style=\"text-align:left\">10-11</div></th><th><div style=\"text-align:left\">11-12</div></th><th><div style=\"text-align:left\">s-1</div></th><th><div style=\"text-align:left\">s-2</div></th><th><div style=\"text-align:left\">s-3</div></th><th><div style=\"text-align:left\">w-1</div></th><th><div style=\"text-align:left\">w-2</div></th><th><div style=\"text-align:left\">s</div></th><th><div style=\"text-align:left\">S</div></th><th><div style=\"text-align:left\">g-1</div></th><th><div style=\"text-align:left\">g-2</div></th><th><div style=\"text-align:left\">g-3</div></th><th><div style=\"text-align:left\">T-1</div></th><th><div style=\"text-align:left\">T-2</div></th><th><div style=\"text-align:left\">examinator</div></th><th><div style=\"text-align:left\">tel.nr.</div></th><th><div style=\"text-align:left\">email</div></th><th><div style=\"text-align:left\">instr.eis</div></th><th><div style=\"text-align:left\">resultaat</div></th><th><div style=\"text-align:left\">webm</div></th><th><div style=\"text-align:left\">captain</div></th><th></th></tr>";
+echo "<tr><th><div>datum</div></th><th><div>tijd</div></th><th><div>Naam</div></th><th><div>10-11</div></th><th><div>11-12</div></th><th><div>s-1</div></th><th><div>s-2</div></th><th><div>s-3</div></th><th><div>w-1</div></th><th><div>w-2</div></th><th><div>s</div></th><th><div>S</div></th><th><div>g-1</div></th><th><div>g-2</div></th><th><div>g-3</div></th><th><div>T-1</div></th><th><div>T-2</div></th><th><div>examinator</div></th><th><div>tel.nr.</div></th><th><div>email</div></th><th><div>instr.eis</div></th><th><div>resultaat</div></th><th><div>webm</div></th><th><div>captain</div></th><th></th></tr>";
 $c = 0;
 while ($row = mysql_fetch_assoc($result)) {
 	$part_id = $row['ID'];
@@ -53,54 +53,54 @@ while ($row = mysql_fetch_assoc($result)) {
 	$telph = $row['TelNr'];
 	$email = $row['Email'];
 	echo "<tr>";
-	echo "<td><div style=\"text-align:left\">&nbsp;</div></td>";
-	echo "<td><div style=\"text-align:left\">&nbsp;</div></td>";
-	echo "<td><div style=\"text-align:left\">$name</div></td>";
-	echo "<td><div style=\"text-align:left\">&nbsp;</div></td>";
-	echo "<td><div style=\"text-align:left\">&nbsp;</div></td>";
-	echo "<td><div style=\"text-align:left\">";
+	echo "<td><div>&nbsp;</div></td>";
+	echo "<td><div>&nbsp;</div></td>";
+	echo "<td><div>$name</div></td>";
+	echo "<td><div>&nbsp;</div></td>";
+	echo "<td><div>&nbsp;</div></td>";
+	echo "<td><div>";
 	if ($grade == "skiff-1") {echo "v";} else {echo "&nbsp;";}
 	echo "</div></td>";
-	echo "<td><div style=\"text-align:left\">";
+	echo "<td><div>";
 	if ($grade == "skiff-2") {echo "v";} else {echo "&nbsp;";}
 	echo "</div></td>";
-	echo "<td><div style=\"text-align:left\">";
+	echo "<td><div>";
 	if ($grade == "skiff-3") {echo "v";} else {echo "&nbsp;";}
 	echo "</div></td>";
-	echo "<td><div style=\"text-align:left\">";
+	echo "<td><div>";
 	if ($grade == "wherry-1") {echo "v";} else {echo "&nbsp;";}
 	echo "</div></td>";
-	echo "<td><div style=\"text-align:left\">";
+	echo "<td><div>";
 	if ($grade == "wherry-2") {echo "v";} else {echo "&nbsp;";}
 	echo "</div></td>";
-	echo "<td><div style=\"text-align:left\">";
+	echo "<td><div>";
 	if ($grade == "kleine-s") {echo "v";} else {echo "&nbsp;";}
 	echo "</div></td>";
-	echo "<td><div style=\"text-align:left\">";
+	echo "<td><div>";
 	if ($grade == "grote-S") {echo "v";} else {echo "&nbsp;";}
 	echo "</div></td>";
-	echo "<td><div style=\"text-align:left\">";
+	echo "<td><div>";
 	if ($grade == "giek-1") {echo "v";} else {echo "&nbsp;";}
 	echo "</div></td>";
-	echo "<td><div style=\"text-align:left\">";
+	echo "<td><div>";
 	if ($grade == "giek-2") {echo "v";} else {echo "&nbsp;";}
 	echo "</div></td>";
-	echo "<td><div style=\"text-align:left\">";
+	echo "<td><div>";
 	if ($grade == "giek-3") {echo "v";} else {echo "&nbsp;";}
 	echo "</div></td>";
-	echo "<td><div style=\"text-align:left\">";
+	echo "<td><div>";
 	if ($grade == "theorie-1") {echo "v";} else {echo "&nbsp;";}
 	echo "</div></td>";
-	echo "<td><div style=\"text-align:left\">";
+	echo "<td><div>";
 	if ($grade == "theorie-2") {echo "v";} else {echo "&nbsp;";}
 	echo "</div></td>";
-	echo "<td><div style=\"text-align:left\">&nbsp;</div></td>";
-	echo "<td><div style=\"text-align:left\">$telph</div></td>";
-	echo "<td><div style=\"text-align:left\">$email</div></td>";
-	echo "<td><div style=\"text-align:left\">&nbsp;</div></td>";
-	echo "<td><div style=\"text-align:left\">&nbsp;</div></td>";
-	echo "<td><div style=\"text-align:left\">&nbsp;</div></td>";
-	echo "<td><div style=\"text-align:left\">&nbsp;</div></td>";
+	echo "<td><div>&nbsp;</div></td>";
+	echo "<td><div>$telph</div></td>";
+	echo "<td><div>$email</div></td>";
+	echo "<td><div>&nbsp;</div></td>";
+	echo "<td><div>&nbsp;</div></td>";
+	echo "<td><div>&nbsp;</div></td>";
+	echo "<td><div>&nbsp;</div></td>";
 	echo "<td><a href='admin_examinandi.php?mode=d&id=$id&part_id=$part_id'>Verwijder</a></td>";
 	echo "</tr>";
 }

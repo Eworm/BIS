@@ -16,36 +16,53 @@ if (!mysql_select_db($database, $link)) {
 }
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title><?php echo $systeemnaam; ?> - Admin - Rapportages</title>
-    <link type="text/css" href="../<?php echo $csslink; ?>" rel="stylesheet" />
-	<script type="text/javascript" src="../scripts/sortable.js"></script>
-</head>
+<!DOCTYPE html>
+<html lang="nl">
+    
+    <head>
+        <title>Admin - <?php echo $systeemnaam; ?></title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        
+        <script type="text/javascript" src="../scripts/sortable.js"></script>
+    	
+    </head>
+    
 <body>
+    
+<?php
+  
+  include('../includes/navbar-admin.php');
+    
+?>
 
-<div style="margin-left:10px; margin-top:10px">
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-9">
 
 <?php
-echo "<p><strong>Welkom in de Admin-sectie van BIS</strong> [<a href='./index.php'>Terug naar admin-menu</a>] [<a href='./admin_logout.php'>Uitloggen</a>]</p>";
 
 if (!$_POST['submit']) {
 	echo '<form name="form" action="' . $_SERVER['REQUEST_URI'] . '" method="post">';
 	// jaar
-	echo "<p>Jaar (jjjj): ";
-	echo "<input type=\"text\" name=\"jaar\" value=\"$jaar\" size=\"4\" /></p>";
-	echo "<p><input type=\"submit\" name=\"submit\" value=\"Toon rapport\" /></p>";
+	echo "<div class='form-group'><label for=''>Jaar</label>";
+	echo "<input type=\"text\" name=\"jaar\" value=\"$jaar\" size=\"4\" class='form-control' autofocus></div>";
+	echo "<div class='form-group'><input type=\"submit\" name=\"submit\" value=\"Toon rapport\" class='btn btn-primary'></div>";
 	echo "</form>";
 }
 
 if ($_POST['submit']) {
 	$jaar = $_POST['jaar'];
 
-	echo "<p><strong>Gebruikstotalen voor het jaar ".$jaar."</strong></p>";
-	echo "<p><em>Klik op een kolomkop om de tabel op die kolom te sorteren. Eerste keer klikken: oplopend; tweede keer: aflopend.</em></p>";
-	echo "<p><em>Let op: het totaal aantal dagen uit de vaart kan ingeval van overlappende uit-de-vaart-periodes hoger zijn dan in werkelijkheid.</em></p>";
-	echo "<table class=\"sortable\" id=\"jaarrapport\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" style=\"bordercolor:#AAB8D5\">";
+	echo "<h1>Gebruikstotalen voor het jaar ".$jaar."</h1>";
+	echo "<p>Klik op een kolomkop om de tabel op die kolom te sorteren. Eerste keer klikken: oplopend; tweede keer: aflopend. Let op: het totaal aantal dagen uit de vaart kan ingeval van overlappende uit-de-vaart-periodes hoger zijn dan in werkelijkheid.</p>";
+	echo "<table class=\"table sortable\" id=\"jaarrapport\">";
 	echo "<tr><td>Naam</td><td>Type</td><td>Roeisoort</td>";
 	for ($i = 1; $i < 13; $i++) {
 		echo "<td width=\"15\">$i</td>";
@@ -116,6 +133,22 @@ if ($_POST['submit']) {
 mysql_close($link);
 ?>
 
+        </div>
+        
+        <div class="col-md-3">
+            
+            <div class="well">
+                
+                <strong>Welkom in de admin-sectie van BIS</strong>
+                <br><br>
+                <a href='./admin_logout.php' class="btn btn-primary">Uitloggen</a>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
 </div>
 </body>
 </html>
