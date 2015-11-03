@@ -69,7 +69,7 @@ if (!mysql_select_db($database, $link)) {
                 	unset($_POST['name'], $_POST['boat_id'], $_POST['note'], $name, $boat_id, $note);
                 	$fail = FALSE;
                 	echo "<p>De schade zal niet worden gemeld.<br>";
-                	echo "<a href='index_boten.php'>Terug naar het schadeoverzicht voor de boten&gt;&gt;</a></p>";
+                	echo "<a href='index_boten.php'>Terug naar het schadeoverzicht voor de boten</a></p>";
                 }
                 
                 if (isset($_POST['insert'])){

@@ -303,6 +303,14 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
         	
         <hr>
         
+        <p>
+            <a href='schade_boten_toev.php' class='btn btn-primary'>Schademelding boot  </a>
+            <br><br>
+            <a href='schade_gebouw_toev.php' class='btn btn-primary'>Schademelding gebouw</a>
+        </p>
+        
+        <hr>
+        
         <p class="text-muted">
            Ingelogd als <?php echo $_SESSION['login']; ?>
            <br>

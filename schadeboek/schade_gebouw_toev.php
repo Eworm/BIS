@@ -69,7 +69,7 @@ if (!mysql_select_db($database, $link)) {
                 	unset($_POST['name'], $_POST['note'], $name, $note);
                 	$fail = FALSE;
                 	echo "<p>De klacht zal niet worden gemeld.<br>";
-                	echo "<a href='index_gebouw.php'>Terug naar het klachtenoverzicht voor het gebouw/algemeen&gt;&gt;</a></p>";
+                	echo "<a href='index_gebouw.php'>Terug naar het klachtenoverzicht voor het gebouw/algemeen</a></p>";
                 }
                 
                 if (isset($_POST['insert'])){
