@@ -115,17 +115,17 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	echo "<form name='form' action=\"$REQUEST_URI\" method=\"post\">";
 	
 	// naam
-	echo "<div class='form-group'><label>Naam:</label>";
+	echo "<div class='form-group'><label>Naam</label>";
 	echo "<input type=\"text\" name=\"name\" value=\"$name\" class='form-control' />";
 	echo "</div>";
 	
 	// betreft
-	echo "<div class='form-group'><label>Betreft:</label>";
+	echo "<div class='form-group'><label>Betreft</label>";
 	echo "<input type=\"text\" name=\"summary\" value=\"$summary\" class='form-control' />";
 	echo "</div>";
 	
 	// mededeling
-	echo "<div class='form-group'><label>Mededeling (max. 1000 tekens):</label>";
+	echo "<div class='form-group'><label>Mededeling (max. 1000 tekens)</label>";
 	echo "<textarea name=\"note\" rows=4 class='form-control'/>$note</textarea>";
 	echo "</div>";
 	

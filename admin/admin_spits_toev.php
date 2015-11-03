@@ -18,21 +18,40 @@ if (!mysql_select_db($database, $link)) {
 
 setlocale(LC_TIME, 'nl_NL');
 ?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title><?php echo $systeemnaam; ?> - Admin - Vlootbeheer - Uit de Vaart toevoegen</title>
-    <link type="text/css" href="../<?php echo $csslink; ?>" rel="stylesheet" />
-	<script language="JavaScript" src="../scripts/kalender.js"></script>
-</head>
+    
+<!DOCTYPE html>
+<html lang="nl">
+    
+    <head>
+        <title>Admin - <?php echo $systeemnaam; ?></title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        
+        <script language="JavaScript" src="../scripts/kalender.js"></script>
+    	
+    </head>
+    
 <body>
-<div style="margin-left:10px; margin-top:10px">
+    
+<?php
+  
+  include('../includes/navbar-admin.php');
+    
+?>
+
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-9">
+
 
 <?php
 $fail = false;
-
-echo "<p><strong>Welkom in de Admin-sectie van BIS</strong> [<a href=\"./admin_spits.php\">Terug naar het spitsrooster</a>] [<a href='./admin_logout.php'>Uitloggen</a>]</p>";
 
 $spits_id = 0;
 if (isset($_GET['id'])) {
@@ -200,13 +219,12 @@ if (isset($_POST['submit'])) {
 
 // HET FORMULIER
 if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
-	echo "<p>toevoegen repeterend spitsblok</p>";
+	echo "<h1>Toevoegen repeterend spitsblok</h1>";
 	echo '<form name="form" action="' . $_SERVER['REQUEST_URI'] . '" method="post">';
-	echo "<table><tr>";
 	
 	// bestuurslid
-	echo "<td>Uw functie:</td>";
-	echo "<td><select name=\"mpb\">";
+	echo "<div class='form-group'><label>Uw functie:</label>";
+	echo "<select name=\"mpb\" class='form-control'>";
 	$cnt = 0;
 	foreach ($mpb_array as $mpb_db) {
 		if ($cnt > 0) { // eerste veld is leeg
@@ -218,37 +236,36 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 		}
 		$cnt++;
 	}
-	echo "</select></td>";
-	echo "</tr>";
+	echo "</select>";
 	if (isset($fail_msg_mpb)) {
-		echo '<td colspan=2><em>' . $fail_msg_mpb . '</em></td>';
+		echo '<em>' . $fail_msg_mpb . '</em>';
 	}
-	echo "</tr><tr>";
+	echo "</div>";
 	
 	// startdatum
 	if (isset($fail_msg_date)) {
-		echo '<td colspan=2><em>' . $fail_msg_date . '</em></td></tr><tr>';
+		echo '<em>' . $fail_msg_date . '</em>';
 	}
-	echo "<td>Startdatum (dd-mm-jjjj):</td>";
-	echo '<td><input type="text" name="startdate" id="startdate" size="8" maxlength="10" value="' . (isset($startdate) ? $startdate : '') . '">';
-	echo '&nbsp;<a href="javascript:show_calendar(\'form.startdate\');" onmouseover="window.status=\'Kalender\';return true;" onmouseout="window.status=\'\';return true;"><img src="../res/kalender.gif" alt="kalender" width="19" height="17" border="0"></a></td>';
+	echo "<div class='form-group'><label>Startdatum (dd-mm-jjjj):</label>";
+	echo '<input type="text" name="startdate" id="startdate" class="form-control" maxlength="10" value="' . (isset($startdate) ? $startdate : '') . '">';
+	echo '&nbsp;<a href="javascript:show_calendar(\'form.startdate\');" onmouseover="window.status=\'Kalender\';return true;" onmouseout="window.status=\'\';return true;"><img src="../res/kalender.gif" alt="kalender" width="19" height="17" border="0"></a>';
 	if (isset($fail_msg_startdate)) {
-		echo '<td><em>' . $fail_msg_startdate . '</em></td>';
+		echo '<em>' . $fail_msg_startdate . '</em>';
 	}
-	echo "</tr><tr>";
+	echo "</div>";
 	
 	// einddatum
-	echo "<td>Einddatum (dd-mm-jjjj):</td>";
-	echo '<td><input type="text" name="enddate" id="enddate" size="8" maxlength="10" value="' . (isset($enddate) ? $enddate : '') . '">';
-	echo "&nbsp;<a href=\"javascript:show_calendar('form.enddate'); return true;\" onmouseover=\"window.status='Kalender';return true;\" onmouseout=\"window.status='';return true;\"><img src='../res/kalender.gif' alt='kalender' width='19' height='17' border='0'></a></td>";
+	echo "<div class='form-group'><label>Einddatum (dd-mm-jjjj):</label>";
+	echo '<input type="text" name="enddate" id="enddate" class="form-control" maxlength="10" value="' . (isset($enddate) ? $enddate : '') . '">';
+	echo "&nbsp;<a href=\"javascript:show_calendar('form.enddate'); return true;\" onmouseover=\"window.status='Kalender';return true;\" onmouseout=\"window.status='';return true;\"><img src='../res/kalender.gif' alt='kalender' width='19' height='17' border='0'></a>";
 	if (isset($fail_msg_enddate)) {
-		echo '<td><em>' . $fail_msg_enddate . '</em></td>';
+		echo '<em>' . $fail_msg_enddate . '</em>';
 	}
-	echo "</tr><tr>";
+	echo "</div>";
 	
 	// starttijd
-	echo "<td>Begintijd:</td>";
-	echo "<td><select name=\"start_time_hrs\">";
+	echo "<div class='form-group'><label>Begintijd:</label>";
+	echo "<select name=\"start_time_hrs\">";
 		for ($t=6; $t<24; $t++) {
 			echo"<option value=\"".$t."\" ";
 			if (isset($start_time_hrs) && $start_time_hrs == $t) {
@@ -278,15 +295,15 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 			echo "selected=\"selected\"";
 		}
 		echo ">45</option>";
-	echo "</select></td>";
+	echo "</select>";
 	if (isset($fail_msg_time)) {
-		echo '<td><em>' . $fail_msg_time . '</em></td>';
+		echo '<em>' . $fail_msg_time . '</em>';
 	}
-	echo "</tr><tr>";
+	echo "</div>";
 	
 	// eindtijd
-	echo "<td>Eindtijd:</td>";
-	echo "<td><select name=\"end_time_hrs\">";
+	echo "<div class='form-group'><label>Eindtijd:</label>";
+	echo "<select name=\"end_time_hrs\">";
 		for ($t=6; $t<24; $t++) {
 			echo"<option value=\"".$t."\" ";
 			if (isset($end_time_hrs) && $end_time_hrs == $t) {
@@ -316,12 +333,12 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 			echo "selected=\"selected\"";
 		}
 		echo ">45</option>";
-	echo "</select></td>";
-	echo "</tr><tr>";
+	echo "</select>";
+	echo "</div>";
 	
 	// boot
-	echo "<td>Boot/ergometer:</td>";
-	echo "<td><select name=\"boat_id\">";
+	echo "<div class='form-group'><label>Boot/ergometer:</label>";
+	echo "<select name=\"boat_id\" class='form-control'>";
 	$query = 'SELECT ID, Naam FROM boten WHERE Datum_eind IS NULL AND Type<>"soc" ORDER BY Naam';
 	$boats_result = mysql_query($query);
 	if (!$boats_result) {
@@ -337,34 +354,32 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 			echo ">".$curr_boat."</option>";
 		}
 	}
-	echo "</select></td>";
-	echo "</tr><tr>";
+	echo "</select>";
+	echo "</div>";
 	
 	// PersoonsNaam (pname)
-	echo "<td>Voor- en achternaam ploegcaptain:</td>";
-	echo '<td><input type="text" name="pname" value="' . (isset($pname) ? $pname : '') . '" size="30" /></td>';
+	echo "<div class='form-group'><label>Voor- en achternaam ploegcaptain:</label>";
+	echo '<input type="text" name="pname" value="' . (isset($pname) ? $pname : '') . '" class="form-control" />';
 	if (isset($fail_msg_pname)) {
-		echo '<td><em>' . $fail_msg_pname . '</em></td>';
+		echo '<em>' . $fail_msg_pname . '</em>';
 	}
-	echo "</tr><tr>";
+	echo "</div>";
 	
 	// Ploegnaam
-	echo "<td>Ploegnaam (optioneel):</td>";
-	echo '<td><input type="text" name="name" value="' . (isset($name) ? $name : '') . '" size="30" /></td>';
-	echo "</tr><tr>";
+	echo "<div class='form-group'><label>Ploegnaam (optioneel):</label>";
+	echo '<input type="text" name="name" value="' . (isset($name) ? $name : '') . '" class="form-control" />';
+	echo "</div>";
 	
 	// e-mailadres
-	echo "<td>E-mailadres (optioneel):</td>";
-	echo '<td><input type="text" name="email" value="' . (isset($email) ? $email : '') . '" size="30" /></td>';
+	echo "<div class='form-group'><label>E-mailadres (optioneel):</label>";
+	echo '<input type="text" name="email" value="' . (isset($email) ? $email : '') . '" class="form-control" />';
 	if (isset($fail_msg_email)) {
-		echo '<td><em>' . $fail_msg_email . '</em></td>';
+		echo '<em>' . $fail_msg_email . '</em>';
 	}
-	echo "</tr>";
+	echo "</div>";
 	
 	// knoppen
-	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"submit\" value=\"toevoegen\" /> ";
-	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\" /></p>";
+	echo "<input type=\"submit\" name=\"submit\" value=\"toevoegen\" class='btn btn-primary' /> ";
 	echo "</form>";
 }
 
@@ -372,6 +387,22 @@ mysql_close($link);
 
 ?>
 
+        </div>
+        
+        <div class="col-md-3">
+            
+            <div class="well">
+                
+                <strong>Welkom in de admin-sectie van BIS</strong>
+                <br><br>
+                <a href='./admin_logout.php' class="btn btn-primary">Uitloggen</a>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
 </div>
 </body>
 </html>

@@ -115,7 +115,7 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	echo "</label></div>";
 	
 	// mail
-	echo "<div class='form-group'><label>Achtergrondkleur in BIS-botentabel:</label>";
+	echo "<div class='form-group'><label>Achtergrondkleur in BIS-botentabel</label>";
 	echo "<input type=\"text\" name=\"color\" value=\"$color\"  class='form-control' /></td>";
 	echo "</div>";
 	

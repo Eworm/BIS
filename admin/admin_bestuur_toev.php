@@ -56,17 +56,17 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	echo "<form name='form' action=\"$REQUEST_URI\" method=\"post\">";
 	
 	// naam
-	echo "<div class='form-group'><label>Naam:</label>";
+	echo "<div class='form-group'><label>Naam</label>";
 	echo "<input type=\"text\" name=\"name\" value=\"$name\"  class='form-control' />";
 	echo "</div>";
 	
 	// functie
-	echo "<div class='form-group'><label>Functie:</label>";
+	echo "<div class='form-group'><label>Functie</label>";
 	echo "<input type=\"text\" name=\"function\" value=\"$function\" class='form-control' />";
 	echo "</div>";
 	
 	// mail
-	echo "<div class='form-group'><label>E-mailadres:</label>";
+	echo "<div class='form-group'><label>E-mailadres</label>";
 	echo "<input type=\"text\" name=\"mail\" value=\"$mail\" class='form-control' />";
 	echo "</div>";
 	
