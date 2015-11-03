@@ -242,7 +242,7 @@ if (substr($boat, 0, 7) == "Concept") {
 }
 // Boat
 echo "<td" . (isset($hide) ? $hide : "") . ">Boot/ergometer:</td>";
-echo "<td". (isset($hide) ? $hide : "") . "><select" . (isset($hide) ? $hide : "") . " name=\"boat_id\" onchange=\"changeInfo();\" id=\"boat_id\">";
+echo "<td". (isset($hide) ? $hide : "") . "><select" . (isset($hide) ? $hide : "") . " name=\"boat_id\" onchange=\"changeInfo();\" id=\"boat_id\" class=\"form-control\">";
 echo "<option value=0 ";
 if ($boat_id == 0) echo "selected=\"selected\"";
 echo "></option>";
@@ -275,22 +275,22 @@ echo "</tr><tr>";
 
 // persoonsnaam
 echo "<td>Voor- en achternaam:</td>";
-echo "<td><input type=\"text\" id=\"pname\" name=\"pname\" value=\"" . (isset($pname) ? $pname : "") . "\" size=\"30\" /></td>";
+echo "<td><input type=\"text\" id=\"pname\" name=\"pname\" value=\"" . (isset($pname) ? $pname : "") . "\" size=\"30\" class=\"form-control\" /></td>";
 echo "</tr><tr>";
 
 // ploegnaam
 echo "<td>Ploegnaam/omschrijving (optioneel):</td>";
-echo "<td><input type=\"text\" id=\"name\" name=\"name\" value=\"" . (isset($name) ? $name : "") . "\" size=\"30\" /></td>";
+echo "<td><input type=\"text\" id=\"name\" name=\"name\" value=\"" . (isset($name) ? $name : "") . "\" size=\"30\" class=\"form-control\" /></td>";
 echo "</tr><tr>";
 
 // e-mailadres
 echo "<td>E-mailadres (optioneel):</td>";
-echo "<td><input type=\"text\" id=\"email\" name=\"email\" value=\"" . (isset($email) ? $email : "") . "\" size=\"30\" /></td>";
+echo "<td><input type=\"text\" id=\"email\" name=\"email\" value=\"" . (isset($email) ? $email : "") . "\" size=\"30\" class=\"form-control\" /></td>";
 echo "</tr><tr>";
 
 // mpb
 echo "<td>MPB (indien nodig):</td>";
-echo "<td><select name=\"mpb\" id='mpb'>";
+echo "<td><select name=\"mpb\" id='mpb' class='form-control'>";
 $cnt = 0;
 foreach($mpb_array as $mpb_db) {
 	echo "<option value='" . $mpb_db . "'";
@@ -303,20 +303,20 @@ echo "</tr><tr>";
 
 // datum
 echo "<td>Datum (dd-mm-jjjj):</td>";
-echo "<td><input type='text' onchange=\"changeInfo();\" name='resdate' id='resdate' size='8' maxlength='10' value='" . $date . "' />";
+echo "<td><input type='text' onchange=\"changeInfo();\" name='resdate' id='resdate' size='8' maxlength='10' class='form-control' value='" . $date . "' />";
 echo "&nbsp;<a href=\"javascript:show_calendar('resdetails.resdate');\" onmouseover=\"window.status='Kalender';return true;\" onmouseout=\"window.status='';return true;\"><img src='res/kalender.gif' alt='kalender' width='19' height='17' border='0' /></a></td>";
 echo "</tr><tr>";
 
 // begintijd
 echo "<td>Begintijd</td>";
-echo "<td><select name='start_time_hrs' onchange=\"changeInfo();\" id='start_time_hrs'>";
+echo "<td><select name='start_time_hrs' onchange=\"changeInfo();\" id='start_time_hrs' class='form-control'>";
 	for ($t=6; $t<24; $t++) {
 		echo"<option value=\"".$t."\" ";
 		if ($start_time_hrs == $t) echo "selected=\"selected\"";
 		echo ">".$t."</option>";
 	}
 echo "</select>";
-echo "&nbsp;<select name='start_time_mins' onchange=\"changeInfo();\" id='start_time_mins'>";
+echo "&nbsp;<select name='start_time_mins' onchange=\"changeInfo();\" id='start_time_mins' class='form-control'>";
 	echo "<option value=\"00\" ";
 	if ($start_time_mins == 0) echo "selected=\"selected\"";
 	echo ">00</option>";
@@ -334,14 +334,14 @@ echo "</tr><tr>";
 
 // eindtijd
 echo "<td>Eindtijd:</td>";
-echo "<td><select name='end_time_hrs' onchange=\"changeInfo();\" id='end_time_hrs'>";
+echo "<td><select name='end_time_hrs' onchange=\"changeInfo();\" id='end_time_hrs' class='form-control'>";
 	for ($t=6; $t<24; $t++) {
 		echo"<option value=\"".$t."\" ";
 		if ($end_time_hrs == $t) echo "selected=\"selected\"";
 		echo ">".$t."</option>";
 	}
 echo "</select>";
-echo "&nbsp;<select name='end_time_mins' onchange=\"changeInfo();\" id='end_time_mins'>";
+echo "&nbsp;<select name='end_time_mins' onchange=\"changeInfo();\" id='end_time_mins' class='form-control'>";
 	echo "<option value=\"00\" ";
 	if ($end_time_mins == 0) echo "selected=\"selected\"";
 	echo ">00</option>";
@@ -358,7 +358,7 @@ echo "</select></td>";
 echo "</tr>";
 echo "</table><br />";
 // knoppen
-echo "<div><input type=\"button\" class='bisbtn' value=\"";
+echo "<div><input type=\"button\" class='btn btn-primary' value=\"";
 if ($id) {
 	echo "Opslaan";
 } else {

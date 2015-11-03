@@ -152,16 +152,18 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                     
                                     <input type="text" name="date_to_show" maxlength="10" value="<?php echo $date_to_show ?>" onchange="changeInfo();" id="date_to_show" class="form-control">
                                     
+<!--
                                     <a href="javascript:show_calendar('adjust.date_to_show');" onmouseover="window.status='Kalender';return true;" onmouseout="window.status='';return true;"><img src='res/kalender.gif' width='19' height='17' border='0' alt='Kalender' /></a>
                                 	<input class='btn btn-default btn-sm' type="button" name="change_date" value="&lt;" onclick="changeDate(-1); changeInfo();">
                                 	<input class='btn btn-default btn-sm' type="button" name="reset_date" value="Vandaag" onclick="resetDate(); changeInfo();">
                                 	<input class='btn btn-default btn-sm' type="button" name="change_date" value="&gt;" onclick="changeDate(1); changeInfo();">
+-->
                                     
                                 </div>
                         
                             </div>
                             
-                            <div class="col-md-2">
+                            <div class="col-md-1">
                         
                                 <div class="form-group">
                                     
@@ -169,7 +171,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                     
                                     <div class="row">
                                         
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                     
                                             <select name='start_hrs_to_show' onchange="changeInfo();" id='start_hrs_to_show' class="form-control">
                                         	<?php for ($t = 6; $t < 24; $t++): ?>
@@ -179,7 +181,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                         	
                                         </div>
                                         
-                                        <div class="col-md-6">
+                                        <div class="col-md-6" style="display: none;">
                                         	
                                         	<select name='start_mins_to_show' onchange="changeInfo();" id='start_mins_to_show' class="form-control">
                                         		<option value="00"<?php if ($start_mins_to_show == 0): ?> selected="selected" <?php endif; ?>>00</option>
@@ -196,7 +198,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                             
                             </div>
                             
-                            <div class="col-md-8">
+                            <div class="col-md-9">
                                 
                                 <div class="form-group">
                                     
