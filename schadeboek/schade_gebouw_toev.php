@@ -80,9 +80,9 @@ if (!mysql_select_db($database, $link)) {
                 			$message = $name." heeft zojuist een klacht gedaan:<br>".$note."<br>";
                 			SendEmail("penningmeester@hunze.nl", "Nieuwe klacht/schademelding", $message);
                 			// feedback op scherm
-                			echo "<p>Hartelijk dank voor uw melding! De klacht is doorgegeven aan de Gebouwcommissie.<br>";
+                			echo "<p>Uw klacht is doorgegeven aan de Gebouwcommissie.<br>";
                 			echo "Mocht u de melding nog nader willen toelichten of willen wijzigen, neemt u dan contact op via <a href='mailto:penningmeester@hunze.nl'>e-mail</a>.<br>";
-                			echo "<a href='index_gebouw.php'>Terug naar het klachtenoverzicht voor het gebouw&gt;&gt;</a></p>";
+                			echo "<br><br><a href='index_gebouw.php'>Terug naar het klachtenoverzicht voor het gebouw</a></p>";
                 		}
                 	}
                 }

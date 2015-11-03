@@ -99,9 +99,9 @@ if (!mysql_select_db($database, $link)) {
                 			$message = $name." heeft zojuist een schade gemeld betreffende '".$boat."'.<br>";
                 			SendEmail("materiaal@hunze.nl", "Nieuwe schademelding", $message);
                 			// feedback op scherm
-                			echo "<p>Hartelijk dank voor uw melding! De klacht is doorgegeven aan de Materiaalcommissie.<br>";
+                			echo "<p>Uw schademelding is doorgegeven aan de Materiaalcommissie.<br>";
                 			echo "Mocht u de melding nog nader willen toelichten of willen wijzigen, neemt u dan contact op via <a href='mailto:materiaal@hunze.nl'>e-mail</a>.<br>";
-                			echo "<a href='index_boten.php'>Terug naar het schadeoverzicht voor de boten&gt;&gt;</a></p>";
+                			echo "<br><br><a href='index_boten.php'>Terug naar het schadeoverzicht voor de boten</a></p>";
                 		}
                 	}
                 }
