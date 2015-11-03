@@ -61,7 +61,7 @@ if ($_POST['submit']) {
 	$jaar = $_POST['jaar'];
 
 	echo "<h1>Gebruikstotalen voor het jaar ".$jaar."</h1>";
-	echo "<p>Klik op een kolomkop om de tabel op die kolom te sorteren. Eerste keer klikken: oplopend; tweede keer: aflopend. Let op: het totaal aantal dagen uit de vaart kan ingeval van overlappende uit-de-vaart-periodes hoger zijn dan in werkelijkheid.</p>";
+	echo "<p>Let op: het totaal aantal dagen uit de vaart kan ingeval van overlappende uit-de-vaart-periodes hoger zijn dan in werkelijkheid.</p>";
 	echo "<table class=\"table sortable\" id=\"jaarrapport\">";
 	echo "<tr><td>Naam</td><td>Type</td><td>Roeisoort</td>";
 	for ($i = 1; $i < 13; $i++) {

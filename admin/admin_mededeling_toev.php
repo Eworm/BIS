@@ -17,18 +17,36 @@ if (!mysql_select_db($database, $link)) {
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title><? echo $systeemnaam; ?> - Admin - Bestuursmededeling toevoegen</title>
-    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet" />
-</head>
+<!DOCTYPE html>
+<html lang="nl">
+    
+    <head>
+        <title>Admin - <?php echo $systeemnaam; ?></title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	
+    </head>
+    
 <body>
-<div style="margin-left:10px; margin-top:10px">
+    
+<?php
+  
+  include('../includes/navbar-admin.php');
+    
+?>
+
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-9">
+
 
 <?php
-
-echo "<p><strong>Welkom in de Admin-sectie van BIS</strong> [<a href='./admin_mededeling.php'>Terug naar mededelingen-menu</a>] [<a href='./admin_logout.php'>Uitloggen</a>]</p>";
 
 // ingeval van editen bestaande mededeling
 $id = $_GET['id'];
@@ -93,29 +111,26 @@ if ($_POST['insert']){
 
 // Formulier
 if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
-	echo "<p><b>Bestuursmededeling invoeren</b></p>";
+	echo "<h1>Bestuursmededeling invoeren</h1>";
 	echo "<form name='form' action=\"$REQUEST_URI\" method=\"post\">";
-	echo "<table>";
 	
 	// naam
-	echo "<tr><td>Naam:</td>";
-	echo "<td><input type=\"text\" name=\"name\" value=\"$name\" size=50 /></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Naam:</label>";
+	echo "<input type=\"text\" name=\"name\" value=\"$name\" class='form-control' />";
+	echo "</div>";
 	
 	// betreft
-	echo "<tr><td>Betreft:</td>";
-	echo "<td><input type=\"text\" name=\"summary\" value=\"$summary\" size=45 /></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Betreft:</label>";
+	echo "<input type=\"text\" name=\"summary\" value=\"$summary\" class='form-control' />";
+	echo "</div>";
 	
 	// mededeling
-	echo "<tr><td>Mededeling (max. 1000 tekens):</td>";
-	echo "<td><textarea name=\"note\" rows=4 cols=50/>$note</textarea></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Mededeling (max. 1000 tekens):</label>";
+	echo "<textarea name=\"note\" rows=4 class='form-control'/>$note</textarea>";
+	echo "</div>";
 	
 	// knoppen
-	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"insert\" value=\"Invoeren\" /> ";
-	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\" /></p>";
+	echo "<input type=\"submit\" name=\"insert\" value=\"Invoeren\" class='btn btn-primary' /> ";
 	echo "</form>";
 }
 
@@ -123,6 +138,22 @@ mysql_close($link);
 
 ?>
 
+        </div>
+        
+        <div class="col-md-3">
+            
+            <div class="well">
+                
+                <strong>Welkom in de admin-sectie van BIS</strong>
+                <br><br>
+                <a href='./admin_logout.php' class="btn btn-primary">Uitloggen</a>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
 </div>
 </body>
 </html>
