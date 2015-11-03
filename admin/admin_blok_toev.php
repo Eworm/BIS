@@ -164,13 +164,12 @@ if (isset($_POST['submit'])) {
 
 // HET FORMULIER
 if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
-	echo "<p>toevoegen/bewerken wedstrijdblok</p>";
+	echo "<h1>Toevoegen/bewerken wedstrijdblok</h1>";
 	echo '<form name="form" action="' . $_SERVER['REQUEST_URI'] . '" method="post">';
-	echo "<table><tr>";
 	
 	// bestuurslid
-	echo "<td>Uw functie:</td>";
-	echo "<td><select name=\"mpb\">";
+	echo "<div class='form-group'><label>Uw functie</label>";
+	echo "<select name=\"mpb\" class='form-control'>";
 	$cnt = 0;
 	foreach ($mpb_array as $mpb_db) {
 		if ($cnt > 0) { // eerste veld is leeg
@@ -182,28 +181,27 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 		}
 		$cnt++;
 	}
-	echo "</select></td>";
-	echo "</tr>";
+	echo "</select>";
 	if (isset($fail_msg_mpb)) {
-		echo '<td colspan=2><em>' . $fail_msg_mpb . '</em></td>';
+		echo '<em>' . $fail_msg_mpb . '</em>';
 	}
-	echo "</tr><tr>";
+	echo "</div>";
 	
 	// startdatum
 	if (isset($fail_msg_date)) {
-		echo '<td colspan=2><em>' . $fail_msg_date . '</em></td></tr><tr>';
+		echo '<em>' . $fail_msg_date . '</em>';
 	}
-	echo "<td>Begindatum (dd-mm-jjjj):</td>";
-	echo '<td><input type="text" name="startdate" id="startdate" size="8" maxlength="10" value="' . (isset($startdate) ? $startdate : '') . '">';
-	echo '&nbsp;<a href="javascript:show_calendar(\'form.startdate\');" onmouseover="window.status=\'Kalender\';return true;" onmouseout="window.status=\'\';return true;"><img src="../res/kalender.gif" alt="kalender" width="19" height="17" border="0"></a></td>';
+	echo "<div class='form-group'><label>Begindatum (dd-mm-jjjj)</label>";
+	echo '<input type="text" name="startdate" id="startdate" class="form-control" maxlength="10" value="' . (isset($startdate) ? $startdate : '') . '">';
+	echo '&nbsp;<a href="javascript:show_calendar(\'form.startdate\');" onmouseover="window.status=\'Kalender\';return true;" onmouseout="window.status=\'\';return true;"><img src="../res/kalender.gif" alt="kalender" width="19" height="17" border="0"></a>';
 	if (isset($fail_msg_startdate)) {
-		echo '<td><em>' . $fail_msg_startdate . '</em></td>';
+		echo '<em>' . $fail_msg_startdate . '</em>';
 	}
-	echo "</tr><tr>";
+	echo "</div>";
 	
 	// starttijd
-	echo "<td>Begintijd:</td>";
-	echo "<td><select name=\"start_time_hrs\">";
+	echo "<div class='form-group'><label>Begintijd</label><div class='row'>";
+	echo "<div class='col-md-6'><select name=\"start_time_hrs\" class='form-control'>";
 		for ($t=6; $t<24; $t++) {
 			echo"<option value=\"".$t."\" ";
 			if (isset($start_time_hrs) && $start_time_hrs == $t) {
@@ -211,8 +209,8 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 			}
 			echo ">".$t."</option>";
 		}
-	echo "</select>";
-	echo "&nbsp;<select name=\"start_time_mins\">";
+	echo "</select></div>";
+	echo "<div class='col-md-6'><select name=\"start_time_mins\" class='form-control'>";
 		echo "<option value=\"00\" ";
 		if (isset($start_time_mins) && $start_time_mins == 0) {
 			echo "selected=\"selected\"";
@@ -233,24 +231,24 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 			echo "selected=\"selected\"";
 		}
 		echo ">45</option>";
-	echo "</select></td>";
+	echo "</select></div>";
 	if (isset($fail_msg_time)) {
-		echo '<td><em>' . $fail_msg_time . '</em></td>';
+		echo '<em>' . $fail_msg_time . '</em>';
 	}
-	echo "</tr><tr>";
+	echo "</div></div>";
 	
 	// einddatum
-	echo "<td>Einddatum (dd-mm-jjjj):</td>";
-	echo '<td><input type="text" name="enddate" id="enddate" size="8" maxlength="10" value="' . (isset($enddate) ? $enddate : '') . '">';
-	echo "&nbsp;<a href=\"javascript:show_calendar('form.enddate'); return true;\" onmouseover=\"window.status='Kalender';return true;\" onmouseout=\"window.status='';return true;\"><img src='../res/kalender.gif' alt='kalender' width='19' height='17' border='0'></a></td>";
+	echo "<div class='form-group'><label>Einddatum (dd-mm-jjjj)</label>";
+	echo '<input type="text" name="enddate" id="enddate"  class="form-control" maxlength="10" value="' . (isset($enddate) ? $enddate : '') . '">';
+	echo "&nbsp;<a href=\"javascript:show_calendar('form.enddate'); return true;\" onmouseover=\"window.status='Kalender';return true;\" onmouseout=\"window.status='';return true;\"><img src='../res/kalender.gif' alt='kalender' width='19' height='17' border='0'></a>";
 	if (isset($fail_msg_enddate)) {
-		echo '<td><em>' . $fail_msg_enddate . '</em></td>';
+		echo '<em>' . $fail_msg_enddate . '</em>';
 	}
-	echo "</tr><tr>";
+	echo "</div>";
 	
 	// eindtijd
-	echo "<td>Eindtijd:</td>";
-	echo "<td><select name=\"end_time_hrs\">";
+	echo "<div class='form-group'><label>Eindtijd</label><div class='row'>";
+	echo "<div class='col-md-6'><select name=\"end_time_hrs\" class='form-control'>";
 		for ($t=6; $t<24; $t++) {
 			echo"<option value=\"".$t."\" ";
 			if (isset($end_time_hrs) && $end_time_hrs == $t) {
@@ -258,8 +256,8 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 			}
 			echo ">".$t."</option>";
 		}
-	echo "</select>";
-	echo "&nbsp;<select name=\"end_time_mins\">";
+	echo "</select></div>";
+	echo "<div class='col-md-6'><select name=\"end_time_mins\" class='form-control'>";
 		echo "<option value=\"00\" ";
 		if (isset($end_time_mins) && $end_time_mins == 0) {
 			echo "selected=\"selected\"";
@@ -280,12 +278,12 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 			echo "selected=\"selected\"";
 		}
 		echo ">45</option>";
-	echo "</select></td>";
-	echo "</tr><tr>";
+	echo "</select></div></div>";
+	echo "</div>";
 	
 	// boot
-	echo "<td>Boot/ergometer:</td>";
-	echo '<td><select name="boat_id">';
+	echo "<div class='form-group'><label>Boot/ergometer</label>";
+	echo '<select name="boat_id" class="form-control"">';
 	$query = 'SELECT ID, Naam, Type FROM boten WHERE Datum_eind IS NULL AND Type <> "soc" ORDER BY Naam';
 	$boats_result = mysql_query($query);
 	if (!$boats_result) {
@@ -300,21 +298,20 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 			echo '>' . $row['Naam'] . ' (' . $row['Type'] . ')</option>';
 		}
 	}
-	echo "</select></td>";
-	echo "</tr><tr>";
+	echo "</select>";
+	echo "</div>";
 	
 	// Omschrijving (pname)
-	echo "<td>Omschrijving:</td>";
-	echo '<td><input type="text" name="pname" value="' . (isset($pname) ? $pname : '') . '" size="30" /></td>';
+	echo "<div class='form-group'><label>Omschrijving</label>";
+	echo '<input type="text" name="pname" value="' . (isset($pname) ? $pname : '') . '" class="form-control" />';
 	if (isset($fail_msg_pname)) {
-		echo '<td><em>' . $fail_msg_pname . '</em></td>';
+		echo '<em>' . $fail_msg_pname . '</em>';
 	}
-	echo "</tr><tr>";
+	echo "</div>";
 	
 	// knoppen
-	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"submit\" value=\"toevoegen\" /> ";
-	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\" /></p>";
+	echo "<div class='form-group'>";
+	echo "<input type=\"submit\" name=\"submit\" value=\"Toevoegen\" class='btn btn-primary' /></div>";
 	echo "</form>";
 }
 ?>
