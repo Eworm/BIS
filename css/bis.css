@@ -17,7 +17,7 @@
 	padding-right: 15px;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	background-color: #FFFF99;
+	background-color: #FF99;
 	float: left;
 }
 
@@ -29,12 +29,9 @@
 	vertical-align: top;
 	text-align: left;
 	margin: 0px;
-	padding-left: 1px;
-	padding-right: 1px;
-	padding-top: 1px;
-	padding-bottom: 1px;
+	padding: 1px;
 	white-space: nowrap;
-	border: solid 1px #aaaaaa;
+	border: solid 1px #aaa;
 }
 
 .containerDiv {
@@ -49,7 +46,7 @@
 	padding: 5px;
 	width: 300px;
 	height: 180px;
-	background-color: #FFFF99;
+	background-color: #FF99;
 }
 
 #infobalkMidden {
@@ -59,7 +56,7 @@
 	padding: 5px;
 	width: 300px;
 	height: 180px;
-	background-color: #FFFF99;
+	background-color: #FF99;
 }
 
 #infobalkRechts {
@@ -68,7 +65,7 @@
 	padding: 5px;
 	width: 200px;
 	height: 180px;
-	background-color: #FFFF99;
+	background-color: #FF99;
 }
 
 #inschrijving {
@@ -115,14 +112,13 @@
 	margin-right: 0;
 	padding-right: 0;
 	overflow: hidden; /* So it will contain the header and closediv */
-	// background-color: #FFFF99;
 }
 
 #topbar_mainscreen {
 	clear: both;
 	padding-left: 10px;
 	padding-right: 10px; 
-	background-color: #FFFF99;
+	background-color: #FF99;
 	height: 190px;
 }
 
@@ -137,7 +133,7 @@
 .header {
 	margin-left: 10px;
 	float: left;
-	background-color: #FFFF99;
+	background-color: #FF99;
 	height: 35px;
 }
 
@@ -145,7 +141,7 @@
 	margin-right: -2px; /* To fix Chrome and possibly IE problem with positioning of close button*/
 	border: 0;
 	float: right;
-	background-color: #FFFF99;
+	background-color: #FF99;
 }
 
 #msgbar {
@@ -154,35 +150,19 @@
 
 .successmsg {
 	clear: both;
-	margin-top: 0;
-	margin-left: 0;
-	margin-bottom: 0;
-	margin-top: 0;
-	padding-top: 10px;
-	padding-left: 10px;
-	padding-bottom: 10px;
-	padding-right: 10px;
+	margin: 0;
+	padding: 10px;
 	background-color: #AAFFAA; /* greenish */
 }
 
 .failmsg {
 	clear: both;
-	margin-top: 0;
-	margin-left: 0;
-	margin-bottom: 0;
-	margin-top: 0;
-	padding-top: 10px;
-	padding-left: 10px;
-	padding-bottom: 10px;
-	padding-right: 10px;
+	margin: 0;
+	padding: 10px;
 	background-color: #FFC1C1; /* reddish */
 }
 
 .bisheader {
-	font-size: 13px;
-	line-height: 17px;
-	font-weight: bold;
-	color: #CC9900;
 	text-align: left;
 	word-spacing: normal;
 	letter-spacing: 1pt;
@@ -190,43 +170,4 @@
 	margin-right: 0;
 	padding-right: 0;
 	border: 0;
-}
-
-/* BUTTONS */
-
-.bisbtn, .bisbtn_borderless {
-	padding: 0.5em 1em;
-	background-color: #CC9900;
-	color: white;
-	font-size: 1em;
-	font-weight: bold;
-	height: 35px;
-}
-
-.bisbtn {
-	border: 1px solid #CC9900;
-}
-
-.bisbtn_borderless {
-	border: 0;
-}
-
-.smalltextbtn, .smallertextbtn {
-	border: 1px solid #CC9900;
-	background-color: #CC9900;
-	color: white;
-	font-weight: normal;
-}
-
-.smalltextbtn {
-	font-size: 11px;
-}
-
-.smallertextbtn {
-	font-size: 9px;
-}
-
-.bisbtn: hover, .bisbtn_borderless: hover , .smalltextbtn: hover, .smallertextbtn: hover {
-	color: #CC9900;
-	background-color: white;
 }
