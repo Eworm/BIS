@@ -78,7 +78,7 @@ if (isset($_POST['submit'])) {
 	// geen check op reden
 	$reason = $_POST['reason'];
 	
-	// als niet gefaald, Uit de Vaart invoeren
+	// als niet gefaald, Uit de Vaart toevoegen
 	if (isset($fail_msg_startdate) || isset($fail_msg_enddate) || isset($fail_msg_date)) {
 		$fail = true;
 	} else {
@@ -89,7 +89,7 @@ if (isset($_POST['submit'])) {
 		}
 		$result = mysql_query($query);
 		if (!$result) {
-			die("Invoeren mislukt.". mysql_error());
+			die("toevoegen mislukt.". mysql_error());
 		} else {
 			echo "Uit de Vaart succesvol ingevoerd.";
 			// mensen mailen die deze boot hadden ingeschreven
@@ -143,7 +143,7 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	
 	// knoppen
 	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"submit\" value=\"Invoeren\" /> ";
+	echo "<p><input type=\"submit\" name=\"submit\" value=\"toevoegen\" /> ";
 	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\" /></p>";
 	echo "</form>";
 }

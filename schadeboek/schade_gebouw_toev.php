@@ -74,7 +74,7 @@ if (!mysql_select_db($database, $link)) {
                 		$query = "INSERT INTO `schades_gebouw` (Datum, Naam, Oms_lang) VALUES ('$today_db', '$name', '$note');";
                 		$result = mysql_query($query);
                 		if (!$result) {
-                			die("Invoeren klacht mislukt.". mysql_error());
+                			die("toevoegen klacht mislukt.". mysql_error());
                 		} else {
                 		    // mail aan gebcie
                 			$message = $name." heeft zojuist een klacht gedaan:<br>".$note."<br>";

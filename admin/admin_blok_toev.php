@@ -87,7 +87,7 @@ if (isset($_POST['submit'])) {
 	}
 	// naam (omschrijving)
 	$pname = $_POST['pname'];
-	// als niet gefaald, wedstrijdblok invoeren
+	// als niet gefaald, wedstrijdblok toevoegen
 	if (isset($fail_msg_startdate) || isset($fail_msg_enddate) || isset($fail_msg_date)) {
 		$fail = true;
 	} else {
@@ -96,7 +96,7 @@ if (isset($_POST['submit'])) {
 			mysql_query(sprintf('DELETE FROM %s WHERE Wedstrijdblok = %d', $opzoektabel, $blok_id));
 			echo "Bestaande versie van dit wedstrijdblok verwijderd.<br />";
 		} else {
-			// invoeren nieuw blok
+			// toevoegen nieuw blok
 			$result = mysql_query(sprintf('SELECT MAX(Wedstrijdblok) AS MaxId FROM %s', $opzoektabel));
 			if ($row = mysql_fetch_assoc($result)) {
 				$blok_id = $row['MaxId'] + 1;
@@ -164,7 +164,7 @@ if (isset($_POST['submit'])) {
 
 // HET FORMULIER
 if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
-	echo "<p>Invoeren/bewerken wedstrijdblok</p>";
+	echo "<p>toevoegen/bewerken wedstrijdblok</p>";
 	echo '<form name="form" action="' . $_SERVER['REQUEST_URI'] . '" method="post">';
 	echo "<table><tr>";
 	
@@ -313,7 +313,7 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	
 	// knoppen
 	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"submit\" value=\"Invoeren\" /> ";
+	echo "<p><input type=\"submit\" name=\"submit\" value=\"toevoegen\" /> ";
 	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\" /></p>";
 	echo "</form>";
 }

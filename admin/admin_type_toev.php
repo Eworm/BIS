@@ -82,7 +82,7 @@ if ($_POST['insert']){
 	}
 	$result = mysql_query($query);
 	if (!$result) {
-		die("Invoeren/wijzigen boottype mislukt.". mysql_error());
+		die("toevoegen/wijzigen boottype mislukt.". mysql_error());
 	} else {
 		echo "<p>Boottype succesvol toegevoegd/gewijzigd.</p>";
 	}
@@ -90,7 +90,7 @@ if ($_POST['insert']){
 
 // Formulier
 if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
-	echo "<h1>Boottype invoeren/wijzigen</h1>";
+	echo "<h1>Boottype toevoegen/wijzigen</h1>";
 	echo "<form name='form' action=\"$REQUEST_URI\" method=\"post\">";
 	
 	// naam
@@ -109,7 +109,7 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	echo "</div>";
 	
 	// knoppen
-	echo "<div class='form-group'><input type=\"submit\" name=\"insert\" value=\"Invoeren\" class='btn btn-primary' /></div> ";
+	echo "<div class='form-group'><input type=\"submit\" name=\"insert\" value=\"toevoegen\" class='btn btn-primary' /></div> ";
 	echo "</form>";
 }
 

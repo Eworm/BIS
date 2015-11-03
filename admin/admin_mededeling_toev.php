@@ -103,7 +103,7 @@ if ($_POST['insert']){
 	}
 	$result = mysql_query($query);
 	if (!$result) {
-		die("Invoeren mededeling mislukt.". mysql_error());
+		die("toevoegen mededeling mislukt.". mysql_error());
 	} else {
 		echo "<p>Mededeling succesvol toegevoegd/gewijzigd.</p>";
 	}
@@ -111,7 +111,7 @@ if ($_POST['insert']){
 
 // Formulier
 if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
-	echo "<h1>Bestuursmededeling invoeren</h1>";
+	echo "<h1>Bestuursmededeling toevoegen</h1>";
 	echo "<form name='form' action=\"$REQUEST_URI\" method=\"post\">";
 	
 	// naam
@@ -130,7 +130,7 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	echo "</div>";
 	
 	// knoppen
-	echo "<input type=\"submit\" name=\"insert\" value=\"Invoeren\" class='btn btn-primary' /> ";
+	echo "<input type=\"submit\" name=\"insert\" value=\"toevoegen\" class='btn btn-primary' /> ";
 	echo "</form>";
 }
 

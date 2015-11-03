@@ -44,7 +44,7 @@ if ($_POST['insert']){
 	}
 	$result = mysql_query($query);
 	if (!$result) {
-		die("Invoeren/wijzigen bestuurslid mislukt.". mysql_error());
+		die("toevoegen/wijzigen bestuurslid mislukt.". mysql_error());
 	} else {
 		echo "<p>Bestuurslid succesvol toegevoegd/gewijzigd.</p>";
 	}
@@ -52,7 +52,7 @@ if ($_POST['insert']){
 
 // Formulier
 if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
-	echo "<h1>Bestuurslid invoeren/wijzigen</h1>";
+	echo "<h1>Bestuurslid toevoegen/wijzigen</h1>";
 	echo "<form name='form' action=\"$REQUEST_URI\" method=\"post\">";
 	
 	// naam
@@ -78,7 +78,7 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	echo "</label></div>";
 	
 	// knoppen
-	echo "<div class='form-group'><input type=\"submit\" name=\"insert\" value=\"Invoeren\" class='btn btn-primary' /></div> ";
+	echo "<div class='form-group'><input type=\"submit\" name=\"insert\" value=\"toevoegen\" class='btn btn-primary' /></div> ";
 	echo "</form>";
 }
 ?>

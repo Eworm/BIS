@@ -51,10 +51,16 @@ include_once("../include_globalVars.php");
     
                     		<a href='./admin_vloot.php'>Boten</a>
                     		<br>
+                    		<a href="./admin_boot_toevoegen.php">Boot toevoegen</a>
+                    		<hr>
                     		<a href='./admin_types.php'>Boottypes</a>
                     		<br>
+                    		<a href="./admin_type_toev.php">Type toevoegen</a>
+                    		<hr>
                     		<a href='./admin_graden.php'>Roeigraden</a>
                     		<br>
+                    		<a href="./admin_graad_toev.php">Roeigraad toevoegen</a>
+                    		<hr>
                     		<a href='./admin_rappo.php'>Bootgebruikrapportages</a>
             		
                 		</div>
@@ -74,8 +80,12 @@ include_once("../include_globalVars.php");
                         <div class="panel-body">
                         	
                     		<a href='./admin_spits.php'>Spitsrooster</a>
-                    		<br>
+                            <br>
+                    		<a href="./admin_spits_toev.php">Spitsblok toevoegen</a>
+                    		<hr>
                     		<a href='./admin_blokken.php'>Wedstrijdblokken</a>
+                    		<br>
+                    		<a href="./admin_blok_toev.php">Wedstrijdblok toevoegen</a>
                     		
                         </div>
                         
@@ -95,7 +105,11 @@ include_once("../include_globalVars.php");
                 	
                     		<a href='./admin_mededeling.php'>Bestuursmededelingen</a>
                     		<br>
+                    		<a href="./admin_mededeling_toev.php">Mededeling toevoegen</a>
+                    		<hr>
                     		<a href='./admin_bestuur.php'>Bestuursleden</a>
+                    		<br>
+                    		<a href="./admin_bestuur_toev.php">Bestuurslid toevoegen</a>
                     		
                         </div>
                     

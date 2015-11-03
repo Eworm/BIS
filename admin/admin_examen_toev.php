@@ -111,7 +111,7 @@ if (isset($_POST['insert'])) {
 		}
 		$result = mysql_query($query);
 		if (!$result) {
-			die("Invoeren/wijzigen examen mislukt: " . mysql_error());
+			die("toevoegen/wijzigen examen mislukt: " . mysql_error());
 		} else {
 			echo "<p>Examen succesvol toegevoegd/gewijzigd.<br><a href='admin_examens.php'>Terug naar de examenpagina&gt;&gt;</a></p>";
 		}
@@ -120,7 +120,7 @@ if (isset($_POST['insert'])) {
 
 // Formulier
 if ((!isset($_POST['insert']) && !isset($_POST['delete']) && !isset($_POST['cancel'])) || (isset($fail) && $fail == true)) {
-	echo "<p><b>Examen invoeren/wijzigen</b></p>";
+	echo "<p><b>Examen toevoegen/wijzigen</b></p>";
 	echo "<form name='form' action='" . $_SERVER['REQUEST_URI'] . "' method='post'>";
 	echo "<table>";
 	
@@ -163,7 +163,7 @@ if ((!isset($_POST['insert']) && !isset($_POST['delete']) && !isset($_POST['canc
 	
 	// knoppen
 	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"insert\" value=\"Invoeren\" /> ";
+	echo "<p><input type=\"submit\" name=\"insert\" value=\"toevoegen\" /> ";
 	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\" /></p>";
 	echo "</form>";
 }

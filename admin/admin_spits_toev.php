@@ -141,7 +141,7 @@ if (isset($_POST['submit'])) {
 		$fail_msg_email = "U dient een geldig e-mailadres op te geven.";
 	}
 	
-	// als niet gefaald, repeterend spitsblok invoeren
+	// als niet gefaald, repeterend spitsblok toevoegen
 	if (isset($fail_msg_startdate) || isset($fail_msg_enddate) || 
 		isset($fail_msg_date) || isset($fail_msg_time) || isset($fail_msg_pname) || 
 		isset($fail_msg_email)
@@ -154,7 +154,7 @@ if (isset($_POST['submit'])) {
 			mysql_query($query);
 			echo "Bestaande versie van dit spitsblok verwijderd.<br>";
 		} else {
-			// invoeren nieuw blok
+			// toevoegen nieuw blok
 			$query = "SELECT DISTINCT Spits FROM ".$opzoektabel." ORDER BY Spits;";
 			$result = mysql_query($query);
 			while ($row = mysql_fetch_assoc($result)) {
@@ -200,7 +200,7 @@ if (isset($_POST['submit'])) {
 
 // HET FORMULIER
 if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
-	echo "<p>Invoeren repeterend spitsblok</p>";
+	echo "<p>toevoegen repeterend spitsblok</p>";
 	echo '<form name="form" action="' . $_SERVER['REQUEST_URI'] . '" method="post">';
 	echo "<table><tr>";
 	
@@ -363,7 +363,7 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	
 	// knoppen
 	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"submit\" value=\"Invoeren\" /> ";
+	echo "<p><input type=\"submit\" name=\"submit\" value=\"toevoegen\" /> ";
 	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\" /></p>";
 	echo "</form>";
 }

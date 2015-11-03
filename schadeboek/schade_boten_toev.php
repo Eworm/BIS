@@ -93,7 +93,7 @@ if (!mysql_select_db($database, $link)) {
                 		$query = "INSERT INTO `schades` (Datum, Naam, Boot_ID, Oms_lang) VALUES ('$today_db', '$name', '$boat_id', '$note');";
                 		$result = mysql_query($query);
                 		if (!$result) {
-                			die("Invoeren klacht mislukt.". mysql_error());
+                			die("toevoegen klacht mislukt.". mysql_error());
                 		} else {
                 		    // mail aan matcom
                 			$message = $name." heeft zojuist een schade gemeld betreffende '".$boat."'.<br>";
