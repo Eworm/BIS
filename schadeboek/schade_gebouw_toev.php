@@ -25,12 +25,6 @@ if (!mysql_select_db($database, $link)) {
         
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <link type="text/css" href="<?php echo $csslink; ?>" rel="stylesheet" />
-    	<link type="text/css" href="css/bis.css" rel="stylesheet" />
-    	
-        <script type="text/javascript" language="javascript" src="../scripts/datatables/jquery.js"></script> 
-        <script type="text/javascript" language="javascript" src="../scripts/datatables/jquery.dataTables.js"></script> 
     	
     	<!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -54,22 +48,16 @@ if (!mysql_select_db($database, $link)) {
         	<main class="panel-body">
         
                 <h1 class="h3">
-                    Nieuwe schademelding
+                    Nieuwe schademelding gebouw
                 </h1>
+
+                <hr>
 
                 <?php
                 
                 // init
                 if (!isset($_POST['cancel']) && !isset($_POST['insert'])) {
                 	$fail = FALSE;
-                }
-                
-                // knop gedrukt
-                if (isset($_POST['cancel'])){
-                	unset($_POST['name'], $_POST['note'], $name, $note);
-                	$fail = FALSE;
-                	echo "<p>De klacht zal niet worden gemeld.<br>";
-                	echo "<a href='index_gebouw.php'>Terug naar het klachtenoverzicht voor het gebouw/algemeen</a></p>";
                 }
                 
                 if (isset($_POST['insert'])){
@@ -104,18 +92,18 @@ if (!mysql_select_db($database, $link)) {
                 	echo "<form name='form' action=\"" . (isset($REQUEST_URI) ? $REQUEST_URI : "") . "\" method=\"post\">";
                 	
                 	// naam
-                	echo "<div class='form-group'><label>Uw naam</label>";
-                	echo "<input type=\"text\" name=\"name\" class=\"form-control\" value=\"" . (isset($name) ? $name : "") . "\">";
+                	echo "<div class='form-group'><label for='name'>Uw naam</label>";
+                	echo "<input type=\"text\" name=\"name\" required id=\"name\" autofocus class=\"form-control\" value=\"" . (isset($name) ? $name : "") . "\">";
                 	if (isset($fail_msg_name)) echo "<em>" . $fail_msg_name . "</em>";
                 	echo "</div>";
                 	
                 	// mededeling
-                	echo "<div class='form-group'><label>Omschrijf kort de schade (max. 1000 tekens)</label>";
-                	echo "<textarea name=\"note\" class=\"form-control\" rows=4>" . (isset($note) ? $note : "") . "</textarea>";
+                	echo "<div class='form-group'><label for='note'>Omschrijf kort de schade (max. 1000 tekens)</label>";
+                	echo "<textarea name=\"note\" id=\"note\" required class=\"form-control\" rows=4>" . (isset($note) ? $note : "") . "</textarea>";
                 	echo "</div>";
                 	
                 	// knoppen
-                	echo "<div class='form-group'><input type=\"submit\" name=\"insert\" value=\"Invoeren\" class=\"btn btn-primary\"></div>";
+                	echo "<div class='form-group'><input type=\"submit\" name=\"insert\" value=\"Toevoegen aan klachtenboek\" class=\"btn btn-primary\"></div>";
                 	echo "</form>";
                 }
                 

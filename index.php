@@ -28,8 +28,8 @@ if (!mysql_select_db($database, $bisdblink)) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <link type="text/css" href="<?php echo $csslink; ?>" rel="stylesheet" />
-    	<link type="text/css" href="css/bis.css" rel="stylesheet" />
+        <link type="text/css" href="<?php echo $csslink; ?>" rel="stylesheet">
+    	<link type="text/css" href="css/bis.css" rel="stylesheet">
     	
     	<!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -279,7 +279,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
         	$query = "SELECT * FROM mededelingen ORDER BY Datum DESC LIMIT 1;"; // alleen recentste
         	$result = mysql_query($query);
         	if (!$result) {
-        		echo "Ophalen van bestuursmededelingen mislukt.".mysql_error();
+        		echo "Ophalen van bestuursmededelingen mislukt.";
         	} else {
         		$rows_aff = mysql_affected_rows($bisdblink);
         		if ($rows_aff > 0) {
@@ -296,7 +296,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
         			if ($nr_notes) echo " (".$nr_notes.") ";
         			echo "</a>";
         		} else {
-        			echo "Op dit moment zijn er geen mededelingen.<br /><br />";
+        			echo "Op dit moment zijn er geen mededelingen.";
         		}
         	}
         	?>
@@ -304,9 +304,9 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
         <hr>
         
         <p>
-            <a href='schade_boten_toev.php' class='btn btn-primary'>Schademelding boot  </a>
+            <a href='schadeboek/schade_boten_toev.php' class='btn btn-primary'>Schademelding boot  </a>
             <br><br>
-            <a href='schade_gebouw_toev.php' class='btn btn-primary'>Schademelding gebouw</a>
+            <a href='schadeboek/schade_gebouw_toev.php' class='btn btn-primary'>Schademelding gebouw</a>
         </p>
         
         <hr>

@@ -25,12 +25,6 @@ if (!mysql_select_db($database, $link)) {
         
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <link type="text/css" href="<?php echo $csslink; ?>" rel="stylesheet" />
-    	<link type="text/css" href="css/bis.css" rel="stylesheet" />
-    	
-        <script type="text/javascript" language="javascript" src="../scripts/datatables/jquery.js"></script> 
-        <script type="text/javascript" language="javascript" src="../scripts/datatables/jquery.dataTables.js"></script> 
     	
     	<!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -54,8 +48,10 @@ if (!mysql_select_db($database, $link)) {
         	<main class="panel-body">
         
                 <h1 class="h3">
-                    Nieuwe schademelding
+                    Nieuwe schademelding boot
                 </h1>
+                
+                <hr>
     
                 <?php
                 
@@ -115,14 +111,14 @@ if (!mysql_select_db($database, $link)) {
                 	echo "<form name='form' action=\"" . (isset($REQUEST_URI) ? $REQUEST_URI : "") . "\" method=\"post\">";
                 	
                 	// naam
-                	echo "<div class='form-group'><label>Uw naam</label>";
-                	echo "<input type=\"text\" name=\"name\" value=\"" . (isset($name) ? $name : "") . "\" class=\"form-control\"></div>";
+                	echo "<div class='form-group'><label for='name'>Uw naam</label>";
+                	echo "<input type=\"text\" name=\"name\" id=\"name\" autofocus required value=\"" . (isset($name) ? $name : "") . "\" class=\"form-control\"></div>";
                 	if (isset($fail_msg_name)) echo "<td><em>" . $fail_msg_name . "</em></td>";
                 	echo "</tr>";
                 	
                 	// boot
-                	echo "<div class='form-group'><label>Naam boot/ergometer</label>";
-                	echo "<select name=\"boat_id\" class=\"form-control\">";
+                	echo "<div class='form-group'><label for='boat_id'>Naam boot/ergometer</label>";
+                	echo "<select name=\"boat_id\" id=\"boat_id\" required class=\"form-control\">";
                 	// optie 'algemeen' verwijderd op verzoek van Karel Engbers d.d. 03-10-2011
                 	//echo "<option value=0 ";
                 	//if ($boat_id == 0) echo "selected=\"selected\"";
@@ -145,12 +141,12 @@ if (!mysql_select_db($database, $link)) {
                 	echo "</div>";
                 	
                 	// mededeling
-                	echo "<div class='form-group'><label>Omschrijf kort de schade (max. 1000 tekens)</label>";
-                	echo "<textarea name=\"note\" class=\"form-control\" rows=4>" . (isset($note) ? $note : "") . "</textarea>";
+                	echo "<div class='form-group'><label for='note'>Omschrijf kort de schade (max. 1000 tekens)</label>";
+                	echo "<textarea name=\"note\" id=\"note\" required class=\"form-control\" rows=4>" . (isset($note) ? $note : "") . "</textarea>";
                 	echo "</div>";
                 	
                 	// knoppen
-                	echo "<p><input type=\"submit\" name=\"insert\" value=\"Invoeren\" class=\"btn btn-primary\" /> ";
+                	echo "<p><input type=\"submit\" name=\"insert\" value=\"Toevoegen aan schadeboek\" class=\"btn btn-primary\" /> ";
                 	echo "</form>";
                 }
                 

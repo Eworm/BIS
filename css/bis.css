@@ -3,30 +3,29 @@
  */
  
  .middle_box {
-	position:absolute;
-	top:25%;
-    right:25%;
-    bottom:25%;
-    left:25%;
-    padding:25px;
-    margin:25px;
+	position: absolute;
+	top: 25%;
+    right: 25%;
+    bottom: 25%;
+    left: 25%;
+    padding: 25px;
+    margin: 25px;
 }
  
 .mainscreen {
-	padding-left:15px;
-	padding-right:15px;
+	padding-left: 15px;
+	padding-right: 15px;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	background-color:#FFFF99;
-	float:left;
+	background-color: #FFFF99;
+	float: left;
 }
 
-.scrollTable table
-{
+.scrollTable table {
 	border-collapse: collapse;
 }
-.scrollTable table td, .scrollTable table th
-{
+
+.scrollTable table td, .scrollTable table th {
 	vertical-align: top;
 	text-align: left;
 	margin: 0px;
@@ -35,10 +34,7 @@
 	padding-top: 1px;
 	padding-bottom: 1px;
 	white-space: nowrap;
-	border-top: solid 1px #aaaaaa;
-	border-bottom: solid 1px #aaaaaa;
-	border-left: solid 1px #aaaaaa;
-	border-right: solid 1px #aaaaaa;
+	border: solid 1px #aaaaaa;
 }
 
 .containerDiv {
@@ -48,190 +44,189 @@
 }
 
 #infobalkLinks {
-	position:relative;
-	float:left;
-	padding:5px;
-	width:300px;
-	height:180px;
-	background-color:#FFFF99;
+	position: relative;
+	float: left;
+	padding: 5px;
+	width: 300px;
+	height: 180px;
+	background-color: #FFFF99;
 }
 
 #infobalkMidden {
-	position:relative;
-	overflow:auto; /* Deze balk heeft als enige een variabele inhoud */
-	float:left;
-	padding:5px;
-	width:300px;
-	height:180px;
-	background-color:#FFFF99;
+	position: relative;
+	overflow: auto; /* Deze balk heeft als enige een variabele inhoud */
+	float: left;
+	padding: 5px;
+	width: 300px;
+	height: 180px;
+	background-color: #FFFF99;
 }
 
 #infobalkRechts {
-	position:relative;
-	float:left;
-	padding:5px;
-	width:200px;
-	height:180px;
-	background-color:#FFFF99;
+	position: relative;
+	float: left;
+	padding: 5px;
+	width: 200px;
+	height: 180px;
+	background-color: #FFFF99;
 }
 
 #inschrijving {
-	z-index:2;
-	display:none;
-	position:absolute;
-	background-color:white;
-	top:15%;
-    right:25%;
-    left:25%;
-    margin:25px;
+	z-index: 2;
+	display: none;
+	position: absolute;
+	background-color: white;
+	top: 15%;
+    right: 25%;
+    left: 25%;
+    margin: 25px;
 }
 
 #index_overlay {
-	display:none;
-	z-index:1;
-	position:absolute;
-	top:0;
-	left:0;
+	display: none;
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color:#000000;
+	background-color: #000;
 	-moz-opacity: 0.6;
-	opacity:.60;
+	opacity: .60;
 	filter: alpha(opacity=60);
 }
 
 .italic {
-	font-style:italic;
+	font-style: italic;
 }
 
 .leftrightmargins {
-	margin-left:10px;
-	margin-right:10px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .maindiv {
-	margin-left:10px;
-	margin-top:10px;
+	margin-left: 10px;
+	margin-top: 10px;
 }
 
 .topbar {
-	margin-left:0px;
-	margin-right:0px;
-	padding-right:0px;
-	overflow:hidden; /* So it will contain the header and closediv */
-	background-color:#FFFF99;
+	margin-left: 0;
+	margin-right: 0;
+	padding-right: 0;
+	overflow: hidden; /* So it will contain the header and closediv */
+	// background-color: #FFFF99;
 }
 
 #topbar_mainscreen {
-	clear:both;
-	padding-left:10px;
-	padding-right:10px; 
-	background-color:#FFFF99;
-	height:190px;
+	clear: both;
+	padding-left: 10px;
+	padding-right: 10px; 
+	background-color: #FFFF99;
+	height: 190px;
 }
 
 #ScheduleInfo  {
-	clear:left;
+	clear: left;
 }
 
 #mainscreen_footer {
-	margin-left:10px;
+	margin-left: 10px;
 }
 
 .header {
-	margin-left:10px;
-	float:left;
-	background-color:#FFFF99;
-	height:35px;
+	margin-left: 10px;
+	float: left;
+	background-color: #FFFF99;
+	height: 35px;
 }
 
 .closediv {
-	margin-right:-2px; /* To fix Chrome and possibly IE problem with positioning of close button*/
-	border:0px;
-	float:right;
-	background-color:#FFFF99;
+	margin-right: -2px; /* To fix Chrome and possibly IE problem with positioning of close button*/
+	border: 0;
+	float: right;
+	background-color: #FFFF99;
 }
 
 #msgbar {
-	display:none;
+	display: none;
 }
 
 .successmsg {
-	clear:both;
-	margin-top:0px;
-	margin-left:0px;
-	margin-bottom:0px;
-	margin-top:0px;
-	padding-top:10px;
-	padding-left:10px;
-	padding-bottom:10px;
-	padding-right:10px;
-	background-color:#AAFFAA; /* greenish */
+	clear: both;
+	margin-top: 0;
+	margin-left: 0;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	background-color: #AAFFAA; /* greenish */
 }
 
 .failmsg {
-	clear:both;
-	margin-top:0px;
-	margin-left:0px;
-	margin-bottom:0px;
-	margin-top:0px;
-	padding-top:10px;
-	padding-left:10px;
-	padding-bottom:10px;
-	padding-right:10px;
-	background-color:#FFC1C1; /* reddish */
+	clear: both;
+	margin-top: 0;
+	margin-left: 0;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	background-color: #FFC1C1; /* reddish */
 }
 
 .bisheader {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 13px;
-	line-height:17px;
+	line-height: 17px;
 	font-weight: bold;
 	color: #CC9900;
 	text-align: left;
 	word-spacing: normal;
 	letter-spacing: 1pt;
-	width:100%;
-	margin-right:0px;
-	padding-right:0px;
-	border:0px;
+	width: 100%;
+	margin-right: 0;
+	padding-right: 0;
+	border: 0;
 }
 
 /* BUTTONS */
 
 .bisbtn, .bisbtn_borderless {
 	padding: 0.5em 1em;
-	background-color:#CC9900;
-	color:white;
-	font-size:1em;
-	font-weight:bold;
-	height:35px;
+	background-color: #CC9900;
+	color: white;
+	font-size: 1em;
+	font-weight: bold;
+	height: 35px;
 }
 
 .bisbtn {
-	border:1px solid #CC9900;
+	border: 1px solid #CC9900;
 }
 
 .bisbtn_borderless {
-	border:0px;
+	border: 0;
 }
 
 .smalltextbtn, .smallertextbtn {
-	border:1px solid #CC9900;
-	background-color:#CC9900;
-	color:white;
-	font-weight:normal;
+	border: 1px solid #CC9900;
+	background-color: #CC9900;
+	color: white;
+	font-weight: normal;
 }
 
 .smalltextbtn {
-	font-size:11px;
+	font-size: 11px;
 }
 
 .smallertextbtn {
-	font-size:9px;
+	font-size: 9px;
 }
 
-.bisbtn:hover, .bisbtn_borderless:hover , .smalltextbtn:hover, .smallertextbtn:hover {
-	color:#CC9900;
-	background-color:white;
+.bisbtn: hover, .bisbtn_borderless: hover , .smalltextbtn: hover, .smallertextbtn: hover {
+	color: #CC9900;
+	background-color: white;
 }

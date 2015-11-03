@@ -81,6 +81,8 @@ setlocale(LC_TIME, 'nl_NL');
             mysql_close($link);
             ?>
             
+            <hr>
+            
             </select>
 
             <div id="courselist"></div>

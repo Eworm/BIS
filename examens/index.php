@@ -57,17 +57,17 @@ setlocale(LC_TIME, 'nl_NL');
             	echo("Ophalen van examendata mislukt: " . mysql_error());
             } else {
             	if (mysql_affected_rows($link) > 0) {
-            		echo "<h2>Komende examens</h2><ul>";
+            		echo "<h2>Komende examens</h2><table class='table'>";
             		while ($row = mysql_fetch_assoc($result)) {
-            			echo '<li>' . $row['Omschrijving'] . ' op ' . strftime('%A %d-%m-%Y', strtotime($row['Datum']));
+            			echo '<tr><td>' . $row['Omschrijving'] . ' op ' . strftime('%A %d-%m-%Y', strtotime($row['Datum']));
             			if ($row['ToonOpSite']) {
-            				echo ': open voor <a href="examen.php?id=' . $row['ID'] . '">inschrijving</a>';
+            				echo '</td><td><a href="examen.php?id=' . $row['ID'] . '" class="btn btn-default">inschrijving</a>';
             			} else {
-            				echo ': nog niet of niet meer open voor inschrijving';
+            				echo '</td><td>Nog niet/niet meer open voor inschrijving';
             			}
-            			echo '</li>';
+            			echo '</td></tr>';
             		}
-            		echo "</ul>";
+            		echo "</table>";
             	} else {
             		echo '<strong>Er zijn de komende tijd geen examens ingepland.</strong>';
             	}
