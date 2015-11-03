@@ -25,7 +25,7 @@ setlocale(LC_TIME, 'nl_NL');
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <title>BotenInschrijfSysteem - Examens - Inschrijven voor een examen</title>
-    <link type="text/css" href="../<?php echo $csslink; ?>" rel="stylesheet" />
+    <link type="text/css" href="../<?php echo $csslink; ?>" rel="stylesheet">
 </head>
 <body>
 <div style="margin-left:10px; margin-top:10px">
@@ -44,7 +44,7 @@ if (isset($_GET['delId'])) {
 		SendEmail("examens@hunze.nl", "Verwijderde examenaanmelding", $message);
 		SendEmail("instructie@hunze.nl", "Verwijderde examenaanmelding", $message);
 		mysql_query('DELETE FROM examen_inschrijvingen WHERE UniekeHash = "' . $_GET['delId'] . '"');
-		echo "<p>Uw inschrijving is verwijderd en de Examencommissie is op de hoogte gesteld.<br />
+		echo "<p>Uw inschrijving is verwijderd en de Examencommissie is op de hoogte gesteld.<br>
 			U kunt dit scherm nu sluiten.</p>";
 		exit;
 	} else {
@@ -64,7 +64,7 @@ if (!isset($_POST['cancel']) && !isset($_POST['insert'])) {
 if (isset($_POST['cancel'])) {
 	unset($_POST['name'], $_POST['grade'], $_POST['age'], $_POST['email'], $_POST['telph'], $name, $grade, $email, $telph);
 	$fail = false;
-	echo "<p>U wordt niet aangemeld.<br />";
+	echo "<p>U wordt niet aangemeld.<br>";
 	echo "<a href='index.php'>Terug naar het examenscherm&gt;&gt;</a></p>";
 }
 
@@ -110,7 +110,7 @@ if (isset($_POST['insert'])) {
 			
 			// Mail kandidaat, met uitschrijflink
 			if ($email) {
-				$message = 'U bent aangemeld voor het examen op ' . $date_db . '<br />' .
+				$message = 'U bent aangemeld voor het examen op ' . $date_db . '<br>' .
 					'Mocht u zich willen uitschrijven, klik dan <a href="' . $homepage . '/bis/examens/examen_inschr.php?delId=' . $hash . '">hier</a>';
 				SendEmail($email, "Bevestiging examenaanmelding", $message);
 			}
@@ -140,7 +140,7 @@ if ((!isset($_POST['insert']) && !isset($_POST['cancel'])) || !isset($fail) || $
 	
 	// naam
 	echo "<tr><td>Naam:</td>";
-	echo '<td><input type="text" name="name" value="' . (isset($name) ? $name : '') . '" size="45" /></td>';
+	echo '<td><input type="text" name="name" value="' . (isset($name) ? $name : '') . '" size="45"></td>';
 	if (isset($fail_msg_name)) {
 		echo '<td><em>' . $fail_msg_name . '</em></td>';
 	}
@@ -172,7 +172,7 @@ if ((!isset($_POST['insert']) && !isset($_POST['cancel'])) || !isset($fail) || $
 	
 	// graad
 	echo "<tr><td>Te behalen graad:</td>";
-	echo "<td><select name=\"grade\" />";
+	echo "<td><select name=\"grade\">";
 	$query = "SELECT Graden FROM examens WHERE ID='$id';";
 	$grade_result = mysql_query($query);
 	if (!$grade_result) {
@@ -194,14 +194,14 @@ if ((!isset($_POST['insert']) && !isset($_POST['cancel'])) || !isset($fail) || $
 	echo "</tr>";
 	
 	echo "<tr><td>&nbsp;</td></tr><tr><td colspan=3><em>
-		U dient minstens &eacute;&eacute;n van onderstaande velden in te vullen.<br />
-		Als u een e-mailadres opgeeft, ontvangt u een bevestiging per e-mail, met daarin een link die u kunt gebruiken mocht u uw inschrijving weer ongedaan willen maken.<br />
+		U dient minstens &eacute;&eacute;n van onderstaande velden in te vullen.<br>
+		Als u een e-mailadres opgeeft, ontvangt u een bevestiging per e-mail, met daarin een link die u kunt gebruiken mocht u uw inschrijving weer ongedaan willen maken.<br>
 		De gegevens worden niet op de examenpagina getoond, maar alleen doorgegeven aan de Examencommissie.</em>
 		</td></tr>";
 	
 	// telefoonnr.
 	echo "<tr><td>Telefoonnummer (10 cijfers, met streepje):</td>";
-	echo '<td><input type="text" name="telph" value="' . (isset($telph) ? $telph : '') . '" size=11 /></td>';
+	echo '<td><input type="text" name="telph" value="' . (isset($telph) ? $telph : '') . '" size=11></td>';
 	if (isset($fail_msg_contact)) {
 		echo '<td><em>' . $fail_msg_contact . '</em></td>';
 	} else {
@@ -213,7 +213,7 @@ if ((!isset($_POST['insert']) && !isset($_POST['cancel'])) || !isset($fail) || $
 	
 	// e-mail
 	echo "<tr><td>E-mailadres:</td>";
-	echo '<td><input type="text" name="email" value="' . (isset($email) ? $email : '') . '" size="45" /></td>';
+	echo '<td><input type="text" name="email" value="' . (isset($email) ? $email : '') . '" size="45"></td>';
 	if (isset($fail_msg_email)) {
 		echo '<td><em>' . $fail_msg_email . '</em></td>';
 	}
@@ -221,8 +221,8 @@ if ((!isset($_POST['insert']) && !isset($_POST['cancel'])) || !isset($fail) || $
 	
 	// knoppen
 	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"insert\" value=\"Inschrijven\" /> ";
-	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\" /></p>";
+	echo "<p><input type=\"submit\" name=\"insert\" value=\"Inschrijven\"> ";
+	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\"></p>";
 	echo "</form>";
 }
 ?>

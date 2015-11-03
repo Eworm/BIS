@@ -21,13 +21,13 @@ setlocale(LC_TIME, 'nl_NL');
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <title>BotenInschrijfSysteem - Exameninschrijving</title>
-    <link type="text/css" href="../<?php echo $csslink; ?>" rel="stylesheet" />
+    <link type="text/css" href="../<?php echo $csslink; ?>" rel="stylesheet">
 </head>
 <body>
 <div style="margin-left:10px; margin-top:10px">
 
 <p><h1>Exameninschrijving</h1></p>
-<p><a href='index.php'>Naar examenoverzicht&gt;&gt;</a><br />
+<p><a href='index.php'>Naar examenoverzicht&gt;&gt;</a><br>
 <a href='./bis_logout.php'>Uitloggen&gt;&gt;</a></p>
 
 <?php

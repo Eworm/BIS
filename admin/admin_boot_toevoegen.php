@@ -120,13 +120,13 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	
 	// naam
 	echo "<div class='form-group'><label>Naam</label>";
-	echo "<input type=\"text\" name=\"naam\" value=\"$naam\" class='form-control' autofocus />";
+	echo "<input type=\"text\" name=\"naam\" value=\"$naam\" class='form-control' autofocus>";
 	echo "<div class='help-block'>Svp alleen gewone letters en geen leestekens of apostrof gebruiken</div>";
 	echo "</div>";
 	
 	// gewicht
 	echo "<div class='form-group'><label>Gewicht</label>";
-	echo "<input type=\"text\" name=\"gewicht\" value=\"$gewicht\" class='form-control' />";
+	echo "<input type=\"text\" name=\"gewicht\" value=\"$gewicht\" class='form-control'>";
 	echo "</div>";
 	
 	// type
@@ -166,7 +166,7 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	echo "</select></div>";
 	
 	// knoppen
-	echo "<div class='form-group'><input type=\"submit\" name=\"insert\" value=\"toevoegen\" class='btn btn-primary' /></div>";
+	echo "<div class='form-group'><input type=\"submit\" name=\"insert\" value=\"toevoegen\" class='btn btn-primary'></div>";
 	echo "</form>";
 }
 

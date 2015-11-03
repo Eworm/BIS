@@ -57,17 +57,17 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	
 	// naam
 	echo "<div class='form-group'><label>Naam</label>";
-	echo "<input type=\"text\" name=\"name\" value=\"$name\" class='form-control' autofocus />";
+	echo "<input type=\"text\" name=\"name\" value=\"$name\" class='form-control' autofocus>";
 	echo "</div>";
 	
 	// functie
 	echo "<div class='form-group'><label>Functie</label>";
-	echo "<input type=\"text\" name=\"function\" value=\"$function\" class='form-control' />";
+	echo "<input type=\"text\" name=\"function\" value=\"$function\" class='form-control'>";
 	echo "</div>";
 	
 	// mail
 	echo "<div class='form-group'><label>E-mailadres</label>";
-	echo "<input type=\"text\" name=\"mail\" value=\"$mail\" class='form-control' />";
+	echo "<input type=\"text\" name=\"mail\" value=\"$mail\" class='form-control'>";
 	echo "</div>";
 	
 	// MPB
@@ -78,7 +78,7 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	echo "</label></div>";
 	
 	// knoppen
-	echo "<div class='form-group'><input type=\"submit\" name=\"insert\" value=\"Toevoegen\" class='btn btn-primary' /></div> ";
+	echo "<div class='form-group'><input type=\"submit\" name=\"insert\" value=\"Toevoegen\" class='btn btn-primary'></div> ";
 	echo "</form>";
 }
 ?>

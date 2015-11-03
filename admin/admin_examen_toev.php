@@ -20,7 +20,7 @@ if (!mysql_select_db($database, $link)) {
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <title><? echo $systeemnaam; ?> - Admin - Examen toevoegen/wijzigen</title>
-    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet" />
+    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet">
 	<script language="javascript" src="../scripts/kalender.js"></script>
 </head>
 <body>
@@ -132,7 +132,7 @@ if ((!isset($_POST['insert']) && !isset($_POST['delete']) && !isset($_POST['canc
 	
 	// omschrijving
 	echo "<tr><td>Omschrijving (max. 45 tekens):</td>";
-	echo "<td><input type='text' name='description' value='" . (isset($description) ? $description : '') . "' size=45 /></td>";
+	echo "<td><input type='text' name='description' value='" . (isset($description) ? $description : '') . "' size=45></td>";
 	echo "</tr>";
 	
 	// te behalen graden
@@ -155,7 +155,7 @@ if ((!isset($_POST['insert']) && !isset($_POST['delete']) && !isset($_POST['canc
 	
 	// quotum
 	echo "<tr><td>Quotum:</td>";
-	echo "<td><input type='text' name='quotum' value='" . (isset($quotum) ? $quotum : '') . "' size=3 /></td>";
+	echo "<td><input type='text' name='quotum' value='" . (isset($quotum) ? $quotum : '') . "' size=3></td>";
 	if (isset($fail_msg_quotum)) {
 		echo "<td><em>" . $fail_msg_quotum . "</em></td>";
 	}
@@ -163,8 +163,8 @@ if ((!isset($_POST['insert']) && !isset($_POST['delete']) && !isset($_POST['canc
 	
 	// knoppen
 	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"insert\" value=\"toevoegen\" /> ";
-	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\" /></p>";
+	echo "<p><input type=\"submit\" name=\"insert\" value=\"toevoegen\"> ";
+	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\"></p>";
 	echo "</form>";
 }
 

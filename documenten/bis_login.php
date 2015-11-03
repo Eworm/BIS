@@ -18,8 +18,8 @@ if (isset($login) && isset($password)) {
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <title><? echo $systeemnaam; ?> - Login</title>
-    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet" />
-    <link type="text/css" href="../css/bis.css" rel="stylesheet" />
+    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet">
+    <link type="text/css" href="../css/bis.css" rel="stylesheet">
 </head>
 <body>
 	<div class="middle_box">
@@ -28,16 +28,16 @@ if (isset($login) && isset($password)) {
 		<table>
 		<tr>
 		  <td>Login-naam:</td>
-		  <td><input type="text" name="login" /></td>
+		  <td><input type="text" name="login"></td>
 		  <td><em><? echo $loginnaam_hulp; ?></em></td>
 		</tr>
 		<tr>
-		  <td>Wachtwoord:</td><td><input type="password" name="password" /></td>
+		  <td>Wachtwoord:</td><td><input type="password" name="password"></td>
 		  <td><em><? echo $loginwachtwoord_hulp; ?></em></td>
 		</tr>
 		<tr>
 		  <td>&nbsp;</td>
-		  <td><input type="submit" value="Inloggen" class="bisbtn" /></td>
+		  <td><input type="submit" value="Inloggen" class="bisbtn"></td>
 		  <td>&nbsp;</td>
 		</tr>
 	</table>

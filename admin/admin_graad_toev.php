@@ -104,19 +104,19 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	
 	// naam
 	echo "<div class='form-group'><label>Roeigraad</label>";
-	echo "<input type=\"text\" name=\"grade\" value=\"$grade\" class='form-control' autofocus /></td>";
+	echo "<input type=\"text\" name=\"grade\" value=\"$grade\" class='form-control' autofocus></td>";
 	echo "</div>";
 	
 	// functie
 	echo "<div class='checkbox'><label>";
 	echo "<input type=\"checkbox\" name=\"show\" value=1 ";
 	if ($show == 1) echo "CHECKED";
-	echo " />Zichtbaar in BIS?";
+	echo ">Zichtbaar in BIS?";
 	echo "</label></div>";
 	
 	// mail
 	echo "<div class='form-group'><label>Achtergrondkleur in BIS-botentabel</label>";
-	echo "<input type=\"text\" name=\"color\" value=\"$color\"  class='form-control' /></td>";
+	echo "<input type=\"text\" name=\"color\" value=\"$color\"  class='form-control'></td>";
 	echo "</div>";
 	
 	// MPB
@@ -127,7 +127,7 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	echo "</div>";
 	
 	// knoppen
-	echo "<p><input type=\"submit\" name=\"insert\" value=\"toevoegen\" class='btn btn-primary' /> ";
+	echo "<p><input type=\"submit\" name=\"insert\" value=\"toevoegen\" class='btn btn-primary'> ";
 	echo "</form>";
 }
 

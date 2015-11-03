@@ -21,7 +21,7 @@ if (!mysql_select_db($database, $link)) {
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <title><? echo $systeemnaam; ?> - Instructiecommissie - Bekijk/beheer deelnemers</title>
-    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet" />
+    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet">
 </head>
 <body>
 <div style="margin-left:10px; margin-top:10px">
@@ -40,7 +40,7 @@ if ($mode == "d" && $part_id) {
 	if (!$result) {
 		die("Verwijderen van deelnemer mislukt.". mysql_error());
 	}
-	echo "Verwijderen van deelnemer gelukt.<br />";
+	echo "Verwijderen van deelnemer gelukt.<br>";
 	echo "<a href='admin_cursisten.php?id=$id'>Terug naar de deelnemerspagina&gt;&gt;</a>";
 	exit;
 }

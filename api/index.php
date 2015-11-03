@@ -73,7 +73,7 @@ function getPass($user) {
 	// Drupal-DB selecteren
 	$link_drupal = mysql_connect($database_host, $login_database_user, $login_database_pass);
 	if (!mysql_select_db($login_database, $link_drupal)) {
-		echo mysql_error()."<br />";
+		echo mysql_error()."<br>";
 	}
 	
 	$query = "SELECT pass FROM users WHERE name='" . $user . "';";
@@ -283,7 +283,7 @@ function sendResponse($status = 200, $body = '', $content_type = 'text/html')
 						<body>
 							<h1>' . getStatusCodeMessage($status) . '</h1>
 							<p>' . $message . '</p>
-							<hr />
+							<hr>
 							<address>' . $signature . '</address>
 						</body>
 					</html>';

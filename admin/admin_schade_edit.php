@@ -21,7 +21,7 @@ if (!mysql_select_db($database, $link)) {
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <title><? echo $systeemnaam; ?> - Werkstroom materiaalcommissie - Bekijken/bewerken</title>
-    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet" />
+    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet">
 	<script language="JavaScript" src="../scripts/kalender.js"></script>
 </head>
 <body>
@@ -123,7 +123,7 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	
 	// naam
 	echo "<tr><td>Naam:</td>";
-	echo "<td><input type=\"text\" name=\"name\" value=\"$name\" size=45 /></td>";
+	echo "<td><input type=\"text\" name=\"name\" value=\"$name\" size=45></td>";
 	echo "</tr>";
 	
 	// boot
@@ -165,12 +165,12 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	
 	// actiehouder
 	echo "<tr><td>Actiehouder:</td>";
-	echo "<td><input type=\"text\" name=\"action_holder\" value=\"$action_holder\" size=45 /></td>";
+	echo "<td><input type=\"text\" name=\"action_holder\" value=\"$action_holder\" size=45></td>";
 	echo "</tr>";
 	
 	// prioriteit
 	echo "<tr><td>Prioriteit (1-3, 1 is hoogst):</td>";
-	echo "<td><select name=\"prio\" />";
+	echo "<td><select name=\"prio\">";
 	for ($i = 1; $i < 4; $i++) {
 		echo "<option value=\"".$i."\" ";
 		if ($prio == $i) echo "selected";
@@ -181,7 +181,7 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	
 	// realisatie
 	echo "<tr><td>% gerealiseerd (0-100):</td>";
-	echo "<td><input type=\"text\" name=\"real\" value=\"$real\" size=3 /></td>";
+	echo "<td><input type=\"text\" name=\"real\" value=\"$real\" size=3></td>";
 	echo "</tr>";
 	
 	// datum gereed
@@ -202,9 +202,9 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	
 	// knoppen
 	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"insert\" value=\"toevoegen\" />&nbsp;";
-	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\" />&nbsp;";
-	echo "<input type=\"submit\" name=\"delete\" value=\"Verwijderen\" /></p>";
+	echo "<p><input type=\"submit\" name=\"insert\" value=\"toevoegen\">&nbsp;";
+	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\">&nbsp;";
+	echo "<input type=\"submit\" name=\"delete\" value=\"Verwijderen\"></p>";
 	echo "</form>";
 	
 	echo "<p><em>NB: Verwijderen alleen gebruiken ingeval van bijv. een onzin-melding. Anders de melding na afhandeling via de werkstroom archiveren.</em></p>";

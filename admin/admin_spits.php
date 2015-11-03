@@ -88,7 +88,7 @@ if (!$result) {
 }
 echo "</select></div>";
 echo "<div class='form-group'><input type=\"submit\" name=\"submit_ploegnaam\" value=\"Toon spitsblokken\" class='btn btn-default'></div>";
-echo "</form><br /><br />";
+echo "</form><br><br>";
 
 // tabel
 echo "<table class=\"table sortable\" id=\"spits\">";

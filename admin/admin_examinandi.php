@@ -30,7 +30,7 @@ if ($mode == "d") {
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <title><? echo $systeemnaam; ?> - Examencommissie - Bekijk/beheer deelnemers</title>
-    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet" />
+    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet">
 </head>
 <body>
 <div style="margin-left:10px; margin-top:10px">

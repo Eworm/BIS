@@ -90,7 +90,7 @@ include_once("include_globalVars.php");
                 </p>
                 
                 <h4>API en app</h4>
-                <p>Voor meer informatie over de BIS-API, zie <a href="api/doc.html">de documentatie</a>.<br />
+                <p>Voor meer informatie over de BIS-API, zie <a href="api/doc.html">de documentatie</a>.<br>
                 Download <a href="http://hunze.nl/sites/default/files/Hunze%20BIS%20v120820.apk" target="_blank">hier</a> de Android-app van BIS.</p>
                 
                 <h4>Algemeen - hoofdscherm</h4>

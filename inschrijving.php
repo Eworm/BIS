@@ -172,13 +172,13 @@ if ($id) {
 	if ($spits) {
 		echo "Inschrijving bevestigen";
 	} else {
-		echo "Boot inschrijven";
+		// echo "Boot inschrijven";
 	}
 }
 echo "</h1>";
 echo "<div class='closediv'>";
 echo "<input id='closebtn' type=\"button\" class='bisbtn_borderless' value=\"SLUITEN\" onclick=\"window.location.href='index.php?date_to_show=" . $date .
-"&start_time_to_show=" . $start_time . "&cat_to_show=" . $cat_to_show . "&grade_to_show=" . $grade_to_show . "'\" />";
+"&start_time_to_show=" . $start_time . "&cat_to_show=" . $cat_to_show . "&grade_to_show=" . $grade_to_show . "'\">";
 echo "</div>";
 echo "</div>";
 // Message bar
@@ -200,20 +200,20 @@ if (!mysql_select_db($database, $bisdblink)) {
 
 // Surrounding div
 echo "<div class='leftrightmargins'>";
-echo "<br />";
+echo "<br>";
 // The form (evaluation happens via AJAX)
 echo "<form name='resdetails'>";
 echo "<table><tr>";
 
 // ID, tbv AJAX
-echo "<td style=\"display:none\"><input type=\"hidden\" name=\"id\" id=\"id\" value=\"" . $id . "\" /></td></tr><tr>";
+echo "<td style=\"display:none\"><input type=\"hidden\" name=\"id\" id=\"id\" value=\"" . $id . "\"></td></tr><tr>";
 // Grade to show in index.php, so we can compare it to the grade of the reserved boat after success
-echo "<td style=\"display:none\"><input type=\"hidden\" name=\"grade\" id=\"grade\" value=\"" . $grade_to_show . "\" /></td></tr><tr>";
+echo "<td style=\"display:none\"><input type=\"hidden\" name=\"grade\" id=\"grade\" value=\"" . $grade_to_show . "\"></td></tr><tr>";
 
 // Ergo-blokinschrijving, alleen bij een nieuwe inschrijving van Concepts
 if ($id == 0 && substr($boat, 0, 7) == "Concept") {
 	echo "<td colspan=\"2\">";
-	echo "Schrijf in &eacute;&eacute;n keer meerdere Concept-ergometers in:<br />bijv. '3 t/m 5' voor Concepts 3, 4 en 5, of gewoon eentje, bijv. '2 t/m 2' voor alleen Concept 2.";
+	echo "Schrijf in &eacute;&eacute;n keer meerdere Concept-ergometers in:<br>bijv. '3 t/m 5' voor Concepts 3, 4 en 5, of gewoon eentje, bijv. '2 t/m 2' voor alleen Concept 2.";
 	echo "</td></tr><tr>";
 	$ergo_lo = substr($boat, 8, 1);
 	echo "<td colspan=2>Blokinschrijving: Concept ";
@@ -275,17 +275,17 @@ echo "</tr><tr>";
 
 // persoonsnaam
 echo "<td>Voor- en achternaam:</td>";
-echo "<td><input type=\"text\" id=\"pname\" name=\"pname\" value=\"" . (isset($pname) ? $pname : "") . "\" size=\"30\" class=\"form-control\" /></td>";
+echo "<td><input type=\"text\" id=\"pname\" name=\"pname\" value=\"" . (isset($pname) ? $pname : "") . "\" size=\"30\" class=\"form-control\"></td>";
 echo "</tr><tr>";
 
 // ploegnaam
 echo "<td>Ploegnaam/omschrijving (optioneel):</td>";
-echo "<td><input type=\"text\" id=\"name\" name=\"name\" value=\"" . (isset($name) ? $name : "") . "\" size=\"30\" class=\"form-control\" /></td>";
+echo "<td><input type=\"text\" id=\"name\" name=\"name\" value=\"" . (isset($name) ? $name : "") . "\" size=\"30\" class=\"form-control\"></td>";
 echo "</tr><tr>";
 
 // e-mailadres
 echo "<td>E-mailadres (optioneel):</td>";
-echo "<td><input type=\"text\" id=\"email\" name=\"email\" value=\"" . (isset($email) ? $email : "") . "\" size=\"30\" class=\"form-control\" /></td>";
+echo "<td><input type=\"text\" id=\"email\" name=\"email\" value=\"" . (isset($email) ? $email : "") . "\" size=\"30\" class=\"form-control\"></td>";
 echo "</tr><tr>";
 
 // mpb
@@ -303,8 +303,8 @@ echo "</tr><tr>";
 
 // datum
 echo "<td>Datum (dd-mm-jjjj):</td>";
-echo "<td><input type='text' onchange=\"changeInfo();\" name='resdate' id='resdate' size='8' maxlength='10' class='form-control' value='" . $date . "' />";
-echo "&nbsp;<a href=\"javascript:show_calendar('resdetails.resdate');\" onmouseover=\"window.status='Kalender';return true;\" onmouseout=\"window.status='';return true;\"><img src='res/kalender.gif' alt='kalender' width='19' height='17' border='0' /></a></td>";
+echo "<td><input type='text' onchange=\"changeInfo();\" name='resdate' id='resdate' size='8' maxlength='10' class='form-control' value='" . $date . "'>";
+echo "&nbsp;<a href=\"javascript:show_calendar('resdetails.resdate');\" onmouseover=\"window.status='Kalender';return true;\" onmouseout=\"window.status='';return true;\"><img src='res/kalender.gif' alt='kalender' width='19' height='17' border='0'></a></td>";
 echo "</tr><tr>";
 
 // begintijd
@@ -356,7 +356,7 @@ echo "&nbsp;<select name='end_time_mins' onchange=\"changeInfo();\" id='end_time
 	echo ">45</option>";
 echo "</select></td>";
 echo "</tr>";
-echo "</table><br />";
+echo "</table><br>";
 // knoppen
 echo "<div><input type=\"button\" class='btn btn-primary' value=\"";
 if ($id) {
@@ -368,13 +368,13 @@ if ($id) {
 		echo "Inschrijven";
 	}
 }
-echo "\" onclick=\"makeRes(" . $id .  ", '" . $start_time . "', '" . $cat_to_show . "', '" . $grade_to_show . "');\" />";
+echo "\" onclick=\"makeRes(" . $id .  ", '" . $start_time . "', '" . $cat_to_show . "', '" . $grade_to_show . "');\">";
 if ($id) {
 	echo "&nbsp;<input type=\"button\" class='bisbtn' value=\"Verwijderen\" onclick=\"delRes(" . $id . ", '" . $start_time . 
-		 "', '" . $cat_to_show . "', '" . $grade_to_show . "');\" />";
+		 "', '" . $cat_to_show . "', '" . $grade_to_show . "');\">";
 }
 echo "</div></form>";
-echo "<br />";
+echo "<br>";
 echo "</div>"; // resscreen
 echo "</div>"; // surrounding div
 

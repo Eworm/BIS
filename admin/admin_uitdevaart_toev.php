@@ -22,7 +22,7 @@ setlocale(LC_TIME, 'nl_NL');
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <title><?php echo $systeemnaam; ?> - Admin - Vlootbeheer - Uit de Vaart toevoegen</title>
-    <link type="text/css" href="../<?php echo $csslink; ?>" rel="stylesheet" />
+    <link type="text/css" href="../<?php echo $csslink; ?>" rel="stylesheet">
 	<script language="JavaScript" src="../scripts/kalender.js"></script>
 </head>
 <body>
@@ -138,13 +138,13 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	
 	// reden
 	echo "<td>Reden:</td>";
-	echo "<td><input type=\"text\" name=\"reason\" value=\"$reason\" size=30 /></td>";
+	echo "<td><input type=\"text\" name=\"reason\" value=\"$reason\" size=30></td>";
 	echo "</tr>";
 	
 	// knoppen
 	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"submit\" value=\"toevoegen\" /> ";
-	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\" /></p>";
+	echo "<p><input type=\"submit\" name=\"submit\" value=\"toevoegen\"> ";
+	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\"></p>";
 	echo "</form>";
 }
 

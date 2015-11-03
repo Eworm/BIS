@@ -94,13 +94,13 @@ function ValidateLogin($user, $pass, $database_host, $login_database_user, $logi
 	// Drupal-DB selecteren
 	$link_drupal = mysql_connect($database_host, $login_database_user, $login_database_pass);
 	if (!mysql_select_db($login_database, $link_drupal)) {
-		echo mysql_error()."<br />";
+		echo mysql_error()."<br>";
 	}
 	
 	$query = "SELECT pass FROM users WHERE name='" . $user . "';";
 	$result = mysql_query($query);
 	if (!$result) {
-		echo mysql_error()."<br />";
+		echo mysql_error()."<br>";
 	}
 	$row = mysql_fetch_assoc($result);
 	$pass_db = $row['pass'];

@@ -14,8 +14,8 @@ include_once("../include_globalVars.php");
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <title><? echo $systeemnaam; ?> - Uitloggen</title>
-    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet" />
-    <link type="text/css" href="../css/bis.css" rel="stylesheet" />
+    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet">
+    <link type="text/css" href="../css/bis.css" rel="stylesheet">
 </head>
 <body>
 

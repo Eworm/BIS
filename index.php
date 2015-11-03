@@ -153,7 +153,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                     <input type="text" name="date_to_show" maxlength="10" value="<?php echo $date_to_show ?>" onchange="changeInfo();" id="date_to_show" class="form-control">
                                     
 <!--
-                                    <a href="javascript:show_calendar('adjust.date_to_show');" onmouseover="window.status='Kalender';return true;" onmouseout="window.status='';return true;"><img src='res/kalender.gif' width='19' height='17' border='0' alt='Kalender' /></a>
+                                    <a href="javascript:show_calendar('adjust.date_to_show');" onmouseover="window.status='Kalender';return true;" onmouseout="window.status='';return true;"><img src='res/kalender.gif' width='19' height='17' border='0' alt='Kalender'></a>
                                 	<input class='btn btn-default btn-sm' type="button" name="change_date" value="&lt;" onclick="changeDate(-1); changeInfo();">
                                 	<input class='btn btn-default btn-sm' type="button" name="reset_date" value="Vandaag" onclick="resetDate(); changeInfo();">
                                 	<input class='btn btn-default btn-sm' type="button" name="change_date" value="&gt;" onclick="changeDate(1); changeInfo();">
@@ -163,7 +163,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                         
                             </div>
                             
-                            <div class="col-md-1">
+                            <div class="col-md-2">
                         
                                 <div class="form-group">
                                     
@@ -198,7 +198,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                             
                             </div>
                             
-                            <div class="col-md-9">
+                            <div class="col-md-8">
                                 
                                 <div class="form-group">
                                     
@@ -243,17 +243,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
             <?php if ($toonweer): ?>
         		<?php echo xmlnews('https://www.gyas.nl/media/output/weer.rss',3,'_blank','br', 0); ?>
             <?php endif; ?>
-            
-<!--                 <h4>
-                14&deg; (12&deg;) / ZW 3 (4,5 m/s)
-            </h4>
-            Overwegend bewolkt
-            <br>
-            <a href="http://www.buienradar.nl">Buienradar</a>
-            <br><br>
-            &#9788; 5:49 - 21:31
-            <br>
-            <span class="text-muted">Om 22:37 ververst</span> -->
+
         </div>
         
         <h4>
@@ -273,7 +263,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
         			$bestuurslid = $row['Bestuurslid'];
         			$summary = $row['Betreft'];
         			$note = $row['Mededeling'];
-        			echo "Datum: $note_datum<br />Van: $bestuurslid<br /><b>Betreft: $summary</b><br />$note<br /><br /><a href=\"$mededelingenpagina\" target='_blank'>Alle mededelingen";
+        			echo "Datum: $note_datum<br>Van: $bestuurslid<br><b>Betreft: $summary</b><br>$note<br><br><a href=\"$mededelingenpagina\" target='_blank'>Alle mededelingen";
         			$query2 = "SELECT COUNT(*) AS NrOfNotes FROM mededelingen;"; // alleen recentste
         			$result2 = mysql_query($query2);
         			$row2 = mysql_fetch_assoc($result2);

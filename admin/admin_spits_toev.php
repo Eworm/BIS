@@ -209,7 +209,7 @@ if (isset($_POST['submit'])) {
 					} else {
 						echo 'mislukt.';
 					}
-					echo '<br />';
+					echo '<br>';
 				}
 			}
 		}
@@ -359,7 +359,7 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	
 	// PersoonsNaam (pname)
 	echo "<div class='form-group'><label>Voor- en achternaam ploegcaptain</label>";
-	echo '<input type="text" name="pname" value="' . (isset($pname) ? $pname : '') . '" class="form-control" />';
+	echo '<input type="text" name="pname" value="' . (isset($pname) ? $pname : '') . '" class="form-control">';
 	if (isset($fail_msg_pname)) {
 		echo '<em>' . $fail_msg_pname . '</em>';
 	}
@@ -367,19 +367,19 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	
 	// Ploegnaam
 	echo "<div class='form-group'><label>Ploegnaam (optioneel)</label>";
-	echo '<input type="text" name="name" value="' . (isset($name) ? $name : '') . '" class="form-control" />';
+	echo '<input type="text" name="name" value="' . (isset($name) ? $name : '') . '" class="form-control">';
 	echo "</div>";
 	
 	// e-mailadres
 	echo "<div class='form-group'><label>E-mailadres (optioneel)</label>";
-	echo '<input type="text" name="email" value="' . (isset($email) ? $email : '') . '" class="form-control" />';
+	echo '<input type="text" name="email" value="' . (isset($email) ? $email : '') . '" class="form-control">';
 	if (isset($fail_msg_email)) {
 		echo '<em>' . $fail_msg_email . '</em>';
 	}
 	echo "</div>";
 	
 	// knoppen
-	echo "<input type=\"submit\" name=\"submit\" value=\"toevoegen\" class='btn btn-primary' /> ";
+	echo "<input type=\"submit\" name=\"submit\" value=\"toevoegen\" class='btn btn-primary'> ";
 	echo "</form>";
 }
 

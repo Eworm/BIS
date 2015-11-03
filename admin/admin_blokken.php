@@ -48,9 +48,9 @@ if (isset($_POST['boot_te_tonen'])) {
 	}
 	?>
 	</select>
-	<input type="submit" name="submit_bootnaam" value="Toon" />
+	<input type="submit" name="submit_bootnaam" value="Toon">
 </form>
-<br /><br />
+<br><br>
 
 <table class="table sortable" id="wedstrijdblokken_ovz">
 <tr>

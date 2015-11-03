@@ -62,7 +62,7 @@ if ($boat_id > 0) {
 	} else {
 		$rows_aff = mysql_affected_rows($link);
 		if ($rows_aff > 0) {
-			echo "<br /><span class=\"update\">'" . $boat . "' is uit de vaart op " . $date_sh . "!</span><br />";
+			echo "<br><span class=\"update\">'" . $boat . "' is uit de vaart op " . $date_sh . "!</span><br>";
 		} else {
 			$query = "SELECT * FROM ".$opzoektabel." WHERE Verwijderd=0 AND Volgnummer<>'$id' AND Datum='$date_db' AND Boot_ID='$boat_id' ORDER BY Begintijd;";
 			$result = mysql_query($query);
@@ -71,7 +71,7 @@ if ($boat_id > 0) {
 			} else {
 				$rows_aff = mysql_affected_rows($link);
 				if ($rows_aff > 0) {
-					echo "<br /><em>Bestaande (andere) inschrijvingen van '" . $boat . "' op " . $date_sh . ":</em><br /><br />";
+					echo "<br><em>Bestaande (andere) inschrijvingen van '" . $boat . "' op " . $date_sh . ":</em><br><br>";
 					while ($row = mysql_fetch_assoc($result)) {
 						$db_start_time = substr($row['Begintijd'],0,5);
 						$db_end_time = substr($row['Eindtijd'],0,5);
@@ -90,16 +90,16 @@ if ($boat_id > 0) {
 							}
 						}
 						if ($row["Spits"]) $spits_toev = " (spitsblok nog te bevestigen)";
-						echo "$db_start_time - $db_end_time door $db_pname".$spits_toev.$conflict."<br />";
+						echo "$db_start_time - $db_end_time door $db_pname".$spits_toev.$conflict."<br>";
 					}
 				} else {
-					echo "<br /><em>Er zijn geen (andere) inschrijvingen van '" . $boat . "' op ". $date_sh . ".</em><br />";
+					echo "<br><em>Er zijn geen (andere) inschrijvingen van '" . $boat . "' op ". $date_sh . ".</em>";
 				}
 			}
 		}
 	}
 }
-echo "<br />";
+echo "<br>";
 
 // Toon aantallen inschrijvingen voor begintijd
 $query = "SELECT COUNT(*) AS AantalBijStart FROM ".$opzoektabel." JOIN boten ON ".$opzoektabel.".Boot_ID=boten.ID WHERE Verwijderd=0 AND Datum='$date_db' AND ((Begintijd='$start_time' AND Boot_ID<>'$boat_id') OR Eindtijd='$start_time') AND boten.Type<>\"ergo\" AND boten.Type<>\"soc\";";
@@ -116,7 +116,7 @@ if (!$result) {
 		echo "geen";
 	}
 }
-echo "<br />";
+echo "<br>";
 
 // Toon aantallen inschrijvingen voor eindtijd
 $query = "SELECT COUNT(*) AS AantalBijEind FROM ".$opzoektabel." JOIN boten ON ".$opzoektabel.".Boot_ID=boten.ID WHERE Verwijderd=0 AND Datum='$date_db' AND (Begintijd='$end_time' OR (Eindtijd='$end_time' AND Boot_ID<>'$boat_id')) AND boten.Type<>\"ergo\" AND boten.Type<>\"soc\";";
@@ -133,7 +133,7 @@ if (!$result) {
 		echo "geen";
 	}
 }
-echo "<br /><br />";
+echo "<br><br>";
 
 echo "</div></div>";
 

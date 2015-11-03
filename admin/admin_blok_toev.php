@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
 		if ($blok_id) {
 			// wijzigen bestaand blok
 			mysql_query(sprintf('DELETE FROM %s WHERE Wedstrijdblok = %d', $opzoektabel, $blok_id));
-			echo "Bestaande versie van dit wedstrijdblok verwijderd.<br />";
+			echo "Bestaande versie van dit wedstrijdblok verwijderd.<br>";
 		} else {
 			// toevoegen nieuw blok
 			$result = mysql_query(sprintf('SELECT MAX(Wedstrijdblok) AS MaxId FROM %s', $opzoektabel));
@@ -133,7 +133,7 @@ if (isset($_POST['submit'])) {
 					AND Datum = "' . $date_ins_db . '" 
 					AND Boot_ID = ' . $boat_id);
 			if (!$result) {
-				echo 'Het controleren van inschrijving ' . $date_ins . ' is mislukt.<br />';
+				echo 'Het controleren van inschrijving ' . $date_ins . ' is mislukt.<br>';
 			} else {
 				$rows_aff = mysql_affected_rows($link);
 				if ($rows_aff > 0) {
@@ -144,7 +144,7 @@ if (isset($_POST['submit'])) {
 						SendEmail($row['Email'], "Verwijdering inschrijving", $message);
 						mysql_query(sprintf('DELETE FROM %s WHERE Volgnummer = %d', $opzoektabel, $row['Volgnummer']));
 					}
-					echo 'Conflicterende inschrijvingen verwijderd en e-mails verstuurd.<br />';
+					echo 'Conflicterende inschrijvingen verwijderd en e-mails verstuurd.<br>';
 				}
 				$result2 = mysql_query('INSERT INTO ' . $opzoektabel . ' (Datum, Inschrijfdatum, Begintijd, Eindtijd, Boot_ID, Pnaam, Ploegnaam, MPB, Spits, Wedstrijdblok, Controle) 
 						VALUES ("' . $date_ins_db . '", "' . $today_db . '", "' . $start_time_tmp . '", "' . $end_time_tmp . '", ' . $boat_id . ', "' . $pname . '", "", "' . $mpb . '", 0, ' . $blok_id . ', 0)');
@@ -155,7 +155,7 @@ if (isset($_POST['submit'])) {
 				} else {
 					echo ' mislukt.';
 				}
-				echo '<br /><br />';
+				echo '<br><br>';
 			}
 		} // end for
 		echo '<p><a href="admin_blokken.php?boot_te_tonen=' . $boatname . '">Ga terug&gt;&gt;</a></p>';
@@ -303,7 +303,7 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	
 	// Omschrijving (pname)
 	echo "<div class='form-group'><label>Omschrijving</label>";
-	echo '<input type="text" name="pname" value="' . (isset($pname) ? $pname : '') . '" class="form-control" />';
+	echo '<input type="text" name="pname" value="' . (isset($pname) ? $pname : '') . '" class="form-control">';
 	if (isset($fail_msg_pname)) {
 		echo '<em>' . $fail_msg_pname . '</em>';
 	}
@@ -311,7 +311,7 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	
 	// knoppen
 	echo "<div class='form-group'>";
-	echo "<input type=\"submit\" name=\"submit\" value=\"Toevoegen\" class='btn btn-primary' /></div>";
+	echo "<input type=\"submit\" name=\"submit\" value=\"Toevoegen\" class='btn btn-primary'></div>";
 	echo "</form>";
 }
 ?>
