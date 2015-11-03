@@ -38,7 +38,7 @@ $result = mysql_query($query);
 $row = mysql_fetch_assoc($result);
 $name = $row['Naam'];
 
-echo "<p><strong>Welkom in de Admin-sectie van BIS</strong> [<a href=\"./admin_inuitdevaart.php?id=$boot_id\">Terug naar in/uit de vaart van deze boot</a>] [<a href='./admin_logout.php'>Uitloggen</a>]</p>";
+echo "<p><strong>Welkom in de admin van BIS</strong> [<a href=\"./admin_inuitdevaart.php?id=$boot_id\">Terug naar in/uit de vaart van deze boot</a>] [<a href='./admin_logout.php'>Uitloggen</a>]</p>";
 
 $reason = "Uit de vaart";
 

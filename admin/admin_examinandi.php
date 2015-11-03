@@ -34,7 +34,7 @@ if ($mode == "d") {
 </head>
 <body>
 <div style="margin-left:10px; margin-top:10px">
-<p><strong>Welkom in de Admin-sectie van BIS</strong> [<a href='./admin_examens.php'>Terug naar examen-menu</a>] [<a href='./admin_logout.php'>Uitloggen</a>]</p>
+<p><strong>Welkom in de admin van BIS</strong> [<a href='./admin_examens.php'>Terug naar examen-menu</a>] [<a href='./admin_logout.php'>Uitloggen</a>]</p>
 <p>Deelnemers</p>
 
 <?php

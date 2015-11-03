@@ -46,7 +46,7 @@ if ($mode == "d" && isset($id)) {
 </head>
 <body>
 <div style="margin-left:10px; margin-top:10px">
-<p><strong>Welkom in de Admin-sectie van BIS</strong> [<a href='./admin_logout.php'>Uitloggen</a>]</p>
+<p><strong>Welkom in de admin van BIS</strong> [<a href='./admin_logout.php'>Uitloggen</a>]</p>
 <p>Examencommissie</p>
 <p><a href='admin_examen_toev.php'>Maak een nieuw examen aan&gt;&gt;</a></p>
 

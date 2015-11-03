@@ -52,7 +52,7 @@ if ($mode == "d") {
 <div class="maindiv">
 
 <p>
-	<strong>Welkom in de Admin-sectie van BIS</strong>
+	<strong>Welkom in de admin van BIS</strong>
 	[<a href='./admin_logout.php'>Uitloggen</a>]
 </p>
 <p>Instructiecommissie</p>

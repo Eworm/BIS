@@ -123,7 +123,7 @@ mysql_close($link);
             
             <div class="well">
                 
-                <strong>Welkom in de admin-sectie van BIS</strong>
+                <strong>Welkom in de admin van BIS</strong>
                 <br><br>
                 <a href='./admin_logout.php' class="btn btn-primary">Uitloggen</a>
                 

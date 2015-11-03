@@ -28,7 +28,7 @@ if (!mysql_select_db($database, $link)) {
 
 <?php
 
-echo "<p><strong>Welkom in de Admin-sectie van BIS</strong> [<a href=\"./admin_spits.php?name=$name\">Terug naar het spitsrooster</a>] [<a href='./admin_logout.php'>Uitloggen</a>]</p>";
+echo "<p><strong>Welkom in de admin van BIS</strong> [<a href=\"./admin_spits.php?name=$name\">Terug naar het spitsrooster</a>] [<a href='./admin_logout.php'>Uitloggen</a>]</p>";
 
 $id = $_GET['id'];
 $query = "DELETE FROM ".$opzoektabel." WHERE Spits=$id;";

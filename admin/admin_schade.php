@@ -33,7 +33,7 @@ if (!isset($sortby)) $sortby = "Datum";
 
 if (isset($_GET['mode'])) $mode = $_GET['mode'];
 
-echo "<p><strong>Welkom in de Admin-sectie van BIS</strong> [<a href='./admin_logout.php'>Uitloggen</a>]</p>";
+echo "<p><strong>Welkom in de admin van BIS</strong> [<a href='./admin_logout.php'>Uitloggen</a>]</p>";
 
 echo "<p>Werkstroom Materiaalcommissie</p>";
 echo "<p><a href='admin_schade_edit.php'>Maak zelf een schademelding aan&gt;&gt;</a></p>";
