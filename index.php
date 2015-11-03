@@ -144,7 +144,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                         
                         <div class="row">
                             
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                         
                                 <div class="form-group">
                                     
@@ -161,7 +161,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                         
                             </div>
                             
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                         
                                 <div class="form-group">
                                     
@@ -196,7 +196,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                             
                             </div>
                             
-                            <div class="col-md-3">
+                            <div class="col-md-8">
                                 
                                 <div class="form-group">
                                     
@@ -210,24 +210,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                     	
                                 	</select>
                                 	
-                                </div>
-                                
-                            </div>
-                            
-                            <div class="col-md-2">
-                        
-                                <div class="form-group">
-                                    
-                                    <label for="grade_to_show">Roeigraad</label>
-                                    
-                                    <select name='grade_to_show' onchange="changeInfo();" id='grade_to_show' class="form-control">
-                                	
-                                		<option value="alle" <?php if ($grade_to_show == "alle"): ?> selected="selected\" <?php endif; ?>>alle</option>
-                                		<?php foreach($grade_array as $grade_db): ?>
-                                			<option value="<?php echo $grade_db; ?>"<?php if ($grade_to_show == $grade_db): ?> selected="selected" <?php endif; ?>><?php echo $grade_db; ?></option>
-                                		<?php endforeach; ?>
-                                	
-                                	</select>
+                                	<input type="hidden" name='grade_to_show' id='grade_to_show' value="alle">
                                 	
                                 </div>
                                 
