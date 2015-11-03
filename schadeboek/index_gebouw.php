@@ -50,12 +50,10 @@ if (!mysql_select_db($database, $link)) {
             
             <h1>
                 Klachtenboek gebouw/algemeen
+                <a href='schade_gebouw_toev.php' class='btn btn-primary'>Nieuwe klacht/schademelding</a>
             </h1>
 
             <?php
-            
-            echo "<p><a href='schade_gebouw_toev.php' class='btn btn-primary'>Nieuwe klacht/schademelding</a><br>";
-            echo "<h2>Klachten in behandeling</h2>";
             
             $query = "SELECT Datum, Naam, Oms_lang, Feedback from schades_gebouw;";
             $result = mysql_query($query);

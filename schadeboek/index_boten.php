@@ -53,12 +53,10 @@ if (!mysql_select_db($database, $link)) {
             
             <h1>
                 Schadeboek boten
+                <a href='schade_boten_toev.php' class='btn btn-primary'>Nieuwe schademelding</a>
             </h1>
 
             <?php
-            
-            echo "<p><a href='schade_boten_toev.php' class='btn btn-primary'>Nieuwe schademelding</a><br>";
-            echo "<h2>Alle schades die in behandeling zijn</h2>";
             
             $query = "SELECT Datum, Naam, Boot_ID, Oms_lang, Feedback from schades;";
             $result = mysql_query($query);

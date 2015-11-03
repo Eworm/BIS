@@ -29,7 +29,7 @@
                 </li>
     
                 <li>
-                    <a href="/BIS/schadeboek/index_gebouw.php">Klachten gebouw</a>
+                    <a href="/BIS/schadeboek/index_gebouw.php">Klachtenboek</a>
                 </li>
     
                 <li>
