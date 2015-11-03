@@ -57,7 +57,7 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	
 	// naam
 	echo "<div class='form-group'><label>Naam</label>";
-	echo "<input type=\"text\" name=\"name\" value=\"$name\"  class='form-control' />";
+	echo "<input type=\"text\" name=\"name\" value=\"$name\" class='form-control' autofocus />";
 	echo "</div>";
 	
 	// functie
@@ -78,7 +78,7 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	echo "</label></div>";
 	
 	// knoppen
-	echo "<div class='form-group'><input type=\"submit\" name=\"insert\" value=\"toevoegen\" class='btn btn-primary' /></div> ";
+	echo "<div class='form-group'><input type=\"submit\" name=\"insert\" value=\"Toevoegen\" class='btn btn-primary' /></div> ";
 	echo "</form>";
 }
 ?>

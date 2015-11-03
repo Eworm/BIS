@@ -116,7 +116,7 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	
 	// naam
 	echo "<div class='form-group'><label>Naam</label>";
-	echo "<input type=\"text\" name=\"name\" value=\"$name\" class='form-control' />";
+	echo "<input type=\"text\" name=\"name\" value=\"$name\" class='form-control' autofocus />";
 	echo "</div>";
 	
 	// betreft

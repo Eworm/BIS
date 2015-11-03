@@ -121,7 +121,7 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	// naam
 	echo "<div class='form-group'><label>Naam</label>";
 	echo "<input type=\"text\" name=\"naam\" value=\"$naam\" class='form-control' autofocus />";
-	echo "<div>Svp alleen gewone letters en geen leestekens of apostrof gebruiken</div>";
+	echo "<div class='help-block'>Svp alleen gewone letters en geen leestekens of apostrof gebruiken</div>";
 	echo "</div>";
 	
 	// gewicht

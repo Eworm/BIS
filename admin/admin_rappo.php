@@ -49,7 +49,7 @@ if (!mysql_select_db($database, $link)) {
 <?php
 
 if (!$_POST['submit']) {
-	echo '<form name="form" action="' . $_SERVER['REQUEST_URI'] . '" method="post">';
+	echo '<form name="form" action="' . $_SERVER['REQUEST_URI'] . '" method="post" class="form-inline">';
 	// jaar
 	echo "<div class='form-group'><label for=''>Jaar</label>";
 	echo "<input type=\"text\" name=\"jaar\" value=\"$jaar\" size=\"4\" class='form-control' autofocus></div>";

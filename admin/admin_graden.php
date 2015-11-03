@@ -44,10 +44,13 @@ if (!mysql_select_db($database, $link)) {
     <div class="row">
                 
         <div class="col-md-9">
+            
+            <h1>
+                Overzicht roeigraden
+                <a href='./admin_graad_toev.php' class='btn btn-primary'>Roeigraad toevoegen</a>
+            </h1>
 
 <?php
-
-echo "<p><div><a href='./admin_graad_toev.php' class='btn btn-primary'>Roeigraad toevoegen</a></div></p>";
 
 $query = "SELECT * from roeigraden ORDER BY ID;";
 $result = mysql_query($query);

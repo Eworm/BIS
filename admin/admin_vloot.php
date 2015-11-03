@@ -44,10 +44,14 @@ if (!mysql_select_db($database, $link)) {
     <div class="row">
                 
         <div class="col-md-9">
+            
+            <h1>
+                Botenoverzicht
+                <a href='./admin_boot_toevoegen.php' class='btn btn-primary'>Boot toevoegen</a>
+            </h1>
 
 <?php
 
-echo "<p><div><a href='./admin_boot_toevoegen.php' class='btn btn-primary'>Boot toevoegen</a></div></p>";
 
 $query = "SELECT ID, Naam, Gewicht, Type, Roeigraad from boten WHERE Datum_eind IS NULL ORDER BY Naam;";
 $boats_result = mysql_query($query);

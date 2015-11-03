@@ -39,25 +39,33 @@ if (!mysql_select_db($database, $link)) {
     
 ?>
 
+<?php
+  
+    $mode = $_GET['mode'];
+    
+?>
+
 <div class="container-fluid">
             
     <div class="row">
                 
         <div class="col-md-9">
+            
+            <h1>
+                Mededelingen
+                <a href='./admin_mededeling_toev.php' class='btn btn-primary'>Mededeling toevoegen</a>
+                
+                <?php
+                    if (!$mode) {
+                    	echo "<a href='admin_mededeling.php?mode=Arch' class='btn btn-default'>Gearchiveerde mededelingen</a>";
+                    } else {
+                    	echo "<a href='admin_mededeling.php' class='btn btn-default'>Actuele mededelingen</a>";
+                    }
+                ?>
+            </h1>
 
 <?php
 
-$mode = $_GET['mode'];
-
-echo "<p><div><a href='./admin_mededeling_toev.php' class='btn btn-primary'>Mededeling toevoegen</a>";
-
-if (!$mode) {
-	echo "&nbsp;&nbsp;<a href='admin_mededeling.php?mode=Arch' class='btn btn-default'>Gearchiveerde mededelingen</a>";
-} else {
-	echo "&nbsp;&nbsp;<a href='admin_mededeling.php' class='btn btn-default'>Actuele mededelingen</a>";
-}
-
-echo "</div></p>";
 
 $source = "mededelingen";
 if ($mode) $source .= "_oud";

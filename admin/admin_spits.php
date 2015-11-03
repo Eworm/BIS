@@ -47,6 +47,11 @@ setlocale(LC_TIME, 'nl_NL');
     <div class="row">
                 
         <div class="col-md-9">
+            
+            <h1>
+                Actieve repeterende spitsblokken
+                <a href='./admin_spits_toev.php' class='btn btn-primary'>Blok toevoegen</a>
+            </h1>
 
 <?php
 $fail = false;
@@ -58,9 +63,6 @@ if (isset($_POST['ploeg_te_tonen'])) {
 		$ploeg_te_tonen = $_GET['ploeg_te_tonen'];
 	}
 }
-
-echo "<h1>Actieve repeterende spitsblokken</h1>";
-echo "<p><a href=\"./admin_spits_toev.php\" class='btn btn-primary'>Toevoegen</a></p>";
 
 echo '<form class="form-inline" name="form" action="' . $_SERVER['REQUEST_URI'] . '" method="post">';
 echo "<div class='form-group'>Beperk tot ploeg <select name=\"ploeg_te_tonen\" class='form-control'>";

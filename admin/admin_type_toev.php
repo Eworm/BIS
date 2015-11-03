@@ -100,7 +100,7 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	
 	// categorie
 	echo "<div class='form-group'><label>Categorie</label>";
-	echo "<input type=\"text\" name=\"cat\" value=\"$cat\"  class='form-control' /><em>Meerdere types kunnen deel uitmaken van dezelfde categorie</em>";
+	echo "<input type=\"text\" name=\"cat\" value=\"$cat\"  class='form-control' /><div class='help-block'>Meerdere types kunnen deel uitmaken van dezelfde categorie</div>";
 	echo "</div>";
 	
 	// roeisoort

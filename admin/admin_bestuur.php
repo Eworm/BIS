@@ -4,8 +4,12 @@ $backLink = '<a href="index.php">Terug naar admin-menu</a>';
 include 'admin_header.php';
 ?>
 
+<h1>
+    Overzicht bestuursleden
+    <a href='./admin_bestuur_toev.php' class='btn btn-primary'>Bestuurslid toevoegen</a>
+</h1>
+
 <?php
-echo "<p><div><a href='./admin_bestuur_toev.php' class='btn btn-primary'>Bestuurslid toevoegen</a></div></p>";
 
 $query = "SELECT * from bestuursleden ORDER BY Functie;";
 $result = mysql_query($query);

@@ -44,10 +44,13 @@ if (!mysql_select_db($database, $link)) {
     <div class="row">
                 
         <div class="col-md-9">
+            
+            <h1>
+                Overzicht boottypes
+                <a href='./admin_type_toev.php' class='btn btn-primary'>Boottype toevoegen</a>
+            </h1>
 
 <?php
-
-echo "<p><div><a href='./admin_type_toev.php' class='btn btn-primary'>Boottype toevoegen</a></div></p>";
 
 $query = "SELECT * from types;";
 $result = mysql_query($query);
