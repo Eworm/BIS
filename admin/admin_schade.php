@@ -17,32 +17,58 @@ if (!mysql_select_db($database, $link)) {
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title><? echo $systeemnaam; ?> - Werkstroom Materiaalcommissie</title>
-    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet">
-</head>
+<!DOCTYPE html>
+<html lang="nl">
+    
+    <head>
+        <title>Admin - <?php echo $systeemnaam; ?></title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        
+        <script type="text/javascript" src="../scripts/sortable.js"></script>
+    	
+    </head>
+    
 <body>
-<div style="margin-left:10px; margin-top:10px">
-
+    
 <?php
+  
+    include('../includes/navbar-admin.php');
+  
+  
+    if (isset($_GET['sortby'])) $sortby = $_GET['sortby'];
+    if (!isset($sortby)) $sortby = "Datum";
 
-if (isset($_GET['sortby'])) $sortby = $_GET['sortby'];
-if (!isset($sortby)) $sortby = "Datum";
+    if (isset($_GET['mode'])) $mode = $_GET['mode'];
+    
+?>
 
-if (isset($_GET['mode'])) $mode = $_GET['mode'];
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-12">
+            
+            <h1>
+                Werkstroom Materiaalcommissie
+                <a href='admin_schade_edit.php' class="btn btn-primary">Schademelding toevoegen</a>
 
-echo "<p><strong>Welkom in de admin van BIS</strong> [<a href='./admin_logout.php'>Uitloggen</a>]</p>";
-
-echo "<p>Werkstroom Materiaalcommissie</p>";
-echo "<p><a href='admin_schade_edit.php'>Maak zelf een schademelding aan&gt;&gt;</a></p>";
-if (!isset($mode)) {
-	echo "<p><a href='admin_schade.php?mode=Arch'>Toon gearchiveerde schades&gt;&gt;</a><br>";
-} else {
-	echo "<p><a href='admin_schade.php'>Toon actuele schades&gt;&gt;</a><br>";
-}
-echo "<a href='admin_schade_export.php?mode=" . (isset($mode) ? $mode : "") . "'>Exporteer onderstaande als Excel-bestand&gt;&gt;</a></p>";
+                <?php                
+                if (!isset($mode)) {
+                	echo "<a href='admin_schade.php?mode=Arch' class='btn btn-default'>Gearchiveerde schades</a>";
+                } else {
+                	echo "<a href='admin_schade.php' class='btn btn-default'>Actuele schades</a>";
+                }
+                ?>
+                
+                <a href='admin_schade_export.php?mode="<?php (isset($mode) ? $mode : "") ?>'>Exporteer als Excel</a>
+            </h1>
+            
+<?php
 
 $source = "schades";
 if (isset($mode)) $source .= "_oud";
@@ -51,7 +77,7 @@ $result = mysql_query($query);
 if (!$result) {
 	die("Ophalen van schades mislukt.". mysql_error());
 }
-echo "<br><table class=\"basis\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" bordercolor=\"#AAB8D5\">";
+echo "<br><table class=\"table\">";
 echo "<tr><th><div><a href='admin_schade.php?sortby=Datum" . (isset($mode) ? ("&mode=" . $mode) : "") . "'>Melddatum</a></div></th>";
 echo "<th><div><a href='admin_schade.php?sortby=Datum_gew" . (isset($mode) ? ("&mode=" . $mode) : "") . "'>Laatst gew.</a></div></th>";
 echo "<th><div>Naam melder</div></th>";
@@ -109,6 +135,10 @@ echo "</table>";
 mysql_close($link);
 
 ?>
+
+        </div>
+        
+    </div>
 
 </div>
 </body>
