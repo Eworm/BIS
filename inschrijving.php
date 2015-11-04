@@ -165,7 +165,7 @@ if (!isset($end_time)) {
 }
 
 // Message bar
-echo "<div id='msgbar'></div>"; // To be filled with AJAX after pressing button
+echo "<div id='msgbar' class='alert alert-success'></div>"; // To be filled with AJAX after pressing button
 echo "<div id='resscreen'>"; // Enables rest of screen to be removed upon success
 // Rest of screen
 // Show existing reservations
@@ -264,7 +264,7 @@ echo "<label class='col-md-4 control-label'>";
 echo "Voor- en achternaam";
 echo "</label>";
 echo "<div class='col-md-8'>";
-echo "<input type=\"text\" id=\"pname\" name=\"pname\" value=\"" . (isset($pname) ? $pname : "") . "\" size=\"30\" class=\"form-control\" autofocus>";
+echo "<input type=\"text\" id=\"pname\" name=\"pname\" value=\"" . (isset($pname) ? $pname : "") . "\" class=\"form-control\" autofocus>";
 echo "</div>";
 echo "</div>";
 
@@ -274,7 +274,7 @@ echo "<label class='col-md-4 control-label'>";
 echo "Ploegnaam/omschrijving (optioneel)";
 echo "</label>";
 echo "<div class='col-md-8'>";
-echo "<input type=\"text\" id=\"name\" name=\"name\" value=\"" . (isset($name) ? $name : "") . "\" size=\"30\" class=\"form-control\">";
+echo "<input type=\"text\" id=\"name\" name=\"name\" value=\"" . (isset($name) ? $name : "") . "\" class=\"form-control\">";
 echo "</div>";
 echo "</div>";
 
@@ -284,7 +284,7 @@ echo "<label class='col-md-4 control-label'>";
 echo "E-mailadres (optioneel)";
 echo "</label>";
 echo "<div class='col-md-8'>";
-echo "<input type=\"text\" id=\"email\" name=\"email\" value=\"" . (isset($email) ? $email : "") . "\" size=\"30\" class=\"form-control\">";
+echo "<input type=\"text\" id=\"email\" name=\"email\" value=\"" . (isset($email) ? $email : "") . "\" class=\"form-control\">";
 echo "</div>";
 echo "</div>";
 
@@ -312,7 +312,7 @@ echo "<label class='col-md-4 control-label'>";
 echo "Datum (dd-mm-jjjj)";
 echo "</label>";
 echo "<div class='col-md-4'>";
-echo "<input type='text' onchange=\"changeInfo();\" name='resdate' id='resdate' size='8' maxlength='10' class='form-control' value='" . $date . "'>";
+echo "<input type='text' onchange=\"changeInfo();\" name='resdate' id='resdate' maxlength='10' class='form-control datepicker' value='" . $date . "'>";
 echo "</div>";
 echo "</div>";
 
@@ -393,7 +393,7 @@ if ($id) {
 }
 echo "\" onclick=\"makeRes(" . $id .  ", '" . $start_time . "', '" . $cat_to_show . "', '" . $grade_to_show . "');\">";
 if ($id) {
-	echo "&nbsp;<input type=\"button\" class='bisbtn btn btn-default' value=\"Verwijderen\" onclick=\"delRes(" . $id . ", '" . $start_time . 
+	echo "&nbsp;<input type=\"button\" class='bisbtn btn btn-danger' value=\"Verwijderen\" onclick=\"delRes(" . $id . ", '" . $start_time . 
 		 "', '" . $cat_to_show . "', '" . $grade_to_show . "');\">";
 }
 echo "</div></div></form>";

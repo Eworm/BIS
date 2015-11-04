@@ -178,7 +178,7 @@ function resetReservationPopup(){
             changeInfo();
             
 		} else {
-			msgBar.setAttribute('class', 'failmsg');
+			msgBar.setAttribute('class', 'alert alert-danger');
 			if (resultArray.action == "make" || resultArray.action == "alter") {
 				msg += "U kunt hieronder de inschrijving corrigeren en nogmaals proberen op te slaan.";
 			} else {  // unsuccessful delete: hide rest of reservation pop-up

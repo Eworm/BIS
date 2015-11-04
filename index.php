@@ -33,6 +33,7 @@ if (!mysql_select_db($database, $bisdblink)) {
     	
     	<!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	<link type="text/css" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
     	
     </head>
     
@@ -147,7 +148,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                     
                                     <label for="date_to_show">Datum</label>
                                     
-                                    <input type="text" name="date_to_show" maxlength="10" value="<?php echo $date_to_show ?>" onchange="changeInfo();" id="date_to_show" class="form-control">
+                                    <input type="text" name="date_to_show" maxlength="10" value="<?php echo $date_to_show ?>" onchange="changeInfo();" id="date_to_show" class="form-control datepicker">
                                     
 <!--
                                     <a href="javascript:show_calendar('adjust.date_to_show');" onmouseover="window.status='Kalender';return true;" onmouseout="window.status='';return true;"><img src='res/kalender.gif' width='19' height='17' border='0' alt='Kalender'></a>
@@ -324,6 +325,8 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     
+    <script src="bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+	<script src="scripts/datepicker.js"></script>
 	<script src="scripts/Script.js"></script>
     <script src="scripts/dates_and_ajax.js"></script>
 	<script src="scripts/kalender.js"></script>

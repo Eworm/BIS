@@ -15,6 +15,7 @@
     "hideShowPassword": "~2.0.3",
     "parsleyjs": "~2.0.5",
     "labjs": "*",
-    "bootstrap-sass": "bootstrap-sass-official#~3.3.5"
+    "bootstrap-sass": "bootstrap-sass-official#~3.3.5",
+    "bootstrap-datepicker": "~1.5.0"
   }
 }
