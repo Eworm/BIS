@@ -54,7 +54,8 @@ function changeInfo(){
 			httpObject.open("GET", "show_schedule.php?date_to_show=" + document.getElementById("date_to_show").value + 
 					"&start_hrs_to_show=" + document.getElementById("start_hrs_to_show").value + 
 					"&start_mins_to_show=" + document.getElementById("start_mins_to_show").value + 
-					"&cat_to_show=" + document.getElementById("cat_to_show").value + 
+					// "&cat_to_show=" + document.getElementById("cat_to_show").value + 
+					"&cat_to_show=" + document.querySelector('input[name="cat_to_show"]:checked').value + 
 					"&grade_to_show=" + document.getElementById("grade_to_show").value, true);
 			httpObject.onreadystatechange = setOutput;
 			httpObject.send(null);

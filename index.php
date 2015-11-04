@@ -202,6 +202,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                     
                                     <label for="cat_to_show">Categorie</label>
                                     
+<!--
                                     <select name='cat_to_show' onchange="changeInfo();" id='cat_to_show' class="form-control">
                                         
                                     	<?php foreach($cat_array as $cat_db): ?>
@@ -209,6 +210,18 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                     	<?php endforeach; ?>
                                     	
                                 	</select>
+-->
+                                	
+                                	<div class="form-group">
+                                	
+                                	<?php foreach($cat_array as $cat_db): ?>
+                                	
+                                		<input type="radio" id="<?php echo $cat_db; ?>" value="<?php echo $cat_db; ?>" <?php if ($cat_to_show == $cat_db): ?> checked <?php endif; ?> name='cat_to_show' value="<?php echo $cat_db; ?>" onchange="changeInfo();">
+                                		&nbsp;<label for="<?php echo $cat_db; ?>"><?php echo $cat_db; ?></label>&nbsp;
+                            	
+                                	<?php endforeach; ?>
+                                	
+                                	</div>
                                 	
                                 	<input type="hidden" name='grade_to_show' id='grade_to_show' value="alle">
                                 	
