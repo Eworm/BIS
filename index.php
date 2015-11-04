@@ -165,17 +165,39 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                         
                                 <div class="form-group">
                                     
+<!--                                     <input type="time" class="form-control" min="6:00" max="17:00" step="900"> -->
+                                    
                                     <label for="start_hrs_to_show">Vanaf</label>
                                     
                                     <div class="row">
                                         
                                         <div class="col-md-12">
+                                            
+                                            
+                                            <input type="range" min="6" max="17" step="1" value="8" name='start_hrs_to_show' onchange="changeInfo();" id='start_hrs_to_show' list="powers">
                                     
+                                            <datalist id="powers">
+                                              <option value="6">
+                                              <option value="7">
+                                              <option value="8">
+                                              <option value="9">
+                                              <option value="10">
+                                              <option value="11">
+                                              <option value="12">
+                                              <option value="13">
+                                              <option value="14">
+                                              <option value="15">
+                                              <option value="16">
+                                              <option value="17">
+                                            </datalist>
+                                    
+<!--
                                             <select name='start_hrs_to_show' onchange="changeInfo();" id='start_hrs_to_show' class="form-control">
                                         	<?php for ($t = 6; $t < 18; $t++): ?>
                                         		<option value="<?php echo $t ?>"<?php if ($start_hrs_to_show == $t): ?> selected="selected" <?php endif; ?>><?php echo $t; ?></option>
                                         	<?php endfor; ?>
                                         	</select>
+-->
                                         	
                                         </div>
                                         
