@@ -172,7 +172,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                         <div class="col-md-12">
                                     
                                             <select name='start_hrs_to_show' onchange="changeInfo();" id='start_hrs_to_show' class="form-control">
-                                        	<?php for ($t = 6; $t < 24; $t++): ?>
+                                        	<?php for ($t = 6; $t < 18; $t++): ?>
                                         		<option value="<?php echo $t ?>"<?php if ($start_hrs_to_show == $t): ?> selected="selected" <?php endif; ?>><?php echo $t; ?></option>
                                         	<?php endfor; ?>
                                         	</select>
@@ -213,13 +213,25 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
 -->
                                 	
                                 	<div class="form-group">
+                                    	
+                                    	<div class="row">
                                 	
-                                	<?php foreach($cat_array as $cat_db): ?>
+                                    	<?php foreach($cat_array as $cat_db): ?>
+                                    	
+                                    	    <div class="col-md-3">
+                                    	
+                                        	    <label class="radio-inline">
+                                            	    
+                                            		<input type="radio" id="<?php echo $cat_db; ?>" value="<?php echo $cat_db; ?>" <?php if ($cat_to_show == $cat_db): ?> checked <?php endif; ?> name='cat_to_show' value="<?php echo $cat_db; ?>" onchange="changeInfo();">
+                                            		<?php echo $cat_db; ?>
+                                            		
+                                        		</label>
+                                    		
+                                    		</div>
                                 	
-                                		<input type="radio" id="<?php echo $cat_db; ?>" value="<?php echo $cat_db; ?>" <?php if ($cat_to_show == $cat_db): ?> checked <?php endif; ?> name='cat_to_show' value="<?php echo $cat_db; ?>" onchange="changeInfo();">
-                                		&nbsp;<label for="<?php echo $cat_db; ?>"><?php echo $cat_db; ?></label>&nbsp;
-                            	
-                                	<?php endforeach; ?>
+                                    	<?php endforeach; ?>
+                                	
+                                    	</div>
                                 	
                                 	</div>
                                 	
