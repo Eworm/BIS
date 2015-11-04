@@ -37,14 +37,12 @@ function ScrollTableAbsoluteSize(table, width, height)
 {
 	CleanUpArrays();
 	ScrollTable(table, null, null, width, height);
-	//CleanUpArrays();
 }
 
 function ScrollTableRelativeSize(table, borderHorizontal, borderVertical)
 {
 	CleanUpArrays();
 	ScrollTable(table, borderHorizontal, borderVertical, null, null);
-	//CleanUpArrays();
 }
 
 function ScrollTable(table, borderHorizontal, borderVertical, width, height)

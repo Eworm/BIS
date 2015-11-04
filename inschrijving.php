@@ -164,23 +164,6 @@ if (!isset($end_time)) {
 	$end_time_mins = $end_time_fields[1];
 }
 
-// Top bar with header and close button
-echo "<h1>";
-if ($id) {
-	echo "Inschrijving bewerken";
-} else {
-	if ($spits) {
-		echo "Inschrijving bevestigen";
-	} else {
-		// echo "Boot inschrijven";
-	}
-}
-echo "</h1>";
-echo "<div class='closediv'>";
-echo "<input id='closebtn' type=\"button\" class='bisbtn_borderless' value=\"SLUITEN\" onclick=\"window.location.href='index.php?date_to_show=" . $date .
-"&start_time_to_show=" . $start_time . "&cat_to_show=" . $cat_to_show . "&grade_to_show=" . $grade_to_show . "'\">";
-echo "</div>";
-echo "</div>";
 // Message bar
 echo "<div id='msgbar'></div>"; // To be filled with AJAX after pressing button
 echo "<div id='resscreen'>"; // Enables rest of screen to be removed upon success
@@ -199,24 +182,20 @@ if (!mysql_select_db($database, $bisdblink)) {
 }
 
 // Surrounding div
-echo "<div class='leftrightmargins'>";
-echo "<br>";
 // The form (evaluation happens via AJAX)
-echo "<form name='resdetails'>";
-echo "<table><tr>";
+echo "<form name='resdetails' class='form-horizontal'>";
 
 // ID, tbv AJAX
-echo "<td style=\"display:none\"><input type=\"hidden\" name=\"id\" id=\"id\" value=\"" . $id . "\"></td></tr><tr>";
+echo "<input type=\"hidden\" name=\"id\" id=\"id\" value=\"" . $id . "\">";
 // Grade to show in index.php, so we can compare it to the grade of the reserved boat after success
-echo "<td style=\"display:none\"><input type=\"hidden\" name=\"grade\" id=\"grade\" value=\"" . $grade_to_show . "\"></td></tr><tr>";
+echo "<input type=\"hidden\" name=\"grade\" id=\"grade\" value=\"" . $grade_to_show . "\">";
 
 // Ergo-blokinschrijving, alleen bij een nieuwe inschrijving van Concepts
 if ($id == 0 && substr($boat, 0, 7) == "Concept") {
-	echo "<td colspan=\"2\">";
 	echo "Schrijf in &eacute;&eacute;n keer meerdere Concept-ergometers in:<br>bijv. '3 t/m 5' voor Concepts 3, 4 en 5, of gewoon eentje, bijv. '2 t/m 2' voor alleen Concept 2.";
-	echo "</td></tr><tr>";
+	
 	$ergo_lo = substr($boat, 8, 1);
-	echo "<td colspan=2>Blokinschrijving: Concept ";
+	echo "Blokinschrijving: Concept ";
 	echo "<select name=\"ergo_lo\" id='ergo_lo'>";
 	for ($t = $ergo_lo; $t <= $NR_OF_CONCEPTS; $t++) {
 		echo"<option value=\"".$t."\" ";
@@ -232,8 +211,8 @@ if ($id == 0 && substr($boat, 0, 7) == "Concept") {
 		echo ">".$t."</option>";
 	}
 	echo "</select>";
-	echo "</td>";
-	echo "</tr><tr>";
+	echo "";
+	
 }
 
 // Ingeval van blokinschrijving Concepts, geen mogelijkheid om andere boot te kiezen
@@ -241,8 +220,12 @@ if (substr($boat, 0, 7) == "Concept") {
 	$hide = " style=\"display:none\"";
 }
 // Boat
-echo "<td" . (isset($hide) ? $hide : "") . ">Boot/ergometer:</td>";
-echo "<td". (isset($hide) ? $hide : "") . "><select" . (isset($hide) ? $hide : "") . " name=\"boat_id\" onchange=\"changeInfo();\" id=\"boat_id\" class=\"form-control\">";
+echo "<div class='form-group' ". (isset($hide) ? $hide : "") . ">";
+echo "<label class='col-md-4 control-label'>";
+echo "Boot/ergometer";
+echo "</label>";
+echo "<div class='col-md-8'>";
+echo "<select" . (isset($hide) ? $hide : "") . " name=\"boat_id\" onchange=\"changeInfo();\" id=\"boat_id\" class=\"form-control\">";
 echo "<option value=0 ";
 if ($boat_id == 0) echo "selected=\"selected\"";
 echo "></option>";
@@ -270,27 +253,48 @@ if (!$boats_result) {
 	}
 	echo "</optgroup>";
 }
-echo "</select></td>";
-echo "</tr><tr>";
+echo "</select>";
+echo "</div>";
+echo "</div>";
+
 
 // persoonsnaam
-echo "<td>Voor- en achternaam:</td>";
-echo "<td><input type=\"text\" id=\"pname\" name=\"pname\" value=\"" . (isset($pname) ? $pname : "") . "\" size=\"30\" class=\"form-control\"></td>";
-echo "</tr><tr>";
+echo "<div class='form-group'>";
+echo "<label class='col-md-4 control-label'>";
+echo "Voor- en achternaam";
+echo "</label>";
+echo "<div class='col-md-8'>";
+echo "<input type=\"text\" id=\"pname\" name=\"pname\" value=\"" . (isset($pname) ? $pname : "") . "\" size=\"30\" class=\"form-control\" autofocus>";
+echo "</div>";
+echo "</div>";
 
 // ploegnaam
-echo "<td>Ploegnaam/omschrijving (optioneel):</td>";
-echo "<td><input type=\"text\" id=\"name\" name=\"name\" value=\"" . (isset($name) ? $name : "") . "\" size=\"30\" class=\"form-control\"></td>";
-echo "</tr><tr>";
+echo "<div class='form-group'>";
+echo "<label class='col-md-4 control-label'>";
+echo "Ploegnaam/omschrijving (optioneel)";
+echo "</label>";
+echo "<div class='col-md-8'>";
+echo "<input type=\"text\" id=\"name\" name=\"name\" value=\"" . (isset($name) ? $name : "") . "\" size=\"30\" class=\"form-control\">";
+echo "</div>";
+echo "</div>";
 
 // e-mailadres
-echo "<td>E-mailadres (optioneel):</td>";
-echo "<td><input type=\"text\" id=\"email\" name=\"email\" value=\"" . (isset($email) ? $email : "") . "\" size=\"30\" class=\"form-control\"></td>";
-echo "</tr><tr>";
+echo "<div class='form-group'>";
+echo "<label class='col-md-4 control-label'>";
+echo "E-mailadres (optioneel)";
+echo "</label>";
+echo "<div class='col-md-8'>";
+echo "<input type=\"text\" id=\"email\" name=\"email\" value=\"" . (isset($email) ? $email : "") . "\" size=\"30\" class=\"form-control\">";
+echo "</div>";
+echo "</div>";
 
 // mpb
-echo "<td>MPB (indien nodig):</td>";
-echo "<td><select name=\"mpb\" id='mpb' class='form-control'>";
+echo "<div class='form-group'>";
+echo "<label class='col-md-4 control-label'>";
+echo "MPB (indien nodig)";
+echo "</label>";
+echo "<div class='col-md-8'>";
+echo "<select name=\"mpb\" id='mpb' class='form-control'>";
 $cnt = 0;
 foreach($mpb_array as $mpb_db) {
 	echo "<option value='" . $mpb_db . "'";
@@ -298,25 +302,36 @@ foreach($mpb_array as $mpb_db) {
 	echo ">" . $mpb_array_sh[$cnt] . "</option>";
 	$cnt++;
 }
-echo "</select></td>";
-echo "</tr><tr>";
+echo "</select>";
+echo "</div>";
+echo "</div>";
 
 // datum
-echo "<td>Datum (dd-mm-jjjj):</td>";
-echo "<td><input type='text' onchange=\"changeInfo();\" name='resdate' id='resdate' size='8' maxlength='10' class='form-control' value='" . $date . "'>";
-echo "&nbsp;<a href=\"javascript:show_calendar('resdetails.resdate');\" onmouseover=\"window.status='Kalender';return true;\" onmouseout=\"window.status='';return true;\"><img src='res/kalender.gif' alt='kalender' width='19' height='17' border='0'></a></td>";
-echo "</tr><tr>";
+echo "<div class='form-group'>";
+echo "<label class='col-md-4 control-label'>";
+echo "Datum (dd-mm-jjjj)";
+echo "</label>";
+echo "<div class='col-md-4'>";
+echo "<input type='text' onchange=\"changeInfo();\" name='resdate' id='resdate' size='8' maxlength='10' class='form-control' value='" . $date . "'>";
+echo "</div>";
+echo "</div>";
 
 // begintijd
-echo "<td>Begintijd</td>";
-echo "<td><select name='start_time_hrs' onchange=\"changeInfo();\" id='start_time_hrs' class='form-control'>";
+echo "<div class='form-group'>";
+echo "<label class='col-md-4 control-label'>";
+echo "Begintijd";
+echo "</label>";
+echo "<div class='col-md-2'>";
+echo "<select name='start_time_hrs' onchange=\"changeInfo();\" id='start_time_hrs' class='form-control'>";
 	for ($t=6; $t<24; $t++) {
 		echo"<option value=\"".$t."\" ";
 		if ($start_time_hrs == $t) echo "selected=\"selected\"";
 		echo ">".$t."</option>";
 	}
 echo "</select>";
-echo "&nbsp;<select name='start_time_mins' onchange=\"changeInfo();\" id='start_time_mins' class='form-control'>";
+echo "</div>";
+echo "<div class='col-md-2'>";
+echo "<select name='start_time_mins' onchange=\"changeInfo();\" id='start_time_mins' class='form-control'>";
 	echo "<option value=\"00\" ";
 	if ($start_time_mins == 0) echo "selected=\"selected\"";
 	echo ">00</option>";
@@ -329,19 +344,26 @@ echo "&nbsp;<select name='start_time_mins' onchange=\"changeInfo();\" id='start_
 	echo "<option value=\"45\" ";
 	if ($start_time_mins == 45) echo "selected=\"selected\"";
 	echo ">45</option>";
-echo "</select></td>";
-echo "</tr><tr>";
+echo "</select>";
+echo "</div>";
+echo "</div>";
 
 // eindtijd
-echo "<td>Eindtijd:</td>";
-echo "<td><select name='end_time_hrs' onchange=\"changeInfo();\" id='end_time_hrs' class='form-control'>";
+echo "<div class='form-group'>";
+echo "<label class='col-md-4 control-label'>";
+echo "Eindtijd";
+echo "</label>";
+echo "<div class='col-md-2'>";
+echo "<select name='end_time_hrs' onchange=\"changeInfo();\" id='end_time_hrs' class='form-control'>";
 	for ($t=6; $t<24; $t++) {
 		echo"<option value=\"".$t."\" ";
 		if ($end_time_hrs == $t) echo "selected=\"selected\"";
 		echo ">".$t."</option>";
 	}
 echo "</select>";
-echo "&nbsp;<select name='end_time_mins' onchange=\"changeInfo();\" id='end_time_mins' class='form-control'>";
+echo "</div>";
+echo "<div class='col-md-2'>";
+echo "<select name='end_time_mins' onchange=\"changeInfo();\" id='end_time_mins' class='form-control'>";
 	echo "<option value=\"00\" ";
 	if ($end_time_mins == 0) echo "selected=\"selected\"";
 	echo ">00</option>";
@@ -354,11 +376,12 @@ echo "&nbsp;<select name='end_time_mins' onchange=\"changeInfo();\" id='end_time
 	echo "<option value=\"45\" ";
 	if ($end_time_mins == 45) echo "selected=\"selected\"";
 	echo ">45</option>";
-echo "</select></td>";
-echo "</tr>";
-echo "</table><br>";
+echo "</select>";
+echo "</div>";
+echo "</div>";
+
 // knoppen
-echo "<div><input type=\"button\" class='btn btn-primary' value=\"";
+echo "<div class='form-group'><div class='col-md-12 col-md-offset-4'><input type=\"button\" class='btn btn-primary' value=\"";
 if ($id) {
 	echo "Opslaan";
 } else {
@@ -370,12 +393,9 @@ if ($id) {
 }
 echo "\" onclick=\"makeRes(" . $id .  ", '" . $start_time . "', '" . $cat_to_show . "', '" . $grade_to_show . "');\">";
 if ($id) {
-	echo "&nbsp;<input type=\"button\" class='bisbtn' value=\"Verwijderen\" onclick=\"delRes(" . $id . ", '" . $start_time . 
+	echo "&nbsp;<input type=\"button\" class='bisbtn btn btn-default' value=\"Verwijderen\" onclick=\"delRes(" . $id . ", '" . $start_time . 
 		 "', '" . $cat_to_show . "', '" . $grade_to_show . "');\">";
 }
-echo "</div></form>";
-echo "<br>";
-echo "</div>"; // resscreen
-echo "</div>"; // surrounding div
+echo "</div></div></form>";
 
 mysql_close($bisdblink);

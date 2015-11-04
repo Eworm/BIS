@@ -86,23 +86,12 @@ function setOutputIns() {
 }
 
 function showInschrijving(id, boat_id, date, cat_to_show, grade_to_show, time_to_show) {
-	if (document.getElementById('inschrijving').style.display != 'block') {
-		// Enable shadow overlay and pop-up:
-		document.getElementById('index_overlay').style.display = 'block';
-		document.getElementById('inschrijving').style.display = 'block';
-		// Contents of the pop-up:
-		httpObject = getHTTPObject();
-		if (httpObject != null) {
-			httpObject.open("GET", "inschrijving.php?id=" + id + "&boat_id=" + boat_id + 
-				"&date=" + date + "&cat_to_show=" + cat_to_show + "&grade_to_show=" + grade_to_show + 
-				"&time_to_show=" + time_to_show, true);
-			httpObject.onreadystatechange = fillPopup;
-			httpObject.send(null);
-		}
-	} else {
-		document.getElementById('index_overlay').style.display = 'none';
-		document.getElementById('inschrijving').style.display = 'none';
-	}
+    
+    $('#inschrijvingModal').modal();
+    
+    $("#inschrijvingModal").find(".modal-body").load("inschrijving.php?id=" + id + "&boat_id=" + boat_id + 
+			"&date=" + date + "&cat_to_show=" + cat_to_show + "&grade_to_show=" + grade_to_show + 
+			"&time_to_show=" + time_to_show);
 }
 
 function fillPopup(){
@@ -165,7 +154,7 @@ function resetReservationPopup(){
 			msg += resultArray.messages[i] + "<br />";
 		}
 		if (resultArray.success == 1) {
-			msgBar.setAttribute('class', 'successmsg');
+			// msgBar.setAttribute('class', 'successmsg');
 			if (resultArray.action == "make") {
 				msg += "U kunt hieronder eventueel nog eenzelfde inschrijving maken van een andere boot/ergometer.";
 			} else { // alter or delete: hide rest of reservation pop-up
@@ -180,8 +169,14 @@ function resetReservationPopup(){
 			if (grade != document.getElementById("grade").value) {
 				grade = "alle"; // If grade of reserved boat differs from grade of boat originally selected, change to 'all'
 			}
-			document.getElementById("closebtn").setAttribute('onclick', "window.location.href='index.php?date_to_show=" + date + 
-				"&start_time_to_show=" + start_time_hrs + ":" + start_time_mins + "&cat_to_show=" + cat + "&grade_to_show=" + grade + "'");	
+			
+			// document.getElementById("closebtn").setAttribute('onclick', "window.location.href='index.php?date_to_show=" + date + 
+				// "&start_time_to_show=" + start_time_hrs + ":" + start_time_mins + "&cat_to_show=" + cat + "&grade_to_show=" + grade + "'");	
+
+            // window.location.href='index.php';
+            
+            changeInfo();
+            
 		} else {
 			msgBar.setAttribute('class', 'failmsg');
 			if (resultArray.action == "make" || resultArray.action == "alter") {

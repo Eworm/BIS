@@ -66,12 +66,13 @@ if ($boat_id > 0) {
 		} else {
 			$query = "SELECT * FROM ".$opzoektabel." WHERE Verwijderd=0 AND Volgnummer<>'$id' AND Datum='$date_db' AND Boot_ID='$boat_id' ORDER BY Begintijd;";
 			$result = mysql_query($query);
+/*
 			if (!$result) {
 				die("Het ophalen van bestaande inschrijvingen is mislukt.". mysql_error());
 			} else {
 				$rows_aff = mysql_affected_rows($link);
 				if ($rows_aff > 0) {
-					echo "<br><em>Bestaande (andere) inschrijvingen van '" . $boat . "' op " . $date_sh . ":</em><br><br>";
+					echo "<br>Bestaande (andere) inschrijvingen van '" . $boat . "' op " . $date_sh . ":<br><br>";
 					while ($row = mysql_fetch_assoc($result)) {
 						$db_start_time = substr($row['Begintijd'],0,5);
 						$db_end_time = substr($row['Eindtijd'],0,5);
@@ -93,13 +94,17 @@ if ($boat_id > 0) {
 						echo "$db_start_time - $db_end_time door $db_pname".$spits_toev.$conflict."<br>";
 					}
 				} else {
-					echo "<br><em>Er zijn geen (andere) inschrijvingen van '" . $boat . "' op ". $date_sh . ".</em>";
+					echo "Er zijn geen (andere) inschrijvingen van '" . $boat . "' op ". $date_sh . ".";
 				}
 			}
+*/
 		}
 	}
 }
-echo "<br>";
+// echo "<br>";
+
+echo '<div class="row">';
+echo '<div class="col-md-8 col-md-offset-4">';
 
 // Toon aantallen inschrijvingen voor begintijd
 $query = "SELECT COUNT(*) AS AantalBijStart FROM ".$opzoektabel." JOIN boten ON ".$opzoektabel.".Boot_ID=boten.ID WHERE Verwijderd=0 AND Datum='$date_db' AND ((Begintijd='$start_time' AND Boot_ID<>'$boat_id') OR Eindtijd='$start_time') AND boten.Type<>\"ergo\" AND boten.Type<>\"soc\";";
@@ -107,16 +112,18 @@ $result = mysql_query($query);
 if (!$result) {
 	die("Het tellen van de inschrijvingen is mislukt.". mysql_error());
 } else {
-	echo "<em>Aantal andere ploegen en/of skiffeurs op het vlot bij vertrek om $start_time: </em>";
-	$rows_aff = mysql_affected_rows($link);
+    
+    $rows_aff = mysql_affected_rows($link);
 	if ($rows_aff > 0) {
 		$row = mysql_fetch_assoc($result);
 		echo $row["AantalBijStart"];
 	} else {
 		echo "geen";
 	}
+	echo " Roeier(s) om $start_time - ";
+	
 }
-echo "<br>";
+// echo "<br>";
 
 // Toon aantallen inschrijvingen voor eindtijd
 $query = "SELECT COUNT(*) AS AantalBijEind FROM ".$opzoektabel." JOIN boten ON ".$opzoektabel.".Boot_ID=boten.ID WHERE Verwijderd=0 AND Datum='$date_db' AND (Begintijd='$end_time' OR (Eindtijd='$end_time' AND Boot_ID<>'$boat_id')) AND boten.Type<>\"ergo\" AND boten.Type<>\"soc\";";
@@ -124,7 +131,7 @@ $result = mysql_query($query);
 if (!$result) {
 	die("Het tellen van de inschrijvingen is mislukt.". mysql_error());
 } else {
-	echo "<em>Aantal andere ploegen en/of skiffeurs op het vlot bij terugkomst om $end_time: </em>";
+    
 	$rows_aff = mysql_affected_rows($link);
 	if ($rows_aff > 0) {
 		$row = mysql_fetch_assoc($result);
@@ -132,9 +139,12 @@ if (!$result) {
 	} else {
 		echo "geen";
 	}
+	echo " Roeier(s) om $end_time";
+	
 }
 echo "<br><br>";
-
+echo "</div>";
+echo "</div>";
 echo "</div></div>";
 
 mysql_close($link);

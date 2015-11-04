@@ -28,14 +28,11 @@ if (!mysql_select_db($database, $bisdblink)) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <link type="text/css" href="<?php echo $csslink; ?>" rel="stylesheet">
+<!--         <link type="text/css" href="<?php echo $csslink; ?>" rel="stylesheet"> -->
     	<link type="text/css" href="css/bis.css" rel="stylesheet">
     	
     	<!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    	
-    	<script type="text/javascript" src="scripts/kalender.js"></script>
-    	<script type="text/javascript" src="scripts/Script.js"></script>
     	
     </head>
     
@@ -311,27 +308,26 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
 <div id='index_overlay'></div>
 <div id='inschrijving'></div>
 
-<div class="modal fade" id="inschrijvingModal">
-    <div class="modal-dialog">
+<div class="modal fade bs-example-modal-lg" id="inschrijvingModal">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Boot inschrijven</h4>
+                <h4 class="modal-title">Nieuwe reservering</h4>
             </div>
             <div class="modal-body">
                 <p>One fine body&hellip;</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
 </div>
 
-<script type="text/javascript" src="scripts/dates_and_ajax.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+	<script src="scripts/Script.js"></script>
+    <script src="scripts/dates_and_ajax.js"></script>
+	<script src="scripts/kalender.js"></script>
+	
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
