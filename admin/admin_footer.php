@@ -19,7 +19,7 @@
 </body>
 </html>
 
-<script language="javascript">
+<script>
 	function changeInfo(){
 		return true;
 	}

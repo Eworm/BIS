@@ -141,7 +141,7 @@ if ((!isset($_POST['insert']) && !isset($_POST['delete']) && !isset($_POST['canc
 	echo "<form name='form' action='" . $_SERVER['REQUEST_URI'] . "' method='post'>";
 	
 	// datum
-	echo "<div class='form-group'><label>Datum (dd-mm-jjjj)</label>";
+	echo "<div class='form-group'><label>Datum</label>";
 	echo "<input type='text' name='date' id='date' class='form-control' maxlength='10' value='" . (isset($date) ? $date : '') . "'>";
 	echo "</div>";
 	

@@ -29,7 +29,7 @@ if (!mysql_select_db($database, $link)) {
     	<!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         
-    	<script language="JavaScript" src="../scripts/kalender.js"></script>
+    	
     	
     </head>
     
@@ -170,9 +170,8 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	echo "</tr>";
 	
 	// datum gereed
-	echo "<td>Datum gereed (dd-mm-jjjj):</td>";
-	echo "<td><input type='text' name='date_ready_sh' id='date_ready_sh' size='8' maxlength='10' value='$date_ready_sh'>";
-	echo "&nbsp;<a href=\"javascript:show_calendar('form.date_ready_sh');\" onmouseover=\"window.status='Kalender';return true;\" onmouseout=\"window.status='';return true;\"><img src='../res/kalender.gif' alt='kalender' width='19' height='17' border='0'></a></td>";
+	echo "<td>Datum gereed:</td>";
+	echo "<td><input type='text' name='date_ready_sh' id='date_ready_sh' size='8' maxlength='10' value='$date_ready_sh'></td>";
 	echo "</tr><tr>";
 	
 	// noodreparatie
@@ -220,7 +219,7 @@ mysql_close($link);
 </body>
 </html>
 
-<script language="javascript">
+<script>
 
 function changeInfo(){
 	return true;

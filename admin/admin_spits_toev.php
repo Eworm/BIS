@@ -30,8 +30,7 @@ setlocale(LC_TIME, 'nl_NL');
     	
     	<!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        
-        <script language="JavaScript" src="../scripts/kalender.js"></script>
+        <link type="text/css" href="../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
     	
     </head>
     
@@ -246,22 +245,28 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	if (isset($fail_msg_date)) {
 		echo '<em>' . $fail_msg_date . '</em>';
 	}
-	echo "<div class='form-group'><label>Startdatum (dd-mm-jjjj)</label>";
-	echo '<input type="text" name="startdate" id="startdate" class="form-control" maxlength="10" value="' . (isset($startdate) ? $startdate : '') . '">';
-	echo '&nbsp;<a href="javascript:show_calendar(\'form.startdate\');" onmouseover="window.status=\'Kalender\';return true;" onmouseout="window.status=\'\';return true;"><img src="../res/kalender.gif" alt="kalender" width="19" height="17" border="0"></a>';
+	echo "<div id='js-daterange'>";
+	echo "<div class='row'>";
+	echo "<div class='col-md-6'>";
+	echo "<div class='form-group'><label>Startdatum</label>";
+	echo '<input type="text" name="startdate" id="startdate" class="form-control datepicker-start" maxlength="10" value="' . (isset($startdate) ? $startdate : '') . '">';
 	if (isset($fail_msg_startdate)) {
 		echo '<em>' . $fail_msg_startdate . '</em>';
 	}
 	echo "</div>";
+	echo "</div>";
 	
 	// einddatum
-	echo "<div class='form-group'><label>Einddatum (dd-mm-jjjj)</label>";
-	echo '<input type="text" name="enddate" id="enddate" class="form-control" maxlength="10" value="' . (isset($enddate) ? $enddate : '') . '">';
-	echo "&nbsp;<a href=\"javascript:show_calendar('form.enddate'); return true;\" onmouseover=\"window.status='Kalender';return true;\" onmouseout=\"window.status='';return true;\"><img src='../res/kalender.gif' alt='kalender' width='19' height='17' border='0'></a>";
+	echo "<div class='col-md-6'>";
+	echo "<div class='form-group'><label>Einddatum</label>";
+	echo '<input type="text" name="enddate" id="enddate" class="form-control datepicker-end" maxlength="10" value="' . (isset($enddate) ? $enddate : '') . '">';
 	if (isset($fail_msg_enddate)) {
 		echo '<em>' . $fail_msg_enddate . '</em>';
 	}
 	echo "</div>";
+	echo "</div>";
+	echo "</div>";
+    echo "</div>";
 	
 	// starttijd
 	echo "<div class='form-group'><label>Begintijd</label><div class='row'>";
@@ -405,9 +410,15 @@ mysql_close($link);
     
 </div>
 </body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+    <script src="../bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+	<script src="../scripts/datepicker.js"></script>
+
 </html>
 
-<script language="javascript">
+<script>
 
 function changeInfo(){
 	return true;

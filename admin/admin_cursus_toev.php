@@ -129,13 +129,11 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	echo "<table>";
 	
 	// data
-	echo "<tr><td>Startdatum (dd-mm-jjjj):</td>";
+	echo "<tr><td>Startdatum:</td>";
 	echo "<td><input type='text' onchange='' name='startdate' id='startdate' size='8' maxlength='10' value='$startdate'>";
-	echo "&nbsp;<a href=\"javascript:show_calendar('form.startdate');\" onmouseover=\"window.status='Kalender';return true;\" onmouseout=\"window.status='';return true;\"><img src='../res/kalender.gif' alt='kalender' width='19' height='17' border='0'></a></td>";
 	echo "</tr>";
-	echo "<tr><td>Einddatum (dd-mm-jjjj):</td>";
+	echo "<tr><td>Einddatum:</td>";
 	echo "<td><input type='text' onchange='' name='enddate' id='enddate' size='8' maxlength='10' value='$enddate'>";
-	echo "&nbsp;<a href=\"javascript:show_calendar('form.enddate');\" onmouseover=\"window.status='Kalender';return true;\" onmouseout=\"window.status='';return true;\"><img src='../res/kalender.gif' alt='kalender' width='19' height='17' border='0'></a></td>";
 	echo "</tr>";
 	
 	// type
@@ -191,7 +189,7 @@ mysql_close($link);
 </body>
 </html>
 
-<script language="javascript">
+<script>
 
 function changeInfo(){
 	return true;

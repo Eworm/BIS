@@ -191,9 +191,8 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	if (isset($fail_msg_date)) {
 		echo '<em>' . $fail_msg_date . '</em>';
 	}
-	echo "<div class='form-group'><label>Begindatum (dd-mm-jjjj)</label>";
+	echo "<div class='form-group'><label>Begindatum</label>";
 	echo '<input type="text" name="startdate" id="startdate" class="form-control" maxlength="10" value="' . (isset($startdate) ? $startdate : '') . '">';
-	echo '&nbsp;<a href="javascript:show_calendar(\'form.startdate\');" onmouseover="window.status=\'Kalender\';return true;" onmouseout="window.status=\'\';return true;"><img src="../res/kalender.gif" alt="kalender" width="19" height="17" border="0"></a>';
 	if (isset($fail_msg_startdate)) {
 		echo '<em>' . $fail_msg_startdate . '</em>';
 	}
@@ -238,9 +237,8 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	echo "</div></div>";
 	
 	// einddatum
-	echo "<div class='form-group'><label>Einddatum (dd-mm-jjjj)</label>";
+	echo "<div class='form-group'><label>Einddatum</label>";
 	echo '<input type="text" name="enddate" id="enddate"  class="form-control" maxlength="10" value="' . (isset($enddate) ? $enddate : '') . '">';
-	echo "&nbsp;<a href=\"javascript:show_calendar('form.enddate'); return true;\" onmouseover=\"window.status='Kalender';return true;\" onmouseout=\"window.status='';return true;\"><img src='../res/kalender.gif' alt='kalender' width='19' height='17' border='0'></a>";
 	if (isset($fail_msg_enddate)) {
 		echo '<em>' . $fail_msg_enddate . '</em>';
 	}
