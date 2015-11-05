@@ -57,7 +57,7 @@ if ($mode == "d" && $part_id) {
 		die("Verwijderen van deelnemer mislukt.". mysql_error());
 	}
 	echo "Verwijderen van deelnemer gelukt.<br>";
-	echo "<a href='admin_cursisten.php?id=$id'>Terug naar de deelnemerspagina&gt;&gt;</a>";
+	echo "<a href='admin_cursisten.php?id=$id'>Terug naar de deelnemerspagina</a>";
 	exit;
 }
 

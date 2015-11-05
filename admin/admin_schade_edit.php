@@ -89,7 +89,7 @@ if (!$_POST['cancel'] && !$_POST['insert'] && !$_POST['delete']) {
 if ($_POST['cancel']){
 	unset($_POST['name'], $_POST['boatid'], $_POST['note'], $_POST['feedback'], $_POST['action'],  $_POST['action_holder'], $_POST['prio'], $_POST['real'], $_POST['date_ready_sh'], $_POST['repair'], $_POST['notes'], $name, $boat_id, $note, $feedback, $action, $action_holder, $prio, $real, $date_ready_sh, $repair, $notes);
 	$fail = FALSE;
-	echo "<a href='admin_schade.php'>Terug naar de werkstroom&gt;&gt;</a></p>";
+	echo "<a href='admin_schade.php'>Terug naar de werkstroom</a></p>";
 }
 
 if ($_POST['delete']){
@@ -99,7 +99,7 @@ if ($_POST['delete']){
 		die("Verwijderen schade mislukt.". mysql_error());
 	} else {
 		echo "<p>Schade succesvol definitief verwijderd.<br>";
-		echo "<a href='admin_schade.php'>Terug naar de werkstroom&gt;&gt;</a></p>";
+		echo "<a href='admin_schade.php'>Terug naar de werkstroom</a></p>";
 	}
 }
 
@@ -127,7 +127,7 @@ if ($_POST['insert']){
 		die("Aanmaken/bewerken schade mislukt.". mysql_error());
 	} else {
 		echo "<p>Schade succesvol aangemaakt/bewerkt.<br>";
-		echo "<a href='admin_schade.php'>Terug naar de werkstroom&gt;&gt;</a></p>";
+		echo "<a href='admin_schade.php'>Terug naar de werkstroom</a></p>";
 	}
 }
 

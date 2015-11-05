@@ -213,7 +213,7 @@ if (isset($_POST['submit'])) {
 				}
 			}
 		}
-		echo "<p><a href='./admin_spits.php?ploeg_te_tonen=$name'>Ga terug&gt;&gt;</a></p>";
+		echo "<p><a href='./admin_spits.php?ploeg_te_tonen=$name'>Ga terug</a></p>";
 	}
 }
 

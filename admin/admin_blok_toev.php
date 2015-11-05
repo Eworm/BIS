@@ -158,7 +158,7 @@ if (isset($_POST['submit'])) {
 				echo '<br><br>';
 			}
 		} // end for
-		echo '<p><a href="admin_blokken.php?boot_te_tonen=' . $boatname . '">Ga terug&gt;&gt;</a></p>';
+		echo '<p><a href="admin_blokken.php?boot_te_tonen=' . $boatname . '">Ga terug</a></p>';
 	}
 }
 

@@ -34,7 +34,7 @@ if ($mode == "d") {
 		die('Verwijderen van cursus mislukt: ' . mysql_error());
 	}
 	echo "Verwijderen van cursus gelukt.<br>";
-	echo "<a href='admin_cursussen.php'>Terug naar de cursuspagina&gt;&gt;</a>";
+	echo "<a href='admin_cursussen.php'>Terug naar de cursuspagina</a>";
 	exit;
 }
 ?>

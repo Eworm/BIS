@@ -81,7 +81,7 @@ if (!$_POST['cancel'] && !$_POST['insert']) {
 if ($_POST['cancel']){
 	unset($_POST['startdate'], $_POST['enddate'], $_POST['quotum'], $_POST['description'], $_POST['email'], $_POST['type'], $startdate, $enddate, $quotum, $description, $email, $type);
 	$fail = FALSE;
-	echo "<p>Invoer/wijziging cursus geannuleerd.<br><a href='admin_cursussen.php'>Terug naar de cursuspagina&gt;&gt;</a></p>";
+	echo "<p>Invoer/wijziging cursus geannuleerd.<br><a href='admin_cursussen.php'>Terug naar de cursuspagina</a></p>";
 }
 
 if ($_POST['insert']){
@@ -117,7 +117,7 @@ if ($_POST['insert']){
 		if (!$result) {
 			die("toevoegen/wijzigen cursus mislukt.". mysql_error());
 		} else {
-			echo "<p>Cursus succesvol toegevoegd/gewijzigd.<br><a href='admin_cursussen.php'>Terug naar de cursuspagina&gt;&gt;</a></p>";
+			echo "<p>Cursus succesvol toegevoegd/gewijzigd.<br><a href='admin_cursussen.php'>Terug naar de cursuspagina</a></p>";
 		}
 	}
 }

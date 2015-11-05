@@ -78,7 +78,7 @@ if (!isset($_POST['cancel']) && !isset($_POST['insert'])) {
 if (isset($_POST['cancel'])) {
 	unset($_POST['date'], $_POST['quotum'], $_POST['description'], $date, $quotum, $description);
 	$fail = false;
-	echo "<p>Invoer examen geannuleerd.<br><a href='admin_examens.php'>Terug naar de examenpagina&gt;&gt;</a></p>";
+	echo "<p>Invoer examen geannuleerd.<br><a href='admin_examens.php'>Terug naar de examenpagina</a></p>";
 }
 
 if (isset($_POST['insert'])) {
@@ -130,7 +130,7 @@ if (isset($_POST['insert'])) {
 		if (!$result) {
 			die("toevoegen/wijzigen examen mislukt: " . mysql_error());
 		} else {
-			echo "<p>Examen succesvol toegevoegd/gewijzigd.<br><a href='admin_examens.php'>Terug naar de examenpagina&gt;&gt;</a></p>";
+			echo "<p>Examen succesvol toegevoegd/gewijzigd.<br><a href='admin_examens.php'>Terug naar de examenpagina</a></p>";
 		}
 	}
 }

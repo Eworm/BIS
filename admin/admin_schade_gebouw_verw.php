@@ -72,7 +72,7 @@ if (!$result) {
 		die("De-)archiveren mislukt.". mysql_error());
 	} else {
 		echo "Schade succesvol ge(de)archiveerd.<br>";
-		echo "<a href='admin_schade_gebouw.php?mode=$mode'>Terug naar de werkstroom&gt;&gt;</a></p>";
+		echo "<a href='admin_schade_gebouw.php?mode=$mode'>Terug naar de werkstroom</a></p>";
 	}
 }
 
