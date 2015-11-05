@@ -17,18 +17,41 @@ if (!mysql_select_db($database, $link)) {
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title><? echo $systeemnaam; ?> - Admin - Bestuursmededeling verwijderen</title>
-    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet">
-</head>
+<!DOCTYPE html>
+<html lang="nl">
+    
+    <head>
+        <title>Admin - <?php echo $systeemnaam; ?></title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	
+    </head>
+    
 <body>
-<div style="margin-left:10px; margin-top:10px">
+    
+<?php
+  
+  include('../includes/navbar-admin.php');
+    
+?>
 
 <?php
+  
+    $mode = $_GET['mode'];
+    
+?>
 
-echo "<p><strong>Welkom in de admin van BIS</strong> [<a href='./admin_mededeling.php'>Terug naar mededelingen-menu</a>] [<a href='./admin_logout.php'>Uitloggen</a>]</p>";
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-9">
+
+<?php
 
 $id = $_GET['id'];
 $mode = $_GET['mode'];
@@ -69,6 +92,22 @@ mysql_close($link);
 
 ?>
 
+        </div>
+        
+        <div class="col-md-3">
+            
+            <div class="well">
+                
+                <strong>Welkom in de admin van BIS</strong>
+                <br><br>
+                <a href='./admin_logout.php' class="btn btn-primary">Uitloggen</a>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
 </div>
 </body>
 </html>
