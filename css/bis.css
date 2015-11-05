@@ -35,7 +35,7 @@
 }
 
 .scrollTable table tr:hover td {
-    background: rgba(180, 180, 180, .15);
+    background: #eee;
 }
 
 .scrollTable table td:hover {
@@ -129,6 +129,17 @@
 	padding-right: 10px; 
 	background-color: #FF99;
 	height: 190px;
+}
+
+#ScheduleInfoContainer  {
+    min-height: 200px;
+	clear: left;
+	background: white url('../images/ajax-loader.gif') no-repeat center center;
+}
+
+#ScheduleInfoTransition  {
+    clear: left;
+    transition: opacity .15s ease;
 }
 
 #ScheduleInfo  {

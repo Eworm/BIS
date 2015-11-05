@@ -51,6 +51,9 @@ function changeInfo(){
 	httpObject = getHTTPObject();
 	if (httpObject != null) {
 		if (document.getElementById('inschrijving').style.display != 'block') { // if res.screen is invisible so we are in the index
+    		
+    		$('#ScheduleInfoTransition').css('opacity', 0);
+    		
 			httpObject.open("GET", "show_schedule.php?date_to_show=" + document.getElementById("date_to_show").value + 
 					"&start_hrs_to_show=" + document.getElementById("start_hrs_to_show").value + 
 					"&start_mins_to_show=" + document.getElementById("start_mins_to_show").value + 
@@ -72,9 +75,13 @@ function changeInfo(){
 }
 
 function setOutput(){
+    
+    // $('#ScheduleInfoTransition').css('opacity', 0);
+    
 	if (httpObject.readyState == 4 && httpObject.status == 200) {
 		var schedule_info = document.getElementById("ScheduleInfo");
 		schedule_info.innerHTML = httpObject.responseText;
+		$('#ScheduleInfoTransition').css('opacity', 1);
 		ScrollTableRelativeSize(document.getElementById("scrollTable"), 50, 270);
 	}
 }

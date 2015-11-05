@@ -273,10 +273,18 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                         
         <?php mysql_close($bisdblink); ?>
         
-        <div id='ScheduleInfo'>
+        <div id='ScheduleInfoContainer'>
             
-        	<?php require_once("./show_schedule.php"); ?>
-        	
+            <div id='ScheduleInfoTransition'>
+        
+                <div id='ScheduleInfo'>
+                    
+                	<?php require_once("./show_schedule.php"); ?>
+                	
+                </div>
+                
+            </div>
+        
         </div>
             
     </div>
