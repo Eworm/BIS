@@ -21,7 +21,7 @@ $result = mysql_query($query);
 if (!$result) {
 	die("Ophalen van informatie mislukt.". mysql_error());
 }
-echo "<table class=\"basis\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" bordercolor=\"#AAB8D5\">";
+echo "<table class=\"table\">";
 echo '<tr><th>Startdatum</th><th>Einddatum</th><th>Reden</th>';
 if (!$arch) echo '<th><div>Aanpassen</div></th>';
 echo '</tr>';

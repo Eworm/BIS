@@ -16,19 +16,36 @@ if (!mysql_select_db($database, $link)) {
 }
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title><? echo $systeemnaam; ?> - Admin - Examen toevoegen/wijzigen</title>
-    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet">
-	<script language="javascript" src="../scripts/kalender.js"></script>
-</head>
+
+<!DOCTYPE html>
+<html lang="nl">
+    
+    <head>
+        <title>Admin - <?php echo $systeemnaam; ?></title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	
+    </head>
+    
 <body>
-<div style="margin-left:10px; margin-top:10px">
+    
+<?php
+  
+  include('../includes/navbar-admin.php');
+    
+?>
+
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-9">
 
 <?php
-
-echo "<p><strong>Welkom in de admin van BIS</strong> [<a href='./admin_examens.php'>Terug naar examen-menu</a>] [<a href='./admin_logout.php'>Uitloggen</a>]</p>";
 
 if (isset($_GET['id'])) {
 	$id = $_GET['id']; // wijzigen bestaand examen
@@ -122,21 +139,19 @@ if (isset($_POST['insert'])) {
 if ((!isset($_POST['insert']) && !isset($_POST['delete']) && !isset($_POST['cancel'])) || (isset($fail) && $fail == true)) {
 	echo "<p><b>Examen toevoegen/wijzigen</b></p>";
 	echo "<form name='form' action='" . $_SERVER['REQUEST_URI'] . "' method='post'>";
-	echo "<table>";
 	
 	// datum
-	echo "<tr><td>Datum (dd-mm-jjjj):</td>";
-	echo "<td><input type='text' name='date' id='date' size='8' maxlength='10' value='" . (isset($date) ? $date : '') . "'>";
-	echo "&nbsp;<a href=\"javascript:show_calendar('form.date');return true;\" onmouseover=\"window.status='Kalender';return true;\" onmouseout=\"window.status='';return true;\"><img src='../res/kalender.gif' alt='kalender' width='19' height='17' border='0'></a></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Datum (dd-mm-jjjj)</label>";
+	echo "<input type='text' name='date' id='date' class='form-control' maxlength='10' value='" . (isset($date) ? $date : '') . "'>";
+	echo "</div>";
 	
 	// omschrijving
-	echo "<tr><td>Omschrijving (max. 45 tekens):</td>";
-	echo "<td><input type='text' name='description' value='" . (isset($description) ? $description : '') . "' size=45></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Omschrijving (max. 45 tekens)</label>";
+	echo "<input type='text' name='description' value='" . (isset($description) ? $description : '') . "' class='form-control'>";
+	echo "</div>";
 	
 	// te behalen graden
-	echo "<tr><td>Te behalen graden:</td>";
+	echo "<div class='form-group'><label>Te behalen graden</label>";
 	$query = "SELECT Roeigraad FROM roeigraden WHERE Examinabel=1 ORDER BY ID;";
 	$grade_result = mysql_query($query);
 	if (!$grade_result) {
@@ -144,27 +159,25 @@ if ((!isset($_POST['insert']) && !isset($_POST['delete']) && !isset($_POST['canc
 	} else {
 		while ($row = mysql_fetch_assoc($grade_result)) {
 			$curr_grade = $row['Roeigraad'];
-			echo "<td><input type='checkbox' name='" . $curr_grade . "' value='true' ";
+			echo "<div class='checkbox'><label><input type='checkbox' name='" . $curr_grade . "' value='true' ";
 			if (isset($grades) && in_array($curr_grade, $grades)) {
 				echo "checked='checked'";
 			}
-			echo "/>" . $curr_grade . "</td></tr><tr><td></td>";
+			echo "/>" . $curr_grade . "</label></div>";
 		}
 	}
 	echo "<td></td></tr>";
 	
 	// quotum
-	echo "<tr><td>Quotum:</td>";
-	echo "<td><input type='text' name='quotum' value='" . (isset($quotum) ? $quotum : '') . "' size=3></td>";
+	echo "<div class='form-group'><label>Quotum</label>";
+	echo "<input type='text' name='quotum' value='" . (isset($quotum) ? $quotum : '') . "' class='form-control'>";
 	if (isset($fail_msg_quotum)) {
-		echo "<td><em>" . $fail_msg_quotum . "</em></td>";
+		echo "<div class='alert'>" . $fail_msg_quotum . "</div>";
 	}
-	echo "</tr>";
+	echo "</div>";
 	
 	// knoppen
-	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"insert\" value=\"toevoegen\"> ";
-	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\"></p>";
+	echo "<input type=\"submit\" name=\"insert\" value=\"Toevoegen\" class='btn btn-primary'> ";
 	echo "</form>";
 }
 
@@ -172,6 +185,22 @@ mysql_close($link);
 
 ?>
 
+        </div>
+        
+        <div class="col-md-3">
+            
+            <div class="well">
+                
+                <strong>Welkom in de admin van BIS</strong>
+                <br><br>
+                <a href='./admin_logout.php' class="btn btn-primary">Uitloggen</a>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
 </div>
 </body>
 </html>

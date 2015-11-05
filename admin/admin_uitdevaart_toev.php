@@ -18,15 +18,33 @@ if (!mysql_select_db($database, $link)) {
 setlocale(LC_TIME, 'nl_NL');
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title><?php echo $systeemnaam; ?> - Admin - Vlootbeheer - Uit de Vaart toevoegen</title>
-    <link type="text/css" href="../<?php echo $csslink; ?>" rel="stylesheet">
-	<script language="JavaScript" src="../scripts/kalender.js"></script>
-</head>
+<!DOCTYPE html>
+<html lang="nl">
+    
+    <head>
+        <title>Admin - <?php echo $systeemnaam; ?></title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	
+    </head>
+    
 <body>
-<div style="margin-left:10px; margin-top:10px">
+    
+<?php
+  
+  include('../includes/navbar-admin.php');
+    
+?>
+
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-9">
 
 <?php
 
@@ -37,8 +55,6 @@ $query = "SELECT Naam FROM boten WHERE ID=$boot_id;";
 $result = mysql_query($query);
 $row = mysql_fetch_assoc($result);
 $name = $row['Naam'];
-
-echo "<p><strong>Welkom in de admin van BIS</strong> [<a href=\"./admin_inuitdevaart.php?id=$boot_id\">Terug naar in/uit de vaart van deze boot</a>] [<a href='./admin_logout.php'>Uitloggen</a>]</p>";
 
 $reason = "Uit de vaart";
 
@@ -119,32 +135,28 @@ if (isset($_POST['submit'])) {
 if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	
 	echo '<form name="form" action="' . $_SERVER['REQUEST_URI'] . '" method="post">';
-	echo "<table><tr>";
 	
 	// startdatum
-	if (isset($fail_msg_date)) echo "<td colspan=2><em>$fail_msg_date</em></td></tr><tr>";
-	echo "<td>Startdatum (dd-mm-jjjj):</td>";
-	echo "<td><input type='text' name='startdate' id='startdate' size='8' maxlength='10' value='" . (isset($startdate) ? $startdate : '') . "'>";
-	echo "&nbsp;<a href=\"javascript:show_calendar('form.startdate');\" onmouseover=\"window.status='Kalender';return true;\" onmouseout=\"window.status='';return true;\"><img src='../res/kalender.gif' alt='kalender' width='19' height='17' border='0'></a></td>";
+	if (isset($fail_msg_date)) echo "<div class='alert alert-danger'>$fail_msg_date</div>";
+	
+	echo "<div class='form-group'><label>Startdatum (dd-mm-jjjj)</label>";
+	echo "<input type='text' name='startdate' id='startdate'  class='form-control datepicker' maxlength='10' value='" . (isset($startdate) ? $startdate : '') . "'>";
 	if (isset($fail_msg_startdate)) echo "<td><em>$fail_msg_startdate</em></td>";
-	echo "</tr><tr>";
+	echo "</div>";
 	
 	// evt. einddatum
-	echo "<td>Einddatum (dd-mm-jjjj), of leeg:</td>";
-	echo "<td><input type='text' name='enddate' id='enddate' size='8' maxlength='10' value='" . (isset($enddate) ? $enddate : '') . "'>";
-	echo "&nbsp;<a href=\"javascript:show_calendar('form.enddate');\" onmouseover=\"window.status='Kalender';return true;\" onmouseout=\"window.status='';return true;\"><img src='../res/kalender.gif' alt='kalender' width='19' height='17' border='0'></a></td>";
+	echo "<div class='form-group'><label>Einddatum (dd-mm-jjjj), of leeg</label>";
+	echo "<input type='text' name='enddate' id='enddate'  class='form-control datepicker' maxlength='10' value='" . (isset($enddate) ? $enddate : '') . "'>";
 	if (isset($fail_msg_enddate)) echo "<td><em>$fail_msg_enddate</em></td>";
-	echo "</tr><tr>";
+	echo "</div>";
 	
 	// reden
-	echo "<td>Reden:</td>";
-	echo "<td><input type=\"text\" name=\"reason\" value=\"$reason\" size=30></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Reden</label>";
+	echo "<input type=\"text\" name=\"reason\" value=\"$reason\" class='form-control'>";
+	echo "</div>";
 	
 	// knoppen
-	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"submit\" value=\"toevoegen\"> ";
-	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\"></p>";
+	echo "<div class='form-group'><input type=\"submit\" name=\"submit\" value=\"Toevoegen\" class='btn btn-primary'></div>";
 	echo "</form>";
 }
 
@@ -152,6 +164,23 @@ mysql_close($link);
 
 ?>
 
+
+        </div>
+        
+        <div class="col-md-3">
+            
+            <div class="well">
+                
+                <strong>Welkom in de admin van BIS</strong>
+                <br><br>
+                <a href='./admin_logout.php' class="btn btn-primary">Uitloggen</a>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
 </div>
 </body>
 </html>

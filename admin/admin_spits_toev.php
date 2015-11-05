@@ -379,7 +379,7 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	echo "</div>";
 	
 	// knoppen
-	echo "<input type=\"submit\" name=\"submit\" value=\"toevoegen\" class='btn btn-primary'> ";
+	echo "<input type=\"submit\" name=\"submit\" value=\"Toevoegen\" class='btn btn-primary'> ";
 	echo "</form>";
 }
 

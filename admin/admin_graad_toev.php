@@ -127,7 +127,7 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	echo "</div>";
 	
 	// knoppen
-	echo "<p><input type=\"submit\" name=\"insert\" value=\"toevoegen\" class='btn btn-primary'> ";
+	echo "<p><input type=\"submit\" name=\"insert\" value=\"Toevoegen\" class='btn btn-primary'> ";
 	echo "</form>";
 }
 
