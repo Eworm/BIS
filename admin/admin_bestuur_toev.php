@@ -1,6 +1,6 @@
 <?php
 $locationHeader = 'Bestuurslid toevoegen/wijzigen';
-$backLink = '<a href="admin_bestuur.php">Terug naar bestuursmenu</a>';
+$backLink = '<a href="admin_bestuur.php" class="btn btn-default">Terug naar bestuursmenu</a>';
 include 'admin_header.php';
 ?>
 

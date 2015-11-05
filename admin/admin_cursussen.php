@@ -51,8 +51,7 @@ if ($mode == "d") {
     	<!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         
-        <script type="text/javascript" src="../scripts/kalender.js"></script>
-        <script type="text/javascript" src="../scripts/sortable.js"></script>
+        <script src="../scripts/sortable.js"></script>
     	
     </head>
     
@@ -83,7 +82,7 @@ $result = mysql_query($query);
 if (!$result) {
 	die('Ophalen van cursussen mislukt: ' . mysql_error());
 }
-echo "<br><table class=\"basis\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" bordercolor=\"#AAB8D5\">";
+echo "<br><table class=\"table\">";
 echo "<tr><th><div>Startdatum</div></th><th><div>Einddatum</div></th><th><div>Type</div></th><th><div>Omschrijving</div></th><th><div>Mailadres</div></th><th><div>Quotum</div></th><th><div>Toon op site?</div></th><th colspan=4></th></tr>";
 $c = 0;
 while ($row = mysql_fetch_assoc($result)) {

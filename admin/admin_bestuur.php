@@ -1,6 +1,6 @@
 <?php
 $locationHeader = 'Bestuur';
-$backLink = '<a href="index.php">Terug naar admin-menu</a>';
+$backLink = '<a href="index.php" class="btn btn-default">Terug naar admin-menu</a>';
 include 'admin_header.php';
 ?>
 

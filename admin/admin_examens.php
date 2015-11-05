@@ -78,7 +78,7 @@ $result = mysql_query($query);
 if (!$result) {
 	die("Ophalen van examens mislukt: " . mysql_error());
 }
-echo "<br><table class=\"basis\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" bordercolor=\"#AAB8D5\">";
+echo "<br><table class=\"table\">";
 echo "<tr><th><div>Datum</div></th><th><div>Omschrijving</div></th><th><div>Graden</div></th><th><div>Quotum</div></th><th><div>Open voor inschrijving</div></th><th colspan=4></th></tr>";
 $c = 0;
 while ($row = mysql_fetch_assoc($result)) {

@@ -68,7 +68,7 @@ $result = mysql_query($query);
 if (!$result) {
 	die("Ophalen van kandidaten mislukt.". mysql_error());
 }
-echo "<br><table class=\"basis\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" bordercolor=\"#AAB8D5\">";
+echo "<br><table class=\"table\">";
 echo "<tr><th><div>Naam</div></th><th><div>Tegenprestatie</div></th><th><div>Telefoon</div></th><th><div>E-mail</div></th><th></th></tr>";
 $c = 0;
 while ($row = mysql_fetch_assoc($result)) {

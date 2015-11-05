@@ -71,7 +71,7 @@ $result = mysql_query($query);
 if (!$result) {
 	die("Ophalen van schades mislukt.". mysql_error());
 }
-echo "<br><table class=\"basis\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" bordercolor=\"#AAB8D5\">";
+echo "<br><table class=\"table\">";
 echo "<tr><th><div><a href='admin_schade_gebouw.php?sortby=Datum'>Melddatum</a></div></th><th><div><a href='admin_schade_gebouw.php?sortby=Datum_gew'>Laatst gew.</a></div></th><th><div>Naam melder</div></th><th><div>Omschrijving</div></th><th><div>Actiehouder</div></th><th><div><a href='admin_schade_gebouw.php?sortby=Prio'>Prio</a></div></th><th><div><a href='admin_schade_gebouw.php?sortby=Realisatie'>Real. (%)</a></div></th><th><div>Gereed</div></th><th><div>&nbsp;</div></th>";
 if (!isset($mode)) echo "<th><div>&nbsp;</div></th>";
 echo "</tr>";

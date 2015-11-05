@@ -1,6 +1,6 @@
 <?php
 $locationHeader = 'Wedstrijdblokken - Wedstrijdblok toevoegen';
-$backLink = '<a href="./admin_blokken.php">Terug naar de wedstrijdblokken</a>';
+$backLink = '<a href="./admin_blokken.php" class="btn btn-default">Terug naar de wedstrijdblokken</a>';
 include 'admin_header.php';
 ?>
 
