@@ -124,71 +124,70 @@ if ($_POST['insert']){
 
 // Formulier
 if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
-	echo "<p><b>Schademelding aanmaken/bewerken</b></p>";
+	echo "<h1>Schademelding aanmaken/bewerken</h1>";
 	echo "<form name='form' action=\"$REQUEST_URI\" method=\"post\">";
-	echo "<table>";
 	
 	// naam
-	echo "<tr><td>Naam:</td>";
-	echo "<td><input type=\"text\" name=\"name\" value=\"$name\" size=45></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Naam</label>";
+	echo "<input type=\"text\" name=\"name\" value=\"$name\" class='form-control'>";
+	echo "</div>";
 	
 	// mededeling
-	echo "<tr><td>Omschrijving (max. 1000 tekens):</td>";
-	echo "<td><textarea name=\"note\" rows=4 cols=50/>$note</textarea></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Omschrijving (max. 1000 tekens)</label>";
+	echo "<textarea name=\"note\" rows='4' class='form-control'/>$note</textarea>";
+	echo "</div>";
 	
 	// feedback
-	echo "<tr><td>Feedback MatCie aan melder (max. 1000 tekens):</td>";
-	echo "<td><textarea name=\"feedback\" rows=4 cols=50/>$feedback</textarea></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Feedback MatCie aan melder (max. 1000 tekens)</label>";
+	echo "<textarea name=\"feedback\" rows='4' class='form-control'/>$feedback</textarea>";
+	echo "</div>";
 	
 	// actie
-	echo "<tr><td>Actie (max. 1000 tekens):</td>";
-	echo "<td><textarea name=\"action\" rows=4 cols=50/>$action</textarea></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Actie (max. 1000 tekens)</label>";
+	echo "<textarea name=\"action\" rows='4' class='form-control'/>$action</textarea>";
+	echo "</div>";
 	
 	// actiehouder
-	echo "<tr><td>Actiehouder:</td>";
-	echo "<td><input type=\"text\" name=\"action_holder\" value=\"$action_holder\" size=45></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Actiehouder</label>";
+	echo "<input type=\"text\" name=\"action_holder\" value=\"$action_holder\" class='form-control'>";
+	echo "</div>";
 	
 	// prioriteit
-	echo "<tr><td>Prioriteit (1-3, 1 is hoogst):</td>";
-	echo "<td><select name=\"prio\">";
+	echo "<div class='form-group'><label>Prioriteit (1-3, 1 is hoogst)</label>";
+	echo "<select name=\"prio\"class='form-control'>";
 	for ($i = 1; $i < 4; $i++) {
 		echo "<option value=\"".$i."\" ";
 		if ($prio == $i) echo "selected";
 		echo "/>".$i;
 	}
-	echo "</select></td>";
-	echo "</tr>";
+	echo "</select>";
+	echo "</div>";
 	
 	// realisatie
-	echo "<tr><td>% gerealiseerd (0-100):</td>";
-	echo "<td><input type=\"text\" name=\"real\" value=\"$real\" size=3></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>% gerealiseerd (0-100)</label>";
+	echo "<input type=\"text\" name=\"real\" value=\"$real\" class='form-control'>";
+	echo "</div>";
 	
 	// datum gereed
-	echo "<td>Datum gereed:</td>";
-	echo "<td><input type='text' name='date_ready_sh' id='date_ready_sh' size='8' maxlength='10' value='$date_ready_sh'></td>";
-	echo "</tr><tr>";
+	echo "Datum gereed</label>";
+	echo "<input type='text' name='date_ready_sh' id='date_ready_sh' class='form-control' maxlength='10' value='$date_ready_sh'>";
+	echo "</div>";
 	
 	// noodreparatie
-	echo "<tr><td>Noodreparatie (max. 1000 tekens):</td>";
-	echo "<td><textarea name=\"repair\" rows=4 cols=50/>$repair</textarea></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Noodreparatie (max. 1000 tekens)</label>";
+	echo "<textarea name=\"repair\" rows='4' class='form-control'/>$repair</textarea>";
+	echo "</div>";
 	
 	// opmerkingen
-	echo "<tr><td>Opmerkingen (max. 1000 tekens):</td>";
-	echo "<td><textarea name=\"notes\" rows=4 cols=50/>$notes</textarea></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Opmerkingen (max. 1000 tekens)</label>";
+	echo "<textarea name=\"notes\" rows='4' class='form-control'/>$notes</textarea>";
+	echo "</div>";
 	
 	// knoppen
-	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"insert\" value=\"toevoegen\">&nbsp;";
-	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\">&nbsp;";
-	echo "<input type=\"submit\" name=\"delete\" value=\"Verwijderen\"></p>";
+	echo "<div class='form-group'>";
+	echo "<input type=\"submit\" name=\"insert\" value=\"toevoegen\">&nbsp;";
+	echo "<input type=\"submit\" name=\"delete\" value=\"Verwijderen\">";
+	echo "</div>";
 	echo "</form>";
 	
 	echo "<p>NB: Verwijderen alleen gebruiken ingeval van bijv. een onzin-melding. Anders de melding na afhandeling via de werkstroom archiveren.</p>";
