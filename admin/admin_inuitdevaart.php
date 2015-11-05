@@ -46,7 +46,7 @@ while ($row = mysql_fetch_assoc($result)) {
 	$c++;
 }
 echo "</table>";
-echo "<p><em>NB: Meldingen met een verlopen einddatum worden automatisch gearchiveerd.</em></p>";
+echo "<p>NB: Meldingen met een verlopen einddatum worden automatisch gearchiveerd.</p>";
 ?>
 
 <?php include 'admin_footer.php'; ?>

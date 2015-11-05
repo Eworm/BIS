@@ -138,7 +138,7 @@ if (isset($_POST['insert'])) {
 
 // Formulier
 if ((!isset($_POST['insert']) && !isset($_POST['delete']) && !isset($_POST['cancel'])) || (isset($fail) && $fail == true)) {
-	echo "<p><b>Examen toevoegen/wijzigen</b></p>";
+	echo "<h1>Examen toevoegen/wijzigen</h1>";
 	echo "<form name='form' action='" . $_SERVER['REQUEST_URI'] . "' method='post'>";
 	
 	// datum

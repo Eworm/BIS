@@ -141,13 +141,13 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	
 	echo "<div class='form-group'><label>Startdatum</label>";
 	echo "<input type='text' name='startdate' id='startdate'  class='form-control datepicker' maxlength='10' value='" . (isset($startdate) ? $startdate : '') . "'>";
-	if (isset($fail_msg_startdate)) echo "<td><em>$fail_msg_startdate</em></td>";
+	if (isset($fail_msg_startdate)) echo "<td>$fail_msg_startdate</td>";
 	echo "</div>";
 	
 	// evt. einddatum
 	echo "<div class='form-group'><label>Einddatum, of leeg</label>";
 	echo "<input type='text' name='enddate' id='enddate'  class='form-control datepicker' maxlength='10' value='" . (isset($enddate) ? $enddate : '') . "'>";
-	if (isset($fail_msg_enddate)) echo "<td><em>$fail_msg_enddate</em></td>";
+	if (isset($fail_msg_enddate)) echo "<td>$fail_msg_enddate</td>";
 	echo "</div>";
 	
 	// reden

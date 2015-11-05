@@ -191,7 +191,7 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	echo "<input type=\"submit\" name=\"delete\" value=\"Verwijderen\"></p>";
 	echo "</form>";
 	
-	echo "<p><em>NB: Verwijderen alleen gebruiken ingeval van bijv. een onzin-melding. Anders de melding na afhandeling via de werkstroom archiveren.</em></p>";
+	echo "<p>NB: Verwijderen alleen gebruiken ingeval van bijv. een onzin-melding. Anders de melding na afhandeling via de werkstroom archiveren.</p>";
 }
 
 mysql_close($link);
