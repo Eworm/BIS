@@ -163,9 +163,11 @@
 }
 
 #ScheduleInfoContainer  {
+    width: 100%;
     min-height: 200px;
 	clear: left;
 	background: white url('../images/ajax-loader.gif') no-repeat center center;
+	overflow: auto;
 }
 
 #ScheduleInfoTransition  {
@@ -221,4 +223,14 @@
 	margin-right: 0;
 	padding-right: 0;
 	border: 0;
+}
+
+.datalist-legend {
+    width: 50%;
+    display: block;
+    float: left;
+}
+
+.last-legend {
+    text-align: right;
 }

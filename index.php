@@ -171,24 +171,16 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                     <div class="row">
                                         
                                         <div class="col-md-12">
-                                            
-                                            
-                                            <input type="range" min="6" max="17" step="1" value="8" name='start_hrs_to_show' onchange="changeInfo();" id='start_hrs_to_show' list="powers">
+                                                                                        
+                                            <input type="range" min="5" max="23" step="2" value="8" name='start_hrs_to_show' onchange="changeInfo();" id='start_hrs_to_show' list="powers">
                                     
-                                            <datalist id="powers">
-                                              <option value="6">
-                                              <option value="7">
-                                              <option value="8">
-                                              <option value="9">
-                                              <option value="10">
-                                              <option value="11">
-                                              <option value="12">
-                                              <option value="13">
-                                              <option value="14">
-                                              <option value="15">
-                                              <option value="16">
-                                              <option value="17">
+                                            <span class="datalist-legend">6</span>
+                                            <datalist id="powers" class="datalist">
+                                                <?php for ($t = 5; $t < 23; $t++): ?>
+                                                    <option value="<?php echo $t ?>">  
+                                                <?php endfor; ?>
                                             </datalist>
+                                            <span class="datalist-legend last-legend">23</span>
                                     
 <!--
                                             <select name='start_hrs_to_show' onchange="changeInfo();" id='start_hrs_to_show' class="form-control">
