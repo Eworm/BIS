@@ -115,52 +115,53 @@ if ($_POST['insert']){
 		}
 		$result = mysql_query($query);
 		if (!$result) {
-			die("toevoegen/wijzigen cursus mislukt.". mysql_error());
+			die("Toevoegen/wijzigen cursus mislukt.". mysql_error());
 		} else {
-			echo "<p>Cursus succesvol toegevoegd/gewijzigd.<br><a href='admin_cursussen.php'>Terug naar de cursuspagina</a></p>";
+			echo "<p>Cursus succesvol toegevoegd/gewijzigd.<br><a href='admin_cursussen.php' class='btn btn-primary'>Terug naar de cursuspagina</a></p>";
 		}
 	}
 }
 
 // Formulier
 if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
-	echo "<p><b>Cursus toevoegen/wijzigen</b></p>";
+	echo "<h1>Cursus toevoegen/wijzigen</h1>";
 	echo "<form name='form' action=\"$REQUEST_URI\" method=\"post\">";
-	echo "<table>";
 	
 	// data
-	echo "<tr><td>Startdatum:</td>";
-	echo "<td><input type='text' onchange='' name='startdate' id='startdate' size='8' maxlength='10' value='$startdate'>";
-	echo "</tr>";
-	echo "<tr><td>Einddatum:</td>";
-	echo "<td><input type='text' onchange='' name='enddate' id='enddate' size='8' maxlength='10' value='$enddate'>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Startdatum</label>";
+	echo "<input type='text' onchange='' name='startdate' id='startdate' class='form-control datepicker' maxlength='10' value='$startdate'>";
+	echo "</div>";
+	
+	echo "<div class='form-group'><label>Einddatum</label>";
+	echo "<input type='text' onchange='' name='enddate' id='enddate' class='form-control datepicker' maxlength='10' value='$enddate'>";
+	echo "</div>";
 	
 	// type
-	echo "<tr><td>Type cursus (max. 45 tekens):</td>";
-	echo "<td><input type=\"text\" name=\"type\" value=\"$type\" size=45 /></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Type cursus (max. 45 tekens)</label>";
+	echo "<input type=\"text\" name=\"type\" value=\"$type\" class='form-control'/>";
+	echo "</div>";
 	
 	// omschrijving
-	echo "<tr><td>Nadere omschrijving (max. 45 tekens):</td>";
-	echo "<td><input type=\"text\" name=\"description\" value=\"$description\" size=45 /></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Nadere omschrijving (max. 45 tekens)</label>";
+	echo "<input type=\"text\" name=\"description\" value=\"$description\" class='form-control' />";
+	echo "</div>";
 	
 	// email
-	echo "<tr><td>Mailadres, indien afwijkend van instructie@hunze.nl:</td>";
-	echo "<td><input type=\"text\" name=\"email\" value=\"$email\"/></td>";
-	if ($fail_msg_email) echo "<td><em>".$fail_msg_email."</em></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>E-mailadres, indien afwijkend van instructie@hunze.nl</label>";
+	echo "<input type=\"text\" name=\"email\" value=\"$email\" class='form-control'/>";
+	if ($fail_msg_email) echo "<div class='alert alert-danger'>".$fail_msg_email."</div>";
+	echo "</div>";
 	
 	// quotum
-	echo "<tr><td>Quotum:</td>";
-	echo "<td><input type=\"text\" name=\"quotum\" value=\"$quotum\" size=3 /></td>";
-	if ($fail_msg_quotum) echo "<td><em>".$fail_msg_quotum."</em></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Quotum</label>";
+	echo "<input type=\"text\" name=\"quotum\" value=\"$quotum\" class='form-control' />";
+	if ($fail_msg_quotum) echo "<div class='alert alert-danger'>".$fail_msg_quotum."</div>";
+	echo "</div>";
 	
 	// knoppen
-	echo "</table>";
-	echo "<input type=\"submit\" name=\"insert\" value=\"Toevoegen\" /> ";
+	echo "<div class='form-group'>";
+	echo "<input type=\"submit\" name=\"insert\" value=\"Toevoegen\" class='btn btn-primary' />";
+	echo "</div>";
 	echo "</form>";
 }
 

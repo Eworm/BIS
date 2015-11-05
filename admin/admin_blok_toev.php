@@ -192,7 +192,7 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 		echo '<em>' . $fail_msg_date . '</em>';
 	}
 	echo "<div class='form-group'><label>Begindatum</label>";
-	echo '<input type="text" name="startdate" id="startdate" class="form-control" maxlength="10" value="' . (isset($startdate) ? $startdate : '') . '">';
+	echo '<input type="text" name="startdate" id="startdate" class="form-control datepicker" maxlength="10" value="' . (isset($startdate) ? $startdate : '') . '">';
 	if (isset($fail_msg_startdate)) {
 		echo '<em>' . $fail_msg_startdate . '</em>';
 	}
@@ -238,7 +238,7 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	
 	// einddatum
 	echo "<div class='form-group'><label>Einddatum</label>";
-	echo '<input type="text" name="enddate" id="enddate"  class="form-control" maxlength="10" value="' . (isset($enddate) ? $enddate : '') . '">';
+	echo '<input type="text" name="enddate" id="enddate"  class="form-control datepicker" maxlength="10" value="' . (isset($enddate) ? $enddate : '') . '">';
 	if (isset($fail_msg_enddate)) {
 		echo '<em>' . $fail_msg_enddate . '</em>';
 	}

@@ -28,6 +28,7 @@ if (!mysql_select_db($database, $link)) {
     	
     	<!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link type="text/css" href="../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
     	
     </head>
     
@@ -142,7 +143,7 @@ if ((!isset($_POST['insert']) && !isset($_POST['delete']) && !isset($_POST['canc
 	
 	// datum
 	echo "<div class='form-group'><label>Datum</label>";
-	echo "<input type='text' name='date' id='date' class='form-control' maxlength='10' value='" . (isset($date) ? $date : '') . "'>";
+	echo "<input type='text' name='date' id='date' class='form-control datepicker' maxlength='10' value='" . (isset($date) ? $date : '') . "'>";
 	echo "</div>";
 	
 	// omschrijving
@@ -166,7 +167,7 @@ if ((!isset($_POST['insert']) && !isset($_POST['delete']) && !isset($_POST['canc
 			echo "/>" . $curr_grade . "</label></div>";
 		}
 	}
-	echo "<td></td></tr>";
+	echo "</div>";
 	
 	// quotum
 	echo "<div class='form-group'><label>Quotum</label>";
@@ -202,5 +203,11 @@ mysql_close($link);
     </div>
     
 </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+    <script src="../bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+	<script src="../scripts/datepicker.js"></script>
+	
 </body>
 </html>

@@ -48,7 +48,7 @@ if (isset($_POST['boot_te_tonen'])) {
 	}
 	?>
 	</select>
-	<input type="submit" name="submit_bootnaam" value="Toon">
+	<input type="submit" name="submit_bootnaam" value="Toon" class="btn btn-default">
 </form>
 <br><br>
 

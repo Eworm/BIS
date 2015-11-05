@@ -71,7 +71,7 @@ if ($mode == "d") {
 
 <h1>
     Instructiecommissie
-    <a href='admin_cursus_toev.php' class="btn btn-primary">Maak een nieuwe cursus aan</a>
+    <a href='admin_cursus_toev.php' class="btn btn-primary">Cursus toevoegen</a>
 </h1>
 
 <?php
