@@ -34,8 +34,12 @@
 	border: solid 1px #ddd;
 }
 
+.scrollTable table tr:hover td {
+    background: rgba(180, 180, 180, .15);
+}
+
 .scrollTable table td:hover {
-    background: #ddd;
+    background: #000 !important;
     cursor: pointer;
 }
 
