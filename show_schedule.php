@@ -78,9 +78,9 @@ echo "<table cellpadding=\"0\" cellspacing=\"0\">";
 echo "<tr><th><div>&nbsp;</div></th>";
 $hr = 7 + floor($start_block / 4);
 $offset_blocks = 4 - ((($start_block / 4) - floor($start_block / 4)) * 4);
-echo "<th colspan=\"$offset_blocks\" style=\"border-left: solid 1px #ddd\"><div align=\"left\">$start_time_to_show&nbsp;&nbsp;&nbsp;</div></th>";
+echo "<th colspan=\"$offset_blocks\" style=\"border-left: solid 1px #ddd\"><div align=\"left\">$start_time_to_show</div></th>";
 for ($c = $start_block + $offset_blocks; $c < 72; $c += 4, $hr++) {
-	echo "<th colspan=\"4\" style=\"border-left: solid 1px #ddd\"><div align=\"left\">$hr:00&nbsp;&nbsp;&nbsp;</div></th>";
+	echo "<th colspan=\"4\" style=\"border-left: solid 1px #ddd\"><div align=\"left\">$hr:00</div></th>";
 }
 echo "<th style=\"border-left: solid 1px #ddd\"><div>&nbsp;</div></th></tr>";
 echo "</table>";
@@ -215,7 +215,7 @@ while (isset($boats_array[$boatnr])) {
 						if ($t == $start_block || ($t / 4) == floor($t / 4)) {
 							echo " style=\"border-left: solid 1px #ddd\"";
 						}
-						echo "><div>&nbsp;</div></td>";
+						echo "><span class='schedule-time'>" . $t_time . "</span><div>+</div></td>";
 					}
 					// gekleurd en met naam gedurende huidige inschrijving
 					echo "<td align=\"center\"";
@@ -236,15 +236,15 @@ while (isset($boats_array[$boatnr])) {
 					if ($available_ins && $db_blok == 0 && (($db_spits == 0 && InRange($date_to_show, 10)) || ($db_spits > 0 && InRange($date_to_show, 3)))) {
 						echo " onclick=\"showInschrijving(" . $db_id . ", 0, '', '" . $cat_to_show . "', '" . $grade_to_show . "', '');\"";
 						if ($db_spits > 0) {
-							echo " bgcolor=\"#FF6600\"";
+							echo " bgcolor=\"#f60\"";
 							$info_to_show .= " - Spitsblok nog te bevestigen";
 						} else {
-							echo " bgcolor=\"#CCFF99\"";
+							echo " bgcolor=\"#cf9\"";
 						}
 					} else {
-						echo " bgcolor=\"#999999\"";
+						echo " bgcolor=\"#999\"";
 					}
-					echo " onmouseover=\"Tip('" . $info_to_show . "')\" colspan=\"". $span_size . "\"><div style=\"overflow:hidden\" align=\"center\">" . $info_to_show_sh . "</div></td>";
+					echo " onmouseover=\"Tip('" . $info_to_show . "')\" colspan=\"". $span_size . "\"><div style=\"overflow:hidden\" align=\"center\" class='reserved'>" . $info_to_show_sh . "</div></td>";
 					// volgende witblok vanaf eindtijd huidige inschrijving!
 					$latest_end_time_blocks = $db_end_time_blocks;
 				} // end while (loop door alle inschrijvingen van de huidige boot)
@@ -260,7 +260,7 @@ while (isset($boats_array[$boatnr])) {
 			if ($t == $start_block || ($t / 4) == floor($t / 4)) {
 				echo " style=\"border-left: solid 1px #ddd\"";
 			}
-			echo "><div>&nbsp;</div></td>";
+			echo "><span class='schedule-time'>" . $t_time . "</span><div>+</div></td>";
 		}
 	} // end else (boot niet uit de vaart)
 	echo "<td style=\"border-left: solid 1px #ddd\"><div>&nbsp;</div></td>";

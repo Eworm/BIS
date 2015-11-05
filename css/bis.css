@@ -27,9 +27,9 @@
 
 .scrollTable table td, .scrollTable table th {
 	vertical-align: top;
-	text-align: left;
-	margin: 0px;
-	padding: 1px;
+	text-align: center;
+	margin: 0;
+	padding: 2px;
 	white-space: nowrap;
 	border: solid 1px #ddd;
 }
@@ -38,9 +38,40 @@
     background: #eee;
 }
 
+.schedule-time {
+    display: block;
+    opacity: 0;
+    position: absolute;
+    top: -100%;
+    left: 0;
+    transition: all .15s ease;
+    background: white;
+    border: 1px solid #ddd;
+    white-space: nowrap;
+}
+
+.scrollTable table td div {
+    opacity: 0;
+    transition: all .15s ease;
+}
+
+.scrollTable table td .reserved {
+    opacity: 1;
+}
+
 .scrollTable table td:hover {
     background: #000 !important;
     cursor: pointer;
+    position: relative;
+}
+
+.scrollTable table td:hover > div {
+    opacity: 1;
+    color: white;
+}
+
+.scrollTable table td:hover > .schedule-time {
+    opacity: 1;    
 }
 
 .containerDiv {
