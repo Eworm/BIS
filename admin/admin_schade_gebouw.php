@@ -17,14 +17,35 @@ if (!mysql_select_db($database, $link)) {
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title><? echo $systeemnaam; ?> - Werkstroom Gebouwcommissie</title>
-    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet">
-</head>
+<!DOCTYPE html>
+<html lang="nl">
+    
+    <head>
+        <title>Admin - <?php echo $systeemnaam; ?></title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        
+    	<script language="JavaScript" src="../scripts/kalender.js"></script>
+    	
+    </head>
+    
 <body>
-<div style="margin-left:10px; margin-top:10px">
+    
+<?php
+  
+  include('../includes/navbar-admin.php');
+    
+?>
+
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-9">
 
 <?php
 
@@ -33,16 +54,15 @@ if (!$sortby) $sortby = "Datum";
 
 if (isset($_GET['mode'])) $mode = $_GET['mode'];
 
-echo "<p><strong>Welkom in de admin van BIS</strong> [<a href='./admin_logout.php'>Uitloggen</a>]</p>";
 
-echo "<p>Werkstroom Gebouwcommissie</p>";
-echo "<p><a href='admin_schade_gebouw_edit.php'>Maak zelf een schademelding aan&gt;&gt;</a></p>";
+echo "<h1>Werkstroom Gebouwcommissie";
+echo "<a href='admin_schade_gebouw_edit.php' class='btn btn-primary'>Maak zelf een schademelding aan</a>";
 if (!isset($mode)) {
-	echo "<p><a href='admin_schade_gebouw.php?mode=Arch'>Toon gearchiveerde schades&gt;&gt;</a><br>";
+	echo "<p><a href='admin_schade_gebouw.php?mode=Arch' class='btn btn-default'>Toon gearchiveerde schades</a>";
 } else {
-	echo "<p><a href='admin_schade_gebouw.php'>Toon actuele schades&gt;&gt;</a><br>";
+	echo "<p><a href='admin_schade_gebouw.php' class='btn btn-default'>Toon actuele schades</a>";
 }
-echo "<a href='admin_schade_gebouw_export.php?mode=" . (isset($mode) ? $mode : "") . "'>Exporteer onderstaande als CSV-bestand&gt;&gt;</a></p>";
+echo "<a href='admin_schade_gebouw_export.php?mode=" . (isset($mode) ? $mode : "") . "' class='btn btn-default'>Exporteer onderstaande als CSV-bestand</a></h1>";
 
 $source = "schades_gebouw";
 if (isset($mode)) $source .= "_oud";
@@ -95,6 +115,23 @@ mysql_close($link);
 
 ?>
 
+
+        </div>
+        
+        <div class="col-md-3">
+            
+            <div class="well">
+                
+                <strong>Welkom in de admin van BIS</strong>
+                <br><br>
+                <a href='./admin_logout.php' class="btn btn-primary">Uitloggen</a>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
 </div>
 </body>
 </html>

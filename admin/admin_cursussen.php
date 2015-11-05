@@ -40,23 +40,40 @@ if ($mode == "d") {
 ?>
 
 <!DOCTYPE html>
-<html>
-<head>
-    <title><?php echo $systeemnaam; ?> - Instructiecommissie</title>
-    <link type="text/css" href="../<?php echo $csslink; ?>" rel="stylesheet" />
-    <link type="text/css" href="../css/bis.css" rel="stylesheet" />
-    <script type="text/javascript" src="../scripts/kalender.js"></script>
-    <script type="text/javascript" src="../scripts/sortable.js"></script>
-</head>
+<html lang="nl">
+    
+    <head>
+        <title>Admin - <?php echo $systeemnaam; ?></title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        
+        <script type="text/javascript" src="../scripts/kalender.js"></script>
+        <script type="text/javascript" src="../scripts/sortable.js"></script>
+    	
+    </head>
+    
 <body>
-<div class="maindiv">
+    
+<?php
+  
+  include('../includes/navbar-admin.php');
+    
+?>
 
-<p>
-	<strong>Welkom in de admin van BIS</strong>
-	[<a href='./admin_logout.php'>Uitloggen</a>]
-</p>
-<p>Instructiecommissie</p>
-<p><a href='admin_cursus_toev.php'>Maak een nieuwe cursus aan&gt;&gt;</a></p>
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-9">
+
+<h1>
+    Instructiecommissie
+    <a href='admin_cursus_toev.php' class="btn btn-primary">Maak een nieuwe cursus aan</a>
+</h1>
 
 <?php
 setlocale(LC_TIME, 'nl_NL');

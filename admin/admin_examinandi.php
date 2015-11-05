@@ -26,16 +26,35 @@ if ($mode == "d") {
 }
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title><? echo $systeemnaam; ?> - Examencommissie - Bekijk/beheer deelnemers</title>
-    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet">
-</head>
+<!DOCTYPE html>
+<html lang="nl">
+    
+    <head>
+        <title>Admin - <?php echo $systeemnaam; ?></title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	
+    </head>
+    
 <body>
-<div style="margin-left:10px; margin-top:10px">
-<p><strong>Welkom in de admin van BIS</strong> [<a href='./admin_examens.php'>Terug naar examen-menu</a>] [<a href='./admin_logout.php'>Uitloggen</a>]</p>
-<p>Deelnemers</p>
+    
+<?php
+  
+  include('../includes/navbar-admin.php');
+    
+?>
+
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-9">
+    
+<h1>Deelnemers</h1>
 
 <?php
 $query = "SELECT * FROM examen_inschrijvingen WHERE Ex_ID=" . $id;
@@ -43,7 +62,7 @@ $result = mysql_query($query);
 if (!$result) {
 	die("Ophalen van kandidaten mislukt.". mysql_error());
 }
-echo "<table class=\"basis\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" bordercolor=\"#AAB8D5\">";
+echo "<table class=\"table\">";
 echo "<tr><th><div>datum</div></th><th><div>tijd</div></th><th><div>Naam</div></th><th><div>10-11</div></th><th><div>11-12</div></th><th><div>s-1</div></th><th><div>s-2</div></th><th><div>s-3</div></th><th><div>w-1</div></th><th><div>w-2</div></th><th><div>s</div></th><th><div>S</div></th><th><div>g-1</div></th><th><div>g-2</div></th><th><div>g-3</div></th><th><div>T-1</div></th><th><div>T-2</div></th><th><div>examinator</div></th><th><div>tel.nr.</div></th><th><div>email</div></th><th><div>instr.eis</div></th><th><div>resultaat</div></th><th><div>webm</div></th><th><div>captain</div></th><th></th></tr>";
 $c = 0;
 while ($row = mysql_fetch_assoc($result)) {
@@ -111,6 +130,23 @@ mysql_close($link);
 
 ?>
 
+
+        </div>
+        
+        <div class="col-md-3">
+            
+            <div class="well">
+                
+                <strong>Welkom in de admin van BIS</strong>
+                <br><br>
+                <a href='./admin_logout.php' class="btn btn-primary">Uitloggen</a>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
 </div>
 </body>
 </html>
