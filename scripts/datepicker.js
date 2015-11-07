@@ -31,4 +31,6 @@ $(document).ready(function() {
         });
     });
     
+    $('input[type="range"]').val(2).change();
+    
 });
