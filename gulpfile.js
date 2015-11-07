@@ -12,7 +12,7 @@ var src_paths = {
                 'js-src/functions.js'],
     labjs: ['bower_components/labjs/LAB.min.js',
                 'js-src/lab-loader.js'],
-    javascript: 'js-src/*.*'
+    javascript: 'scripts/*.*'
 };
 
 

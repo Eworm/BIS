@@ -44,14 +44,9 @@ include_once("include_globalVars.php");
                 	
                     <?php unset($_SESSION['authorized_bis']); ?>
 
-                    <ul>
-                        <li>
-                            <a href='index.php'>Opnieuw inloggen</a>
-                        </li>
-                        <li>
-                            <a href='<?php echo $homepage; ?>'><?php echo $homepagenaam; ?></a>
-                        </li>
-                    </ul>
+                    <a href='index.php' class="btn btn-default btn-block">Opnieuw inloggen</a>
+                    <br>
+                    <a href='<?php echo $homepage; ?>' class="btn btn-default btn-block"><?php echo $homepagenaam; ?></a>
                     
                 </main>
                     

@@ -44,12 +44,14 @@ include_once("../include_globalVars.php");
 <?php
 unset($_SESSION['authorized']);
 unset($_SESSION['restrict']);
-echo "<p><strong>U bent uitgelogd - tot ziens!</strong></p>";
-echo "<p><a href='../index.php'>BIS</a><br>";
-echo "<a href='admin_login.php'>Opnieuw inloggen</a><br>";
-echo "<a href='".$homepage."'>$homepagenaam</a></p>";
-
 ?>
+<hr>
+<a href='../index.php' class="btn btn-default btn-block">BIS</a>
+<br>
+<a href='admin_login.php' class="btn btn-default btn-block">Opnieuw inloggen</a>
+<br>
+<a href='<?php echo $homepage; ?>' class="btn btn-default btn-block"><?php echo $homepagenaam ?></a>
+<br>
 
                 </main>
                     

@@ -12,8 +12,7 @@ if (!mysql_select_db($database, $bisdblink)) {
 
 ?>
 
-<!--link type="text/css" href="../<? //echo $csslink; ?>" rel="stylesheet" /-->
-<!--h1><strong>De vloot</strong></h1-->
+<h1>De vloot</h1>
 
 <?php
 
@@ -23,8 +22,8 @@ if ($_POST['cat_to_show']) {
 	$cat_to_show = $_POST['cat_to_show'];
 }
 echo "<form name='form' action=\"$REQUEST_URI\" method=\"post\">";
-echo "Categorie:&nbsp;";
-echo "<select name=\"cat_to_show\" />";
+echo "<div class='form-group'><label>Categorie</label>";
+echo "<select name=\"cat_to_show\" class='form-control' />";
 	$query = "SELECT DISTINCT Categorie FROM types ORDER BY Categorie;";
 	$result = mysql_query($query);
 	if (!$result) {
@@ -38,8 +37,8 @@ echo "<select name=\"cat_to_show\" />";
 		echo "/> $cat_db";
 		$c++;
 	}
-echo "</select>";
-echo "<p><input type=\"submit\" name=\"submit\" value=\"Toon\" /> </p>";
+echo "</select></div>";
+echo "<div class='form-group'><input type=\"submit\" name=\"submit\" value=\"Toon\" class='btn btn-default'/></div>";
 echo "</form>";
 
 $restrict_query_type = "";
@@ -64,7 +63,7 @@ if (!$boats_result) {
 	die("Ophalen van boten-informatie mislukt.". mysql_error());
 } else {
 	if (mysql_affected_rows() > 0) {
-		echo "<table class=\"basis\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" bordercolor=\"#AAB8D5\">";
+		echo "<table class=\"table\">";
 		echo "<tr>";
 		echo "<th><div align=\"left\">Naam</div></th>";
 		echo "<th><div align=\"left\">Gewicht</div></th>";
