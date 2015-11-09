@@ -33,7 +33,6 @@ if (!mysql_select_db($database, $bisdblink)) {
     	<!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     	<link type="text/css" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
-    	<link type="text/css" href="bower_components/rangeslider.js/dist/rangeslider.css" rel="stylesheet">
     	
     </head>
     
@@ -371,7 +370,6 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     
     <script src="bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-	<script src="bower_components/rangeslider.js/dist/rangeslider.min.js"></script>
 	<script src="scripts/datepicker.js"></script>
 	<script src="scripts/Script.js"></script>
     <script src="scripts/dates_and_ajax.js"></script>
