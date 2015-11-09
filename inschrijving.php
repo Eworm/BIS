@@ -192,26 +192,26 @@ echo "<input type=\"hidden\" name=\"grade\" id=\"grade\" value=\"" . $grade_to_s
 
 // Ergo-blokinschrijving, alleen bij een nieuwe inschrijving van Concepts
 if ($id == 0 && substr($boat, 0, 7) == "Concept") {
-	echo "Schrijf in &eacute;&eacute;n keer meerdere Concept-ergometers in:<br>bijv. '3 t/m 5' voor Concepts 3, 4 en 5, of gewoon eentje, bijv. '2 t/m 2' voor alleen Concept 2.";
+	echo "<div class='row'><div class='col-md-12'><div class='alert alert-info'>Schrijf in &eacute;&eacute;n keer meerdere Concept-ergometers in: bijv. '3 t/m 5' voor Concepts 3, 4 en 5, of gewoon eentje, bijv. '2 t/m 2' voor alleen Concept 2.</div></div></div>";
 	
 	$ergo_lo = substr($boat, 8, 1);
-	echo "Blokinschrijving: Concept ";
-	echo "<select name=\"ergo_lo\" id='ergo_lo'>";
+	echo "<div class='form-group'><label class='col-md-4 control-label'>Blokinschrijving: Concept</label>";
+	echo "<div class='col-md-3'><select name=\"ergo_lo\" id='ergo_lo' class='form-control'>";
 	for ($t = $ergo_lo; $t <= $NR_OF_CONCEPTS; $t++) {
 		echo"<option value=\"".$t."\" ";
 		if ($ergo_lo == $t) echo "selected=\"selected\"";
 		echo ">".$t."</option>";
 	}
-	echo "</select> t/m ";
+	echo "</select></div><div class='col-md-1'> t/m </div>";
 	if (!isset($ergo_hi) || $ergo_hi == 0) $ergo_hi = $ergo_lo;
-	echo "<select name=\"ergo_hi\" id='ergo_hi'>";
+	echo "<div class='col-md-4'><select name=\"ergo_hi\" id='ergo_hi' class='form-control'>";
 	for ($t = $ergo_lo; $t <= $NR_OF_CONCEPTS; $t++) {
 		echo"<option value=\"".$t."\" ";
 		if ($ergo_hi == $t) echo "selected=\"selected\"";
 		echo ">".$t."</option>";
 	}
-	echo "</select>";
-	echo "";
+	echo "</select></div>";
+	echo "</div>";
 	
 }
 
