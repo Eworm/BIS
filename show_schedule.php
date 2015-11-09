@@ -28,7 +28,7 @@ if (isset($_GET['grade_to_show'])) $grade_to_show = $_GET['grade_to_show'];
 echo "<div>";
 $date_tmp = strtotime($date_to_show_db);
 $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
-echo "<h3>".strtoupper($date_sh)." vanaf $start_time_to_show: $cat_to_show ($grade_to_show)</h3><br>";
+echo "<h3 class='h4'>".strtoupper($date_sh)." vanaf $start_time_to_show: $cat_to_show ($grade_to_show)</h3>";
 
 // tabel-weergave (boten x tijdstippen) van inschrijvingen op gekozen dag
 $restrict_query_type = "";

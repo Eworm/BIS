@@ -25,9 +25,6 @@ if (!mysql_select_db($database, $link)) {
         
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <link type="text/css" href="<?php echo $csslink; ?>" rel="stylesheet" />
-    	<link type="text/css" href="css/bis.css" rel="stylesheet" />
     	
         <script type="text/javascript" language="javascript" src="../scripts/datatables/jquery.js"></script> 
         <script type="text/javascript" language="javascript" src="../scripts/datatables/jquery.dataTables.js"></script> 
