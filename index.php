@@ -233,7 +233,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                     	
                                         	    <label class="radio-inline">
                                             	    
-                                            		<input type="radio" id="<?php echo $cat_db; ?>" value="<?php echo $cat_db; ?>" <?php if ($cat_to_show == $cat_db): ?> checked <?php endif; ?> name='cat_to_show' value="<?php echo $cat_db; ?>" onchange="changeInfo();">
+                                            		<input type="radio" value="<?php echo str_replace(' ', '%20', $cat_db); ?>" <?php if ($cat_to_show == $cat_db): ?> checked <?php endif; ?> name='cat_to_show' value="<?php echo $cat_db; ?>" onchange="changeInfo();">
                                             		<?php echo $cat_db; ?>
                                             		
                                         		</label>

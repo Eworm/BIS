@@ -131,7 +131,7 @@ while ($row = mysql_fetch_assoc($boats_result)) {
 	}
 	echo "<tr><th ";
 	if ($available[$c] && InRange($date_to_show, 10)) {
-		echo "onclick=\"showInschrijving(0, " . $boat_ids_array[$c] . ", '" . $date_to_show . "', '" . $cat_to_show . "', '" . $grade_to_show . "', '" . $start_time_to_show . "');\"  onmouseover=\"this.style.backgroundColor='#fff';\" onmouseout=\"this.style.backgroundColor='" . $bgcolor . "'\" bgcolor=\"" . $bgcolor . "\">";
+		echo "onclick=\"showInschrijving(0, " . $boat_ids_array[$c] . ", '" . $date_to_show . "', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '" . $start_time_to_show . "');\"  onmouseover=\"this.style.backgroundColor='#fff';\" onmouseout=\"this.style.backgroundColor='" . $bgcolor . "'\" bgcolor=\"" . $bgcolor . "\">";
 	} else {
 		echo "bgcolor=\"#999999\">";
 	}
@@ -210,7 +210,7 @@ while (isset($boats_array[$boatnr])) {
 						$t_time = BlocksToTime($t);
 						echo "<td bgcolor=\"#fff\"";
 						if (InRange($date_to_show, 10)) {
-							echo " onclick=\"showInschrijving(0, " . $boat_ids_array[$boatnr] . ", '" . $date_to_show . "', '" . $cat_to_show . "', '" . $grade_to_show . "', '" . $t_time . "');\"";
+							echo " onclick=\"showInschrijving(0, " . $boat_ids_array[$boatnr] . ", '" . $date_to_show . "', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '" . $t_time . "');\"";
 						}
 						if ($t == $start_block || ($t / 4) == floor($t / 4)) {
 							echo " style=\"border-left: solid 1px #ddd\"";
@@ -234,7 +234,7 @@ while (isset($boats_array[$boatnr])) {
 					$info_to_show = addslashes($info_to_show);
 					// Geef blok weer in geel/oranje en klikbaar (beschikbaar) of grijs (niet meer editbaar)
 					if ($available_ins && $db_blok == 0 && (($db_spits == 0 && InRange($date_to_show, 10)) || ($db_spits > 0 && InRange($date_to_show, 3)))) {
-						echo " onclick=\"showInschrijving(" . $db_id . ", 0, '', '" . $cat_to_show . "', '" . $grade_to_show . "', '');\"";
+						echo " onclick=\"showInschrijving(" . $db_id . ", 0, '', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '');\"";
 						if ($db_spits > 0) {
 							echo " bgcolor=\"#f60\"";
 							$info_to_show .= " - Spitsblok nog te bevestigen";
@@ -255,7 +255,7 @@ while (isset($boats_array[$boatnr])) {
 			$t_time = BlocksToTime($t);
 			echo "<td bgcolor=\"#fff\"";
 			if (InRange($date_to_show, 10)) {
-				echo " onclick=\"showInschrijving(0, " . $boat_ids_array[$boatnr] . ", '" . $date_to_show . "', '" . $cat_to_show . "', '" . $grade_to_show . "', '" . $t_time . "');\"";
+				echo " onclick=\"showInschrijving(0, " . $boat_ids_array[$boatnr] . ", '" . $date_to_show . "', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '" . $t_time . "');\"";
 			}
 			if ($t == $start_block || ($t / 4) == floor($t / 4)) {
 				echo " style=\"border-left: solid 1px #ddd\"";

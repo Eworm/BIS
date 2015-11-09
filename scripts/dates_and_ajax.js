@@ -62,6 +62,7 @@ function changeInfo(){
 					"&grade_to_show=" + document.getElementById("grade_to_show").value, true);
 			httpObject.onreadystatechange = setOutput;
 			httpObject.send(null);
+			
 		} else {
 			httpObject.open("GET", "show_availability.php?change=1&id=" + document.getElementById("id").value + "&date=" + 
 					document.getElementById("resdate").value + "&start_time_hrs=" + document.getElementById("start_time_hrs").value + 
@@ -97,9 +98,18 @@ function showInschrijving(id, boat_id, date, cat_to_show, grade_to_show, time_to
     
     $('#inschrijvingModal').modal();
     
-    $("#inschrijvingModal").find(".modal-body").load("inschrijving.php?id=" + id + "&boat_id=" + boat_id + 
-			"&date=" + date + "&cat_to_show=" + cat_to_show + "&grade_to_show=" + grade_to_show + 
-			"&time_to_show=" + time_to_show);
+    // Contents of the pop-up:
+    httpObject = getHTTPObject();
+    
+    if (httpObject != null) {
+    
+        $("#inschrijvingModal").find(".modal-body").load("inschrijving.php?id=" + id + "&boat_id=" + boat_id + 
+    			"&date=" + date + "&cat_to_show=" + cat_to_show + "&grade_to_show=" + grade_to_show + 
+    			"&time_to_show=" + time_to_show);
+    			
+        // httpObject.onreadystatechange = fillPopup;
+    			
+    }
 }
 
 function fillPopup(){
