@@ -21,6 +21,11 @@ if ($start_mins_to_show == 0) $start_mins_to_show = "00";
 $start_time_to_show = $start_hrs_to_show.":".$start_mins_to_show;
 $start_block = TimeToBlocks($start_time_to_show);
 
+ // Sunset in Groningen
+$sunset = date_sunset(time(), SUNFUNCS_RET_TIMESTAMP, 53.2, 6.6, 90, 1);
+$rounded_sunset = floor($sunset / (15 * 60)) * (15 * 60);
+$proper_sunset = date('H:i',$rounded_sunset);
+
 if (isset($_GET['cat_to_show'])) $cat_to_show = $_GET['cat_to_show'];
 
 if (isset($_GET['grade_to_show'])) $grade_to_show = $_GET['grade_to_show'];
@@ -28,7 +33,8 @@ if (isset($_GET['grade_to_show'])) $grade_to_show = $_GET['grade_to_show'];
 echo "<div>";
 $date_tmp = strtotime($date_to_show_db);
 $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
-echo "<h3 class='h4'>".strtoupper($date_sh)." vanaf $start_time_to_show: $cat_to_show ($grade_to_show)</h3>";
+echo "<div class='schedule-header'><h3 class='h4 schedule-title'>".strtoupper($date_sh)." vanaf $start_time_to_show: $cat_to_show ($grade_to_show)</h3>";
+echo "<span class='sunset-legenda'>Zon is onder</span></div>";
 
 // tabel-weergave (boten x tijdstippen) van inschrijvingen op gekozen dag
 $restrict_query_type = "";
@@ -133,7 +139,7 @@ while ($row = mysql_fetch_assoc($boats_result)) {
 	if ($available[$c] && InRange($date_to_show, 10)) {
 		echo "onclick=\"showInschrijving(0, " . $boat_ids_array[$c] . ", '" . $date_to_show . "', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '" . $start_time_to_show . "');\"  onmouseover=\"this.style.backgroundColor='#fff';\" onmouseout=\"this.style.backgroundColor='" . $bgcolor . "'\" bgcolor=\"" . $bgcolor . "\">";
 	} else {
-		echo "bgcolor=\"#999999\">";
+		echo "bgcolor=\"#999\">";
 	}
 	echo "<div>$boats_array[$c] ($weight kg, $type, $grade)</div></th></tr>";
 	$c++;
@@ -145,6 +151,7 @@ echo "</td>";
 echo "<td>";
 echo "<div class=\"body\">";
 echo "<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">"; // hoofdtabel
+
 // lege regel volgend op kopregel van botenkolom, met exact dezelfde inhoud als de regel erboven, alleen onzichtbaar:
 echo "<tr><th><div>&nbsp;</div></th>";
 $hr = 7 + floor($start_block / 4);
@@ -154,6 +161,7 @@ for ($c = $start_block + $offset_blocks; $c < 72; $c += 4, $hr++) {
 	echo "<th colspan=\"4\" style=\"border-left: solid 1px #ddd\"><div align=\"left\" style=\"visibility:hidden\">$hr:00&nbsp;&nbsp;&nbsp;</div></th>";
 }
 echo "<th style=\"border-left: solid 1px #ddd\"><div>&nbsp;</div></th></tr>";
+
 // lege regel met netjes 1 cel per kwartier, zodat de tabel altijd de juiste afmeting heeft:
 echo "<tr><td bgcolor=\"#fff\"><div>&nbsp;</div></td>";
 for ($c = $start_block; $c < 73; $c++) {
@@ -161,7 +169,7 @@ for ($c = $start_block; $c < 73; $c++) {
 	if ($c == $start_block || ($c / 4) == floor($c / 4)) {
 		echo " style=\"border-left: solid 1px #ddd\"";
 	}
-	echo "><div>&nbsp;&nbsp;</div></td>"; // max 2 chars per kwartierblokje!
+	echo  "><div>&nbsp;&nbsp;</div></td>"; // max 2 chars per kwartierblokje!
 }
 echo "</tr>";
 
@@ -174,7 +182,7 @@ while (isset($boats_array[$boatnr])) {
 		// boot uit de vaart: hele regel grijs
 		$span_size = 72 - $latest_end_time_blocks;
 		$info_to_show_sh = substr($reason[$boatnr], 0, (2 * $span_size) - 1);
-		echo "<td colspan=\"" . $span_size . "\" align=\"center\" bgcolor=\"#999999\" style=\"border-left: solid 1px #ddd\"><div style=\"overflow:hidden\" align=\"center\" onmouseover=\"Tip('$reason[$boatnr]')\">$info_to_show_sh</div></td>";
+		echo "<td colspan=\"" . $span_size . "\" align=\"center\" bgcolor=\"#999\" style=\"border-left: solid 1px #ddd\"><div style=\"overflow:hidden\" align=\"center\" onmouseover=\"Tip('$reason[$boatnr]')\">$info_to_show_sh</div></td>";
 	} else {
 		$opzoektabel_tmp = $opzoektabel;
 		if (strtotime($date_to_show_db) - strtotime($today_db) < 0) $opzoektabel_tmp .= "_oud";
@@ -201,9 +209,12 @@ while (isset($boats_array[$boatnr])) {
 					if ($db_start_time_blocks < $start_block) $db_start_time_blocks = $start_block;
 					$db_end_time_blocks = TimeToBlocks($db_end_time);
 					$fields = explode(":", $db_end_time, 3);
+					
 					$available_ins = 1; // hulpvar. waarmee je bijhoudt of inschr. nog editbaar is
+					
 					if (($date_to_show == $today) && (($fields[0] < $thehour) || (($fields[0] == $thehour) && ($fields[1] < $theminute)))) $available_ins = 0;
-					// wit totaan huidige inschrijving
+					
+					// wit tot aan huidige inschrijving
 					$span_size = $db_start_time_blocks - $latest_end_time_blocks;
 					if ($span_size < 0) $span_size = 0;
 					for ($t = $latest_end_time_blocks; $t < $latest_end_time_blocks + $span_size; $t++) {
@@ -215,8 +226,10 @@ while (isset($boats_array[$boatnr])) {
 						if ($t == $start_block || ($t / 4) == floor($t / 4)) {
 							echo " style=\"border-left: solid 1px #ddd\"";
 						}
+						echo  ($proper_sunset < $t_time ? "class='sunset'" : "");
 						echo "><span class='schedule-time'>" . $t_time . "</span><div>+</div></td>";
 					}
+					
 					// gekleurd en met naam gedurende huidige inschrijving
 					echo "<td align=\"center\"";
 					if ($db_start_time_blocks == $start_block || ($db_start_time_blocks / 4) == floor($db_start_time_blocks / 4)) {
@@ -225,6 +238,7 @@ while (isset($boats_array[$boatnr])) {
 					$span_size = $db_end_time_blocks - $db_start_time_blocks;
 					$boat_tmp = addslashes($boats_array[$boatnr]);
 					$db_name_tmp = addslashes($db_name);
+					
 					// Maak een string met de naam, ploegnaam en evt. MPB om in het blok te zetten, en kort deze af als het blok te kort is (overflow:hidden werkt niet in IE!!!)
 					$info_to_show = "";
 					if ($db_name) $info_to_show = $db_name." - ";
@@ -232,6 +246,7 @@ while (isset($boats_array[$boatnr])) {
 					if ($db_mpb) $info_to_show .= " (MPB: $db_mpb)";
 					$info_to_show_sh = substr($info_to_show, 0, (2 * $span_size) - 1); // max 2 chars per kwartierblokje!
 					$info_to_show = addslashes($info_to_show);
+					
 					// Geef blok weer in geel/oranje en klikbaar (beschikbaar) of grijs (niet meer editbaar)
 					if ($available_ins && $db_blok == 0 && (($db_spits == 0 && InRange($date_to_show, 10)) || ($db_spits > 0 && InRange($date_to_show, 3)))) {
 						echo " onclick=\"showInschrijving(" . $db_id . ", 0, '', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '');\"";
@@ -247,21 +262,25 @@ while (isset($boats_array[$boatnr])) {
 					echo " onmouseover=\"Tip('" . $info_to_show . "')\" colspan=\"". $span_size . "\"><div style=\"overflow:hidden\" align=\"center\" class='reserved'>" . $info_to_show_sh . "</div></td>";
 					// volgende witblok vanaf eindtijd huidige inschrijving!
 					$latest_end_time_blocks = $db_end_time_blocks;
+		
 				} // end while (loop door alle inschrijvingen van de huidige boot)
+		
 			} // end if
 		}
+		
 		// wit totaan einde regel 
 		for ($t = $latest_end_time_blocks; $t < 72; $t++) {
 			$t_time = BlocksToTime($t);
 			echo "<td bgcolor=\"#fff\"";
 			if (InRange($date_to_show, 10)) {
-				echo " onclick=\"showInschrijving(0, " . $boat_ids_array[$boatnr] . ", '" . $date_to_show . "', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '" . $t_time . "');\"";
+				echo " onclick=\"showInschrijving(0, " . $boat_ids_array[$boatnr] . ", '" . $date_to_show . "', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '" . $t_time . "');\"" . ($proper_sunset < $t_time ? "class='sunset'" : "");
 			}
 			if ($t == $start_block || ($t / 4) == floor($t / 4)) {
 				echo " style=\"border-left: solid 1px #ddd\"";
 			}
 			echo "><span class='schedule-time'>" . $t_time . "</span><div>+</div></td>";
 		}
+		
 	} // end else (boot niet uit de vaart)
 	echo "<td style=\"border-left: solid 1px #ddd\"><div>&nbsp;</div></td>";
 	echo "</tr>";

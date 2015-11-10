@@ -75,6 +75,37 @@
     opacity: 1;    
 }
 
+.sunset {
+    background: #f7f7f7;
+}
+
+.schedule-header {
+    width: 100%;
+    float: left;
+}
+
+.schedule-title {
+    float: left;
+}
+
+.sunset-legenda {
+    margin: 10px 0 10px 20px;
+    float: left;
+    line-height: 20px;
+    display: block;
+}
+
+.sunset-legenda:before {
+    width: 10px;
+    height: 20px;
+    margin-right: 10px;
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+}
+
 .containerDiv {
 	margin-left: 10px;
 	margin-right: 10px;
