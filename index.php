@@ -304,7 +304,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
         			$bestuurslid = $row['Bestuurslid'];
         			$summary = $row['Betreft'];
         			$note = $row['Mededeling'];
-        			echo "Datum: $note_datum<br>Van: $bestuurslid<br><b>Betreft: $summary</b><br>$note<br><br><a href=\"$mededelingenpagina\" target='_blank'>Alle mededelingen";
+        			echo "<strong>" . $summary . "</strong><br>" . $note_datum . ", $bestuurslid<br><br>$note<br><a href=\"$mededelingenpagina\">Alle mededelingen";
         			$query2 = "SELECT COUNT(*) AS NrOfNotes FROM mededelingen;"; // alleen recentste
         			$result2 = mysql_query($query2);
         			$row2 = mysql_fetch_assoc($result2);
@@ -320,7 +320,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
         <hr>
         
         <p>
-            <a href='schadeboek/schade_boten_toev.php' class='btn btn-primary'>Schademelding boot  </a>
+            <a href='schadeboek/schade_boten_toev.php' class='btn btn-primary'>Schademelding boot</a>
             <br><br>
             <a href='schadeboek/schade_gebouw_toev.php' class='btn btn-primary'>Schademelding gebouw</a>
         </p>
