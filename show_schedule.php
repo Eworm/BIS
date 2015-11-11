@@ -24,7 +24,8 @@ $start_block = TimeToBlocks($start_time_to_show);
  // Sunset in Groningen
 $sunset = date_sunset(time(), SUNFUNCS_RET_TIMESTAMP, 53.2, 6.6, 90, 1);
 $rounded_sunset = floor($sunset / (15 * 60)) * (15 * 60);
-$proper_sunset = date('H:i',$rounded_sunset);
+$proper_sunset = date('H:i', $rounded_sunset);
+$proper_sundown = date("H:i", strtotime('+30 minutes', $rounded_sunset));
 
 if (isset($_GET['cat_to_show'])) $cat_to_show = $_GET['cat_to_show'];
 
@@ -34,7 +35,7 @@ echo "<div>";
 $date_tmp = strtotime($date_to_show_db);
 $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
 echo "<div class='schedule-header'><h3 class='h4 schedule-title'>".strtoupper($date_sh)." vanaf $start_time_to_show: $cat_to_show ($grade_to_show)</h3>";
-echo "<span class='sunset-legenda'>Zon is onder</span></div>";
+echo "<span class='sunset-legenda'>Zonsondergang (" . date('H:i', $sunset) . ")</span><span class='sundown-legenda'>Donker (" . date('H:i', strtotime('+30 minutes', $sunset)) . ")</span></div>";
 
 // tabel-weergave (boten x tijdstippen) van inschrijvingen op gekozen dag
 $restrict_query_type = "";
@@ -226,7 +227,7 @@ while (isset($boats_array[$boatnr])) {
 						if ($t == $start_block || ($t / 4) == floor($t / 4)) {
 							echo " style=\"border-left: solid 1px #ddd\"";
 						}
-						echo  ($proper_sunset < $t_time ? "class='sunset'" : "");
+						echo  ($proper_sunset <= $t_time ? "class='sunset " . ($proper_sundown <= $t_time ? "sundown" : "") . "'" : "");
 						echo "><span class='schedule-time'>" . $t_time . "</span><div>+</div></td>";
 					}
 					
@@ -259,7 +260,7 @@ while (isset($boats_array[$boatnr])) {
 					} else {
 						echo " bgcolor=\"#999\"";
 					}
-					echo " onmouseover=\"Tip('" . $info_to_show . "')\" colspan=\"". $span_size . "\"><div style=\"overflow:hidden\" align=\"center\" class='reserved'>" . $info_to_show_sh . "</div></td>";
+					echo " onmouseover=\"Tip('" . $info_to_show . "')\" colspan=\"". $span_size . "\" class='reserved-container'><div style=\"overflow:hidden\" align=\"center\" class='reserved'>" . $info_to_show_sh . "</div></td>";
 					// volgende witblok vanaf eindtijd huidige inschrijving!
 					$latest_end_time_blocks = $db_end_time_blocks;
 		
@@ -273,7 +274,7 @@ while (isset($boats_array[$boatnr])) {
 			$t_time = BlocksToTime($t);
 			echo "<td bgcolor=\"#fff\"";
 			if (InRange($date_to_show, 10)) {
-				echo " onclick=\"showInschrijving(0, " . $boat_ids_array[$boatnr] . ", '" . $date_to_show . "', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '" . $t_time . "');\"" . ($proper_sunset < $t_time ? "class='sunset'" : "");
+				echo " onclick=\"showInschrijving(0, " . $boat_ids_array[$boatnr] . ", '" . $date_to_show . "', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '" . $t_time . "');\"" . ($proper_sunset <= $t_time ? "class='sunset " . ($proper_sundown <= $t_time ? "sundown" : "") . "'" : "");
 			}
 			if ($t == $start_block || ($t / 4) == floor($t / 4)) {
 				echo " style=\"border-left: solid 1px #ddd\"";
