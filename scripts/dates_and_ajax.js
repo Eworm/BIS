@@ -169,7 +169,7 @@ function resetReservationPopup(){
 		var msgBar = document.getElementById("msgbar");
 		var msg = "<p>";
 		for (i in resultArray.messages) {
-			msg += resultArray.messages[i] + "<br />";
+			msg += resultArray.messages[i] + "&nbsp;";
 		}
 		if (resultArray.success == 1) {
 			// msgBar.setAttribute('class', 'successmsg');
