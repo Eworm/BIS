@@ -26,8 +26,6 @@
 }
 
 .scrollTable table td, .scrollTable table th {
-	vertical-align: top;
-	// text-align: center;
 	margin: 0;
 	padding: 2px;
 	white-space: nowrap;
