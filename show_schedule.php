@@ -99,7 +99,7 @@ echo "<td valign=\"top\">";
 echo "<div class=\"headerColumn\">";
 echo "<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">";
 echo "<tr><th><div>Naam (gewicht, type, graad)</div></th></tr>";
-echo "<tr><th><div>&nbsp;</div></th></tr>";
+echo "<tr class='hibben-row'><th><div>&nbsp;</div></th></tr>";
 $c = 0;
 while ($row = mysql_fetch_assoc($boats_result)) {
 	$boat_ids_array[$c] = $row['ID'];
@@ -164,7 +164,7 @@ for ($c = $start_block + $offset_blocks; $c < 72; $c += 4, $hr++) {
 echo "<th style=\"border-left: solid 1px #ddd\"><div>&nbsp;</div></th></tr>";
 
 // lege regel met netjes 1 cel per kwartier, zodat de tabel altijd de juiste afmeting heeft:
-echo "<tr><td bgcolor=\"#fff\"><div>&nbsp;</div></td>";
+echo "<tr class='hibben-row'><td bgcolor=\"#fff\"><div>&nbsp;</div></td>";
 for ($c = $start_block; $c < 73; $c++) {
 	echo "<td bgcolor=\"#fff\"";
 	if ($c == $start_block || ($c / 4) == floor($c / 4)) {
@@ -183,7 +183,7 @@ while (isset($boats_array[$boatnr])) {
 		// boot uit de vaart: hele regel grijs
 		$span_size = 72 - $latest_end_time_blocks;
 		$info_to_show_sh = substr($reason[$boatnr], 0, (2 * $span_size) - 1);
-		echo "<td colspan=\"" . $span_size . "\" align=\"center\" bgcolor=\"#999\" style=\"border-left: solid 1px #ddd\"><div style=\"overflow:hidden\" align=\"center\" onmouseover=\"Tip('$reason[$boatnr]')\">$info_to_show_sh</div></td>";
+		echo "<td class='on-shore' colspan=\"" . $span_size . "\" align=\"center\" bgcolor=\"#999\" style=\"border-left: solid 1px #ddd\"><div style=\"overflow:hidden\" align=\"center\" onmouseover=\"Tip('$reason[$boatnr]')\">$info_to_show_sh</div></td>";
 	} else {
 		$opzoektabel_tmp = $opzoektabel;
 		if (strtotime($date_to_show_db) - strtotime($today_db) < 0) $opzoektabel_tmp .= "_oud";
@@ -288,7 +288,7 @@ while (isset($boats_array[$boatnr])) {
 	$boatnr++;
 } // end while (loop door alle boten)
 // lege regel onderaan:
-echo "<tr><td><div>&nbsp;</div></td>";
+echo "<tr class='hibben-row'><td><div>&nbsp;</div></td>";
 echo "<td colspan=\"$offset_blocks\" style=\"border-left: solid 1px #ddd\"><div>&nbsp;</div></td>";
 for ($c = $start_block + $offset_blocks; $c < 72; $c += 4) {
 	echo "<td colspan=\"4\" style=\"border-left: solid 1px #ddd\"><div>&nbsp;</div></td>";

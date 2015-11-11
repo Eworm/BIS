@@ -54,7 +54,7 @@
     transition: all .15s ease;
 }
 
-.scrollTable table td .reserved {
+.scrollTable table td .reserved, .scrollTable table .on-shore div {
     opacity: 1;
 }
 
@@ -68,7 +68,7 @@
     cursor: default;
 }
 
-.scrollTable table td:hover > div {
+.scrollTable table td:hover > div, .scrollTable table .on-shore td:hover > div {
     opacity: 1;
     color: white;
 }
@@ -128,6 +128,11 @@
     vertical-align: middle;
     background: #ccc;
     border: 1px solid #ddd;
+}
+
+.hibben-row, .hibben-row th, .hibben-row td, .hibben-row div {
+    height: 0 !important;
+    padding: 0 !important;
 }
 
 .containerDiv {
@@ -289,4 +294,8 @@
 
 .last-legend {
     text-align: right;
+}
+
+.form-group {
+    // margin-bottom: 0;
 }
