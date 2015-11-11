@@ -76,7 +76,7 @@
 }
 
 .sunset {
-    background: #f7f7f7;
+    background: #eee;
 }
 
 .schedule-header {
@@ -102,7 +102,7 @@
     content: '';
     display: inline-block;
     vertical-align: middle;
-    background: #f7f7f7;
+    background: #eee;
     border: 1px solid #ddd;
 }
 
