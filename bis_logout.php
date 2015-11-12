@@ -14,7 +14,7 @@ include_once("include_globalVars.php");
 <html lang="nl">
     
     <head>
-        <title><?php echo $systeemnaam; ?> - Inloggen</title>
+        <title><?php echo $systeemnaam; ?> - U bent uitgelogd</title>
         
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">

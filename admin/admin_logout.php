@@ -13,7 +13,7 @@ include_once("../include_globalVars.php");
 <html lang="nl">
     
     <head>
-        <title><?php echo $systeemnaam; ?> - Inloggen</title>
+        <title><?php echo $systeemnaam; ?> - U bent uitgelogd</title>
         
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,17 +41,17 @@ include_once("../include_globalVars.php");
                 	
                 	<hr>
                 	
-<?php
-unset($_SESSION['authorized']);
-unset($_SESSION['restrict']);
-?>
-<hr>
-<a href='../index.php' class="btn btn-default btn-block">BIS</a>
-<br>
-<a href='admin_login.php' class="btn btn-default btn-block">Opnieuw inloggen</a>
-<br>
-<a href='<?php echo $homepage; ?>' class="btn btn-default btn-block"><?php echo $homepagenaam ?></a>
-<br>
+                    <?php
+                    unset($_SESSION['authorized']);
+                    unset($_SESSION['restrict']);
+                    ?>
+                    <hr>
+                    <a href='../index.php' class="btn btn-default btn-block">BIS</a>
+                    <br>
+                    <a href='admin_login.php' class="btn btn-default btn-block">Opnieuw inloggen</a>
+                    <br>
+                    <a href='<?php echo $homepage; ?>' class="btn btn-default btn-block"><?php echo $homepagenaam ?></a>
+                    <br>
 
                 </main>
                     
