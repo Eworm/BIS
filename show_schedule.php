@@ -3,6 +3,7 @@ include_once("include_globalVars.php");
 include_once("include_helperMethods.php");
 
 setlocale(LC_TIME, 'nl_NL');
+date_default_timezone_set('Europe/Amsterdam');
 
 $link = mysql_connect($database_host, $database_user, $database_pass);
 if (!mysql_select_db($database, $link)) {
