@@ -1,5 +1,7 @@
 <?php mysql_close($link); ?>
 
+        <br><br>
+
     </div>
 
 </div>

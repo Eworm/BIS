@@ -28,7 +28,8 @@ if (!mysql_select_db($database, $link)) {
     	
     	<!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    	
+        <link type="text/css" href="../css/bis.css" rel="stylesheet">
+            	
     </head>
     
 <body>
@@ -43,7 +44,7 @@ if (!mysql_select_db($database, $link)) {
             
     <div class="row">
                 
-        <div class="col-md-12">
+        <div class="col-md-6">
 
 
 <?php
@@ -138,6 +139,8 @@ mysql_close($link);
 
 ?>
 
+            <br><br>
+            
         </div>
         
     </div>

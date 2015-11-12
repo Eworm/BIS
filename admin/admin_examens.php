@@ -49,7 +49,8 @@ if ($mode == "d" && isset($id)) {
     	
     	<!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    	
+        <link type="text/css" href="../css/bis.css" rel="stylesheet">
+            	
     </head>
     
 <body>
@@ -108,6 +109,7 @@ while ($row = mysql_fetch_assoc($result)) {
 echo "</table>";
 ?>
 
+            <br><br>
 
         </div>
         

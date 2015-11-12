@@ -31,7 +31,8 @@ setlocale(LC_TIME, 'nl_NL');
     	<!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link type="text/css" href="../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
-    	
+        <link type="text/css" href="../css/bis.css" rel="stylesheet">
+            	
     </head>
     
 <body>
@@ -46,7 +47,7 @@ setlocale(LC_TIME, 'nl_NL');
             
     <div class="row">
                 
-        <div class="col-md-12">
+        <div class="col-md-6">
 
 
 <?php
@@ -391,6 +392,8 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 mysql_close($link);
 
 ?>
+
+            <br><br>
 
         </div>
         
