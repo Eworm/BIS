@@ -12,7 +12,7 @@ setlocale(LC_TIME, 'nl_NL');
 
 if ($_GET['id']) $id = $_GET['id'];
 
-echo "<p><strong>Bekijken/aanmelden</strong></p>";
+echo "<h1>Bekijken/aanmelden</h1>";
 
 $query = "SELECT Startdatum, Einddatum, Type, Quotum, Omschrijving FROM cursussen WHERE id='$id';";
 $result = mysql_query($query);

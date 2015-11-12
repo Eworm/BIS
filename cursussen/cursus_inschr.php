@@ -18,14 +18,35 @@ if (!mysql_select_db($database, $link)) {
 setlocale(LC_TIME, 'nl_NL');
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title>BotenInschrijfSysteem - Cursussen - Inschrijven voor een cursus</title>
-    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet">
-</head>
+<!DOCTYPE html>
+<html lang="nl">
+
+    <head>
+        <title>Cursussen - BIS</title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link type="text/css" href="../css/bis.css" rel="stylesheet">
+    	
+    </head>
+    
 <body>
-<div style="margin-left:10px; margin-top:10px">
+    
+<?php
+  
+  include('../includes/navbar.php');
+    
+?>
+
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-8">
+
 <?php
 
 $id = $_GET['id'];
@@ -58,8 +79,8 @@ if (!$_POST['cancel'] && !$_POST['insert']) {
 if ($_POST['cancel']){
 	unset($_POST['name'], $_POST['demand'], $_POST['email'], $_POST['telph'], $name, $demand, $email, $telph);
 	$fail = FALSE;
-	echo "<p>U wordt niet aangemeld.<br>";
-	echo "<a href='index.php'>Terug naar het cursusscherm&gt;&gt;</a></p>";
+	echo "<h1>U wordt niet aangemeld.</h1>";
+	echo "<a href='index.php' class='btn btn-primary'>Terug naar het cursusscherm</a></p>";
 }
 
 if ($_POST['insert']){
@@ -110,61 +131,64 @@ if ($_POST['insert']){
 			// Verstuur naar organisatie
 			if ($org_email != "instructie@hunze.nl") SendEmail($org_email, "Nieuwe cursusaanmelding", $message);
 			SendEmail("instructie@hunze.nl", "Nieuwe cursusaanmelding", $message);
-			echo "<p>Hartelijk dank voor uw aanmelding! Deze is doorgegeven aan het betreffende lid van de Instructiecommissie.<br>Als u zelf een e-mailadres had opgegeven, krijgt u een kopie van uw inschrijving via e-mail.<br>";
-			echo "<a href='index.php'>Terug naar het cursusscherm&gt;&gt;</a></p>";
+			echo "<h1>Hartelijk dank voor uw aanmelding!</h1><p>Deze is doorgegeven aan het betreffende lid van de Instructiecommissie.<br>Als u zelf een e-mailadres had opgegeven, krijgt u een kopie van uw inschrijving via e-mail.<br>";
+			echo "<a href='index.php' class='btn btn-primary'>Terug naar het cursusscherm/a></p>";
 		}
 	}
 }
 
 // Formulier
 if ((!$_POST['insert'] && !$_POST['cancel']) || $fail) {
-	echo "<p><b>Aanmeldformulier voor ".$type." beginnend op ".strftime('%A %d-%m-%Y', $startdate_sh)."&nbsp;".$description;
+	echo "<h1>Aanmeldformulier voor ".$type." beginnend op ".strftime('%A %d-%m-%Y', $startdate_sh)."&nbsp;".$description . "</h1>";
 	echo "<form name='form' action=\"$REQUEST_URI\" method=\"post\">";
-	echo "<table>";
 	
 	// naam
-	echo "<tr><td>Naam:</td>";
-	echo "<td><input type=\"text\" name=\"name\" value=\"$name\" size=45></td>";
-	if ($fail_msg_name) echo "<td><em>$fail_msg_name</em></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>Naam:</label>";
+	echo "<input type=\"text\" name=\"name\" value=\"$name\" class='form-control'>";
+	if ($fail_msg_name) echo "<div class='help-block'>$fail_msg_name</div>";
+	echo "</div>";
 	
 	// tegenprestatie (alleen bij skiff-2)
 	if ($skiff2) {
-		echo "<tr><td colspan=3><em>Om deel te kunnen nemen aan de cursus skiff-2, dient u instructie gegeven te hebben.<br>Omschrijf a.u.b. kort welke instructie u hebt gegeven, wanneer en bij wie.</em></td></tr>";
-		echo "<tr><td>Instructie-eis:</td>";
-		echo "<td><input type=\"text\" name=\"demand\" value=\"$demand\" size=\"100\" maxlength=\"100\"></td>";
-		if ($fail_msg_demand) echo "<td><em>$fail_msg_demand</em></td>";
-		echo "</tr>";
+		echo "<h3>Om deel te kunnen nemen aan de cursus skiff-2, dient u instructie gegeven te hebben. Omschrijf a.u.b. kort welke instructie u hebt gegeven, wanneer en bij wie.</h3>";
+		echo "<div class='form-group'><label>Instructie-eis:</label>";
+		echo "<input type=\"text\" name=\"demand\" value=\"$demand\" class='form-control' maxlength=\"100\">";
+		if ($fail_msg_demand) echo "<div class='help-block'>$fail_msg_demand</div>";
+		echo "</div>";
 	}
 	
-	echo "<tr><td colspan=3><em>U dient beide onderstaande velden in te vullen.<br>De gegevens worden niet op de cursuspagina getoond, maar alleen doorgegeven aan de Instructiecommissie.</em></td></tr>";
+	echo "<p>U dient beide onderstaande velden in te vullen. De gegevens worden niet op de cursuspagina getoond, maar alleen doorgegeven aan de Instructiecommissie.</p>";
 	
 	// telefoonnr.
-	echo "<tr><td>Telefoonnummer (10 cijfers, met streepje):</td>";
-	echo "<td><input type=\"text\" name=\"telph\" value=\"$telph\" size=11></td>";
+	echo "<div class='form-group'><label>Telefoonnummer (10 cijfers, met streepje):</label>";
+	echo "<input type=\"text\" name=\"telph\" value=\"$telph\" class='form-control'>";
 	if ($fail_msg_contact) {
-		echo "<td><em>$fail_msg_contact</em></td>";
+		echo "<div class='help-block'>$fail_msg_contact</div>";
 	} else {
-		if ($fail_msg_telph) echo "<td><em>$fail_msg_telph</em></td>";
+		if ($fail_msg_telph) echo "<div class='help-block'>$fail_msg_telph</div>";
 	}
-	echo "</tr>";
+	echo "</div>";
 	
 	// e-mail
-	echo "<tr><td>E-mailadres:</td>";
-	echo "<td><input type=\"text\" name=\"email\" value=\"$email\" size=45></td>";
-	if ($fail_msg_email) echo "<td><em>$fail_msg_email</em></td>";
-	echo "</tr>";
+	echo "<div class='form-group'><label>E-mailadres:</label>";
+	echo "<input type=\"text\" name=\"email\" value=\"$email\" class='form-control'>";
+	if ($fail_msg_email) echo "<div class='help-block'>$fail_msg_email</div>";
+	echo "</div>";
 	
 	// knoppen
-	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"insert\" value=\"Inschrijven\"> ";
-	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\"></p>";
+	echo "<div class='form-group'><input type=\"submit\" name=\"insert\" value=\"Inschrijven\" class='btn btn-primary'></div>";
 	echo "</form>";
 }
 
 mysql_close($link);
 
 ?>
+
+        </div>
+
+    </div>
+    
 </div>
+
 </body>
 </html>
