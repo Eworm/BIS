@@ -21,14 +21,34 @@ if (!mysql_select_db($database, $link)) {
 setlocale(LC_TIME, 'nl_NL');
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title>BotenInschrijfSysteem - Examens - Inschrijven voor een examen</title>
-    <link type="text/css" href="../<?php echo $csslink; ?>" rel="stylesheet">
-</head>
+<!DOCTYPE html>
+<html lang="nl">
+
+    <head>
+        <title>Examens - BIS</title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link type="text/css" href="../css/bis.css" rel="stylesheet">
+    	
+    </head>
+    
 <body>
-<div style="margin-left:10px; margin-top:10px">
+    
+<?php
+  
+  include('../includes/navbar.php');
+    
+?>
+
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-8">
 <?php
 
 // Uitschrijf-link geklikt
@@ -64,8 +84,8 @@ if (!isset($_POST['cancel']) && !isset($_POST['insert'])) {
 if (isset($_POST['cancel'])) {
 	unset($_POST['name'], $_POST['grade'], $_POST['age'], $_POST['email'], $_POST['telph'], $name, $grade, $email, $telph);
 	$fail = false;
-	echo "<p>U wordt niet aangemeld.<br>";
-	echo "<a href='index.php'>Terug naar het examenscherm&gt;&gt;</a></p>";
+	echo "<h1>U wordt niet aangemeld</h1>";
+	echo "<a href='index.php' class='btn btn-primary'>Terug naar het examenscherm</a></p>";
 }
 
 if (isset($_POST['insert'])) {
@@ -125,8 +145,8 @@ if (isset($_POST['insert'])) {
 			SendEmail("examens@hunze.nl", "Nieuwe examenaanmelding", $message);
 			//SendEmail("instructie@hunze.nl", "Nieuwe examenaanmelding", $message); //21-4-2014 uitgezet op verzoek van Dagmar
 			
-			echo "<p>Hartelijk dank voor uw aanmelding! Deze is doorgegeven aan de Examencommissie.<br>";
-			echo "<a href='index.php'>Terug naar het examenscherm&gt;&gt;</a></p>";
+			echo "<h1>Hartelijk dank voor uw aanmelding!</h1><br>Deze is doorgegeven aan de Examencommissie.<br>";
+			echo "<a href='index.php' class='btn btn-primary'>Terug naar het examenscherm</a></p>";
 			exit;
 		}
 	}
@@ -134,45 +154,44 @@ if (isset($_POST['insert'])) {
 
 // Formulier
 if ((!isset($_POST['insert']) && !isset($_POST['cancel'])) || !isset($fail) || $fail == true) {
-	echo "<p><b>Aanmeldformulier</b></p>";
+	echo "<h1>Aanmeldformulier</h1>";
 	echo '<form name="form" action="' . $_SERVER['REQUEST_URI'] . '" method="post">';
-	echo "<table>";
 	
 	// naam
-	echo "<tr><td>Naam:</td>";
-	echo '<td><input type="text" name="name" value="' . (isset($name) ? $name : '') . '" size="45"></td>';
+	echo "<div class='form-group'><label>Naam:</label>";
+	echo '<input type="text" name="name" value="' . (isset($name) ? $name : '') . '" class="form-control">';
 	if (isset($fail_msg_name)) {
-		echo '<td><em>' . $fail_msg_name . '</em></td>';
+		echo '<div class="help-block">' . $fail_msg_name . '</div>';
 	}
-	echo "</tr>";
+	echo "</div>";
 	
 	// leeftijdscategorie
-	echo "<tr><td>Leeftijdscategorie:</td>";
-	echo "<td><input type=\"radio\" name=\"age\" value=\"jeugd t/m 14 jaar\" ";
+	echo "<div class='form-group'><label>Leeftijdscategorie:</label>";
+	echo "<div class='radio'><label><input type=\"radio\" name=\"age\" value=\"jeugd t/m 14 jaar\" ";
 	if (isset($age) && $age == 'jeugd t/m 14 jaar') {
 		echo "checked='checked'";
 	}
-	echo "/>jeugd t/m 14 jaar</td></tr>";
-	echo "<tr><td></td><td><input type=\"radio\" name=\"age\" value=\"junioren 15 t/m 18 jaar\" ";
+	echo "/>Jeugd t/m 14 jaar</label></div>";
+	echo "<div class='radio'><label><input type=\"radio\" name=\"age\" value=\"junioren 15 t/m 18 jaar\" ";
 	if (isset($age) && $age == 'junioren 15 t/m 18 jaar') {
 		echo "checked='checked'";
 	}
-	echo "/>junioren 15 t/m 18 jaar</td></tr>";
-	echo "<tr><td></td><td><input type=\"radio\" name=\"age\" value=\"senioren vanaf 18 jaar\" ";
+	echo "/>Junioren 15 t/m 18 jaar</label></div>";
+	echo "<div class='radio'><label><input type=\"radio\" name=\"age\" value=\"senioren vanaf 18 jaar\" ";
 	if (!isset($age) || $age == 'senioren vanaf 18 jaar') {
 		echo "checked='checked'";
 	}
-	echo "/>senioren vanaf 18 jaar</td></tr>";
-	echo "<tr><td></td><td><input type=\"radio\" name=\"age\" value=\"veteranen 50+\" ";
+	echo "/>Senioren vanaf 18 jaar</label></div>";
+	echo "<div class='radio'><label><input type=\"radio\" name=\"age\" value=\"veteranen 50+\" ";
 	if (isset($age) && $age == 'veteranen 50+') {
 		echo "checked='checked'";
 	}
-	echo "/>veteranen 50+</td></tr>";
-	echo "<tr><td></td><td></td></tr>";
+	echo "/>Veteranen 50+</label></div>";
+	echo "</div>";
 	
 	// graad
-	echo "<tr><td>Te behalen graad:</td>";
-	echo "<td><select name=\"grade\">";
+	echo "<div class='form-group'><label>Te behalen graad:</label>";
+	echo "<select name=\"grade\" class='form-control'>";
 	$query = "SELECT Graden FROM examens WHERE ID='$id';";
 	$grade_result = mysql_query($query);
 	if (!$grade_result) {
@@ -190,43 +209,41 @@ if ((!isset($_POST['insert']) && !isset($_POST['cancel'])) || !isset($fail) || $
 			}
 		}
 	}
-	echo "</select></td>";
-	echo "</tr>";
+	echo "</select>";
+	echo "</div>";
 	
-	echo "<tr><td>&nbsp;</td></tr><tr><td colspan=3><em>
-		U dient minstens &eacute;&eacute;n van onderstaande velden in te vullen.<br>
-		Als u een e-mailadres opgeeft, ontvangt u een bevestiging per e-mail, met daarin een link die u kunt gebruiken mocht u uw inschrijving weer ongedaan willen maken.<br>
-		De gegevens worden niet op de examenpagina getoond, maar alleen doorgegeven aan de Examencommissie.</em>
-		</td></tr>";
+	echo "<p>U dient minstens &eacute;&eacute;n van onderstaande velden in te vullen. Als u een e-mailadres opgeeft, ontvangt u een bevestiging per e-mail, met daarin een link die u kunt gebruiken mocht u uw inschrijving weer ongedaan willen maken. De gegevens worden niet op de examenpagina getoond, maar alleen doorgegeven aan de Examencommissie.</p>";
 	
 	// telefoonnr.
-	echo "<tr><td>Telefoonnummer (10 cijfers, met streepje):</td>";
-	echo '<td><input type="text" name="telph" value="' . (isset($telph) ? $telph : '') . '" size=11></td>';
+	echo "<div class='form-group'><label>Telefoonnummer (10 cijfers, met streepje):</label>";
+	echo '<input type="text" name="telph" value="' . (isset($telph) ? $telph : '') . '" class="form-control">';
 	if (isset($fail_msg_contact)) {
-		echo '<td><em>' . $fail_msg_contact . '</em></td>';
+		echo '<div class="help-block">' . $fail_msg_contact . '</div>';
 	} else {
 		if (isset($fail_msg_telph)) {
-			echo '<td><em>' . $fail_msg_telph . '</em></td>';
+			echo '<div class="help-block">' . $fail_msg_telph . '</div>';
 		}
 	}
-	echo "</tr>";
+	echo "</div>";
 	
 	// e-mail
-	echo "<tr><td>E-mailadres:</td>";
-	echo '<td><input type="text" name="email" value="' . (isset($email) ? $email : '') . '" size="45"></td>';
+	echo "<div class='form-group'><label>E-mailadres:</label>";
+	echo '<input type="text" name="email" value="' . (isset($email) ? $email : '') . '" class="form-control">';
 	if (isset($fail_msg_email)) {
-		echo '<td><em>' . $fail_msg_email . '</em></td>';
+		echo '<div class="help-block">' . $fail_msg_email . '</div>';
 	}
-	echo "</tr>";
+	echo "</div>";
 	
 	// knoppen
-	echo "</table>";
-	echo "<p><input type=\"submit\" name=\"insert\" value=\"Inschrijven\"> ";
-	echo "<input type=\"submit\" name=\"cancel\" value=\"Annuleren\"></p>";
+	echo "<div class='form-group'><input type=\"submit\" name=\"insert\" value=\"Inschrijven\" class='btn btn-primary'></div>";
 	echo "</form>";
 }
 ?>
 
+        </div>
+        
+    </div>
+    
 </div>
 </body>
 </html>

@@ -17,18 +17,37 @@ if (!mysql_select_db($database, $link)) {
 setlocale(LC_TIME, 'nl_NL');
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title>BotenInschrijfSysteem - Exameninschrijving</title>
-    <link type="text/css" href="../<?php echo $csslink; ?>" rel="stylesheet">
-</head>
-<body>
-<div style="margin-left:10px; margin-top:10px">
+<!DOCTYPE html>
+<html lang="nl">
 
-<p><h1>Exameninschrijving</h1></p>
-<p><a href='index.php'>Naar examenoverzicht&gt;&gt;</a><br>
-<a href='./bis_logout.php'>Uitloggen&gt;&gt;</a></p>
+    <head>
+        <title>Examens - BIS</title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link type="text/css" href="../css/bis.css" rel="stylesheet">
+    	
+    </head>
+    
+<body>
+    
+<?php
+  
+  include('../includes/navbar.php');
+    
+?>
+
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-8">
+            
+            <a href='index.php' class='btn btn-primary'>Naar examenoverzicht</a>
+
 
 <?php
 $id = $_GET['id'];
@@ -41,8 +60,8 @@ if (!$result) {
 		$exdate_sh = strtotime($exdate);
 		$quotum = $row['Quotum'];
 		$description = $row['Omschrijving'];
-		echo "<p><strong>Inschrijven voor " . $description . ' op ' . strftime('%A %d-%m-%Y', $exdate_sh) . "</strong>";
-		echo "<table class=\"basis\" border=\"1\" cellpadding=\"6\" cellspacing=\"0\" bordercolor=\"#AAB8D5\"><tr><th>&nbsp;</th><th>Naam</th><th>Examen</th></tr>";
+		echo "<h3>Inschrijven voor " . $description . ' op ' . strftime('%A %d-%m-%Y', $exdate_sh) . "</h3>";
+		echo "<table class=\"table\"><tr><th>&nbsp;</th><th>Naam</th><th>Examen</th></tr>";
 		$result2 = mysql_query('SELECT Naam, Graad FROM examen_inschrijvingen WHERE Ex_ID = ' . $id);
 		if (!$result2) {
 			echo("Ophalen van exameninschrijvingen mislukt.".mysql_error());
@@ -54,11 +73,20 @@ if (!$result) {
 				$c2++;
 			}
 			while ($c2 < $quotum) {
-				echo "<tr><td>".($c2+1)."</td><td><a href='examen_inschr.php?id=$id'>Aanmelden&gt;&gt;</a></td><td>&nbsp;</td></tr>";
+				echo "<tr><td>".($c2+1)."</td><td><a href='examen_inschr.php?id=$id' class='btn btn-default'>Aanmelden</a></td><td>&nbsp;</td></tr>";
 				$c2++;
 			}
 		}
-		echo "</table></p>";
+		echo "</table>";
 	}
 }
 ?>
+
+        </div>
+        
+    </div>
+    
+</div>
+
+</body>
+</html>
