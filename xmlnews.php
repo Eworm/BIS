@@ -84,10 +84,10 @@ function xmlnews($url, $timeout = 0, $target = "_top", $makelist = "br", $links)
 				// Een of meer getallen (opgeslagen in $1), gevolgd door een of meer tekens niet zijnde "(", gevolgd door "C";
 				// Vervang dit door alleen de getallen direct gevolgd door "C"
 				$inhoud = preg_replace ( '/([0-9]+)[^(]+C/', '$1&deg;', $inhoud );
-				$inhoud = "<strong>" . $inhoud . "</strong> <a href='http://www.buienradar.nl' rel='external'>Buienradar</a>";
+				$inhoud = "<strong>" . $inhoud . "</strong>";
 			}
 			if ($titel == "Wind") {
-				$inhoud = "<strong>" . $inhoud . "</strong>";
+				$inhoud = "<strong>" . $inhoud . "</strong><br><a href='http://www.buienradar.nl' rel='external'>Buienradar</a><br><a href='http://rtvnoord.nl/weer' rel='external'>RTV Noord</a>";
 			}
 			if ($titel == "Vaarverbod") {
 				$skip = true;
