@@ -296,8 +296,8 @@
     text-align: right;
 }
 
-.form-group {
-    // margin-bottom: 0;
+.schedule-filter .form-group {
+    margin-bottom: 0;
 }
 
 .navbar-inverse {
