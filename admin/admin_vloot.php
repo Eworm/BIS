@@ -99,9 +99,9 @@ while ($row = mysql_fetch_assoc($boats_result)) {
 	echo " de vaart</div></td>";
 	// einde in/uit de vaart
 	
-	echo "<td><div><a href=\"./admin_inuitdevaart.php?id=$id\">In/uit de vaart</a>&nbsp;&nbsp;&nbsp;</div></td>";
-	echo "<td><div><a href=\"./admin_boot_toevoegen.php?id=$id\">Wijzigen</a>&nbsp;&nbsp;&nbsp;</div></td>";
-	echo "<td><div><a href=\"./admin_boot_verwijderen.php?id=$id\">Verwijderen</a></div></td>";
+	echo "<td><div><a href=\"./admin_inuitdevaart.php?id=$id\" class='btn btn-default'>In/uit de vaart</a></div></td>";
+	echo "<td><div><a href=\"./admin_boot_toevoegen.php?id=$id\" class='btn btn-default'>Wijzigen</a></div></td>";
+	echo "<td><div><a href=\"./admin_boot_verwijderen.php?id=$id\" class='btn btn-danger'>Verwijderen</a></div></td>";
 	echo "</tr>";
 	$c++;
 }

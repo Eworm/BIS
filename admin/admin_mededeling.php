@@ -93,12 +93,12 @@ while ($row = mysql_fetch_assoc($result)) {
 	echo "<td><div>$name</div></td>";
 	echo "<td><div>$summary</div></td>";
 	echo "<td width=400px><div style=\"text-align:left overflow:auto\">$note</div></td>";
-	if (!$mode) echo "<td><div><a href=\"./admin_mededeling_toev.php?id=$id\">Wijzigen</a></div></td>";
+	if (!$mode) echo "<td><div><a href=\"./admin_mededeling_toev.php?id=$id\" class='btn btn-default'>Wijzigen</a></div></td>";
 	if ($mode) {
-		echo "<td><div><a href='admin_mededeling_verw.php?id=$id&mode=Dearch'>De-archiveer</a></div></td>";
+		echo "<td><div><a href='admin_mededeling_verw.php?id=$id&mode=Dearch' class='btn btn-default'>De-archiveer</a></div></td>";
 	} else {
-		echo "<td><div><a href='admin_mededeling_verw.php?id=$id&mode=Arch'>Archiveer</a></div></td>";
-		echo "<td><div><a href='admin_mededeling_verw.php?id=$id&mode=Del'>Verwijder</a></div></td>";
+		echo "<td><div><a href='admin_mededeling_verw.php?id=$id&mode=Arch' class='btn btn-default'>Archiveer</a></div></td>";
+		echo "<td><div><a href='admin_mededeling_verw.php?id=$id&mode=Del' class='btn btn-danger'>Verwijder</a></div></td>";
 	}
 	echo "</tr>";
 	$c++;

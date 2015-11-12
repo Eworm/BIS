@@ -108,8 +108,8 @@ if (!$result) {
 			echo '<td>' . $enddate_sh . '</td>';
 			echo '<td>' . $row2['Eindtijd'] . '</td>';
 			echo '<td>' . $row2['Bootnaam'] . '</td>';
-			echo '<td><a href="./admin_blok_toev.php?id=' . $blok_id . '">Wijzigen</a></td>';
-			echo '<td><a href="./admin_blok_verw.php?id=' . $blok_id . '">Verwijderen</a></td>';
+			echo '<td><a href="./admin_blok_toev.php?id=' . $blok_id . '" class="btn btn-default">Wijzigen</a></td>';
+			echo '<td><a href="./admin_blok_verw.php?id=' . $blok_id . '" class="btn btn-danger">Verwijderen</a></td>';
 			echo '</tr>';
 		}
 	}

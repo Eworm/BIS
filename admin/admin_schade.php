@@ -122,11 +122,11 @@ while ($row = mysql_fetch_assoc($result)) {
 	echo "<td><div>$prio</div></td>";
 	echo "<td><div>$real</div></td>";
 	echo "<td><div>$date_ready_sh</div></td>";
-	if (!isset($mode)) echo "<td><div><a href='admin_schade_edit.php?id=$id'>Bekijk/<br>bewerk</a></div></td>";
+	if (!isset($mode)) echo "<td><div><a href='admin_schade_edit.php?id=$id' class='btn btn-default'>Bekijk/bewerk</a></div></td>";
 	if (isset($mode)) {
-		echo "<td><div><a href='admin_schade_verw.php?id=$id&mode=Arch'>De-arch.</a></div></td>";
+		echo "<td><div><a href='admin_schade_verw.php?id=$id&mode=Arch' class='btn btn-default'>De-arch.</a></div></td>";
 	} else {
-		echo "<td><div><a href='admin_schade_verw.php?id=$id'>Arch.</a></div></td>";
+		echo "<td><div><a href='admin_schade_verw.php?id=$id' class='btn btn-default'>Arch.</a></div></td>";
 	}
 	echo "</tr>";
 	$c++;

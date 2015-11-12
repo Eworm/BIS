@@ -162,8 +162,8 @@ if (!$result) {
 			echo "<td>$pname</td>";
 			echo "<td>$name</td>";
 			echo "<td>$email</td>";
-			echo "<td><a href=\"./admin_spits_toev.php?id=$spits_id\">Wijzigen</a></td>";
-			echo "<td><a href=\"./admin_spits_verw.php?id=$spits_id\">Verwijderen</a></td>";
+			echo "<td><a href=\"./admin_spits_toev.php?id=$spits_id\" class='btn btn-default'>Wijzigen</a></td>";
+			echo "<td><a href=\"./admin_spits_verw.php?id=$spits_id\" class='btn btn-danger'>Verwijderen</a></td>";
 			echo "</tr>";
 		}
 	}

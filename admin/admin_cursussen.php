@@ -110,9 +110,9 @@ while ($row = mysql_fetch_assoc($result)) {
 		echo "<td><div>nee";
 	}
 	echo "&nbsp;[<a href='admin_cursussen.php?mode=c&curval=$show&id=$id'>Wijzig</a>]</div></td>";
-	echo "<td><div><a href='admin_cursus_toev.php?id=$id'>Wijzigen</a></div></td>";
-	echo "<td><div><a href='admin_cursussen.php?mode=d&id=$id'>Verwijderen</a></div></td>";
-	echo "<td><div><a href='admin_cursisten.php?id=$id'>Bekijk/beheer deelnemers</a></div></td>";
+	echo "<td><div><a href='admin_cursus_toev.php?id=$id' class='btn btn-default'>Wijzigen</a></div></td>";
+	echo "<td><div><a href='admin_cursussen.php?mode=d&id=$id' class='btn btn-danger'>Verwijderen</a></div></td>";
+	echo "<td><div><a href='admin_cursisten.php?id=$id' class='btn btn-default'>Bekijk/beheer deelnemers</a></div></td>";
 	echo "</tr>";
 }
 echo "</table>";

@@ -85,8 +85,8 @@ while ($row = mysql_fetch_assoc($result)) {
 		echo "nee";
 	}
 	echo "</div></td>";
-	echo "<td><div><a href=\"./admin_graad_toev.php?id=$id\">Wijzigen</a></div></td>";
-	echo "<td><div><a href='admin_graad_verw.php?id=$id'>Verwijderen</a></div></td>";
+	echo "<td><div><a href=\"./admin_graad_toev.php?id=$id\" class='btn btn-default'>Wijzigen</a></div></td>";
+	echo "<td><div><a href='admin_graad_verw.php?id=$id' class='btn btn-danger'>Verwijderen</a></div></td>";
 	echo "</tr>";
 	$c++;
 }

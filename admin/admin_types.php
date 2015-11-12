@@ -69,8 +69,8 @@ while ($row = mysql_fetch_assoc($result)) {
 	echo "<td><div>$type</div></td>";
 	echo "<td><div>$cat</div></td>";
 	echo "<td><div>$sort</div></td>";
-	echo "<td><div><a href=\"./admin_type_toev.php?type=$type\">Wijzigen</a></div></td>";
-	echo "<td><div><a href='admin_type_verw.php?type=$type'>Verwijderen</a></div></td>";
+	echo "<td><div><a href=\"./admin_type_toev.php?type=$type\" class='btn btn-default'>Wijzigen</a></div></td>";
+	echo "<td><div><a href='admin_type_verw.php?type=$type' class='btn btn-danger'>Verwijderen</a></div></td>";
 	echo "</tr>";
 }
 echo "</table>";

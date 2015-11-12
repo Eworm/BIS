@@ -11,9 +11,9 @@ $result = mysql_query('SELECT Naam, Type from boten WHERE ID = ' . $boot_id);
 $row = mysql_fetch_assoc($result);
 $name = $row['Naam'];
 
-echo '<p>' . ($arch ? 'Gearchiveerde u' : 'U') . 'it de Vaart-info voor: ' . $name . ' (' . $row['Type'] . ').';
-echo '&nbsp;Toon ' . ($arch ? '<a href="admin_inuitdevaart.php?id=' . $boot_id . '">actueel</a>' : '<a href="admin_inuitdevaart.php?id=' . $boot_id . '&arch">archief</a>') . '</p>';
-echo '<p><a href="admin_uitdevaart_toev.php?id=' . $boot_id . '">Toevoegen</a></p>';
+echo '<h1>' . ($arch ? 'Gearchiveerde u' : 'U') . 'it de Vaart-info voor: ' . $name . ' (' . $row['Type'] . ').</h1>';
+echo ($arch ? '<a href="admin_inuitdevaart.php?id=' . $boot_id . '" class="btn btn-default">actueel</a>' : '<a href="admin_inuitdevaart.php?id=' . $boot_id . '&arch" class="btn btn-default">Archief</a>') . '&nbsp;';
+echo '<a href="admin_uitdevaart_toev.php?id=' . $boot_id . '" class="btn btn-primary">Toevoegen</a><br><br>';
 
 // tabel
 $query = 'SELECT * from uitdevaart WHERE Verwijderd=' . ($arch ? '1' : '0') . ' AND Boot_ID=' . $boot_id . ' ORDER BY Startdatum DESC';
@@ -41,7 +41,7 @@ while ($row = mysql_fetch_assoc($result)) {
 	echo "<td><div>$startdate_sh</div></td>";	
 	echo "<td><div>$enddate_sh</div></td>";
 	echo "<td><div>$reason</div></td>";
-	if (!$arch) echo '<td><div><a href="admin_uitdevaart_verw.php?udv_id=' . $udv_id . '&boot_id=' . $boot_id . '">Be&euml;indigen</a></div></td>';
+	if (!$arch) echo '<td><div><a href="admin_uitdevaart_verw.php?udv_id=' . $udv_id . '&boot_id=' . $boot_id . '" class="btn btn-default">Be&euml;indigen</a></div></td>';
 	echo "</tr>";
 	$c++;
 }

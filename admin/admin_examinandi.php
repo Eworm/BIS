@@ -121,7 +121,7 @@ while ($row = mysql_fetch_assoc($result)) {
 	echo "<td><div>&nbsp;</div></td>";
 	echo "<td><div>&nbsp;</div></td>";
 	echo "<td><div>&nbsp;</div></td>";
-	echo "<td><a href='admin_examinandi.php?mode=d&id=$id&part_id=$part_id'>Verwijder</a></td>";
+	echo "<td><a href='admin_examinandi.php?mode=d&id=$id&part_id=$part_id' class='btn btn-danger'>Verwijder</a></td>";
 	echo "</tr>";
 }
 echo "</table>";

@@ -83,7 +83,7 @@ while ($row = mysql_fetch_assoc($result)) {
 	echo "<td><div>$demand</div></td>";
 	echo "<td><div>$telph</div></td>";
 	echo "<td><div>$email</div></td>";
-	echo "<td><div><a href='admin_cursisten.php?mode=d&id=$id&part_id=$part_id'>Verwijder</a></div></td>";
+	echo "<td><div><a href='admin_cursisten.php?mode=d&id=$id&part_id=$part_id' class='btn btn-danger'>Verwijder</a></div></td>";
 	echo "</tr>";
 }
 echo "</table>";

@@ -36,8 +36,8 @@ while ($row = mysql_fetch_assoc($result)) {
 		echo "nee";
 	}
 	echo "</div></td>";
-	echo "<td><div><a href=\"./admin_bestuur_toev.php?function=$function\">Wijzigen</a></div></td>";
-	echo "<td><div><a href='admin_bestuur_verw.php?function=$function'>Verwijderen</a></div></td>";
+	echo "<td><div><a href=\"./admin_bestuur_toev.php?function=$function\" class='btn btn-default'>Wijzigen</a></div></td>";
+	echo "<td><div><a href='admin_bestuur_verw.php?function=$function' class='btn btn-danger'>Verwijderen</a></div></td>";
 	echo "</tr>";
 	$c++;
 }

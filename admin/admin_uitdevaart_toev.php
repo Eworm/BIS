@@ -29,6 +29,7 @@ setlocale(LC_TIME, 'nl_NL');
     	
     	<!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link type="text/css" href="../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
         <link type="text/css" href="../css/bis.css" rel="stylesheet">
     	
     </head>
@@ -45,7 +46,7 @@ setlocale(LC_TIME, 'nl_NL');
             
     <div class="row">
                 
-        <div class="col-md-12">
+        <div class="col-md-6">
 
 <?php
 
@@ -142,13 +143,13 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	
 	echo "<div class='form-group'><label>Startdatum</label>";
 	echo "<input type='text' name='startdate' id='startdate'  class='form-control datepicker' maxlength='10' value='" . (isset($startdate) ? $startdate : '') . "'>";
-	if (isset($fail_msg_startdate)) echo "<td>$fail_msg_startdate</td>";
+	if (isset($fail_msg_startdate)) echo "<div class='help-block'>$fail_msg_startdate</div>";
 	echo "</div>";
 	
 	// evt. einddatum
 	echo "<div class='form-group'><label>Einddatum, of leeg</label>";
 	echo "<input type='text' name='enddate' id='enddate'  class='form-control datepicker' maxlength='10' value='" . (isset($enddate) ? $enddate : '') . "'>";
-	if (isset($fail_msg_enddate)) echo "<td>$fail_msg_enddate</td>";
+	if (isset($fail_msg_enddate)) echo "<div class='help-block'>$fail_msg_enddate</div>";
 	echo "</div>";
 	
 	// reden
@@ -172,6 +173,12 @@ mysql_close($link);
     </div>
     
 </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+    <script src="../bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+	<script src="../scripts/datepicker.js"></script>
+	
 </body>
 </html>
 
