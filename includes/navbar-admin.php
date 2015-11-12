@@ -54,6 +54,16 @@
                 
             </ul>
             
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li>
+                    
+                    <a href="./admin_logout.php">Uitloggen</a>
+                    
+                </li>
+                
+            </ul>
+            
         </div>
         
     </div>

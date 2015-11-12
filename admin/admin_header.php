@@ -47,4 +47,4 @@ setlocale(LC_TIME, 'nl_NL');
     
     <div class="row">
         
-        <div class="col-md-9">
+        <div class="col-md-12">
