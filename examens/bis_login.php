@@ -25,7 +25,7 @@ if (isset($login) && isset($password)) {
     	
     	<!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link type="text/css" href="css/bis.css" rel="stylesheet">
+        <link type="text/css" href="../css/bis.css" rel="stylesheet">
     	
     </head>
     

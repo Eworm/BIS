@@ -14,34 +14,76 @@ if (isset($login) && isset($password)) {
 }
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title><? echo $systeemnaam; ?> - Login</title>
-    <link type="text/css" href="../<? echo $csslink; ?>" rel="stylesheet" />
-    <link type="text/css" href="../css/bis.css" rel="stylesheet" />
-</head>
+<!DOCTYPE html>
+<html lang="nl">
+    
+    <head>
+        <title><?php echo $systeemnaam; ?> - Inloggen</title>
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link type="text/css" href="../css/bis.css" rel="stylesheet">
+    	
+    </head>
+    
 <body>
-	<div class="middle_box">
-	<h1>Inloggen op het <? echo $systeemnaam; ?></h1>
-	<form method="post" action="bis_login.php">
-		<table>
-		<tr>
-		  <td>Login-naam:</td>
-		  <td><input type="text" name="login" /></td>
-		  <td><em><? echo $loginnaam_hulp; ?></em></td>
-		</tr>
-		<tr>
-		  <td>Wachtwoord:</td><td><input type="password" name="password" /></td>
-		  <td><em><? echo $loginwachtwoord_hulp; ?></em></td>
-		</tr>
-		<tr>
-		  <td>&nbsp;</td>
-		  <td><input type="submit" value="Inloggen" class="bisbtn" /></td>
-		  <td>&nbsp;</td>
-		</tr>
-	</table>
-	</form>
+
+	<div class="container-fluid main-container">
+    	
+    	<div class="mainbox col-md-4 col-md-offset-4">
+        	
+        	<br><br><br>
+        	
+        	<div class="panel panel-default">
+            	
+            	<main class="panel-body">
+    	
+                	<h1 class="h3">
+                    	<?php echo $systeemnaam; ?>
+                    </h1>
+                	
+                	<hr>
+                	
+                	<form method="post" action="bis_login.php">
+                    	
+                		<div class="form-group">
+                    		
+                            <label for="login">Login-naam</label>
+                            <input type="text" name="login" id="login" class="form-control input-lg" autofocus required aria-describedby="login-help">
+                            <p class="help-block" id="login-help">
+                                <?php echo $loginnaam_hulp; ?>
+                            </p>
+                		  
+                		</div>
+                		
+                		<div class="form-group">
+                    		
+                            <label for="password">Wachtwoord</label>
+                            <input type="password" name="password" id="password" class="form-control input-lg" required aria-describedby="password-help">
+                            <p class="help-block" id="password-help">
+                                <?php echo $loginnaam_hulp; ?>
+                            </p>
+                		  
+                		</div>
+                		
+                		<div class="form-group">
+                    		
+                		  <input type="submit" value="Inloggen" class="btn btn-primary btn-block btn-lg">
+                		  
+                		</div>
+                		
+                	</form>
+	
+            	</main>
+	
+        	</div>
+	
+    	</div>
+	
 	</div>
+	
 </body>
 </html>
