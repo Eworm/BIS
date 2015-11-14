@@ -2,6 +2,12 @@
  * BIS specific style sheet
  */
  
+ * {
+    -webkit-tap-highlight-color: rgba(#000, 0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+ }
+ 
  .middle_box {
 	position: absolute;
 	top: 25%;
