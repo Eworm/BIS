@@ -231,6 +231,7 @@
 #ScheduleInfoTransition  {
     clear: left;
     transition: opacity .15s ease;
+    background: white;
 }
 
 #ScheduleInfo  {

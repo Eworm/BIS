@@ -86,11 +86,11 @@ echo "<table cellpadding=\"0\" cellspacing=\"0\">";
 echo "<tr><th><div>&nbsp;</div></th>";
 $hr = 7 + floor($start_block / 4);
 $offset_blocks = 4 - ((($start_block / 4) - floor($start_block / 4)) * 4);
-echo "<th colspan=\"$offset_blocks\" style=\"border-left: solid 1px #ddd\"><div align=\"left\">$start_time_to_show</div></th>";
+echo "<th colspan=\"$offset_blocks\"><div align=\"left\">$start_time_to_show</div></th>";
 for ($c = $start_block + $offset_blocks; $c < 72; $c += 4, $hr++) {
-	echo "<th colspan=\"4\" style=\"border-left: solid 1px #ddd\"><div align=\"left\">$hr:00</div></th>";
+	echo "<th colspan=\"4\"><div align=\"left\">$hr:00</div></th>";
 }
-echo "<th style=\"border-left: solid 1px #ddd\"><div>&nbsp;</div></th></tr>";
+echo "<th><div>&nbsp;</div></th></tr>";
 echo "</table>";
 echo "</div>";
 echo "</td>";
@@ -158,18 +158,18 @@ echo "<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">"; // hoofdtabel
 echo "<tr><th><div>&nbsp;</div></th>";
 $hr = 7 + floor($start_block / 4);
 $offset_blocks = 4 - ((($start_block / 4) - floor($start_block / 4)) * 4);
-echo "<th colspan=\"$offset_blocks\" style=\"border-left: solid 1px #ddd\"><div style=\"visibility:hidden\" align=\"left\">$start_time_to_show&nbsp;&nbsp;&nbsp;</div></th>";
+echo "<th colspan=\"$offset_blocks\"><div style=\"visibility:hidden\" align=\"left\">$start_time_to_show&nbsp;&nbsp;&nbsp;</div></th>";
 for ($c = $start_block + $offset_blocks; $c < 72; $c += 4, $hr++) {
-	echo "<th colspan=\"4\" style=\"border-left: solid 1px #ddd\"><div align=\"left\" style=\"visibility:hidden\">$hr:00&nbsp;&nbsp;&nbsp;</div></th>";
+	echo "<th colspan=\"4\"><div align=\"left\" style=\"visibility:hidden\">$hr:00&nbsp;&nbsp;&nbsp;</div></th>";
 }
-echo "<th style=\"border-left: solid 1px #ddd\"><div>&nbsp;</div></th></tr>";
+echo "<th><div>&nbsp;</div></th></tr>";
 
 // lege regel met netjes 1 cel per kwartier, zodat de tabel altijd de juiste afmeting heeft:
-echo "<tr class='hibben-row'><td bgcolor=\"#fff\"><div>&nbsp;</div></td>";
+echo "<tr class='hibben-row'><td><div>&nbsp;</div></td>";
 for ($c = $start_block; $c < 73; $c++) {
-	echo "<td bgcolor=\"#fff\"";
+	echo "<td";
 	if ($c == $start_block || ($c / 4) == floor($c / 4)) {
-		echo " style=\"border-left: solid 1px #ddd\"";
+		echo "";
 	}
 	echo  "><div>&nbsp;&nbsp;</div></td>"; // max 2 chars per kwartierblokje!
 }
@@ -184,7 +184,7 @@ while (isset($boats_array[$boatnr])) {
 		// boot uit de vaart: hele regel grijs
 		$span_size = 72 - $latest_end_time_blocks;
 		$info_to_show_sh = substr($reason[$boatnr], 0, (2 * $span_size) - 1);
-		echo "<td class='on-shore' colspan=\"" . $span_size . "\" align=\"center\" bgcolor=\"#999\" style=\"border-left: solid 1px #ddd\"><div style=\"overflow:hidden\" align=\"center\" title='$reason[$boatnr]'>$info_to_show_sh</div></td>";
+		echo "<td class='on-shore' colspan=\"" . $span_size . "\" align=\"center\" bgcolor=\"#999\"><div style=\"overflow:hidden\" align=\"center\" title='$reason[$boatnr]'>$info_to_show_sh</div></td>";
 	} else {
 		$opzoektabel_tmp = $opzoektabel;
 		if (strtotime($date_to_show_db) - strtotime($today_db) < 0) $opzoektabel_tmp .= "_oud";
@@ -221,12 +221,12 @@ while (isset($boats_array[$boatnr])) {
 					if ($span_size < 0) $span_size = 0;
 					for ($t = $latest_end_time_blocks; $t < $latest_end_time_blocks + $span_size; $t++) {
 						$t_time = BlocksToTime($t);
-						echo "<td bgcolor=\"#fff\"";
+						echo "<td";
 						if (InRange($date_to_show, 10)) {
 							echo " onclick=\"showInschrijving(0, " . $boat_ids_array[$boatnr] . ", '" . $date_to_show . "', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '" . $t_time . "');\"";
 						}
 						if ($t == $start_block || ($t / 4) == floor($t / 4)) {
-							echo " style=\"border-left: solid 1px #ddd\"";
+							echo "";
 						}
 						echo  ($proper_sunset <= $t_time ? "class='sunset " . ($proper_sundown <= $t_time ? "sundown" : "") . "'" : "");
 						echo "><span class='schedule-time'>" . $t_time . "</span><div>+</div></td>";
@@ -235,7 +235,7 @@ while (isset($boats_array[$boatnr])) {
 					// gekleurd en met naam gedurende huidige inschrijving
 					echo "<td align=\"center\"";
 					if ($db_start_time_blocks == $start_block || ($db_start_time_blocks / 4) == floor($db_start_time_blocks / 4)) {
-						echo " style=\"border-left: solid 1px #ddd\"";
+						echo "";
 					}
 					$span_size = $db_end_time_blocks - $db_start_time_blocks;
 					$boat_tmp = addslashes($boats_array[$boatnr]);
@@ -273,28 +273,28 @@ while (isset($boats_array[$boatnr])) {
 		// wit totaan einde regel 
 		for ($t = $latest_end_time_blocks; $t < 72; $t++) {
 			$t_time = BlocksToTime($t);
-			echo "<td bgcolor=\"#fff\"";
+			echo "<td";
 			if (InRange($date_to_show, 10)) {
 				echo " onclick=\"showInschrijving(0, " . $boat_ids_array[$boatnr] . ", '" . $date_to_show . "', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '" . $t_time . "');\"" . ($proper_sunset <= $t_time ? "class='sunset " . ($proper_sundown <= $t_time ? "sundown" : "") . "'" : "");
 			}
 			if ($t == $start_block || ($t / 4) == floor($t / 4)) {
-				echo " style=\"border-left: solid 1px #ddd\"";
+				echo "";
 			}
 			echo "><span class='schedule-time'>" . $t_time . "</span><div>+</div></td>";
 		}
 		
 	} // end else (boot niet uit de vaart)
-	echo "<td style=\"border-left: solid 1px #ddd\"><div>&nbsp;</div></td>";
+	echo "<td><div>&nbsp;</div></td>";
 	echo "</tr>";
 	$boatnr++;
 } // end while (loop door alle boten)
 // lege regel onderaan:
 echo "<tr class='hibben-row'><td><div>&nbsp;</div></td>";
-echo "<td colspan=\"$offset_blocks\" style=\"border-left: solid 1px #ddd\"><div>&nbsp;</div></td>";
+echo "<td colspan=\"$offset_blocks\"><div>&nbsp;</div></td>";
 for ($c = $start_block + $offset_blocks; $c < 72; $c += 4) {
-	echo "<td colspan=\"4\" style=\"border-left: solid 1px #ddd\"><div>&nbsp;</div></td>";
+	echo "<td colspan=\"4\"><div>&nbsp;</div></td>";
 }
-echo "<td style=\"border-left: solid 1px #ddd\"><div>&nbsp;</div></td>";
+echo "<td><div>&nbsp;</div></td>";
 echo "</tr>";
 echo "</table>"; // einde hoofdtabel
 echo "</div>";

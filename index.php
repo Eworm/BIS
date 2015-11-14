@@ -150,13 +150,6 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                             
                                             <input type="text" name="date_to_show" maxlength="10" value="<?php echo $date_to_show ?>" onchange="changeInfo();" id="date_to_show" class="form-control datepicker">
                                             
-        <!--
-                                            <a href="javascript:show_calendar('adjust.date_to_show');" onmouseover="window.status='Kalender';return true;" onmouseout="window.status='';return true;"><img src='res/kalender.gif' width='19' height='17' border='0' alt='Kalender'></a>
-                                        	<input class='btn btn-default btn-sm' type="button" name="change_date" value="&lt;" onclick="changeDate(-1); changeInfo();">
-                                        	<input class='btn btn-default btn-sm' type="button" name="reset_date" value="Vandaag" onclick="resetDate(); changeInfo();">
-                                        	<input class='btn btn-default btn-sm' type="button" name="change_date" value="&gt;" onclick="changeDate(1); changeInfo();">
-        -->
-                                            
                                         </div>
                                 
                                     </div>
@@ -164,8 +157,6 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                     <div class="col-md-2">
                                 
                                         <div class="form-group">
-                                            
-        <!--                                     <input type="time" class="form-control" min="6:00" max="17:00" step="900"> -->
                                             
                                             <label for="start_hrs_to_show">Tijd</label>
                                             
@@ -182,14 +173,6 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                                         <?php endfor; ?>
                                                     </datalist>
                                                     <span class="datalist-legend last-legend">20</span>
-                                            
-        <!--
-                                                    <select name='start_hrs_to_show' onchange="changeInfo();" id='start_hrs_to_show' class="form-control">
-                                                	<?php for ($t = 6; $t < 18; $t++): ?>
-                                                		<option value="<?php echo $t ?>"<?php if ($start_hrs_to_show == $t): ?> selected="selected" <?php endif; ?>><?php echo $t; ?></option>
-                                                	<?php endfor; ?>
-                                                	</select>
-        -->
                                                 	
                                                 </div>
                                                 
@@ -215,16 +198,6 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                         <div class="form-group">
                                             
                                             <label for="cat_to_show">Categorie</label>
-                                            
-        <!--
-                                            <select name='cat_to_show' onchange="changeInfo();" id='cat_to_show' class="form-control">
-                                                
-                                            	<?php foreach($cat_array as $cat_db): ?>
-                                            		<option value="<?php echo $cat_db; ?>"<?php if ($cat_to_show == $cat_db): ?> selected="selected" <?php endif; ?>><?php echo $cat_db; ?></option>
-                                            	<?php endforeach; ?>
-                                            	
-                                        	</select>
-        -->
                                         	
                                         	<div class="form-group">
                                             	
@@ -266,10 +239,6 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                 </div>
                 
                 <div class="col-md-3">
-                    
-<!--                     <h5>
-                        Bestuursmededelingen
-                    </h5> -->
                     
                     <?php
                     	$query = "SELECT * FROM mededelingen ORDER BY Datum DESC LIMIT 1;"; // alleen recentste
