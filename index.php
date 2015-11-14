@@ -361,7 +361,6 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
 	<script src="scripts/datepicker.js"></script>
 	<script src="scripts/Script.js"></script>
     <script src="scripts/dates_and_ajax.js"></script>
-    <script src="scripts/wz_tooltip.js"></script>
 	
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

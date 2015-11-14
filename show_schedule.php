@@ -184,7 +184,7 @@ while (isset($boats_array[$boatnr])) {
 		// boot uit de vaart: hele regel grijs
 		$span_size = 72 - $latest_end_time_blocks;
 		$info_to_show_sh = substr($reason[$boatnr], 0, (2 * $span_size) - 1);
-		echo "<td class='on-shore' colspan=\"" . $span_size . "\" align=\"center\" bgcolor=\"#999\" style=\"border-left: solid 1px #ddd\"><div style=\"overflow:hidden\" align=\"center\" onmouseover=\"Tip('$reason[$boatnr]')\">$info_to_show_sh</div></td>";
+		echo "<td class='on-shore' colspan=\"" . $span_size . "\" align=\"center\" bgcolor=\"#999\" style=\"border-left: solid 1px #ddd\"><div style=\"overflow:hidden\" align=\"center\" title='$reason[$boatnr]'>$info_to_show_sh</div></td>";
 	} else {
 		$opzoektabel_tmp = $opzoektabel;
 		if (strtotime($date_to_show_db) - strtotime($today_db) < 0) $opzoektabel_tmp .= "_oud";
@@ -261,7 +261,7 @@ while (isset($boats_array[$boatnr])) {
 					} else {
 						echo " bgcolor=\"#999\"";
 					}
-					echo " onmouseover=\"Tip('" . $info_to_show . "')\" colspan=\"". $span_size . "\" class='reserved-container'><div style=\"overflow:hidden\" align=\"center\" class='reserved'>" . $info_to_show_sh . "</div></td>";
+					echo " title=' $info_to_show ' colspan=\"". $span_size . "\" class='reserved-container'><div style=\"overflow:hidden\" align=\"center\" class='reserved'>" . $info_to_show_sh . "</div></td>";
 					// volgende witblok vanaf eindtijd huidige inschrijving!
 					$latest_end_time_blocks = $db_end_time_blocks;
 		
