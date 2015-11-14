@@ -416,3 +416,11 @@ a:hover, a:focus {
 
 .corner {
 }
+
+.too-dark {
+    color: white;
+}
+
+.scrollTable table .header-column-row:hover th.too-dark, .scrollTable table .header-column-row:hover td.too-dark {
+    color: black;
+}

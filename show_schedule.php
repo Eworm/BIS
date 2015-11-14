@@ -99,7 +99,10 @@ echo "<tr>";
 echo "<td valign=\"top\">";
 echo "<div class=\"headerColumn\">";
 echo "<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">";
-echo "<tr><th><div>Naam</div></th><th class='text-center'>Gewicht</th><th class='text-center'>Type</th><th class='text-center'>Graad</th></tr>";
+echo "<tr><th class='text-muted'><div>Naam</div></th>";
+echo "<th class='text-center text-muted'>Gewicht</th>";
+echo "<th class='text-center text-muted'>Type</th>";
+echo "<th class='text-center text-muted'>Graad</th></tr>";
 echo "<tr class='hibben-row'><th><div>&nbsp;</div></th></tr>";
 $c = 0;
 while ($row = mysql_fetch_assoc($boats_result)) {
@@ -136,14 +139,27 @@ while ($row = mysql_fetch_assoc($boats_result)) {
 	} else {
 		$row3 = mysql_fetch_assoc($result3);
 		$bgcolor = $row3['KleurInBIS'];
+		
+		// Check for dark colors
+		$colour = $bgcolor;
+        $rgb = HTMLToRGB($colour);
+        $hsl = RGBToHSL($rgb);
+        $toodark = '';
+        if($hsl->lightness < 140) {
+            $toodark = true;
+        }
+		
 	}
 	echo "<tr class='header-column-row'><th ";
 	if ($available[$c] && InRange($date_to_show, 10)) {
-		echo "onclick=\"showInschrijving(0, " . $boat_ids_array[$c] . ", '" . $date_to_show . "', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '" . $start_time_to_show . "');\" bgcolor=\"" . $bgcolor . "\">";
+		echo "onclick=\"showInschrijving(0, " . $boat_ids_array[$c] . ", '" . $date_to_show . "', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '" . $start_time_to_show . "');\" bgcolor=\"" . $bgcolor . "\" " . (($toodark == true)?'class="too-dark"':"") . ">";
 	} else {
 		echo "bgcolor=\"#999\">";
 	}
-	echo "<div>$boats_array[$c]</div></th><td class='text-center' bgcolor=\"" . $bgcolor . "\">$weight kg</td><td class='text-center' bgcolor=\"" . $bgcolor . "\">$type</td><td class='text-center' bgcolor=\"" . $bgcolor . "\">$grade</td></tr>";
+	echo "<div>$boats_array[$c]</div></th>";
+	echo "<td class='text-center " . (($toodark == true)?'too-dark':"") . "' bgcolor=\"" . $bgcolor . "\">$weight kg</td>";
+	echo "<td class='text-center " . (($toodark == true)?'too-dark':"") . "' bgcolor=\"" . $bgcolor . "\">$type</td>";
+	echo "<td class='text-center " . (($toodark == true)?'too-dark':"") . "' bgcolor=\"" . $bgcolor . "\">$grade</td></tr>";
 	$c++;
 }
 echo "<tr class='hibben-row'><th><div>&nbsp;</div></th></tr>";
