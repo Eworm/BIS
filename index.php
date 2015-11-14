@@ -146,7 +146,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                 
                                         <div class="form-group">
                                             
-                                            <label for="date_to_show">Datum</label>
+                                            <label for="date_to_show" for="date_to_show">Datum</label>
                                             
                                             <input type="text" name="date_to_show" maxlength="10" value="<?php echo $date_to_show ?>" onchange="changeInfo();" id="date_to_show" class="form-control datepicker">
                                             
@@ -158,7 +158,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                 
                                         <div class="form-group">
                                             
-                                            <label for="start_hrs_to_show">Tijd</label>
+                                            <label for="start_hrs_to_show" for="start_hrs_to_show">Tijd</label>
                                             
                                             <div class="row">
                                                 

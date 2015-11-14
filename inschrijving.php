@@ -221,7 +221,7 @@ if (substr($boat, 0, 7) == "Concept") {
 }
 // Boat
 echo "<div class='form-group' ". (isset($hide) ? $hide : "") . ">";
-echo "<label class='col-md-4 control-label'>";
+echo "<label class='col-md-4 control-label' for='boat_id'>";
 echo "Boot/ergometer";
 echo "</label>";
 echo "<div class='col-md-8'>";
@@ -260,7 +260,7 @@ echo "</div>";
 
 // persoonsnaam
 echo "<div class='form-group'>";
-echo "<label class='col-md-4 control-label'>";
+echo "<label class='col-md-4 control-label' for='pname'>";
 echo "Voor- en achternaam";
 echo "</label>";
 echo "<div class='col-md-8'>";
@@ -270,7 +270,7 @@ echo "</div>";
 
 // ploegnaam
 echo "<div class='form-group'>";
-echo "<label class='col-md-4 control-label'>";
+echo "<label class='col-md-4 control-label' for='name'>";
 echo "Ploegnaam/omschrijving (optioneel)";
 echo "</label>";
 echo "<div class='col-md-8'>";
@@ -280,7 +280,7 @@ echo "</div>";
 
 // e-mailadres
 echo "<div class='form-group'>";
-echo "<label class='col-md-4 control-label'>";
+echo "<label class='col-md-4 control-label' for='email'>";
 echo "E-mailadres (optioneel)";
 echo "</label>";
 echo "<div class='col-md-8'>";
@@ -290,7 +290,7 @@ echo "</div>";
 
 // mpb
 echo "<div class='form-group'>";
-echo "<label class='col-md-4 control-label'>";
+echo "<label class='col-md-4 control-label' for='mpb'>";
 echo "MPB (indien nodig)";
 echo "</label>";
 echo "<div class='col-md-8'>";
@@ -308,7 +308,7 @@ echo "</div>";
 
 // datum
 echo "<div class='form-group'>";
-echo "<label class='col-md-4 control-label'>";
+echo "<label class='col-md-4 control-label' for='resdate'>";
 echo "Datum (dd-mm-jjjj)";
 echo "</label>";
 echo "<div class='col-md-4'>";
@@ -318,7 +318,7 @@ echo "</div>";
 
 // begintijd
 echo "<div class='form-group'>";
-echo "<label class='col-md-4 control-label'>";
+echo "<label class='col-md-4 control-label' for='start_time_hrs'>";
 echo "Begintijd";
 echo "</label>";
 echo "<div class='col-md-2'>";
@@ -350,7 +350,7 @@ echo "</div>";
 
 // eindtijd
 echo "<div class='form-group'>";
-echo "<label class='col-md-4 control-label'>";
+echo "<label class='col-md-4 control-label' for='end_time_hrs'>";
 echo "Eindtijd";
 echo "</label>";
 echo "<div class='col-md-2'>";
