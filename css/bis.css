@@ -56,6 +56,7 @@
 
 .scrollTable table td .reserved, .scrollTable table .on-shore div {
     opacity: 1;
+    color: white !important;
 }
 
 .scrollTable table td:hover {
