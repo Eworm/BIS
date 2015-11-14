@@ -113,7 +113,7 @@ function xmlnews($url, $timeout = 0, $target = "_top", $makelist = "br", $links)
 	if (! $links) { // indien Gyas-weer, pubdate (uit laatste item) eronder zetten
 		$pubdate = $values [$tags ["LASTBUILDDATE"] [0]] ["value"];
 		$timestamp = strtotime ( $pubdate );
-		$pubdatestring = date ( "d-m-Y H:i", $timestamp );
+		$pubdatestring = date ( "H:i", $timestamp );
 		$html = $html . "<span class='text-muted'>Om " . $pubdatestring . " ververst</span>";
 	}
 	
