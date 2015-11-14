@@ -87,7 +87,7 @@ function xmlnews($url, $timeout = 0, $target = "_top", $makelist = "br", $links)
 				$inhoud = "<strong>" . $inhoud . "</strong>";
 			}
 			if ($titel == "Wind") {
-				$inhoud = "<strong>" . $inhoud . "</strong><br><a href='http://www.buienradar.nl' rel='external'>Buienradar</a><br><a href='http://rtvnoord.nl/weer' rel='external'>RTV Noord</a>";
+				$inhoud = "<strong>" . $inhoud . "</strong><!--<br><a href='http://www.buienradar.nl' rel='external'>Buienradar</a> | <a href='http://rtvnoord.nl/weer' rel='external'>RTV Noord</a>-->";
 			}
 			if ($titel == "Vaarverbod") {
 				$skip = true;
@@ -98,7 +98,7 @@ function xmlnews($url, $timeout = 0, $target = "_top", $makelist = "br", $links)
 				// $inhoud_opg = "<strong><font color=\"#FF0000\">".$inhoud."</font></strong>";
             }
 			if ($titel == "Zon") {
-    			$inhoud = '<br>&#9788; ' . $inhoud;
+    			$inhoud = '&#9788; ' . $inhoud;
 			} else {
 				$inhoud = $inhoud;
 			}

@@ -36,7 +36,7 @@ echo "<div>";
 $date_tmp = strtotime($date_to_show_db);
 $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
 echo "<div class='schedule-header'><h3 class='h4 schedule-title'>".strtoupper($date_sh)." vanaf $start_time_to_show: $cat_to_show ($grade_to_show)</h3>";
-echo "<span class='sunset-legenda'>Zonsondergang (" . date('H:i', $sunset) . ")</span><span class='sundown-legenda'>Donker (" . date('H:i', strtotime('+30 minutes', $sunset)) . ")</span></div>";
+echo "<div><span class='sunset-legenda'>Zonsondergang (" . date('H:i', $sunset) . ")</span><span class='sundown-legenda'>Donker (" . date('H:i', strtotime('+30 minutes', $sunset)) . ")</span></div></div>";
 
 // tabel-weergave (boten x tijdstippen) van inschrijvingen op gekozen dag
 $restrict_query_type = "";

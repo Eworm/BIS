@@ -128,134 +128,183 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
             
     <div class="row">
                 
-        <div class="col-md-9 schedule-filter">
+        <div class="col-md-12 schedule-filter">
             
-            <div class="panel panel-default">
-                
-                <div class="panel-body">
+            <div class="row">
+                        
+                <div class="col-md-7">
             
-                    <form>
+                    <div class="panel panel-default">
                         
-                        <div class="row">
-                            
-                            <div class="col-md-2">
-                        
-                                <div class="form-group">
+                        <div class="panel-body">
+            
+                            <form>
+                                
+                                <div class="row">
                                     
-                                    <label for="date_to_show">Datum</label>
-                                    
-                                    <input type="text" name="date_to_show" maxlength="10" value="<?php echo $date_to_show ?>" onchange="changeInfo();" id="date_to_show" class="form-control datepicker">
-                                    
-<!--
-                                    <a href="javascript:show_calendar('adjust.date_to_show');" onmouseover="window.status='Kalender';return true;" onmouseout="window.status='';return true;"><img src='res/kalender.gif' width='19' height='17' border='0' alt='Kalender'></a>
-                                	<input class='btn btn-default btn-sm' type="button" name="change_date" value="&lt;" onclick="changeDate(-1); changeInfo();">
-                                	<input class='btn btn-default btn-sm' type="button" name="reset_date" value="Vandaag" onclick="resetDate(); changeInfo();">
-                                	<input class='btn btn-default btn-sm' type="button" name="change_date" value="&gt;" onclick="changeDate(1); changeInfo();">
--->
-                                    
-                                </div>
-                        
-                            </div>
-                            
-                            <div class="col-md-2">
-                        
-                                <div class="form-group">
-                                    
-<!--                                     <input type="time" class="form-control" min="6:00" max="17:00" step="900"> -->
-                                    
-                                    <label for="start_hrs_to_show">Tijd</label>
-                                    
-                                    <div class="row">
-                                        
-                                        <div class="col-md-12">
-                                                                                        
-                                            <input type="range" min="5" max="23" step="2" value="8" name='start_hrs_to_show' onchange="changeInfo();" id='start_hrs_to_show' list="powers">
-                                    
-                                            <span class="datalist-legend">6</span>
-                                            <datalist id="powers" class="datalist">
-                                                <?php for ($t = 5; $t < 23; $t++): ?>
-                                                    <option value="<?php echo $t ?>">  
-                                                <?php endfor; ?>
-                                            </datalist>
-                                            <span class="datalist-legend last-legend">23</span>
-                                    
-<!--
-                                            <select name='start_hrs_to_show' onchange="changeInfo();" id='start_hrs_to_show' class="form-control">
-                                        	<?php for ($t = 6; $t < 18; $t++): ?>
-                                        		<option value="<?php echo $t ?>"<?php if ($start_hrs_to_show == $t): ?> selected="selected" <?php endif; ?>><?php echo $t; ?></option>
-                                        	<?php endfor; ?>
-                                        	</select>
--->
-                                        	
+                                    <div class="col-md-2">
+                                
+                                        <div class="form-group">
+                                            
+                                            <label for="date_to_show">Datum</label>
+                                            
+                                            <input type="text" name="date_to_show" maxlength="10" value="<?php echo $date_to_show ?>" onchange="changeInfo();" id="date_to_show" class="form-control datepicker">
+                                            
+        <!--
+                                            <a href="javascript:show_calendar('adjust.date_to_show');" onmouseover="window.status='Kalender';return true;" onmouseout="window.status='';return true;"><img src='res/kalender.gif' width='19' height='17' border='0' alt='Kalender'></a>
+                                        	<input class='btn btn-default btn-sm' type="button" name="change_date" value="&lt;" onclick="changeDate(-1); changeInfo();">
+                                        	<input class='btn btn-default btn-sm' type="button" name="reset_date" value="Vandaag" onclick="resetDate(); changeInfo();">
+                                        	<input class='btn btn-default btn-sm' type="button" name="change_date" value="&gt;" onclick="changeDate(1); changeInfo();">
+        -->
+                                            
                                         </div>
+                                
+                                    </div>
+                                    
+                                    <div class="col-md-2">
+                                
+                                        <div class="form-group">
+                                            
+        <!--                                     <input type="time" class="form-control" min="6:00" max="17:00" step="900"> -->
+                                            
+                                            <label for="start_hrs_to_show">Tijd</label>
+                                            
+                                            <div class="row">
+                                                
+                                                <div class="col-md-12">
+                                                                                                
+                                                    <input type="range" min="5" max="23" step="2" value="8" name='start_hrs_to_show' onchange="changeInfo();" id='start_hrs_to_show' list="powers">
+                                            
+                                                    <span class="datalist-legend">6</span>
+                                                    <datalist id="powers" class="datalist">
+                                                        <?php for ($t = 5; $t < 23; $t++): ?>
+                                                            <option value="<?php echo $t ?>">  
+                                                        <?php endfor; ?>
+                                                    </datalist>
+                                                    <span class="datalist-legend last-legend">23</span>
+                                            
+        <!--
+                                                    <select name='start_hrs_to_show' onchange="changeInfo();" id='start_hrs_to_show' class="form-control">
+                                                	<?php for ($t = 6; $t < 18; $t++): ?>
+                                                		<option value="<?php echo $t ?>"<?php if ($start_hrs_to_show == $t): ?> selected="selected" <?php endif; ?>><?php echo $t; ?></option>
+                                                	<?php endfor; ?>
+                                                	</select>
+        -->
+                                                	
+                                                </div>
+                                                
+                                                <div class="col-md-6" style="display: none;">
+                                                	
+                                                	<select name='start_mins_to_show' onchange="changeInfo();" id='start_mins_to_show' class="form-control">
+                                                		<option value="00"<?php if ($start_mins_to_show == 0): ?> selected="selected" <?php endif; ?>>00</option>
+                                                		<option value="15"<?php if ($start_mins_to_show == 15): ?> selected="selected" <?php endif; ?>>15</option>
+                                                		<option value="30"<?php if ($start_mins_to_show == 30): ?> selected="selected" <?php endif; ?>>30</option>
+                                                		<option value="45"<?php if ($start_mins_to_show == 45): ?> selected="selected" <?php endif; ?>>45</option>
+                                                	</select>
+                                                	
+                                                </div>
+                                                
+                                            </div>
+                
+                                        </div>
+                                    
+                                    </div>
+                                    
+                                    <div class="col-md-8">
                                         
-                                        <div class="col-md-6" style="display: none;">
-                                        	
-                                        	<select name='start_mins_to_show' onchange="changeInfo();" id='start_mins_to_show' class="form-control">
-                                        		<option value="00"<?php if ($start_mins_to_show == 0): ?> selected="selected" <?php endif; ?>>00</option>
-                                        		<option value="15"<?php if ($start_mins_to_show == 15): ?> selected="selected" <?php endif; ?>>15</option>
-                                        		<option value="30"<?php if ($start_mins_to_show == 30): ?> selected="selected" <?php endif; ?>>30</option>
-                                        		<option value="45"<?php if ($start_mins_to_show == 45): ?> selected="selected" <?php endif; ?>>45</option>
+                                        <div class="form-group">
+                                            
+                                            <label for="cat_to_show">Categorie</label>
+                                            
+        <!--
+                                            <select name='cat_to_show' onchange="changeInfo();" id='cat_to_show' class="form-control">
+                                                
+                                            	<?php foreach($cat_array as $cat_db): ?>
+                                            		<option value="<?php echo $cat_db; ?>"<?php if ($cat_to_show == $cat_db): ?> selected="selected" <?php endif; ?>><?php echo $cat_db; ?></option>
+                                            	<?php endforeach; ?>
+                                            	
                                         	</select>
+        -->
+                                        	
+                                        	<div class="form-group">
+                                            	
+                                            	<div class="row">
+                                        	
+                                            	<?php foreach($cat_array as $cat_db): ?>
+                                            	
+                                            	    <div class="col-md-4">
+                                            	
+                                                	    <label class="radio-inline">
+                                                    	    
+                                                    		<input type="radio" value="<?php echo str_replace(' ', '%20', $cat_db); ?>" <?php if ($cat_to_show == $cat_db): ?> checked <?php endif; ?> name='cat_to_show' value="<?php echo $cat_db; ?>" onchange="changeInfo();">
+                                                    		<?php echo $cat_db; ?>
+                                                    		
+                                                		</label>
+                                            		
+                                            		</div>
+                                        	
+                                            	<?php endforeach; ?>
+                                        	
+                                            	</div>
+                                        	
+                                        	</div>
+                                        	
+                                        	<input type="hidden" name='grade_to_show' id='grade_to_show' value="alle">
                                         	
                                         </div>
                                         
                                     </div>
-        
-                                </div>
-                            
-                            </div>
-                            
-                            <div class="col-md-8">
                                 
-                                <div class="form-group">
-                                    
-                                    <label for="cat_to_show">Categorie</label>
-                                    
-<!--
-                                    <select name='cat_to_show' onchange="changeInfo();" id='cat_to_show' class="form-control">
-                                        
-                                    	<?php foreach($cat_array as $cat_db): ?>
-                                    		<option value="<?php echo $cat_db; ?>"<?php if ($cat_to_show == $cat_db): ?> selected="selected" <?php endif; ?>><?php echo $cat_db; ?></option>
-                                    	<?php endforeach; ?>
-                                    	
-                                	</select>
--->
-                                	
-                                	<div class="form-group">
-                                    	
-                                    	<div class="row">
-                                	
-                                    	<?php foreach($cat_array as $cat_db): ?>
-                                    	
-                                    	    <div class="col-md-3">
-                                    	
-                                        	    <label class="radio-inline">
-                                            	    
-                                            		<input type="radio" value="<?php echo str_replace(' ', '%20', $cat_db); ?>" <?php if ($cat_to_show == $cat_db): ?> checked <?php endif; ?> name='cat_to_show' value="<?php echo $cat_db; ?>" onchange="changeInfo();">
-                                            		<?php echo $cat_db; ?>
-                                            		
-                                        		</label>
-                                    		
-                                    		</div>
-                                	
-                                    	<?php endforeach; ?>
-                                	
-                                    	</div>
-                                	
-                                	</div>
-                                	
-                                	<input type="hidden" name='grade_to_show' id='grade_to_show' value="alle">
-                                	
                                 </div>
-                                
+                        
                             </div>
                         
-                        </div>
-                
+                        </form>
+                        
                     </div>
+                    
+                </div>
                 
-                </form>
+                <div class="col-md-3">
+                    
+<!--                     <h5>
+                        Bestuursmededelingen
+                    </h5> -->
+                    
+                    <?php
+                    	$query = "SELECT * FROM mededelingen ORDER BY Datum DESC LIMIT 1;"; // alleen recentste
+                    	$result = mysql_query($query);
+                    	if (!$result) {
+                    		echo "Ophalen van bestuursmededelingen mislukt.";
+                    	} else {
+                    		$rows_aff = mysql_affected_rows($bisdblink);
+                    		if ($rows_aff > 0) {
+                    			$row = mysql_fetch_assoc($result);
+                    			$note_datum = DBdateToDate($row['Datum']);
+                    			$bestuurslid = $row['Bestuurslid'];
+                    			$summary = $row['Betreft'];
+                    			$note = $row['Mededeling'];
+                    			echo "<strong>" . $summary . "</strong><br>$note <span class='text-muted'>" . $note_datum . ", $bestuurslid</span><br><a href=\"$mededelingenpagina\">Alle bestuursmededelingen";
+                    			$query2 = "SELECT COUNT(*) AS NrOfNotes FROM mededelingen;"; // alleen recentste
+                    			$result2 = mysql_query($query2);
+                    			$row2 = mysql_fetch_assoc($result2);
+                    			$nr_notes = $row2['NrOfNotes'];
+                    			if ($nr_notes) echo " (".$nr_notes.") ";
+                    			echo "</a>";
+                    		} else {
+                    			echo "Op dit moment zijn er geen mededelingen.";
+                    		}
+                    	}
+                    	?>
+                    
+                </div>
+                
+                <div class="col-md-2">            
+                    <?php if ($toonweer): ?>
+                		<?php echo xmlnews('https://www.gyas.nl/media/output/weer.rss',3,'_blank','br', 0); ?>
+                    <?php endif; ?>
+                    
+                </div>
             
             </div>
                         
@@ -275,66 +324,6 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
         
         </div>
             
-    </div>
-                
-    <div class="col-md-3">
-        
-        <div class="well">
-            
-            <?php if ($toonweer): ?>
-        		<?php echo xmlnews('https://www.gyas.nl/media/output/weer.rss',3,'_blank','br', 0); ?>
-            <?php endif; ?>
-
-        </div>
-        
-        <h4>
-            Bestuursmededelingen
-        </h4>
-        
-        <?php
-        	$query = "SELECT * FROM mededelingen ORDER BY Datum DESC LIMIT 1;"; // alleen recentste
-        	$result = mysql_query($query);
-        	if (!$result) {
-        		echo "Ophalen van bestuursmededelingen mislukt.";
-        	} else {
-        		$rows_aff = mysql_affected_rows($bisdblink);
-        		if ($rows_aff > 0) {
-        			$row = mysql_fetch_assoc($result);
-        			$note_datum = DBdateToDate($row['Datum']);
-        			$bestuurslid = $row['Bestuurslid'];
-        			$summary = $row['Betreft'];
-        			$note = $row['Mededeling'];
-        			echo "<strong>" . $summary . "</strong><br>" . $note_datum . ", $bestuurslid<br><br>$note<br><a href=\"$mededelingenpagina\">Alle mededelingen";
-        			$query2 = "SELECT COUNT(*) AS NrOfNotes FROM mededelingen;"; // alleen recentste
-        			$result2 = mysql_query($query2);
-        			$row2 = mysql_fetch_assoc($result2);
-        			$nr_notes = $row2['NrOfNotes'];
-        			if ($nr_notes) echo " (".$nr_notes.") ";
-        			echo "</a>";
-        		} else {
-        			echo "Op dit moment zijn er geen mededelingen.";
-        		}
-        	}
-        	?>
-        	
-        <hr>
-        
-        <p>
-            <a href='schadeboek/schade_boten_toev.php' class='btn btn-primary'>Schademelding boot</a>
-            <br><br>
-            <a href='schadeboek/schade_gebouw_toev.php' class='btn btn-primary'>Schademelding gebouw</a>
-        </p>
-        
-        <hr>
-        
-        <p class="text-muted">
-           Ingelogd als <?php echo $_SESSION['login']; ?>
-           <br>
-           <a href="bis_logout.php">
-               Uitloggen
-            </a> 
-        </p>
-        
     </div>
     
 </div>
