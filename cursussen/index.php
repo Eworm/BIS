@@ -94,9 +94,9 @@ setlocale(LC_TIME, 'nl_NL');
             
             <div class="well">
 
-                <h2>
+                <h4>
                     Let op!
-                </h2>
+                </h4>
                 
                 <ul>
                 	<li>De inschrijving sluit &eacute;&eacute;n week voorafgaand aan de cursus.</li>

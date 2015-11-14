@@ -43,7 +43,9 @@ include_once("../include_globalVars.php");
             </h1>
 	
 
-<p><em>Alle documenten zijn in het PDF-formaat en openen in een nieuw venster.</em></p>
+<div class="help-block">Alle documenten zijn in het PDF-formaat en openen in een nieuw venster.</div>
+
+<hr>
 
 <strong>Diplomalijst</strong>
 <ul>
@@ -94,6 +96,8 @@ include_once("../include_globalVars.php");
 	<li><a href="jaarverslagtoer2009.pdf" target="_blank">Jaarverslag toercommissie 2009</a></li>
 	<li><a href="jaarverslagweds2009.pdf" target="_blank">Jaarverslag wedstrijdcommissaris 2009</a></li>
 </ul>
+
+<br><br>
 
 </div>
 </div>

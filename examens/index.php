@@ -79,7 +79,9 @@ setlocale(LC_TIME, 'nl_NL');
                 
                 <hr>
                     
-                <h2>Spelregels exameninschrijving</h2>
+                <h2 class="h3">
+                    Spelregels exameninschrijving
+                </h2>
                 
                 <ul>
                   <li>Er kan per persoon per examen voor maximaal &eacute;&eacute;n te behalen graad worden ingeschreven.</li>
@@ -101,7 +103,9 @@ setlocale(LC_TIME, 'nl_NL');
             
             <div class="well">
 
-                <h3>Mededelingen</h3>
+                <h4>
+                    Mededelingen
+                </h4>
                 <p>
                     Er zijn met ingang van maart 2011 twee theorie-examens: T1 en T2. Pas wanneer men een T1-diploma op zak heeft is het mogelijk elk '&#233;&#233;n'-niveau praktijkexamen (i.e. skiff-1, wherry-1, C-1 en giek-1) te doen op elk gewenst algemeen examen.
                     <br><br>
