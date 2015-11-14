@@ -396,3 +396,23 @@ a:hover, a:focus {
 .prominent-bg {
     background-color: #eee;
 }
+
+.header-column-row th {
+    border-right: 0 !important;
+}
+
+.header-column-row td {
+    border-left: 0 !important;
+    border-right: 0 !important;
+}
+
+.scrollTable table .header-column-row:hover th, .scrollTable table .header-column-row:hover td {
+    background: white !important;   
+}
+
+.scrollTable table .header-column-row td:hover {
+    background: white !important;
+}
+
+.corner {
+}

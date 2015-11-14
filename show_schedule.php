@@ -99,7 +99,7 @@ echo "<tr>";
 echo "<td valign=\"top\">";
 echo "<div class=\"headerColumn\">";
 echo "<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">";
-echo "<tr><th><div>Naam (gewicht, type, graad)</div></th></tr>";
+echo "<tr><th><div>Naam</div></th><th class='text-center'>Gewicht</th><th class='text-center'>Type</th><th class='text-center'>Graad</th></tr>";
 echo "<tr class='hibben-row'><th><div>&nbsp;</div></th></tr>";
 $c = 0;
 while ($row = mysql_fetch_assoc($boats_result)) {
@@ -137,13 +137,13 @@ while ($row = mysql_fetch_assoc($boats_result)) {
 		$row3 = mysql_fetch_assoc($result3);
 		$bgcolor = $row3['KleurInBIS'];
 	}
-	echo "<tr><th ";
+	echo "<tr class='header-column-row'><th ";
 	if ($available[$c] && InRange($date_to_show, 10)) {
-		echo "onclick=\"showInschrijving(0, " . $boat_ids_array[$c] . ", '" . $date_to_show . "', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '" . $start_time_to_show . "');\"  onmouseover=\"this.style.backgroundColor='#fff';\" onmouseout=\"this.style.backgroundColor='" . $bgcolor . "'\" bgcolor=\"" . $bgcolor . "\">";
+		echo "onclick=\"showInschrijving(0, " . $boat_ids_array[$c] . ", '" . $date_to_show . "', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '" . $start_time_to_show . "');\" bgcolor=\"" . $bgcolor . "\">";
 	} else {
 		echo "bgcolor=\"#999\">";
 	}
-	echo "<div>$boats_array[$c] ($weight kg, $type, $grade)</div></th></tr>";
+	echo "<div>$boats_array[$c]</div></th><td class='text-center' bgcolor=\"" . $bgcolor . "\">$weight kg</td><td class='text-center' bgcolor=\"" . $bgcolor . "\">$type</td><td class='text-center' bgcolor=\"" . $bgcolor . "\">$grade</td></tr>";
 	$c++;
 }
 echo "<tr class='hibben-row'><th><div>&nbsp;</div></th></tr>";
