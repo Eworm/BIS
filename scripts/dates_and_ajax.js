@@ -56,7 +56,7 @@ function changeInfo(){
     		
 			httpObject.open("GET", "show_schedule.php?date_to_show=" + document.getElementById("date_to_show").value + 
 					"&start_hrs_to_show=" + document.getElementById("start_hrs_to_show").value + 
-					"&start_mins_to_show=" + document.getElementById("start_mins_to_show").value + 
+					"&start_mins_to_show=" + 00 + 
 					// "&cat_to_show=" + document.getElementById("cat_to_show").value + 
 					"&cat_to_show=" + document.querySelector('input[name="cat_to_show"]:checked').value + 
 					"&grade_to_show=" + document.getElementById("grade_to_show").value, true);
@@ -64,6 +64,7 @@ function changeInfo(){
 			httpObject.send(null);
 			
 		} else {
+    		
 			httpObject.open("GET", "show_availability.php?change=1&id=" + document.getElementById("id").value + "&date=" + 
 					document.getElementById("resdate").value + "&start_time_hrs=" + document.getElementById("start_time_hrs").value + 
 					"&start_time_mins=" + document.getElementById("start_time_mins").value + "&end_time_hrs=" + 
@@ -71,6 +72,7 @@ function changeInfo(){
 					"&boat_id=" + document.getElementById("boat_id").value, true);
 			httpObject.onreadystatechange = setOutputIns;
 			httpObject.send(null);
+			
 		}
 	}
 }

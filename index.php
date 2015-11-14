@@ -173,15 +173,15 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                                 
                                                 <div class="col-md-12">
                                                                                                 
-                                                    <input type="range" min="5" max="23" step="2" value="8" name='start_hrs_to_show' onchange="changeInfo();" id='start_hrs_to_show' list="powers">
+                                                    <input type="range" min="6" max="23" step="2" value="8" name='start_hrs_to_show' onchange="changeInfo();" id='start_hrs_to_show' list="powers">
                                             
                                                     <span class="datalist-legend">6</span>
                                                     <datalist id="powers" class="datalist">
-                                                        <?php for ($t = 5; $t < 23; $t++): ?>
+                                                        <?php for ($t = 6; $t < 23; $t++): ?>
                                                             <option value="<?php echo $t ?>">  
                                                         <?php endfor; ?>
                                                     </datalist>
-                                                    <span class="datalist-legend last-legend">23</span>
+                                                    <span class="datalist-legend last-legend">20</span>
                                             
         <!--
                                                     <select name='start_hrs_to_show' onchange="changeInfo();" id='start_hrs_to_show' class="form-control">
