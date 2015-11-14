@@ -2,6 +2,8 @@ $(document).ready(function() {
 
     // Single datepicker
     $('.datepicker').datepicker({
+        weekStart: 1,
+        language: 'nl',
         autoclose: true,
         format: 'dd-mm-yyyy',
         todayHighlight: true,
@@ -13,6 +15,8 @@ $(document).ready(function() {
     $('body').on('focus', '.datepicker', function() {
 
         $('.datepicker').datepicker({
+            weekStart: 1,
+            language: 'nl',
             autoclose: true,
             format: 'dd-mm-yyyy',
             todayHighlight: true,
@@ -25,6 +29,8 @@ $(document).ready(function() {
     // Date range    
     $('#js-daterange input').each(function() {
         $(this).datepicker({
+            weekStart: 1,
+            language: 'nl',
             autoclose: true,
             format: 'dd-mm-yyyy',
             todayHighlight: true
