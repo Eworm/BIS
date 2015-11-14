@@ -264,7 +264,7 @@ echo "<label class='col-md-4 control-label'>";
 echo "Voor- en achternaam";
 echo "</label>";
 echo "<div class='col-md-8'>";
-echo "<input type=\"text\" id=\"pname\" name=\"pname\" value=\"" . (isset($pname) ? $pname : "") . "\" class=\"form-control\" autofocus>";
+echo "<input type=\"text\" id=\"pname\" name=\"pname\" value=\"" . (isset($pname) ? $pname : "") . "\" class=\"form-control\" autofocus required>";
 echo "</div>";
 echo "</div>";
 
