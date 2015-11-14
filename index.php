@@ -50,6 +50,7 @@ if (!mysql_select_db($database, $bisdblink)) {
     <head>
         <title><?php echo $systeemnaam; ?></title>
         
+        <!-- Microsoft. Delete if not required -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     	
@@ -329,6 +330,8 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
 	<p>
     	BIS&nbsp;&copy;2008-<?php echo $theyear; ?>&nbsp;Erik Roos, contact: <a href='mailto:<?php echo $mailadres; ?>'><?php echo $mailadres; ?></a>, open source: <a href="https://github.com/erikroos/BIS" target="_blank">GitHub</a>
     </p>
+    
+    <br>
     
 </footer>
 
