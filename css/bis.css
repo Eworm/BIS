@@ -445,3 +445,21 @@ a:hover, a:focus {
 .scrollTable table .header-column-row:hover th.too-dark, .scrollTable table .header-column-row:hover td.too-dark {
     color: black;
 }
+
+.datepicker-change {
+    margin-top: 2px;
+    text-align: center;
+}
+
+.datepicker-change-button {
+    padding: 1px 4px;
+    display: inline-block;
+    background: none;
+    border: 0;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.datepicker-change-button:hover {
+    background: #ccc;   
+}

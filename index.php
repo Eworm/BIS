@@ -176,6 +176,12 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                             
                                             <input type="text" name="date_to_show" maxlength="10" value="<?php echo $date_to_show ?>" onchange="changeInfo();" id="date_to_show" class="form-control datepicker">
                                             
+                                            <div class="datepicker-change">
+                                            	<input class='datepicker-change-button' type="button" name="change_date" value="&lt;" onclick="changeDate(-1); changeInfo();">
+                                            	<input class='datepicker-change-button' type="button" name="reset_date" value="Nu" onclick="resetDate(); changeInfo();">
+                                            	<input class='datepicker-change-button' type="button" name="change_date" value="&gt;" onclick="changeDate(1); changeInfo();">
+                                        	</div>
+                                            
                                         </div>
                                 
                                     </div>
