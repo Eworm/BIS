@@ -146,11 +146,11 @@ while ($row = mysql_fetch_assoc($boats_result)) {
 	echo "<div>$boats_array[$c] ($weight kg, $type, $grade)</div></th></tr>";
 	$c++;
 }
-echo "<tr><th><div>&nbsp;</div></th></tr>";
+echo "<tr class='hibben-row'><th><div>&nbsp;</div></th></tr>";
 echo "</table>";
 echo "</div>";
 echo "</td>";
-echo "<td>";
+echo "<td valign=\"top\">";
 echo "<div class=\"body\">";
 echo "<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">"; // hoofdtabel
 

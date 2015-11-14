@@ -228,7 +228,6 @@
     min-height: 200px;
 	clear: left;
 	background: white url('../images/ajax-loader.gif') no-repeat center center;
-	overflow: auto;
 }
 
 #ScheduleInfoTransition  {
@@ -337,4 +336,14 @@ a:hover, a:focus {
 
 .panel-default>.panel-heading {
     background-color: #D7EEF3;
+}
+
+.body {
+    height: auto !important;
+    overflow: visible !important;
+}
+
+.headerColumn {
+    height: auto !important;
+    overflow: visible !important;
 }
