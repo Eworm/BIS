@@ -220,6 +220,8 @@ if (isset($_POST['submit'])) {
 // HET FORMULIER
 if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	echo "<h1>Toevoegen repeterend spitsblok</h1>";
+	echo '<p class="help-block">U dient alle velden behalve de ploegnaam en uw e-mailadres in te vullen</p>';
+	echo '<hr>';
 	echo '<form name="form" action="' . $_SERVER['REQUEST_URI'] . '" method="post">';
 	
 	// bestuurslid

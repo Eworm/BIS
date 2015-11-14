@@ -117,17 +117,17 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	
 	// naam
 	echo "<div class='form-group'><label>Naam</label>";
-	echo "<input type=\"text\" name=\"name\" value=\"$name\" class='form-control' autofocus>";
+	echo "<input type=\"text\" name=\"name\" value=\"$name\" class='form-control' autofocus required>";
 	echo "</div>";
 	
 	// betreft
 	echo "<div class='form-group'><label>Betreft</label>";
-	echo "<input type=\"text\" name=\"summary\" value=\"$summary\" class='form-control'>";
+	echo "<input type=\"text\" name=\"summary\" value=\"$summary\" class='form-control' required>";
 	echo "</div>";
 	
 	// mededeling
 	echo "<div class='form-group'><label>Mededeling (max. 1000 tekens)</label>";
-	echo "<textarea name=\"note\" rows=4 class='form-control'/>$note</textarea>";
+	echo "<textarea name=\"note\" rows=4 class='form-control' required>$note</textarea>";
 	echo "</div>";
 	
 	// knoppen

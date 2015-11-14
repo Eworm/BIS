@@ -216,6 +216,8 @@ if (isset($_POST['submit'])) {
 // HET FORMULIER
 if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	echo "<h1>Toevoegen/bewerken wedstrijdblok</h1>";
+	// echo "<p class='help-block'>U dient alle velden behalve de ploegnaam en uw e-mailadres in te vullen</p>";
+	echo "<hr>";
 	echo '<form name="form" action="' . $_SERVER['REQUEST_URI'] . '" method="post">';
 	
 	// bestuurslid
@@ -351,7 +353,7 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	echo "</div>";
 	
 	// Omschrijving (pname)
-	echo "<div class='form-group'><label>Omschrijving</label>";
+	echo "<div class='form-group'><label>Korte omschrijving</label>";
 	echo '<input type="text" name="pname" value="' . (isset($pname) ? $pname : '') . '" class="form-control">';
 	if (isset($fail_msg_pname)) {
 		echo '<div class="alert alert-danger">' . $fail_msg_pname . '</div>';

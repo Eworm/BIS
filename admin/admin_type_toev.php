@@ -96,17 +96,17 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	
 	// naam
 	echo "<div class='form-group'><label>Type</label>";
-	echo "<input type=\"text\" name=\"type\" value=\"$type\" class='form-control' autofocus>";
+	echo "<input type=\"text\" name=\"type\" value=\"$type\" class='form-control' autofocus required>";
 	echo "</div>";
 	
 	// categorie
 	echo "<div class='form-group'><label>Categorie</label>";
-	echo "<input type=\"text\" name=\"cat\" value=\"$cat\"  class='form-control'><div class='help-block'>Meerdere types kunnen deel uitmaken van dezelfde categorie</div>";
+	echo "<input type=\"text\" name=\"cat\" value=\"$cat\"  class='form-control' required><div class='help-block'>Meerdere types kunnen deel uitmaken van dezelfde categorie</div>";
 	echo "</div>";
 	
 	// roeisoort
 	echo "<div class='form-group'><label>Roeisoort (boord/scull)</label>";
-	echo "<input type=\"text\" name=\"sort\" value=\"$sort\" class='form-control'></td>";
+	echo "<input type=\"text\" name=\"sort\" value=\"$sort\" class='form-control' required>";
 	echo "</div>";
 	
 	// knoppen

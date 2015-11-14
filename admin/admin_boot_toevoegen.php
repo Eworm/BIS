@@ -121,18 +121,18 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	
 	// naam
 	echo "<div class='form-group'><label>Naam</label>";
-	echo "<input type=\"text\" name=\"naam\" value=\"$naam\" class='form-control' autofocus>";
+	echo "<input type=\"text\" name=\"naam\" value=\"$naam\" class='form-control' autofocus required>";
 	echo "<div class='help-block'>Svp alleen gewone letters en geen leestekens of apostrof gebruiken</div>";
 	echo "</div>";
 	
 	// gewicht
 	echo "<div class='form-group'><label>Gewicht</label>";
-	echo "<input type=\"text\" name=\"gewicht\" value=\"$gewicht\" class='form-control'>";
+	echo "<input type=\"text\" name=\"gewicht\" value=\"$gewicht\" class='form-control' required>";
 	echo "</div>";
 	
 	// type
 	echo "<div class='form-group'><label>Type</label>";
-	echo "<select name=\"type\" class='form-control'>";
+	echo "<select name=\"type\" class='form-control' required>";
 	$query = "SELECT Type from types;";
 	$result = mysql_query($query);
 	if (!$result) {
@@ -150,7 +150,7 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 		
 	// roeigraad
 	echo "<div class='form-group'><label>Roeigraad</label>";
-	echo "<select name=\"roeigraad\" class='form-control'>";
+	echo "<select name=\"roeigraad\" class='form-control' required>";
 	$query = "SELECT Roeigraad FROM roeigraden WHERE ToonInBIS=1 ORDER BY ID;";
 	$result = mysql_query($query);
 	if (!$result) {

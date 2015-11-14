@@ -109,17 +109,17 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	
 	// naam
 	echo "<div class='form-group'><label>Naam</label>";
-	echo "<input type=\"text\" name=\"name\" value=\"$name\" class='form-control' autofocus>";
+	echo "<input type=\"text\" name=\"name\" value=\"$name\" class='form-control' autofocus required>";
 	echo "</div>";
 	
 	// functie
 	echo "<div class='form-group'><label>Functie</label>";
-	echo "<input type=\"text\" name=\"function\" value=\"$function\" class='form-control'>";
+	echo "<input type=\"text\" name=\"function\" value=\"$function\" class='form-control' required>";
 	echo "</div>";
 	
 	// mail
 	echo "<div class='form-group'><label>E-mailadres</label>";
-	echo "<input type=\"text\" name=\"mail\" value=\"$mail\" class='form-control'>";
+	echo "<input type=\"text\" name=\"mail\" value=\"$mail\" class='form-control' required>";
 	echo "</div>";
 	
 	// MPB

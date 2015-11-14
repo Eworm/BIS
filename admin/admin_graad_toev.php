@@ -105,7 +105,7 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	
 	// naam
 	echo "<div class='form-group'><label>Roeigraad</label>";
-	echo "<input type=\"text\" name=\"grade\" value=\"$grade\" class='form-control' autofocus></td>";
+	echo "<input type=\"text\" name=\"grade\" value=\"$grade\" class='form-control' autofocus required>";
 	echo "</div>";
 	
 	// functie
@@ -117,7 +117,7 @@ if ((!$_POST['insert'] && !$_POST['delete'] && !$_POST['cancel']) || $fail) {
 	
 	// mail
 	echo "<div class='form-group'><label>Achtergrondkleur in BIS-botentabel</label>";
-	echo "<input type=\"text\" name=\"color\" value=\"$color\"  class='form-control'></td>";
+	echo "<input type=\"text\" name=\"color\" value=\"$color\"  class='form-control' required>";
 	echo "</div>";
 	
 	// MPB
