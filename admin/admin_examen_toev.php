@@ -174,7 +174,7 @@ if ((!isset($_POST['insert']) && !isset($_POST['delete']) && !isset($_POST['canc
 	echo "<div class='form-group'><label>Quotum</label>";
 	echo "<input type='text' name='quotum' value='" . (isset($quotum) ? $quotum : '') . "' class='form-control'>";
 	if (isset($fail_msg_quotum)) {
-		echo "<div class='alert'>" . $fail_msg_quotum . "</div>";
+		echo "<div class='alert alert-danger'>" . $fail_msg_quotum . "</div>";
 	}
 	echo "</div>";
 	

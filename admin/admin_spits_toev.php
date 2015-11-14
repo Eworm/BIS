@@ -238,7 +238,7 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	}
 	echo "</select>";
 	if (isset($fail_msg_mpb)) {
-		echo '' . $fail_msg_mpb . '';
+		echo '<div class="alert alert-danger">' . $fail_msg_mpb . '</div>';
 	}
 	echo "</div>";
 	
@@ -252,7 +252,7 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	echo "<div class='form-group'><label>Startdatum</label>";
 	echo '<input type="text" name="startdate" id="startdate" class="form-control datepicker-start" maxlength="10" value="' . (isset($startdate) ? $startdate : '') . '">';
 	if (isset($fail_msg_startdate)) {
-		echo '' . $fail_msg_startdate . '';
+		echo '<div class="alert alert-danger">' . $fail_msg_startdate . '</div>';
 	}
 	echo "</div>";
 	echo "</div>";
@@ -262,7 +262,7 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	echo "<div class='form-group'><label>Einddatum</label>";
 	echo '<input type="text" name="enddate" id="enddate" class="form-control datepicker-end" maxlength="10" value="' . (isset($enddate) ? $enddate : '') . '">';
 	if (isset($fail_msg_enddate)) {
-		echo '' . $fail_msg_enddate . '';
+		echo '<div class="alert alert-danger">' . $fail_msg_enddate . '</div>';
 	}
 	echo "</div>";
 	echo "</div>";
@@ -303,7 +303,7 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 		echo ">45</option>";
 	echo "</select></div></div>";
 	if (isset($fail_msg_time)) {
-		echo '' . $fail_msg_time . '';
+		echo '<div class="alert alert-danger">' . $fail_msg_time . '</div>';
 	}
 	echo "</div>";
 	
@@ -367,7 +367,7 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	echo "<div class='form-group'><label>Voor- en achternaam ploegcaptain</label>";
 	echo '<input type="text" name="pname" value="' . (isset($pname) ? $pname : '') . '" class="form-control">';
 	if (isset($fail_msg_pname)) {
-		echo '' . $fail_msg_pname . '';
+		echo '<div class="alert alert-danger">' . $fail_msg_pname . '</div>';
 	}
 	echo "</div>";
 	
@@ -380,7 +380,7 @@ if ((!isset($_POST['submit']) && !isset($_POST['cancel'])) || $fail) {
 	echo "<div class='form-group'><label>E-mailadres (optioneel)</label>";
 	echo '<input type="text" name="email" value="' . (isset($email) ? $email : '') . '" class="form-control">';
 	if (isset($fail_msg_email)) {
-		echo '' . $fail_msg_email . '';
+		echo '<div class="alert alert-danger">' . $fail_msg_email . '</div>';
 	}
 	echo "</div>";
 	
