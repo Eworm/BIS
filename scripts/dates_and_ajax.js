@@ -210,3 +210,7 @@ function resetReservationPopup(){
 		msgBar.style.display = 'block';
 	}
 }
+
+$('body').on('click', '#js-close-modal', function() {
+    $('#inschrijvingModal').modal('hide');
+});

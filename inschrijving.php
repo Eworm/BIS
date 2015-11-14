@@ -392,10 +392,14 @@ if ($id) {
 	}
 }
 echo "\" onclick=\"makeRes(" . $id .  ", '" . $start_time . "', '" . $cat_to_show . "', '" . $grade_to_show . "');\">";
+
 if ($id) {
 	echo "&nbsp;<input type=\"button\" class='bisbtn btn btn-danger' value=\"Verwijderen\" onclick=\"delRes(" . $id . ", '" . $start_time . 
 		 "', '" . $cat_to_show . "', '" . $grade_to_show . "');\">";
 }
+
+echo '&nbsp;<input type="button" class="btn btn-default" id="js-close-modal" value="Annuleren">';
+
 echo "</div></div></form>";
 
 mysql_close($bisdblink);
