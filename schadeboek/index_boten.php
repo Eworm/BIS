@@ -128,14 +128,7 @@ $(document).ready(function() {
 				"sNext":     "Volgende",
 				"sLast":     "Laatste"
 			}
-		},
-		"aoColumns" : [
-			{"sWidth": '100px'},
-			{"sWidth": '100px'},
-			{"sWidth": '100px'},
-			{"sWidth": '250px'},
-			{"sWidth": '150px'}
-		]
+		}
 	} );
 } );
 </script> 
