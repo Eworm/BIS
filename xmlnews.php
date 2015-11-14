@@ -98,7 +98,7 @@ function xmlnews($url, $timeout = 0, $target = "_top", $makelist = "br", $links)
 				// $inhoud_opg = "<strong><font color=\"#FF0000\">".$inhoud."</font></strong>";
             }
 			if ($titel == "Zon") {
-    			$inhoud = '&#9788; ' . $inhoud;
+    			$inhoud = '<br>&#9788; ' . $inhoud;
 			} else {
 				$inhoud = $inhoud;
 			}

@@ -128,13 +128,13 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
             
     <div class="row">
                 
-        <div class="col-md-12 schedule-filter">
+        <div class="col-md-12">
             
             <div class="row">
                         
                 <div class="col-md-7">
             
-                    <div class="panel panel-default">
+                    <div class="panel panel-default schedule-filter">
                         
                         <div class="panel-body">
             

@@ -29,7 +29,7 @@ if (isset($login) && isset($password)) {
     	
     </head>
     
-<body>
+<body class="prominent-bg">
 
 	<div class="container-fluid main-container">
     	
