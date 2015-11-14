@@ -225,7 +225,7 @@ echo "<label class='col-md-4 control-label' for='boat_id'>";
 echo "Boot/ergometer";
 echo "</label>";
 echo "<div class='col-md-8'>";
-echo "<select" . (isset($hide) ? $hide : "") . " name=\"boat_id\" onchange=\"changeInfo();\" id=\"boat_id\" class=\"form-control\">";
+echo "<select" . (isset($hide) ? $hide : "") . " name=\"boat_id\" id=\"boat_id\" class=\"form-control\">";
 echo "<option value=0 ";
 if ($boat_id == 0) echo "selected=\"selected\"";
 echo "></option>";
@@ -312,7 +312,7 @@ echo "<label class='col-md-4 control-label' for='resdate'>";
 echo "Datum (dd-mm-jjjj)";
 echo "</label>";
 echo "<div class='col-md-4'>";
-echo "<input type='text' onchange=\"changeInfo();\" name='resdate' id='resdate' maxlength='10' class='form-control datepicker' value='" . $date . "'>";
+echo "<input type='text' name='resdate' id='resdate' maxlength='10' class='form-control datepicker' value='" . $date . "'>";
 echo "</div>";
 echo "</div>";
 
@@ -322,7 +322,7 @@ echo "<label class='col-md-4 control-label' for='start_time_hrs'>";
 echo "Begintijd";
 echo "</label>";
 echo "<div class='col-md-2'>";
-echo "<select name='start_time_hrs' onchange=\"changeInfo();\" id='start_time_hrs' class='form-control'>";
+echo "<select name='start_time_hrs' id='start_time_hrs' class='form-control'>";
 	for ($t=6; $t<24; $t++) {
 		echo"<option value=\"".$t."\" ";
 		if ($start_time_hrs == $t) echo "selected=\"selected\"";
@@ -331,7 +331,7 @@ echo "<select name='start_time_hrs' onchange=\"changeInfo();\" id='start_time_hr
 echo "</select>";
 echo "</div>";
 echo "<div class='col-md-2'>";
-echo "<select name='start_time_mins' onchange=\"changeInfo();\" id='start_time_mins' class='form-control'>";
+echo "<select name='start_time_mins' id='start_time_mins' class='form-control'>";
 	echo "<option value=\"00\" ";
 	if ($start_time_mins == 0) echo "selected=\"selected\"";
 	echo ">00</option>";
@@ -354,7 +354,7 @@ echo "<label class='col-md-4 control-label' for='end_time_hrs'>";
 echo "Eindtijd";
 echo "</label>";
 echo "<div class='col-md-2'>";
-echo "<select name='end_time_hrs' onchange=\"changeInfo();\" id='end_time_hrs' class='form-control'>";
+echo "<select name='end_time_hrs' id='end_time_hrs' class='form-control'>";
 	for ($t=6; $t<24; $t++) {
 		echo"<option value=\"".$t."\" ";
 		if ($end_time_hrs == $t) echo "selected=\"selected\"";
@@ -363,7 +363,7 @@ echo "<select name='end_time_hrs' onchange=\"changeInfo();\" id='end_time_hrs' c
 echo "</select>";
 echo "</div>";
 echo "<div class='col-md-2'>";
-echo "<select name='end_time_mins' onchange=\"changeInfo();\" id='end_time_mins' class='form-control'>";
+echo "<select name='end_time_mins' id='end_time_mins' class='form-control'>";
 	echo "<option value=\"00\" ";
 	if ($end_time_mins == 0) echo "selected=\"selected\"";
 	echo ">00</option>";
