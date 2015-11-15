@@ -8,6 +8,10 @@
     -moz-osx-font-smoothing: grayscale;
  }
  
+ body {
+     color: #000;
+ }
+ 
  .middle_box {
 	position: absolute;
 	top: 25%;

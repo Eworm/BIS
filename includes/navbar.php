@@ -21,7 +21,7 @@
             <ul class="nav navbar-nav">
                 
                 <li>
-                    <a href="/bis/current_act.php">Nu op water</a>
+                    <a href="/bis/current_act.php">Nu op water <span class="badge"></span></a>
                 </li>
     
                 <li>
