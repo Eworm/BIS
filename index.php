@@ -56,8 +56,8 @@ if (!mysql_select_db($database, $bisdblink)) {
     	
     	<!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    	<link type="text/css" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
-    	<link type="text/css" href="css/bis.css" rel="stylesheet">
+    	<link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    	<link rel="stylesheet" href="css/bis.css">
     	
     </head>
     

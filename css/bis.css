@@ -239,6 +239,8 @@
     width: 100%;
 	clear: left;
 	position: relative;
+	overflow: hidden;
+	overflow-x: auto;
 }
 
 #ScheduleInfoContainer:before {
