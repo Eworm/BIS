@@ -168,7 +168,7 @@ echo "</div>";
 echo "</td>";
 echo "<td valign=\"top\">";
 echo "<div class=\"body\">";
-echo "<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">"; // hoofdtabel
+echo "<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" class='main-table'>"; // hoofdtabel
 
 // lege regel volgend op kopregel van botenkolom, met exact dezelfde inhoud als de regel erboven, alleen onzichtbaar:
 echo "<tr><th><div>&nbsp;</div></th>";

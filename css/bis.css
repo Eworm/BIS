@@ -480,3 +480,7 @@ a:hover, a:focus {
 input[type=range] {
     padding: 0 0 5px 0;
 }
+
+.main-table {
+    table-layout: fixed;
+}
