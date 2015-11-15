@@ -200,7 +200,7 @@ while (isset($boats_array[$boatnr])) {
 		// boot uit de vaart: hele regel grijs
 		$span_size = 72 - $latest_end_time_blocks;
 		$info_to_show_sh = substr($reason[$boatnr], 0, (2 * $span_size) - 1);
-		echo "<td class='on-shore' colspan=\"" . $span_size . "\" align=\"center\" bgcolor=\"#999\"><div style=\"overflow:hidden\" align=\"center\" title='$reason[$boatnr]'>$info_to_show_sh</div></td>";
+		echo "<td class='on-shore' colspan=\"" . $span_size . "\" align=\"center\"><div style=\"overflow:hidden\" align=\"center\" title='$reason[$boatnr]'>$info_to_show_sh</div></td>";
 	} else {
 		$opzoektabel_tmp = $opzoektabel;
 		if (strtotime($date_to_show_db) - strtotime($today_db) < 0) $opzoektabel_tmp .= "_oud";
@@ -269,13 +269,13 @@ while (isset($boats_array[$boatnr])) {
 					if ($available_ins && $db_blok == 0 && (($db_spits == 0 && InRange($date_to_show, 10)) || ($db_spits > 0 && InRange($date_to_show, 3)))) {
 						echo " onclick=\"showInschrijving(" . $db_id . ", 0, '', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '');\"";
 						if ($db_spits > 0) {
-							echo " bgcolor=\"#f60\"";
+							echo " bgcolor=\"#ff6600\"";
 							$info_to_show .= " - Spitsblok nog te bevestigen";
 						} else {
-							echo " bgcolor=\"#cf9\"";
+							echo " bgcolor=\"#ccff99\"";
 						}
 					} else {
-						echo " bgcolor=\"#999\"";
+						echo " ";
 					}
 					echo " title=' $info_to_show ' colspan=\"". $span_size . "\" class='reserved-container'><div style=\"overflow:hidden\" align=\"center\" class='reserved'>" . $info_to_show_sh . "</div></td>";
 					// volgende witblok vanaf eindtijd huidige inschrijving!

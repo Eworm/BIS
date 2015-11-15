@@ -69,7 +69,7 @@
 }
 
 .scrollTable table .on-shore div {
-    color: white !important;
+    // color: white !important;
 }
 
 .scrollTable table td:hover {
@@ -469,4 +469,12 @@ a:hover, a:focus {
 
 .datepicker-change-button:hover {
     background: #ccc;   
+}
+
+.reserved-container, on-shore {
+    // background: #999;
+}
+
+input[type=range] {
+    padding: 0 0 5px 0;
 }
