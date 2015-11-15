@@ -143,7 +143,7 @@ if ((!$_POST['insert'] && !$_POST['cancel']) || $fail) {
 	echo "<form name='form' action=\"$REQUEST_URI\" method=\"post\">";
 	
 	// naam
-	echo "<div class='form-group'><label>Naam:</label>";
+	echo "<div class='form-group'><label>Naam</label>";
 	echo "<input type=\"text\" name=\"name\" value=\"$name\" class='form-control'>";
 	if ($fail_msg_name) echo "<div class='help-block'>$fail_msg_name</div>";
 	echo "</div>";
@@ -151,7 +151,7 @@ if ((!$_POST['insert'] && !$_POST['cancel']) || $fail) {
 	// tegenprestatie (alleen bij skiff-2)
 	if ($skiff2) {
 		echo "<h3>Om deel te kunnen nemen aan de cursus skiff-2, dient u instructie gegeven te hebben. Omschrijf a.u.b. kort welke instructie u hebt gegeven, wanneer en bij wie.</h3>";
-		echo "<div class='form-group'><label>Instructie-eis:</label>";
+		echo "<div class='form-group'><label>Instructie-eis</label>";
 		echo "<input type=\"text\" name=\"demand\" value=\"$demand\" class='form-control' maxlength=\"100\">";
 		if ($fail_msg_demand) echo "<div class='help-block'>$fail_msg_demand</div>";
 		echo "</div>";
@@ -160,7 +160,7 @@ if ((!$_POST['insert'] && !$_POST['cancel']) || $fail) {
 	echo "<p>U dient beide onderstaande velden in te vullen. De gegevens worden niet op de cursuspagina getoond, maar alleen doorgegeven aan de Instructiecommissie.</p>";
 	
 	// telefoonnr.
-	echo "<div class='form-group'><label>Telefoonnummer (10 cijfers, met streepje):</label>";
+	echo "<div class='form-group'><label>Telefoonnummer (10 cijfers, met streepje)</label>";
 	echo "<input type=\"text\" name=\"telph\" value=\"$telph\" class='form-control'>";
 	if ($fail_msg_contact) {
 		echo "<div class='help-block'>$fail_msg_contact</div>";
@@ -170,7 +170,7 @@ if ((!$_POST['insert'] && !$_POST['cancel']) || $fail) {
 	echo "</div>";
 	
 	// e-mail
-	echo "<div class='form-group'><label>E-mailadres:</label>";
+	echo "<div class='form-group'><label>E-mailadres</label>";
 	echo "<input type=\"text\" name=\"email\" value=\"$email\" class='form-control'>";
 	if ($fail_msg_email) echo "<div class='help-block'>$fail_msg_email</div>";
 	echo "</div>";

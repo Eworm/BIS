@@ -158,7 +158,7 @@ if ((!isset($_POST['insert']) && !isset($_POST['cancel'])) || !isset($fail) || $
 	echo '<form name="form" action="' . $_SERVER['REQUEST_URI'] . '" method="post">';
 	
 	// naam
-	echo "<div class='form-group'><label>Naam:</label>";
+	echo "<div class='form-group'><label>Naam</label>";
 	echo '<input type="text" name="name" value="' . (isset($name) ? $name : '') . '" class="form-control">';
 	if (isset($fail_msg_name)) {
 		echo '<div class="help-block">' . $fail_msg_name . '</div>';
@@ -166,7 +166,7 @@ if ((!isset($_POST['insert']) && !isset($_POST['cancel'])) || !isset($fail) || $
 	echo "</div>";
 	
 	// leeftijdscategorie
-	echo "<div class='form-group'><label>Leeftijdscategorie:</label>";
+	echo "<div class='form-group'><label>Leeftijdscategorie</label>";
 	echo "<div class='radio'><label><input type=\"radio\" name=\"age\" value=\"jeugd t/m 14 jaar\" ";
 	if (isset($age) && $age == 'jeugd t/m 14 jaar') {
 		echo "checked='checked'";
@@ -190,7 +190,7 @@ if ((!isset($_POST['insert']) && !isset($_POST['cancel'])) || !isset($fail) || $
 	echo "</div>";
 	
 	// graad
-	echo "<div class='form-group'><label>Te behalen graad:</label>";
+	echo "<div class='form-group'><label>Te behalen graad</label>";
 	echo "<select name=\"grade\" class='form-control'>";
 	$query = "SELECT Graden FROM examens WHERE ID='$id';";
 	$grade_result = mysql_query($query);
@@ -215,7 +215,7 @@ if ((!isset($_POST['insert']) && !isset($_POST['cancel'])) || !isset($fail) || $
 	echo "<p>U dient minstens &eacute;&eacute;n van onderstaande velden in te vullen. Als u een e-mailadres opgeeft, ontvangt u een bevestiging per e-mail, met daarin een link die u kunt gebruiken mocht u uw inschrijving weer ongedaan willen maken. De gegevens worden niet op de examenpagina getoond, maar alleen doorgegeven aan de Examencommissie.</p>";
 	
 	// telefoonnr.
-	echo "<div class='form-group'><label>Telefoonnummer (10 cijfers, met streepje):</label>";
+	echo "<div class='form-group'><label>Telefoonnummer (10 cijfers, met streepje)</label>";
 	echo '<input type="text" name="telph" value="' . (isset($telph) ? $telph : '') . '" class="form-control">';
 	if (isset($fail_msg_contact)) {
 		echo '<div class="help-block">' . $fail_msg_contact . '</div>';
@@ -227,7 +227,7 @@ if ((!isset($_POST['insert']) && !isset($_POST['cancel'])) || !isset($fail) || $
 	echo "</div>";
 	
 	// e-mail
-	echo "<div class='form-group'><label>E-mailadres:</label>";
+	echo "<div class='form-group'><label>E-mailadres</label>";
 	echo '<input type="text" name="email" value="' . (isset($email) ? $email : '') . '" class="form-control">';
 	if (isset($fail_msg_email)) {
 		echo '<div class="help-block">' . $fail_msg_email . '</div>';

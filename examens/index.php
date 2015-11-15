@@ -62,7 +62,7 @@ setlocale(LC_TIME, 'nl_NL');
             		while ($row = mysql_fetch_assoc($result)) {
             			echo '<tr><td>' . $row['Omschrijving'] . ' op ' . strftime('%A %d-%m-%Y', strtotime($row['Datum']));
             			if ($row['ToonOpSite']) {
-            				echo '</td><td><a href="examen.php?id=' . $row['ID'] . '" class="btn btn-default">inschrijving</a>';
+            				echo '</td><td><a href="examen.php?id=' . $row['ID'] . '" class="btn btn-primary">Aanmelden</a>';
             			} else {
             				echo '</td><td>Nog niet/niet meer open voor inschrijving';
             			}
