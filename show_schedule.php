@@ -154,7 +154,7 @@ while ($row = mysql_fetch_assoc($boats_result)) {
 	if ($available[$c] && InRange($date_to_show, 10)) {
 		echo "onclick=\"showInschrijving(0, " . $boat_ids_array[$c] . ", '" . $date_to_show . "', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '" . $start_time_to_show . "');\" bgcolor=\"" . $bgcolor . "\" " . (($toodark == true)?'class="too-dark"':"") . ">";
 	} else {
-		echo "bgcolor=\"#999\">";
+		echo " bgcolor=\"" . $bgcolor . "\" " . (($toodark == true)?'class="too-dark"':"") . ">";
 	}
 	echo "<div>$boats_array[$c]</div></th>";
 	echo "<td class='text-center " . (($toodark == true)?'too-dark':"") . "' bgcolor=\"" . $bgcolor . "\">$weight kg</td>";
