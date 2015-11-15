@@ -62,6 +62,9 @@
 
 .scrollTable table td .reserved, .scrollTable table .on-shore div {
     opacity: 1;
+}
+
+.scrollTable table .on-shore div {
     color: white !important;
 }
 
