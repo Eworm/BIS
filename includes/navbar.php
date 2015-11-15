@@ -12,7 +12,7 @@
                 <span class="icon-bar"></span>
             </button>
             
-            <a class="navbar-brand" href="/index.php">BIS</a>
+            <a class="navbar-brand" href="/bis/index.php">BIS</a>
             
         </div>
             
@@ -21,31 +21,31 @@
             <ul class="nav navbar-nav">
                 
                 <li>
-                    <a href="/current_act.php">Nu op water</a>
+                    <a href="/bis/current_act.php">Nu op water</a>
                 </li>
     
                 <li>
-                    <a href="/schadeboek/index_boten.php">Schade boten</a>
+                    <a href="/bis/schadeboek/index_boten.php">Schade boten</a>
                 </li>
     
                 <li>
-                    <a href="/schadeboek/index_gebouw.php">Klachtenboek</a>
+                    <a href="/bis/schadeboek/index_gebouw.php">Klachtenboek</a>
                 </li>
     
                 <li>
-                    <a href="/cursussen/index.php">Cursussen</a>
+                    <a href="/bis/cursussen/index.php">Cursussen</a>
                 </li>
     
                 <li>
-                    <a href="/examens/index.php">Examens</a>
+                    <a href="/bis/examens/index.php">Examens</a>
                 </li>
     
                 <li>
-                    <a href="/documenten/index.php">Documenten</a>
+                    <a href="/bis/documenten/index.php">Documenten</a>
                 </li>
     
                 <li>
-                    <a href="/bis_info.php">Info</a>
+                    <a href="/bis/bis_info.php">Info</a>
                 </li>
             
             </ul>
