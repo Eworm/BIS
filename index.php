@@ -270,7 +270,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                     
                 </div>
                 
-                <div class="col-md-3">
+                <div class="col-md-3 boardmessages">
                     
                     <?php
                     	$query = "SELECT * FROM mededelingen ORDER BY Datum DESC LIMIT 1;"; // alleen recentste
@@ -285,7 +285,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                     			$bestuurslid = $row['Bestuurslid'];
                     			$summary = $row['Betreft'];
                     			$note = $row['Mededeling'];
-                    			echo "<strong>" . $summary . "</strong><br>$note <span class='text-muted'>" . $note_datum . ", $bestuurslid</span><br><a href=\"$mededelingenpagina\">Alle bestuursmededelingen";
+                    			echo "<strong>" . $summary . "</strong><br>$note<br><span class='text-muted'>" . $note_datum . ", $bestuurslid</span><br><a href=\"$mededelingenpagina\">Alle bestuursmededelingen";
                     			$query2 = "SELECT COUNT(*) AS NrOfNotes FROM mededelingen;"; // alleen recentste
                     			$result2 = mysql_query($query2);
                     			$row2 = mysql_fetch_assoc($result2);
@@ -363,7 +363,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
     <script src="bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 	<script src="scripts/datepicker.js"></script>
 	<script src="scripts/Script.js"></script>
-    <script src="scripts/dates_and_ajax.js"></script>
+    <script src="scripts/dates_and_ajax.js?v1"></script>
 	
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
