@@ -239,8 +239,6 @@
     width: 100%;
 	clear: left;
 	position: relative;
-	overflow: hidden;
-	overflow-x: auto;
 }
 
 #ScheduleInfoContainer:before {
@@ -483,4 +481,7 @@ input[type=range] {
 
 .main-table {
     table-layout: fixed;
+}
+
+.boardmessages {
 }
