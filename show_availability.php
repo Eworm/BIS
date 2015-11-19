@@ -66,7 +66,6 @@ if ($boat_id > 0) {
 		} else {
 			$query = "SELECT * FROM ".$opzoektabel." WHERE Verwijderd=0 AND Volgnummer<>'$id' AND Datum='$date_db' AND Boot_ID='$boat_id' ORDER BY Begintijd;";
 			$result = mysql_query($query);
-/*
 			if (!$result) {
 				die("Het ophalen van bestaande inschrijvingen is mislukt.". mysql_error());
 			} else {
@@ -94,14 +93,13 @@ if ($boat_id > 0) {
 						echo "$db_start_time - $db_end_time door $db_pname".$spits_toev.$conflict."<br>";
 					}
 				} else {
-					echo "Er zijn geen (andere) inschrijvingen van '" . $boat . "' op ". $date_sh . ".";
+					echo "Er zijn geen (andere) inschrijvingen van '" . $boat . "' op ". $date_sh . ".<br>";
 				}
 			}
-*/
 		}
 	}
 }
-// echo "<br>";
+echo "<br>";
 
 echo '<div class="row">';
 echo '<div class="col-md-8 col-md-offset-4">';
