@@ -69,7 +69,7 @@ if (!mysql_select_db($database, $link)) {
                 } else {
                 	$rows_aff = mysql_affected_rows($link);
                 	if ($rows_aff > 0) {
-                		echo "<p>";
+                		echo "<table class='table'>";
                 		while ($row = mysql_fetch_assoc($result)) {
                 			$boat_id = $row['ID'];
                 			$db_boat = $row['Boot'];
@@ -85,15 +85,17 @@ if (!mysql_select_db($database, $link)) {
                 			} else {
                 				$rows_aff2 = mysql_affected_rows($link);
                 				if ($rows_aff2 == 0) {
+                    				echo '<tr><td>';
                 					$db_pname = $row['Pnaam'];
                 					$db_name = "(".$row['Ploegnaam'].")";
                 					if ($db_name == "()") $db_name = "";
                 					$db_endtime = substr($row['Eindtijd'], 0, 5);
-                					echo "$db_pname $db_name heeft nu de '$db_boat' ingeschreven, tot $db_endtime<br>";
+                					echo "$db_pname $db_name heeft nu de '$db_boat' ingeschreven</td><td>Tot $db_endtime";
+                					echo '</tr></td>';
                 				}
                 			}
                 		}
-                		echo "</p>";
+                		echo "</table>";
                 	} else {
                 		echo "<p>Er zijn geen boten ingeschreven.</p>";
                 	}
