@@ -90,7 +90,7 @@ if (!mysql_select_db($database, $link)) {
                 					$db_name = "(".$row['Ploegnaam'].")";
                 					if ($db_name == "()") $db_name = "";
                 					$db_endtime = substr($row['Eindtijd'], 0, 5);
-                					echo "$db_pname $db_name heeft nu de '$db_boat' ingeschreven</td><td>Tot $db_endtime";
+                					echo "$db_pname $db_name</td><td>$db_boat</td><td>Tot $db_endtime";
                 					echo '</tr></td>';
                 				}
                 			}
