@@ -71,7 +71,7 @@ if ($boat_id > 0) {
 			} else {
 				$rows_aff = mysql_affected_rows($link);
 				if ($rows_aff > 0) {
-					echo "<br>Bestaande (andere) inschrijvingen van '" . $boat . "' op " . $date_sh . ":<br><br>";
+					echo "<strong>Bestaande (andere) inschrijvingen van '" . $boat . "' op " . $date_sh . "</strong><br>";
 					while ($row = mysql_fetch_assoc($result)) {
 						$db_start_time = substr($row['Begintijd'],0,5);
 						$db_end_time = substr($row['Eindtijd'],0,5);
@@ -99,10 +99,10 @@ if ($boat_id > 0) {
 		}
 	}
 }
-echo "<br>";
+// echo "<br>";
 
 echo '<div class="row">';
-echo '<div class="col-md-8 col-md-offset-4">';
+echo '<div class="col-md-12"><em class="text-muted">';
 
 // Toon aantallen inschrijvingen voor begintijd
 $query = "SELECT COUNT(*) AS AantalBijStart FROM ".$opzoektabel." JOIN boten ON ".$opzoektabel.".Boot_ID=boten.ID WHERE Verwijderd=0 AND Datum='$date_db' AND ((Begintijd='$start_time' AND Boot_ID<>'$boat_id') OR Eindtijd='$start_time') AND boten.Type<>\"ergo\" AND boten.Type<>\"soc\";";
@@ -140,7 +140,7 @@ if (!$result) {
 	echo " Roeier(s) om $end_time";
 	
 }
-echo "<br><br>";
+echo "</em><br><br>";
 echo "</div>";
 echo "</div>";
 echo "</div></div>";

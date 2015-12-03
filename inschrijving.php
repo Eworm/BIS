@@ -380,9 +380,12 @@ echo "</select>";
 echo "</div>";
 echo "</div>";
 
+// echo '<strong>Id: ' . $id . '</strong><br>';
+// echo '<strong>Spits: ' . $spits . '</strong><br>';
+
 // knoppen
 echo "<div class='form-group'><div class='col-md-12 col-md-offset-4'><input type=\"button\" class='btn btn-primary' value=\"";
-if ($id) {
+if ($id && $spits == 0) {
 	echo "Opslaan";
 } else {
 	if ($spits) {

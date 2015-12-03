@@ -338,6 +338,10 @@
     color: rgba(255, 255, 255, .8);
 }
 
+.btn-danger {
+    border: 0;
+}
+
 .btn-primary {
     background-color: #212974;
     border: 0;
