@@ -115,6 +115,13 @@
     display: block;
 }
 
+@media (max-width: 46.875em) {
+    
+    .sunset-legenda {
+        display: none;
+    }    
+}
+
 .sunset-legenda:before {
     width: 10px;
     height: 20px;
@@ -142,6 +149,13 @@
     vertical-align: middle;
     background: #ccc;
     border: 1px solid #ddd;
+}
+
+@media (max-width: 46.875em) {
+    
+    .sundown-legenda {
+        display: none;
+    }    
 }
 
 .hibben-row, .hibben-row th, .hibben-row td, .hibben-row div {
@@ -374,13 +388,26 @@ a:hover, a:focus {
 }
 
 .body {
-    height: auto !important;
-    overflow: visible !important;
+    width: 100% !important;
+}
+
+@media (min-width: 46.875em) {
+    
+    .body {
+        height: auto !important;
+        overflow: visible !important;
+    }
 }
 
 .headerColumn {
-    height: auto !important;
-    overflow: visible !important;
+}
+
+@media (min-width: 46.875em) {
+    
+    .headerColumn {
+        height: auto !important;
+        overflow: visible !important;
+    }
 }
 
 .dataTables_wrapper {
@@ -476,7 +503,6 @@ a:hover, a:focus {
 }
 
 .reserved-container, on-shore {
-    // background: #999;
 }
 
 input[type=range] {
