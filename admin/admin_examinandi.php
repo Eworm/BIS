@@ -42,12 +42,6 @@ if ($mode == "d") {
     </head>
     
 <body>
-    
-<?php
-  
-  include('../includes/navbar-admin.php');
-    
-?>
 
 <div class="container-fluid">
             
