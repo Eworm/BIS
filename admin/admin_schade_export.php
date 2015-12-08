@@ -10,7 +10,9 @@ if (!mysql_select_db($database, $link)) {
 
 $mode = $_GET['mode'];
 $table = 'schades';
-if ($mode) $table .= "_oud";
+if (!empty($mode)) {
+	$table .= "_oud";
+}
 $csv = "'"; // put ' in front of ID, so Excel doesn't complain abou the SYLK format
 
 $r = mysql_query("SHOW COLUMNS FROM ".$table);
@@ -36,9 +38,5 @@ while ($row = mysql_fetch_assoc($r)) {
 header("Content-type: application/vnd.ms-excel");
 header("Content-disposition: attachment; filename=".date("Ydm")."_".$table.".xls");
 echo $csv;
-
 mysql_close($link);
-
 exit;
-
-?>

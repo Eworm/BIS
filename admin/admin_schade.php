@@ -66,7 +66,7 @@ if (!mysql_select_db($database, $link)) {
                 }
                 ?>
                 
-                <a href='admin_schade_export.php?mode="<?php (isset($mode) ? $mode : "") ?>'>Exporteer als Excel</a>
+                <a href="admin_schade_export.php<?php echo (isset($mode) ? '?mode=' . $mode : '') ?>">Exporteer als Excel</a>
             </h1>
             
 <?php
