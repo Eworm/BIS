@@ -266,7 +266,7 @@ while (isset($boats_array[$boatnr])) {
 					$info_to_show = addslashes($info_to_show);
 					
 					// Geef blok weer in geel/oranje en klikbaar (beschikbaar) of grijs (niet meer editbaar)
-					if ($available_ins && $db_blok == 0 && (($db_spits > 0 && InRange($date_to_show, 10)) || ($db_spits > 0 && InRange($date_to_show, 3)))) {
+					if ($available_ins && $db_blok == 0 && (($db_spits >= 0 && InRange($date_to_show, 10)) || ($db_spits > 0 && InRange($date_to_show, 3)))) {
 						echo " onclick=\"showInschrijving(" . $db_id . ", 0, '', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '');\"";
 						if ($db_spits > 0) {
 							echo " bgcolor=\"#ff6600\"";
