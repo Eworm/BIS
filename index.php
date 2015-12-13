@@ -156,9 +156,9 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                 
         <div class="col-md-12">
             
-            <div class="row">
+            <div class="row filter-row">
                         
-                <div class="col-md-7">
+                <div class="col-md-7 filter-panel">
             
                     <div class="panel panel-default schedule-filter">
                         
@@ -300,7 +300,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                     
                 </div>
                 
-                <div class="col-md-2">            
+                <div class="col-md-2 weather-panel">            
                     <?php if ($toonweer): ?>
                 		<?php echo xmlnews('https://www.gyas.nl/media/output/weer.rss',3,'_blank','br', 0); ?>
                     <?php endif; ?>

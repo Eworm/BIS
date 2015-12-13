@@ -522,3 +522,29 @@ input[type=range] {
 .hour {
     background: url('../images/dash.png') !important;
 }
+
+.filter-row {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 46.875em) {
+    
+    .filter-row {
+        display: block;
+    }    
+}
+
+.filter-panel {
+    order: 3;
+}
+
+.boardmessages {
+    margin-bottom: 20px;
+    order: 1;
+}
+
+.weather-panel {
+    margin-bottom: 20px;
+    order: 2;
+}
