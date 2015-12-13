@@ -518,3 +518,7 @@ input[type=range] {
 
 .boardmessages {
 }
+
+.hour {
+    background: url('../images/dash.png') !important;
+}

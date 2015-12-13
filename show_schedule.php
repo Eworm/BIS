@@ -100,9 +100,9 @@ echo "<td valign=\"top\">";
 echo "<div class=\"headerColumn\">";
 echo "<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">";
 echo "<tr><th class='text-muted'><div>Naam</div></th>";
-echo "<th class='text-center text-muted'>Gewicht</th>";
-echo "<th class='text-center text-muted'>Type</th>";
-echo "<th class='text-center text-muted'>Graad</th></tr>";
+echo "<th class='text-center text-muted'>&nbsp;</th>";
+echo "<th class='text-center text-muted'>&nbsp;</th>";
+echo "<th class='text-center text-muted'>&nbsp;</th></tr>";
 echo "<tr class='hibben-row'><th><div>&nbsp;</div></th></tr>";
 $c = 0;
 while ($row = mysql_fetch_assoc($boats_result)) {
@@ -242,7 +242,7 @@ while (isset($boats_array[$boatnr])) {
 							echo " onclick=\"showInschrijving(0, " . $boat_ids_array[$boatnr] . ", '" . $date_to_show . "', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '" . $t_time . "');\"";
 						}
 						if ($t == $start_block || ($t / 4) == floor($t / 4)) {
-							echo "";
+							echo " class='hour'";
 						}
 						echo  ($proper_sunset <= $t_time ? "class='sunset " . ($proper_sundown <= $t_time ? "sundown" : "") . "'" : "");
 						echo "><span class='schedule-time'>" . $t_time . "</span><div>+</div></td>";
@@ -294,7 +294,7 @@ while (isset($boats_array[$boatnr])) {
 				echo " onclick=\"showInschrijving(0, " . $boat_ids_array[$boatnr] . ", '" . $date_to_show . "', '" . str_replace(' ', '%20', $cat_to_show) . "', '" . $grade_to_show . "', '" . $t_time . "');\"" . ($proper_sunset <= $t_time ? "class='sunset " . ($proper_sundown <= $t_time ? "sundown" : "") . "'" : "");
 			}
 			if ($t == $start_block || ($t / 4) == floor($t / 4)) {
-				echo "";
+				echo " class='hour'";
 			}
 			echo "><span class='schedule-time'>" . $t_time . "</span><div>+</div></td>";
 		}
