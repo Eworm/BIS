@@ -99,10 +99,7 @@ echo "<tr>";
 echo "<td valign=\"top\">";
 echo "<div class=\"headerColumn\">";
 echo "<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\">";
-echo "<tr><th class='text-muted'><div>Naam</div></th>";
-echo "<th class='text-center text-muted'>&nbsp;</th>";
-echo "<th class='text-center text-muted'>&nbsp;</th>";
-echo "<th class='text-center text-muted'>&nbsp;</th></tr>";
+echo "<tr><th class='text-muted' colspan='4'><div>Naam</div></th></tr>";
 echo "<tr class='hibben-row'><th><div>&nbsp;</div></th></tr>";
 $c = 0;
 while ($row = mysql_fetch_assoc($boats_result)) {
