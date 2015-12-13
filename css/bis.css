@@ -392,6 +392,8 @@ a:hover, a:focus {
 
 .body {
     width: 100% !important;
+    height: 260px !important;
+    overflow-y: scroll !important;
 }
 
 @media (min-width: 46.875em) {
