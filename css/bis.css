@@ -69,7 +69,6 @@
 }
 
 .scrollTable table .on-shore div {
-    // color: white !important;
 }
 
 .scrollTable table td:hover {
@@ -89,6 +88,10 @@
 
 .scrollTable table td:hover > .schedule-time {
     opacity: 1;    
+}
+
+.headerRow {
+    width: 100% !important;
 }
 
 .sunset {
