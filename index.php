@@ -52,7 +52,7 @@ if (!mysql_select_db($database, $bisdblink)) {
         
         <!-- Microsoft. Delete if not required -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta id="pageViewport" name="viewport" content="width=device-width, initial-scale=1">
     	
     	<!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -369,6 +369,29 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
 	
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+    <script>
+        
+        $(document).ready(function() {
+                       
+            console.log($(window).width());
+            var windowWidth = $(window).width();
+           
+            $('#inschrijvingModal').on('shown.bs.modal', function (e) {
+                $('#pageViewport').attr('content', 'width=' + windowWidth + ', minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, shrink-to-fit=no');
+                $('.modal').width(windowWidth);
+                $('body').scrollLeft(0);
+            });
+            
+            $('#inschrijvingModal').on('hide.bs.modal', function (e) {
+                $('#pageViewport').attr('content', 'width=device-width, initial-scale=1.0');
+                $('.modal').removeAttr('style');
+                $('body').removeAttr('style');
+            });
+            
+        });
+        
+    </script>
 
 </body>
 </html>
