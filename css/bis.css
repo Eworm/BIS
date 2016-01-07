@@ -405,6 +405,7 @@ a:hover, a:focus {
 }
 
 .headerColumn {
+    height: 260px !important;
 }
 
 @media (min-width: 46.875em) {
