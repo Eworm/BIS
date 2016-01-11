@@ -6,8 +6,7 @@ $(document).ready(function() {
         language: 'nl',
         autoclose: true,
         format: 'dd-mm-yyyy',
-        todayHighlight: true,
-        startDate: 'd'
+        todayHighlight: true
     });
 
 
@@ -19,8 +18,7 @@ $(document).ready(function() {
             language: 'nl',
             autoclose: true,
             format: 'dd-mm-yyyy',
-            todayHighlight: true,
-            startDate: 'd'
+            todayHighlight: true
         });
 
     });
