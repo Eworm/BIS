@@ -374,7 +374,6 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
         
         $(document).ready(function() {
                        
-            console.log($(window).width());
             var windowWidth = $(window).width();
            
             $('#inschrijvingModal').on('shown.bs.modal', function (e) {
