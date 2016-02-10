@@ -334,9 +334,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
     <hr>
     
 	<p>
-    	Vragen over de cosmetische update? Stuur een mailtje naar <a href="mailto:wout@woutmager.nl" title="Het e-mailadres van Wout">Wout Mager</a> met een duidelijke omschrijving van je probleem.
-    	<br>
-    	BIS&nbsp;&copy;2008-<?php echo $theyear; ?>&nbsp;Erik Roos, contact: <a href='mailto:<?php echo $mailadres; ?>'><?php echo $mailadres; ?></a>, open source: <a href="https://github.com/erikroos/BIS" target="_blank">GitHub</a>
+    	Gaat er iets mis met BIS? Stuur een mailtje naar <a href="mailto:wout@woutmager.nl" title="Het e-mailadres van Wout">Wout Mager</a> met een duidelijke omschrijving van je probleem.
     </p>
     
     <br>
