@@ -558,3 +558,11 @@ input[type=range] {
   height: 100%;
   overflow: hidden;
 }
+
+a {
+    color: #212974;
+}
+
+#mainscreen_footer a, .boardmessages a {
+    text-decoration: underline;
+}
