@@ -285,13 +285,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                     			$bestuurslid = $row['Bestuurslid'];
                     			$summary = $row['Betreft'];
                     			$note = $row['Mededeling'];
-                    			echo "<strong>" . $summary . "</strong><br>$note<br><span class='text-muted'>" . $note_datum . ", $bestuurslid</span><br><a href=\"$mededelingenpagina\">Alle bestuursmededelingen";
-                    			$query2 = "SELECT COUNT(*) AS NrOfNotes FROM mededelingen;"; // alleen recentste
-                    			$result2 = mysql_query($query2);
-                    			$row2 = mysql_fetch_assoc($result2);
-                    			$nr_notes = $row2['NrOfNotes'];
-                    			if ($nr_notes) echo " (".$nr_notes.") ";
-                    			echo "</a>";
+                    			echo "<strong>" . $summary . "</strong><br>$note<br><span class='text-muted'>" . $note_datum . ", $bestuurslid</span>";
                     		} else {
                     			echo "Op dit moment zijn er geen mededelingen.";
                     		}

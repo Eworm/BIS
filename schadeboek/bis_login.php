@@ -42,7 +42,7 @@ if (isset($login) && isset($password)) {
             	<main class="panel-body">
     	
                 	<h1 class="h3">
-                    	<?php echo $systeemnaam; ?>
+                    	BIS - KGR de Hunze
                     </h1>
                 	
                 	<hr>
@@ -54,9 +54,8 @@ if (isset($login) && isset($password)) {
                             <label for="login">Login-naam</label>
                             <input type="text" name="login" id="login" class="form-control input-lg" autofocus required aria-describedby="login-help">
                             <p class="help-block" id="login-help">
-                                <?php echo $loginnaam_hulp; ?>
+                                'hunzelid' Of uw eigen gebruikersnaam
                             </p>
-                		  
                 		</div>
                 		
                 		<div class="form-group">
@@ -64,7 +63,7 @@ if (isset($login) && isset($password)) {
                             <label for="password">Wachtwoord</label>
                             <input type="password" name="password" id="password" class="form-control input-lg" required aria-describedby="password-help">
                             <p class="help-block" id="password-help">
-                                <?php echo $loginnaam_hulp; ?>
+                                Afkorting van de vereninging &amp; het jaar van oprichting
                             </p>
                 		  
                 		</div>
