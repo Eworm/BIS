@@ -63,7 +63,7 @@ if (isset($login) && isset($password)) {
                             <label for="password">Wachtwoord</label>
                             <input type="password" name="password" id="password" class="form-control input-lg" required aria-describedby="password-help">
                             <p class="help-block" id="password-help">
-                                Afkorting van de vereninging &amp; het jaar van oprichting
+                                Afkorting van de vereniging &amp; het jaar van oprichting
                             </p>
                 		  
                 		</div>
