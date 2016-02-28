@@ -13,7 +13,7 @@ include_once("../include_globalVars.php");
 <html lang="nl">
 
     <head>
-        <title>Examens - BIS</title>
+        <title>Schades/klachten - BIS</title>
         
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
