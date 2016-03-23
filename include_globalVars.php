@@ -59,6 +59,7 @@ while (!feof($fh)) {
 fclose($fh);
 
 // datum/tijd
+date_default_timezone_set('Europe/Amsterdam');
 $today = date('d-m-Y');
 $today_db = date('Y-m-d');
 $thehour = date('G');
