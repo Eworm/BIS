@@ -39,7 +39,7 @@ body {
 	margin: 0;
 	padding: 2px;
 	white-space: nowrap;
-	border: solid 1px #ddd;
+	border: solid 1px #737373;
 }
 
 .scrollTable table tr:hover td {
@@ -565,4 +565,12 @@ a {
 
 #mainscreen_footer a, .boardmessages a {
     text-decoration: underline;
+}
+
+.form-control {
+    border: solid 1px #737373;   
+}
+
+.text-muted {
+    color: #595959;
 }
