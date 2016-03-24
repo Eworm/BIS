@@ -522,8 +522,9 @@ input[type=range] {
 .boardmessages {
 }
 
-.hour {
+.scrollTable table .hour {
     background: url('../images/dash.png') !important;
+    border-left: 2px solid black;
 }
 
 .filter-row {
