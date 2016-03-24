@@ -399,8 +399,7 @@ a:hover, a:focus {
 @media (min-width: 46.875em) {
     
     .body {
-        height: auto !important;
-        overflow: visible !important;
+        height: 460px !important;
     }
 }
 
@@ -411,8 +410,7 @@ a:hover, a:focus {
 @media (min-width: 46.875em) {
     
     .headerColumn {
-        height: auto !important;
-        overflow: visible !important;
+        height: 460px !important;
     }
 }
 
