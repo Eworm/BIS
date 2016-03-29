@@ -93,6 +93,10 @@ if (!mysql_select_db($database, $link)) {
 
 </body>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="../scripts/datatables/jquery.dataTables.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 <script type="text/javascript" charset="utf-8"> 
 	$(document).ready(function() {
 		$('#schades').dataTable( {
@@ -126,9 +130,5 @@ if (!mysql_select_db($database, $link)) {
 	} );
 } );
 </script> 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 </html>
