@@ -78,7 +78,14 @@ setlocale(LC_TIME, 'nl_NL');
             <?php if ($examenregels == "hunze") { ?>
                 
                 <hr>
+                
+                <h4>
+                    <a href="https://www.hunze.nl/niveaus-en-examens/examens-en-examenregelement/" title="">
+                        Hier vind je alle informatie over het inschrijven en het voorbereiden op een examen
+                    </a>
+                </h4>
                     
+<!--
                 <h2 class="h3">
                     Spelregels exameninschrijving
                 </h2>
@@ -94,6 +101,7 @@ setlocale(LC_TIME, 'nl_NL');
                   <li>Enige dagen voor het examen ontvangt u een indeling van roeiers/tijdstippen/examinatoren.</li>
                   <li>De duur van het theorie-examen en praktijkexamen is gemiddeld &#233;&#233;n uur.</li>
                 </ul>
+-->
                 
             <?php } ?>
             
