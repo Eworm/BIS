@@ -1,4 +1,4 @@
-<?php
+-<?php
 // check login
 session_start();
 if (!isset($_SESSION['authorized_bis']) || $_SESSION['authorized_bis'] != 'yes') {
@@ -79,11 +79,11 @@ setlocale(LC_TIME, 'nl_NL');
                 
                 <hr>
                 
-                <h4>
-                    <a href="https://www.hunze.nl/niveaus-en-examens/examens-en-examenregelement/" title="">
-                        Hier vind je alle informatie over het inschrijven en het voorbereiden op een examen
+                <p>
+                    <a href="https://www.hunze.nl/niveaus-en-examens/examens-en-examenregelement/" title="" style="text-decoration: underline;">
+                        > Hier vind je alle informatie over het inschrijven en het voorbereiden op een examen
                     </a>
-                </h4>
+                </p>
                     
 <!--
                 <h2 class="h3">

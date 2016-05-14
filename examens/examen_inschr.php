@@ -99,10 +99,10 @@ if (isset($_POST['insert'])) {
 		$fail_msg_name = "U dient een geldige voor- en achternaam op te geven. Let op: de apostrof (') wordt niet geaccepteerd.";
 	}
 	if (!$telph && !$email) {
-		$fail_msg_contact = "U dient minimaal ofwel een telefoonnnummer ofwel een e-mailadres op te geven.";
+		$fail_msg_contact = "U dient of een telefoonnummer, of een e-mailadres in te vullen.";
 	} else {
 		if ($telph && !check_phone_dutch($telph)) {
-			$fail_msg_telph = "U dient een geldig 10-cijferig telefoonnummer, met streepje, in te voeren.";
+			$fail_msg_telph = "U dient een 10-cijferig telefoonnummer met streepje in te vullen.";
 		}
 		if ($email && !CheckEmail($email)) {
 			$fail_msg_email = "U dient een geldig e-mailadres in te voeren.";
@@ -212,16 +212,16 @@ if ((!isset($_POST['insert']) && !isset($_POST['cancel'])) || !isset($fail) || $
 	echo "</select>";
 	echo "</div>";
 	
-	echo "<p>U dient minstens &eacute;&eacute;n van onderstaande velden in te vullen. Als u een e-mailadres opgeeft, ontvangt u een bevestiging per e-mail, met daarin een link die u kunt gebruiken mocht u uw inschrijving weer ongedaan willen maken. De gegevens worden niet op de examenpagina getoond, maar alleen doorgegeven aan de Examencommissie.</p>";
+	echo "<p>U dient minstens &eacute;&eacute;n van onderstaande velden in te vullen. Als u een e-mailadres opgeeft, ontvangt u een bevestiging per e-mail, met daarin een link die u kunt gebruiken om u weer uit te schrijven. Deze gegevens worden niet op de examenpagina getoond, maar alleen doorgegeven aan de Examencommissie.</p>";
 	
 	// telefoonnr.
 	echo "<div class='form-group'><label>Telefoonnummer (10 cijfers, met streepje)</label>";
-	echo '<input type="text" name="telph" value="' . (isset($telph) ? $telph : '') . '" class="form-control">';
+	echo '<input type="text" name="telph" value="' . (isset($telph) ? $telph : '') . '" class="form-control" placeholder="xx-xxxxxxxx">';
 	if (isset($fail_msg_contact)) {
-		echo '<div class="help-block">' . $fail_msg_contact . '</div>';
+		echo '<p class="bg-danger" style="padding: 15px;">' . $fail_msg_contact . '</p>';
 	} else {
 		if (isset($fail_msg_telph)) {
-			echo '<div class="help-block">' . $fail_msg_telph . '</div>';
+			echo '<p class="bg-danger" style="padding: 15px;">' . $fail_msg_telph . '</p>';
 		}
 	}
 	echo "</div>";
@@ -230,7 +230,7 @@ if ((!isset($_POST['insert']) && !isset($_POST['cancel'])) || !isset($fail) || $
 	echo "<div class='form-group'><label>E-mailadres</label>";
 	echo '<input type="text" name="email" value="' . (isset($email) ? $email : '') . '" class="form-control">';
 	if (isset($fail_msg_email)) {
-		echo '<div class="help-block">' . $fail_msg_email . '</div>';
+		echo '<p class="bg-danger" style="padding: 15px;">' . $fail_msg_email . '</p>';
 	}
 	echo "</div>";
 	
