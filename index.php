@@ -345,7 +345,9 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                 <h4 class="modal-title">Boot reserveren</h4>
             </div>
             <div class="modal-body">
-                <p>One fine body&hellip;</p>
+                <p>
+                    <img src="images/ajax-loader.gif" alt="Wacht op het inschrijfformulier">
+                </p>
             </div>
         </div>
     </div>
@@ -366,22 +368,6 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
         $(document).ready(function() {
                        
             var windowWidth = $(window).width();
-           
-            $('#inschrijvingModal').on('shown.bs.modal', function (e) {
-/*
-                $('#pageViewport').attr('content', 'width=' + windowWidth + ', minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, shrink-to-fit=no');
-                $('.modal').width(windowWidth);
-                $('body').scrollLeft(0);
-*/
-            });
-            
-            $('#inschrijvingModal').on('hide.bs.modal', function (e) {
-/*
-                $('#pageViewport').attr('content', 'width=device-width, initial-scale=1.0');
-                $('.modal').removeAttr('style');
-                $('body').removeAttr('style');
-*/
-            });
             
         });
         

@@ -99,6 +99,7 @@ function setOutputIns() {
 function showInschrijving(id, boat_id, date, cat_to_show, grade_to_show, time_to_show) {
     
     $('#inschrijvingModal').modal();
+    $("#inschrijvingModal").find(".modal-body").empty().html('<p style="text-align: center; padding: 30px 0;"><img src="images/ajax-loader.gif"></p>');
     
     // Contents of the pop-up:
     httpObject = getHTTPObject();
