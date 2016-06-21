@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="nl">
+    
+    <head>
+        <title>Oeps!</title>
+        
+        <!-- Microsoft. Delete if not required -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	
+    	<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	<link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    	<link rel="stylesheet" href="css/bis.css?v=3">
+    	
+    </head>
+    
+<body>
+    
+    
+<div class="container-fluid">
+            
+    <div class="row">
+                
+        <div class="col-md-12">
+            
+            <h1 class="text-center">
+                Oeps!
+            </h1>
+            
+            <br><br>
+            
+            <p class="text-center">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/FctsxV2fygM" frameborder="0" allowfullscreen></iframe>
+            </p>
+            
+            <br><br>
+            
+            <p class="text-center">
+                Daar ging iets fout! Je kunt <a href="http://www.hunze.nl">hunze.nl</a> of <a href="http://bis.hunze.nl" title="Naar BIS">BIS</a> opnieuw proberen?
+            </p>
+            
+        </div>
+        
+    </div>
+    
+</div>
+    
+</body>
+</html>
