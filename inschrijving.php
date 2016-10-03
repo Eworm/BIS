@@ -19,7 +19,7 @@ if (!mysql_select_db($database, $bisdblink)) {
 	exit();
 }
 
-$NR_OF_CONCEPTS = 7; // LET OP: aanpassen als het aantal Concept-ergo's verandert! (ivm blokinschrijving)
+$NR_OF_CONCEPTS = 8; // LET OP: aanpassen als het aantal Concept-ergo's verandert! (ivm blokinschrijving)
 $fail_msg = "";
 $spits = 0;
 
@@ -192,9 +192,13 @@ echo "<input type=\"hidden\" name=\"grade\" id=\"grade\" value=\"" . $grade_to_s
 
 // Ergo-blokinschrijving, alleen bij een nieuwe inschrijving van Concepts
 if ($id == 0 && substr($boat, 0, 7) == "Concept") {
-	echo "<div class='row'><div class='col-md-12'><div class='alert alert-info'>Schrijf in &eacute;&eacute;n keer meerdere Concept-ergometers in: bijv. '3 t/m 5' voor Concepts 3, 4 en 5, of gewoon eentje, bijv. '2 t/m 2' voor alleen Concept 2.</div></div></div>";
 	
 	$ergo_lo = substr($boat, 8, 1);
+	
+	//echo gettype($ergo_lo);
+	if (ctype_digit ($ergo_lo) == 1) {
+	
+	echo "<div class='row'><div class='col-md-12'><div class='alert alert-info'>Schrijf in &eacute;&eacute;n keer meerdere Concept-ergometers in: bijv. '3 t/m 5' voor Concepts 3, 4 en 5, of gewoon eentje, bijv. '2 t/m 2' voor alleen Concept 2.</div></div></div>";
 	echo "<div class='form-group'><label class='col-md-4 control-label'>Blokinschrijving: Concept</label>";
 	echo "<div class='col-md-3'><select name=\"ergo_lo\" id='ergo_lo' class='form-control'>";
 	for ($t = $ergo_lo; $t <= $NR_OF_CONCEPTS; $t++) {
@@ -212,6 +216,7 @@ if ($id == 0 && substr($boat, 0, 7) == "Concept") {
 	}
 	echo "</select></div>";
 	echo "</div>";
+	}
 	
 }
 
