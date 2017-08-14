@@ -47,26 +47,49 @@ function getHTTPObject(){
 	}
 }
 
-function changeInfo(){
+$(window).load(function() {
+    changeInfo(true);
+});
+
+function changeInfo(load){
+
 	httpObject = getHTTPObject();
 	if (httpObject != null) {
 		if (document.getElementById('inschrijving').style.display != 'block') { // if res.screen is invisible so we are in the index
-    		
-    		cookieFav = Cookies.get('fav_cat');
-    		console.log(cookieFav);
-    		$('#js-cats').find('input[value="' + cookieFav + '"]').prop('checked', true);
-    		$('#js-cats').find('[data-cat="' + cookieFav + '"]').addClass('faved');
 
-    		$('#ScheduleInfoTransition').css('opacity', 0);
+            if (load) {
 
-			httpObject.open("GET", "show_schedule.php?date_to_show=" + document.getElementById("date_to_show").value +
-					"&start_hrs_to_show=" + document.getElementById("start_hrs_to_show").value +
-					"&start_mins_to_show=" + 00 +
-					// "&cat_to_show=" + document.getElementById("cat_to_show").value +
-					"&cat_to_show=" + document.querySelector('input[name="cat_to_show"]:checked').value +
-					"&grade_to_show=" + document.getElementById("grade_to_show").value, true);
-			httpObject.onreadystatechange = setOutput;
-			httpObject.send(null);
+        		cookieFav = Cookies.get('fav_cat');
+        		$('#js-cats').find('input[value="' + cookieFav + '"]').prop('checked', true);
+        		$('#js-cats').find('[data-cat="' + cookieFav + '"]').addClass('faved');
+
+        		$('#ScheduleInfoTransition').css('opacity', 0);
+
+    			httpObject.open("GET", "show_schedule.php?date_to_show=" + document.getElementById("date_to_show").value +
+    					"&start_hrs_to_show=" + document.getElementById("start_hrs_to_show").value +
+    					"&start_mins_to_show=" + 00 +
+    					// "&cat_to_show=" + document.getElementById("cat_to_show").value +
+    					"&cat_to_show=" + document.querySelector('input[name="cat_to_show"]:checked').value +
+    					"&grade_to_show=" + document.getElementById("grade_to_show").value, true);
+    			httpObject.onreadystatechange = setOutput;
+    			httpObject.send(null);
+                console.log('Dom is ready');
+
+            } else {
+
+                $('#ScheduleInfoTransition').css('opacity', 0);
+
+    			httpObject.open("GET", "show_schedule.php?date_to_show=" + document.getElementById("date_to_show").value +
+    					"&start_hrs_to_show=" + document.getElementById("start_hrs_to_show").value +
+    					"&start_mins_to_show=" + 00 +
+    					// "&cat_to_show=" + document.getElementById("cat_to_show").value +
+    					"&cat_to_show=" + document.querySelector('input[name="cat_to_show"]:checked').value +
+    					"&grade_to_show=" + document.getElementById("grade_to_show").value, true);
+    			httpObject.onreadystatechange = setOutput;
+    			httpObject.send(null);
+                console.log('Else dom is ready');
+
+            }
 
 		} else {
 
@@ -77,6 +100,7 @@ function changeInfo(){
 					"&boat_id=" + document.getElementById("boat_id").value, true);
 			httpObject.onreadystatechange = setOutputIns;
 			httpObject.send(null);
+            console.log('Overall else');
 
 		}
 	}
@@ -227,7 +251,7 @@ $('body').on('click', '.js-fav', function()
 
     $('#js-cats').find('.col-md-4').removeClass('faved');
     $(this).parent('.col-md-4').addClass('faved');
-    
+
     favName = $(this).data('name');
 	Cookies.set('fav_cat', favName);
 })
