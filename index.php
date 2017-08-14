@@ -232,18 +232,27 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
                                         	
                                         	<div class="form-group">
                                             	
-                                            	<div class="row">
+                                            	<div class="row" id="js-cats">
                                         	
                                             	<?php foreach($cat_array as $cat_db): ?>
                                             	
-                                            	    <div class="col-md-4">
+                                            	    <div class="col-md-4" data-cat="<?php echo str_replace(' ', '%20', $cat_db); ?>">
                                             	
                                                 	    <label class="radio-inline">
                                                     	    
-                                                    		<input type="radio" value="<?php echo str_replace(' ', '%20', $cat_db); ?>" <?php if ($cat_to_show == $cat_db): ?> checked <?php endif; ?> name='cat_to_show' value="<?php echo $cat_db; ?>" onchange="changeInfo();">
+                                                    		<input type="radio" value="<?php echo str_replace(' ', '%20', $cat_db); ?>" <?php if ($cat_to_show == $cat_db): ?> checked <?php endif; ?> name='cat_to_show' onchange="changeInfo();">
                                                     		<?php echo $cat_db; ?>
                                                     		
                                                 		</label>
+                                                		
+                                                		<button type="button" class='js-fav' data-name="<?php echo str_replace(' ', '%20', $cat_db); ?>">
+                                                		
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 51 48">
+                                                            <title>Five Pointed Star</title>
+                                                            <path stroke="#000" d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z"/>
+                                                            </svg>
+                                                		
+                                                		</button>
                                             		
                                             		</div>
                                         	
@@ -356,6 +365,7 @@ $date_sh = strftime('%A %d-%m-%Y', $date_tmp);
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     
     <script src="bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="bower_components/js-cookie/src/js.cookie.js"></script>
 	<script src="scripts/datepicker.js"></script>
 	<script src="scripts/Script.js"></script>
     <script src="scripts/dates_and_ajax.js?v1"></script>

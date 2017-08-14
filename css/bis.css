@@ -573,3 +573,38 @@ a {
 .text-muted {
     color: #595959;
 }
+
+.js-fav {
+    padding: 0;
+    border: 0;
+    background: #efefef;
+}
+
+.js-fav svg {
+    float: left;
+}
+
+@media (min-width: 992px) {
+    
+    .js-fav {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+.js-fav svg {
+    fill: none;
+}
+
+.faved .js-fav svg {
+    fill: gold;
+}
+
+#js-cats .radio-inline {
+    vertical-align: top;
+}
+
+.js-fav:focus {
+    outline: 0;
+}

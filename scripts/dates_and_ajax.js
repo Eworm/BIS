@@ -1,5 +1,5 @@
 ScrollTableRelativeSize(document.getElementById("scrollTable"), 50, 270);
-	
+
 function changeDate(factor) {
 	var datum = document.getElementById("date_to_show").value;
 	var dateArray = datum.split('-');
@@ -20,7 +20,7 @@ function changeDate(factor) {
 	}
 	var nDatum = nDay+"-"+nMonth+"-"+nYear;
 	document.getElementById("date_to_show").value = nDatum;
-}	
+}
 
 function resetDate(factor) {
 	var newDatum = new Date();
@@ -37,9 +37,9 @@ function resetDate(factor) {
 }
 
 function getHTTPObject(){
-	if (window.ActiveXObject) 
+	if (window.ActiveXObject)
 		return new ActiveXObject("Microsoft.XMLHTTP");
-	else if (window.XMLHttpRequest) 
+	else if (window.XMLHttpRequest)
 		return new XMLHttpRequest();
 	else {
 		alert("Uw browser ondersteunt geen Ajax, wat voor de werking van BIS vereist is.");
@@ -52,35 +52,40 @@ function changeInfo(){
 	if (httpObject != null) {
 		if (document.getElementById('inschrijving').style.display != 'block') { // if res.screen is invisible so we are in the index
     		
+    		cookieFav = Cookies.get('fav_cat');
+    		console.log(cookieFav);
+    		$('#js-cats').find('input[value="' + cookieFav + '"]').prop('checked', true);
+    		$('#js-cats').find('[data-cat="' + cookieFav + '"]').addClass('faved');
+
     		$('#ScheduleInfoTransition').css('opacity', 0);
-    		
-			httpObject.open("GET", "show_schedule.php?date_to_show=" + document.getElementById("date_to_show").value + 
-					"&start_hrs_to_show=" + document.getElementById("start_hrs_to_show").value + 
-					"&start_mins_to_show=" + 00 + 
-					// "&cat_to_show=" + document.getElementById("cat_to_show").value + 
-					"&cat_to_show=" + document.querySelector('input[name="cat_to_show"]:checked').value + 
+
+			httpObject.open("GET", "show_schedule.php?date_to_show=" + document.getElementById("date_to_show").value +
+					"&start_hrs_to_show=" + document.getElementById("start_hrs_to_show").value +
+					"&start_mins_to_show=" + 00 +
+					// "&cat_to_show=" + document.getElementById("cat_to_show").value +
+					"&cat_to_show=" + document.querySelector('input[name="cat_to_show"]:checked').value +
 					"&grade_to_show=" + document.getElementById("grade_to_show").value, true);
 			httpObject.onreadystatechange = setOutput;
 			httpObject.send(null);
-			
+
 		} else {
-    		
-			httpObject.open("GET", "show_availability.php?change=1&id=" + document.getElementById("id").value + "&date=" + 
-					document.getElementById("resdate").value + "&start_time_hrs=" + document.getElementById("start_time_hrs").value + 
-					"&start_time_mins=" + document.getElementById("start_time_mins").value + "&end_time_hrs=" + 
-					document.getElementById("end_time_hrs").value + "&end_time_mins=" + document.getElementById("end_time_mins").value + 
+
+			httpObject.open("GET", "show_availability.php?change=1&id=" + document.getElementById("id").value + "&date=" +
+					document.getElementById("resdate").value + "&start_time_hrs=" + document.getElementById("start_time_hrs").value +
+					"&start_time_mins=" + document.getElementById("start_time_mins").value + "&end_time_hrs=" +
+					document.getElementById("end_time_hrs").value + "&end_time_mins=" + document.getElementById("end_time_mins").value +
 					"&boat_id=" + document.getElementById("boat_id").value, true);
 			httpObject.onreadystatechange = setOutputIns;
 			httpObject.send(null);
-			
+
 		}
 	}
 }
 
 function setOutput(){
-    
+
     // $('#ScheduleInfoTransition').css('opacity', 0);
-    
+
 	if (httpObject.readyState == 4 && httpObject.status == 200) {
 		var schedule_info = document.getElementById("ScheduleInfo");
 		schedule_info.innerHTML = httpObject.responseText;
@@ -97,21 +102,21 @@ function setOutputIns() {
 }
 
 function showInschrijving(id, boat_id, date, cat_to_show, grade_to_show, time_to_show) {
-    
+
     $('#inschrijvingModal').modal();
     $("#inschrijvingModal").find(".modal-body").empty().html('<p style="text-align: center; padding: 30px 0;"><img src="images/ajax-loader.gif"></p>');
-    
+
     // Contents of the pop-up:
     httpObject = getHTTPObject();
-    
+
     if (httpObject != null) {
-    
-        $("#inschrijvingModal").find(".modal-body").load("inschrijving.php?id=" + id + "&boat_id=" + boat_id + 
-    			"&date=" + date + "&cat_to_show=" + cat_to_show + "&grade_to_show=" + grade_to_show + 
+
+        $("#inschrijvingModal").find(".modal-body").load("inschrijving.php?id=" + id + "&boat_id=" + boat_id +
+    			"&date=" + date + "&cat_to_show=" + cat_to_show + "&grade_to_show=" + grade_to_show +
     			"&time_to_show=" + time_to_show);
-    			
+
         // httpObject.onreadystatechange = fillPopup;
-    			
+
     }
 }
 
@@ -145,7 +150,7 @@ function makeRes(id, start_time, cat_to_show, grade_to_show) {
 		var end_time_hrs = document.getElementById("end_time_hrs").value;
 		var end_time_mins = document.getElementById("end_time_mins").value;
 		httpObject.open("GET", "check_reservation.php?make=1&id=" + id + "&boat_id=" + boat_id +
-			"&pname=" + pname + "&name=" + name + "&email=" + email + "&mpb=" + mpb + "&date=" + date + 
+			"&pname=" + pname + "&name=" + name + "&email=" + email + "&mpb=" + mpb + "&date=" + date +
 			"&start_time_hrs=" + start_time_hrs + "&start_time_mins=" + start_time_mins +
 			"&end_time_hrs=" + end_time_hrs + "&end_time_mins=" + end_time_mins + "&ergo_lo=" + ergo_lo + "&ergo_hi=" + ergo_hi +
 			"&start_time=" + start_time + "&cat_to_show=" + cat_to_show + "&grade_to_show=" + grade_to_show, true);
@@ -190,14 +195,14 @@ function resetReservationPopup(){
 			if (grade != document.getElementById("grade").value) {
 				grade = "alle"; // If grade of reserved boat differs from grade of boat originally selected, change to 'all'
 			}
-			
-			// document.getElementById("closebtn").setAttribute('onclick', "window.location.href='index.php?date_to_show=" + date + 
-				// "&start_time_to_show=" + start_time_hrs + ":" + start_time_mins + "&cat_to_show=" + cat + "&grade_to_show=" + grade + "'");	
+
+			// document.getElementById("closebtn").setAttribute('onclick', "window.location.href='index.php?date_to_show=" + date +
+				// "&start_time_to_show=" + start_time_hrs + ":" + start_time_mins + "&cat_to_show=" + cat + "&grade_to_show=" + grade + "'");
 
             // window.location.href='index.php';
-            
+
             changeInfo();
-            
+
 		} else {
 			msgBar.setAttribute('class', 'alert alert-danger');
 			if (resultArray.action == "make" || resultArray.action == "alter") {
@@ -212,6 +217,17 @@ function resetReservationPopup(){
 	}
 }
 
-$('body').on('click', '#js-close-modal', function() {
+$('body').on('click', '#js-close-modal', function()
+{
     $('#inschrijvingModal').modal('hide');
 });
+
+$('body').on('click', '.js-fav', function()
+{
+
+    $('#js-cats').find('.col-md-4').removeClass('faved');
+    $(this).parent('.col-md-4').addClass('faved');
+    
+    favName = $(this).data('name');
+	Cookies.set('fav_cat', favName);
+})
